@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
 import '../reusable_widgets/reusable_widget.dart';
@@ -44,12 +45,34 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: 30,
                     ),
-                    signInSignUpButton(context, true, () {})
-                  ]
+                    signInSignUpButton(context, true, () {}),
+                    signUpOption()
+                  ],
               ),
             )
         ),
       ),
     );
   }
+  Row signUpOption(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:  [
+        const Text("Don't have account?",
+          style: TextStyle(color: Colors.black)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()));
+          },
+          child: const Text(
+            "Sign Up",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    );
+
+  }
 }
+
