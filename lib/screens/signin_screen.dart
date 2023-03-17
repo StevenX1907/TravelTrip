@@ -30,7 +30,7 @@ class _SignInScreenState extends State<SignInScreen> {
         child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.fromLTRB
-                (20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+                (20, MediaQuery.of(context).size.height *0.1, 20, 0),
               child: Column(
                   children: <Widget>[
                     logoWidget("assets/images/logotravel.png"),
@@ -46,7 +46,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       height: 30,
                     ),
                     signInSignUpButton(context, true, () {}),
-                    signUpOption()
+                    signUpOption(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    forgotPasswordOption()
                   ],
               ),
             )
@@ -58,7 +62,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children:  [
-        const Text("Don't have account?",
+        const Text("Don't have account?  ",
           style: TextStyle(color: Colors.black)),
         GestureDetector(
           onTap: () {
@@ -72,7 +76,18 @@ class _SignInScreenState extends State<SignInScreen> {
         )
       ],
     );
-
   }
+  Row forgotPasswordOption(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+
+        Text("Forgot password",
+        style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),
+        ),
+      ],
+    );
+  }
+
 }
 
