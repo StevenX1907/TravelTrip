@@ -4,6 +4,7 @@ import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
 import '../reusable_widgets/reusable_widget.dart';
+import 'home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -45,7 +46,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: 30,
                     ),
-                    signInSignUpButton(context, true, () {}),
+                    signInSignUpButton(context, true, () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()));
+                    }),
                     signUpOption(),
                     SizedBox(
                       height: 20,
