@@ -14,9 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text('Side menu'),
+        title: Text('TravelTrip'),
       ),
       body: Center(
         child: ElevatedButton(
