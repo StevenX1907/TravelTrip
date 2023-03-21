@@ -1,46 +1,47 @@
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: Text(
-              'Side menu',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+          const UserAccountsDrawerHeader(
+            accountName: Text("Username"),
+            accountEmail: Text("Country"),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://randomuser.me/api/portraits/men/47.jpg"),
             ),
             decoration: BoxDecoration(
-                color: Colors.green,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/cover.jpg'))),
+              color: Colors.green,
+            ),
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
+            leading: const Icon(Icons.map),
+            title: const Text('Explore'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
+            leading: const Icon(Icons.history),
+            title: const Text('History'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.notifications),
+            title: const Text('Notification'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
+            leading: const Icon(Icons.border_color),
+            title: const Text('Feedback'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('Logout'),
             onTap: () => {Navigator.of(context).pop()},
           ),
         ],
