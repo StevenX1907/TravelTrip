@@ -30,6 +30,7 @@ class _ProfilePage extends State<ProfilePage> with SingleTickerProviderStateMixi
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: Text(widget.username),
       ),
