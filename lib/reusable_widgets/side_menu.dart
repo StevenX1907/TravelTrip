@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travel_trip_application/screens/home_screen.dart';
+import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -42,7 +44,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person_rounded),
             title: const Text('Profile'),
-            onTap: () =>{},
+            onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()))},
           ),
           ListTile(
             leading: const Icon(Icons.map),
