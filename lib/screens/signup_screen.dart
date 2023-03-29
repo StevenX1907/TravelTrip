@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/reusable_widget.dart';
@@ -57,8 +58,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 20,
                 ),
                 signInSignUpButton(context, false, (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+l                  FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailTextController.text,
+                      password: passwordTextController.text).then((value)  {
+                        print("Create new account");
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }).onError((error, stackTrace) {
+                    print("Error ${error.toString()}");
+                  });
+
                 })
               ],
             ),

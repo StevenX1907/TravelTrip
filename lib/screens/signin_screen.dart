@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/signup_screen.dart';
@@ -38,7 +39,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: 30,
                     ),
-                    reusableTextField("Enter UserName", Icons.person_outline, false, emailTextController),
+                    reusableTextField("Enter Email", Icons.email_outlined, false, emailTextController),
                     SizedBox(
                       height: 30,
                     ),
@@ -47,8 +48,14 @@ class _SignInScreenState extends State<SignInScreen> {
                       height: 30,
                     ),
                     signInSignUpButton(context, true, () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()));
+                      FirebaseAuth.instance.signInWithEmailAndPassword(email: emailTextController.text,
+                          password: passwordTextController.text).then((value) {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => HomeScreen()));
+                      }).onError((error, stackTrace) {
+                        print("Error ${error.toString()}");
+                      });
+
                     }),
                     signUpOption(),
                     SizedBox(
