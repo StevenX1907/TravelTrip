@@ -2,9 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/reusable_widget.dart';
+import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
-import 'home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -62,7 +61,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       password: passwordTextController.text).then((value)  {
                         print("Create new account");
                         Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                        MaterialPageRoute(builder: (context) => SignInScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
