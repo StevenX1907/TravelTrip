@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
@@ -73,15 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap:() {
             Navigator.push(context,
               MaterialPageRoute(builder: (context) => Vietnam_screen()),);
-      body: Center(
-        child: ElevatedButton(
-          child: Text("Logout"),
-          onPressed: (){
-            FirebaseAuth.instance.signOut().then((value) {
-              print("Signed Out");
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context)=> SignInScreen()));
-            });
           },
             child: Stack(
               children:[
