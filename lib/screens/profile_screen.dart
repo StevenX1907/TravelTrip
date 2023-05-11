@@ -16,7 +16,8 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePage();
 }
 
-class _ProfilePage extends State<ProfilePage> with SingleTickerProviderStateMixin {
+class _ProfilePage extends State<ProfilePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final parser = EmojiParser();
   final US = Emoji('flag_us', '🇺🇸');
@@ -157,10 +158,11 @@ class _ProfilePage extends State<ProfilePage> with SingleTickerProviderStateMixi
                     padding: EdgeInsets.all(4.0),
                     children: List.generate(
                       9,
-                          (index) => Container(
+                      (index) => Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage('https://picsum.photos/200?random=$index'),
+                            image: NetworkImage(
+                                'https://picsum.photos/200?random=$index'),
                             fit: BoxFit.cover,
                           ),
                         ),

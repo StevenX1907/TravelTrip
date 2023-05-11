@@ -25,56 +25,60 @@ class _SignInScreenState extends State<SignInScreen> {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              hexStringToColor("F1F9F6"),
-              hexStringToColor("D1EEE1"),
-              hexStringToColor("AFE1CE")
-            ],begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          hexStringToColor("F1F9F6"),
+          hexStringToColor("D1EEE1"),
+          hexStringToColor("AFE1CE")
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.fromLTRB
-                (20, MediaQuery.of(context).size.height *0.1, 20, 0),
-              child: Column(
-                  children: <Widget>[
-                    logoWidget("assets/images/logotravel.png"),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    reusableTextField("Enter Email", Icons.email_outlined, false, emailTextController),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    reusableTextField("Enter Password", Icons.lock_outline, true, passwordTextController),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    signInSignUpButton(context, true, () {
-                      FirebaseAuth.instance.signInWithEmailAndPassword(email: emailTextController.text,
-                          password: passwordTextController.text).then((value) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()));
-                      }).onError((error, stackTrace) {
-                        print("Error ${error.toString()}");
-                      });
-
-                    }),
-                    signUpOption(),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    forgotPasswordOption()
-                  ],
+          padding: EdgeInsets.fromLTRB(
+              20, MediaQuery.of(context).size.height * 0.1, 20, 0),
+          child: Column(
+            children: <Widget>[
+              logoWidget("assets/images/logotravel.png"),
+              SizedBox(
+                height: 30,
               ),
-            )
-        ),
+              reusableTextField("Enter Email", Icons.email_outlined, false,
+                  emailTextController),
+              SizedBox(
+                height: 30,
+              ),
+              reusableTextField("Enter Password", Icons.lock_outline, true,
+                  passwordTextController),
+              SizedBox(
+                height: 30,
+              ),
+              signInSignUpButton(context, true, () {
+                FirebaseAuth.instance
+                    .signInWithEmailAndPassword(
+                        email: emailTextController.text,
+                        password: passwordTextController.text)
+                    .then((value) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
+              }),
+              signUpOption(),
+              SizedBox(
+                height: 20,
+              ),
+              forgotPasswordOption()
+            ],
+          ),
+        )),
       ),
     );
   }
-  Row signUpOption(){
+
+  Row signUpOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children:  [
+      children: [
         const Text("Don't have account?  ",
-          style: TextStyle(color: Colors.black)),
+            style: TextStyle(color: Colors.black)),
         GestureDetector(
           onTap: () {
             Navigator.push(context,
@@ -88,17 +92,16 @@ class _SignInScreenState extends State<SignInScreen> {
       ],
     );
   }
-  Row forgotPasswordOption(){
+
+  Row forgotPasswordOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-
-        Text("Forgot password",
-        style: TextStyle(color: Colors.black,fontWeight: FontWeight.normal),
+        Text(
+          "Forgot password",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
         ),
       ],
     );
   }
-
 }
-

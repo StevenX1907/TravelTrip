@@ -14,18 +14,19 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     return Scaffold(
         backgroundColor: Colors.white,
         drawer: NavDrawer(),
-    appBar: AppBar(
-    title: Text('TravelTrip'),
-    ),
-    body:Center(
-    child: Stack(
-        children: [
-          Positioned(left:20, top: 20, child:Image(image:AssetImage('assets/images/Taipei.jpg'),
-    )
-    ),
-      ],
-    )
-    )
-    );
+        appBar: AppBar(
+          title: Text('TravelTrip'),
+        ),
+        body: Center(
+            child: Stack(
+          children: [
+            Positioned(
+                left: 20,
+                top: 20,
+                child: Image(
+                  image: AssetImage('assets/images/Taipei.jpg'),
+                )),
+          ],
+        )));
   }
-    }
+}

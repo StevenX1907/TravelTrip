@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.18"
+  animated_fractionally_sized_box:
+    dependency: "direct main"
+    description:
+      name: animated_fractionally_sized_box
+      sha256: "145e1702391fee56ba08d1a9e64f0169948b308be8e70252f6e4fb45f1ab187a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   async:
     dependency: transitive
     description:
@@ -49,6 +57,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  country_code_picker:
+    dependency: "direct main"
+    description:
+      name: country_code_picker
+      sha256: "92818885f0e47486539f80463b66f649970506a91dd3c0731ca3ba5308324a4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
+  country_picker:
+    dependency: "direct main"
+    description:
+      name: country_picker
+      sha256: aa975b41c8052298d227ff7ff58d6eddcad0196127445f72af7456224c9ef104
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.20"
+  csc_picker:
+    dependency: "direct main"
+    description:
+      name: csc_picker
+      sha256: "7e5d6023a81f53b89a7fb0369953fd4dc676f7ea20e9a0c0707973a5f0aedf14"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.7"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -57,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  dob_input_field:
+    dependency: "direct main"
+    description:
+      name: dob_input_field
+      sha256: b61bfece7d14b4d87fdc1762e7dab55af1e5c8c243227b64a29a126c22e79698
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:

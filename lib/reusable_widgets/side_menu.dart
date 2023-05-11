@@ -20,7 +20,8 @@ class NavDrawer extends StatelessWidget {
               children: const <Widget>[
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: NetworkImage("https://randomuser.me/api/portraits/men/47.jpg"),
+                  backgroundImage: NetworkImage(
+                      "https://randomuser.me/api/portraits/men/47.jpg"),
                 ),
                 SizedBox(height: 10),
                 Text(
@@ -44,7 +45,10 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person_rounded),
             title: const Text('Profile'),
-            onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfilePage()))},
+            onTap: () => {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()))
+            },
           ),
           ListTile(
             leading: const Icon(Icons.map),
@@ -82,12 +86,18 @@ class NavDrawer extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end, //still unable to change alignment
+                mainAxisAlignment:
+                    MainAxisAlignment.end, //still unable to change alignment
                 children: <Widget>[
                   ListTile(
                     leading: const Icon(Icons.exit_to_app),
                     title: const Text('Logout'),
-                    onTap: () => {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen()))},
+                    onTap: () => {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignInScreen()))
+                    },
                   ),
                   ListTile(
                     leading: const Icon(Icons.info),

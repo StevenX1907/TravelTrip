@@ -17,15 +17,16 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
         appBar: AppBar(
           title: Text('TravelTrip'),
         ),
-        body:Center(
+        body: Center(
             child: Stack(
-              children: [
-                Positioned(left:20, top: 20, child:Image(image:AssetImage('assets/images/Indonesia.jpg'),
-                )
-                ),
-              ],
-            )
-        )
-    );
+          children: [
+            Positioned(
+                left: 20,
+                top: 20,
+                child: Image(
+                  image: AssetImage('assets/images/Indonesia.jpg'),
+                )),
+          ],
+        )));
   }
 }

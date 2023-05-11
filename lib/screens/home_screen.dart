@@ -22,64 +22,136 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('TravelTrip'),
       ),
-      body:Center(
+      body: Center(
         child: Stack(
           children: [
-            Positioned(left: 20, top: 20,
+            Positioned(
+              left: 20,
+              top: 20,
               child: GestureDetector(
-              onTap:(){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Taiwan_screen()),);
-          },
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Taiwan_screen()),
+                  );
+                },
                 child: Stack(
-                  children:[
-                  Image(image: AssetImage('assets/images/Taipei.jpg'), width: 180, height: 350, fit: BoxFit.cover),
-                  Positioned(left: 38, top: 50, child: Text('Taiwan', style: TextStyle(color: Colors.white, fontSize: 40,),),),
-  ],
-        ),
+                  children: [
+                    Image(
+                        image: AssetImage('assets/images/Taipei.jpg'),
+                        width: 180,
+                        height: 350,
+                        fit: BoxFit.cover),
+                    Positioned(
+                      left: 38,
+                      top: 50,
+                      child: Text(
+                        'Taiwan',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-        Positioned(right: 20, top: 20,
-          child: GestureDetector(
-          onTap:() {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Indonesia_screen()),);
-          },
-            child: Stack(
-              children:[
-                Image(image: AssetImage('assets/images/Indonesia.jpg'), width: 180, height: 350, fit: BoxFit.cover),
-              Positioned(right:20, top:50, child: Text('Indonesia', style:TextStyle(color:Colors.white, fontSize:40,),),),
-          ],
-        ),
-      ),
-    ),
-        Positioned(left: 20, bottom: 20,
-          child: GestureDetector(
-          onTap:() {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Malaysia_screen()),);
-    },
-            child: Stack(
-              children:[
-                Image(image: AssetImage('assets/images/Malaysia.jpg'), width: 180, height: 350, fit: BoxFit.cover),
-            Positioned(left:25, bottom:300, child: Text('Malaysia', style:TextStyle(color:Colors.white, fontSize:40,),),),
-            ],
+            Positioned(
+              right: 20,
+              top: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Indonesia_screen()),
+                  );
+                },
+                child: Stack(
+                  children: [
+                    Image(
+                        image: AssetImage('assets/images/Indonesia.jpg'),
+                        width: 180,
+                        height: 350,
+                        fit: BoxFit.cover),
+                    Positioned(
+                      right: 20,
+                      top: 50,
+                      child: Text(
+                        'Indonesia',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
+            Positioned(
+              left: 20,
+              bottom: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Malaysia_screen()),
+                  );
+                },
+                child: Stack(
+                  children: [
+                    Image(
+                        image: AssetImage('assets/images/Malaysia.jpg'),
+                        width: 180,
+                        height: 350,
+                        fit: BoxFit.cover),
+                    Positioned(
+                      left: 25,
+                      bottom: 300,
+                      child: Text(
+                        'Malaysia',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-        ),
-        Positioned(right: 20, bottom: 20,
-          child: GestureDetector(
-          onTap:() {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Vietnam_screen()),);
-          },
-            child: Stack(
-              children:[
-                Image(image: AssetImage('assets/images/Vietnam.jpg'), width: 180, height: 350, fit: BoxFit.cover),
-            Positioned(right:28, bottom:300, child: Text('Vietnam', style:TextStyle(color:Colors.white, fontSize:40,),),),
-            ],
-            ),
-            ),
+            Positioned(
+              right: 20,
+              bottom: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Vietnam_screen()),
+                  );
+                },
+                child: Stack(
+                  children: [
+                    Image(
+                        image: AssetImage('assets/images/Vietnam.jpg'),
+                        width: 180,
+                        height: 350,
+                        fit: BoxFit.cover),
+                    Positioned(
+                      right: 28,
+                      bottom: 300,
+                      child: Text(
+                        'Vietnam',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
