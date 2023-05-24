@@ -104,3 +104,39 @@ Container signInSignUpButton(
                     borderRadius: BorderRadius.circular(50))))),
   );
 }
+
+Container nextButton(BuildContext context, Function onTap) {
+  return Container(
+    width: MediaQuery.of(context).size.width,
+    height: 30,
+    margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
+    child: ElevatedButton(
+      onPressed: () {
+        onTap();
+      },
+      child: const Text(
+        'Next',
+        style: TextStyle(
+          color: Colors.black87,
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
+      ),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.pressed)) {
+            return Colors.black;
+          } else {
+            return Colors.white;
+          }
+        }),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+        ),
+      ),
+    ),
+  );
+}

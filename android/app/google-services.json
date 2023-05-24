@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "984903468041-evmj8gg68te52orqp61iqrtjedq9715h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travel_trip_application",
+            "certificate_hash": "be24fc3bdb16ba3ce5d9370e789b6786327a1661"
+          }
+        },
+        {
+          "client_id": "984903468041-hid3gojgvrh2p6aon9l1l4qeh6vjdnmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travel_trip_application",
+            "certificate_hash": "1b97a67e69b3dca128f5817f5a7cdb2fa7d8895e"
+          }
+        },
+        {
           "client_id": "984903468041-pqcf2h6sloqitbu7ph6c8c7o7lvel8ic.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +45,13 @@
             {
               "client_id": "984903468041-pqcf2h6sloqitbu7ph6c8c7o7lvel8ic.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "984903468041-1jpkk4u770j2afn2hsg6bn2ce6qcajq4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "travelTrip"
+              }
             }
           ]
         }
