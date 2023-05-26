@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
+import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
+import 'package:provider/provider.dart';
+
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
@@ -53,7 +56,8 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.map),
             title: const Text('Explore'),
-            onTap: () => {},
+            onTap: () => {Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.history),
@@ -75,10 +79,15 @@ class NavDrawer extends StatelessWidget {
                 onTap: () => {Navigator.of(context).pop()},
               ),
               ListTile(
-                leading: const Icon(Icons.dark_mode),
-                title: const Text('Appearance'),
-                onTap: () => {Navigator.of(context).pop()},
-              ),
+                leading: Icon(Icons.dark_mode),
+                title: Text('Appearance'),
+                onTap: () {
+                  DarkModeExample darkMode = context.read<DarkModeExample>();
+                  darkMode.toggleTheme();
+                  Navigator.of(context).pop();
+                },
+
+              )
             ],
           ),
           const Divider(),
