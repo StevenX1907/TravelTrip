@@ -10,8 +10,6 @@ class DarkModeExample with ChangeNotifier {
 
   void toggleTheme() {
     _isDarkMode = !_isDarkMode;
-    backgroundColor:  Colors.black ;
-
     notifyListeners();
   }
 }
@@ -19,14 +17,6 @@ class DarkModeExample with ChangeNotifier {
 class _DarkModeExample extends StatefulWidget with ChangeNotifier{
   @override
   _DarkModeExampleState createState() => _DarkModeExampleState();
-  bool _isDarkMode = false;
-
-  bool get isDarkMode => _isDarkMode;
-
-  void toggleTheme() {
-    _isDarkMode = !_isDarkMode;
-    notifyListeners();
-  }
 }
 
 class _DarkModeExampleState extends State<_DarkModeExample> {

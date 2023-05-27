@@ -35,9 +35,20 @@ class _SignInScreenState extends State<SignInScreen> {
               20, MediaQuery.of(context).size.height * 0.1, 20, 0),
           child: Column(
             children: <Widget>[
-              logoWidget("assets/images/logotravel.png"),
+              logoWidget("assets/images/logo1.png"),
+              const Text(
+                "Travel Trip",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 40,
+                  fontFamily: 'DancingScript',
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  // Add other text style properties as desired
+                ),
+              ),
               SizedBox(
-                height: 30,
+                height: 40,
               ),
               reusableTextField("Enter Email", Icons.email_outlined, false,
                   emailTextController),

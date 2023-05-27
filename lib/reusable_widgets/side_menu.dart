@@ -32,7 +32,7 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Colors.green,
+                color: Colors.green
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
