@@ -4,12 +4,28 @@ import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 
+IconData iconLight = Icons.wb_sunny;
+IconData iconDark = Icons.nights_stay;
+bool iconBool = false;
+// class DarkModeExample with ChangeNotifier {
+//   bool _isDarkMode = false;
+//
+//   bool get isDarkMode => _isDarkMode;
+//
+//   void toggleTheme() {
+//     _isDarkMode = !_isDarkMode;
+//     notifyListeners();
+//   }
+// }
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -79,15 +95,13 @@ class NavDrawer extends StatelessWidget {
                 onTap: () => {Navigator.of(context).pop()},
               ),
               ListTile(
-                leading: Icon(Icons.dark_mode),
-                title: Text('Appearance'),
+                leading: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+                title: Text(isDarkMode ? 'Light Mode' : 'Dark Mode'),
                 onTap: () {
-                  DarkModeExample darkMode = context.read<DarkModeExample>();
-                  darkMode.toggleTheme();
+                  darkModeProvider.toggleTheme();
                   Navigator.of(context).pop();
                 },
-
-              )
+              ),
             ],
           ),
           const Divider(),
