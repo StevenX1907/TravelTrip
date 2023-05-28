@@ -24,6 +24,7 @@ class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = false;
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Drawer(
@@ -32,7 +33,6 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: const BoxDecoration(
-                color: Colors.green
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

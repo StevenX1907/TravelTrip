@@ -37,12 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-              hexStringToColor("F1F9F6"),
-              hexStringToColor("D1EEE1"),
-              hexStringToColor("AFE1CE")
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        color: isDarkMode ? Colors.black38 : Colors.green[200],
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(colors: [
+        //       hexStringToColor("F1F9F6"),
+        //       hexStringToColor("D1EEE1"),
+        //       hexStringToColor("AFE1CE")
+        //     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Stack(
           children: [
             Positioned(
