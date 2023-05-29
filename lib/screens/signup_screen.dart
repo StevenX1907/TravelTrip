@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/reusable_widget.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'personality_screen.dart';
+import 'package:travel_trip_application/screens/utils/Service.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -19,7 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController retypePasswordTextController = TextEditingController(); // New controller for retype password
 
   bool showPassword = false; // Variable to toggle password visibility
-
+  Service service = Service();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +94,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   MaterialPageRoute(builder: (context) => PersonalityScreen()),
                 );
               }),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     service.saveUser(userNameTextController.text, emailTextController.text,
+              //         passwordTextController.text);
+              //   },
+              //   child: Text(
+              //     'Register',
+              //     style: TextStyle(
+              //       fontSize: 25,
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

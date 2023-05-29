@@ -37,6 +37,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: const SignInScreen(),
       ),
+
+      debugShowCheckedModeBanner: false,
+      home: const SignInScreen(),
+
     );
   }
 }
