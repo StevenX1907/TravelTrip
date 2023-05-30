@@ -25,21 +25,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.green,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.grey,
-      ),
-      themeMode: ThemeMode.system,
+      theme: context.watch<DarkModeExample>().isDarkMode
+          ? ThemeData.dark()
+          : ThemeData.light(),
+       themeMode: ThemeMode.system,
+      darkTheme: ThemeData.dark(),
+
       home: Scaffold(
         body: const SignInScreen(),
       ),
 
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
 
     );
   }

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/foundation.dart';
+
 
 class DarkModeExample with ChangeNotifier {
-  bool _isDarkModeEnabled = false;
+  bool _isDarkMode = false;
 
-  bool get isDarkModeEnabled => _isDarkModeEnabled;
+  bool get isDarkMode => _isDarkMode;
 
   void toggleTheme() {
-    _isDarkModeEnabled = !_isDarkModeEnabled;
+    _isDarkMode = !_isDarkMode;
     notifyListeners();
   }
-
-  Color get backgroundColor =>
-      _isDarkModeEnabled ? Colors.black : Colors.white;
 }
 
-class _DarkModeExample extends StatefulWidget {
+class _DarkModeExample extends StatefulWidget with ChangeNotifier{
   @override
   _DarkModeExampleState createState() => _DarkModeExampleState();
 }
@@ -26,30 +25,30 @@ class _DarkModeExampleState extends State<_DarkModeExample> {
     return Consumer<DarkModeExample>(
       builder: (context, darkMode, _) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: darkMode.isDarkModeEnabled ? ThemeData.dark() : ThemeData.light(),
-          home: Scaffold(
-            appBar: AppBar(
-              title: Text('Dark Mode'),
-            ),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Switch(
-                    value: darkMode.isDarkModeEnabled,
-                    onChanged: (value) {
-                      darkMode.toggleTheme();
-                    },
-                  ),
-                  Text(
-                    darkMode.isDarkModeEnabled ? 'Dark Mode Enabled' : 'Dark Mode Disabled',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // debugShowCheckedModeBanner: false,
+          // // theme: darkMode.isDarkModeEnabled ? ThemeData.dark() : ThemeData.light(),
+          // home: Scaffold(
+          //   appBar: AppBar(
+          //     title: Text('Dark Mode'),
+          //   ),
+          //   body: Center(
+          //     child: Column(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         // Switch(
+          //           // value: darkMode.isDarkModeEnabled,
+          //           onChanged: (value) {
+          //             darkMode.toggleTheme();
+          //           },
+          //         ),
+          //         Text(
+          //           // darkMode.isDarkModeEnabled ? 'Dark Mode Enabled' : 'Dark Mode Disabled',
+          //           style: TextStyle(fontSize: 18),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
         );
       },
     );
