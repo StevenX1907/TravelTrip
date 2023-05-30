@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
+import 'package:travel_trip_application/screens/itinerary.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
@@ -9,16 +10,6 @@ import 'package:flutter/material.dart';
 IconData iconLight = Icons.wb_sunny;
 IconData iconDark = Icons.nights_stay;
 bool iconBool = false;
-// class DarkModeExample with ChangeNotifier {
-//   bool _isDarkMode = false;
-//
-//   bool get isDarkMode => _isDarkMode;
-//
-//   void toggleTheme() {
-//     _isDarkMode = !_isDarkMode;
-//     notifyListeners();
-//   }
-// }
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
@@ -75,9 +66,10 @@ class NavDrawer extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => HomeScreen()))},
           ),
           ListTile(
-            leading: const Icon(Icons.history),
-            title: const Text('History'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: const Icon(Icons.edit),
+            title: const Text('Create Itinerary'),
+            onTap: () => {Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => ItineraryPage()))},
           ),
           ListTile(
             leading: const Icon(Icons.notifications),
