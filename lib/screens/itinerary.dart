@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 
 class ItineraryPage extends StatefulWidget {
   @override
@@ -35,11 +36,13 @@ class _ItineraryPageState extends State<ItineraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavDrawer(),
       appBar: AppBar(
-        title: Text('Itinerary'),
+        title: const Text('Itinerary'),
+        backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -60,7 +63,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             if (selectedCountry != null)
               DropdownButtonFormField<String>(
                 value: selectedArea,
@@ -77,7 +80,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   });
                 },
               ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             DropdownButtonFormField<String>(
               value: selectedCategory,
               hint: Text('Select a category'),
@@ -93,7 +96,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                 });
               },
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             ListTile(
               title: Text('From'),
               subtitle: Text(fromDate != null ? DateFormat('yyyy-MM-dd').format(fromDate!) : 'Select a date'),
@@ -148,27 +151,28 @@ class _ItineraryPageState extends State<ItineraryPage> {
             ),
 
 
-            ListTile(
-              title: Text('Arrival Estimation'),
-              subtitle: Text(arrivalTime != null ? arrivalTime!.format(context) : 'Select a time'),
-              onTap: () async {
-                final selectedTime = await showCupertinoModalPopup(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return CupertinoDatePicker(
-                      mode: CupertinoDatePickerMode.time,
-                      initialDateTime: DateTime.now(),
-                      onDateTimeChanged: (DateTime newDateTime) {},
-                    );
-                  },
-                );
-                if (selectedTime != null) {
-                  setState(() {
-                    arrivalTime = TimeOfDay.fromDateTime(selectedTime);
-                  });
-                }
-              },
-            ),
+            // ListTile(
+            //   title: Text('Arrival Estimation'),
+            //   subtitle: Text(arrivalTime != null ? arrivalTime!.format(context) : 'Select a time'),
+            //   onTap: () async {
+            //     final selectedTime = await showCupertinoModalPopup(
+            //       context: context,
+            //       builder: (BuildContext context) {
+            //         return CupertinoDatePicker(
+            //           mode: CupertinoDatePickerMode.time,
+            //           initialDateTime: DateTime.now(),
+            //           onDateTimeChanged: (DateTime newDateTime) {},
+            //         );
+            //       },
+            //     );
+            //     if (selectedTime != null) {
+            //       setState(() {
+            //         arrivalTime = TimeOfDay.fromDateTime(selectedTime);
+            //       });
+            //     }
+            //   },
+            // ),
+
 
 
             SizedBox(height: 16.0),

@@ -17,12 +17,14 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
+    Color drawerHeaderColor = isDarkMode ? Colors.black45 : Colors.green;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
+              color: drawerHeaderColor,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +92,7 @@ class NavDrawer extends StatelessWidget {
                 title: Text(isDarkMode ? 'Light Mode' : 'Dark Mode'),
                 onTap: () {
                   darkModeProvider.toggleTheme();
-                  Navigator.of(context).pop();
+                  // Navigator.of(context).pop();
                 },
               ),
             ],
