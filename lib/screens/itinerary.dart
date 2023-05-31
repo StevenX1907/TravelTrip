@@ -156,50 +156,34 @@ class _ItineraryPageState extends State<ItineraryPage> {
             ),
             ListTile(
               title: Text('Departure Estimation'),
-              subtitle: Text(departureTime != null ? departureTime!.format(context) : 'Select a time'),
+              subtitle: Text(departureTime != null
+                  ? departureTime!.format(context)
+                  : 'Select a time'),
               onTap: () async {
-                final selectedTime = await showCupertinoModalPopup(
+                final selectedTime = await showTimePicker(
                   context: context,
-                  builder: (BuildContext context) {
-                    return CupertinoDatePicker(
-                      mode: CupertinoDatePickerMode.time,
-                      initialDateTime: DateTime.now(),
-                      onDateTimeChanged: (DateTime newDateTime) {},
-                    );
-                  },
+                  initialTime: TimeOfDay.now(),
                 );
-                if (selectedTime != null) {
-                  setState(() {
-                    departureTime = TimeOfDay.fromDateTime(selectedTime);
-                  });
-                }
+                setState(() {
+                  departureTime = selectedTime;
+                });
               },
             ),
-
-
-            // ListTile(
-            //   title: Text('Arrival Estimation'),
-            //   subtitle: Text(arrivalTime != null ? arrivalTime!.format(context) : 'Select a time'),
-            //   onTap: () async {
-            //     final selectedTime = await showCupertinoModalPopup(
-            //       context: context,
-            //       builder: (BuildContext context) {
-            //         return CupertinoDatePicker(
-            //           mode: CupertinoDatePickerMode.time,
-            //           initialDateTime: DateTime.now(),
-            //           onDateTimeChanged: (DateTime newDateTime) {},
-            //         );
-            //       },
-            //     );
-            //     if (selectedTime != null) {
-            //       setState(() {
-            //         arrivalTime = TimeOfDay.fromDateTime(selectedTime);
-            //       });
-            //     }
-            //   },
-            // ),
-
-
+            ListTile(
+              title: Text('Arrival Estimation'),
+              subtitle: Text(arrivalTime != null
+                  ? arrivalTime!.format(context)
+                  : 'Select a time'),
+              onTap: () async {
+                final selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay.now(),
+                );
+                setState(() {
+                  arrivalTime = selectedTime;
+                });
+              },
+            ),
 
             SizedBox(height: 16.0),
             ElevatedButton(
