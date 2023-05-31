@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
+import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
 
@@ -17,8 +19,14 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   TextEditingController passwordTextController = TextEditingController();
   TextEditingController emailTextController = TextEditingController();
+  late BuildContext _context;
+  bool isDarkMode = false;
+
+
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,

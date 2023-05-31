@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
+import 'package:travel_trip_application/screens/utils/utils.dart';
+
+import '../reusable_widgets/dark_mode.dart';
 
 class ItineraryPage extends StatefulWidget {
   @override
@@ -33,15 +37,37 @@ class _ItineraryPageState extends State<ItineraryPage> {
     'Malaysia': ['West', 'East'],
   };
 
+  get colors => [
+    hexStringToColor("F1F9F6"),
+    hexStringToColor("D1EEE1"),
+    hexStringToColor("AFE1CE")
+  ];
+
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       drawer: const NavDrawer(),
       appBar: AppBar(
         title: const Text('Itinerary'),
-        backgroundColor: Colors.green,
+        backgroundColor: isDarkMode?Colors.black45:Colors.green,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: isDarkMode
+                ? [
+              Colors.black,
+              Colors.black
+            ]
+                :[
+              hexStringToColor("F1F9F6"),
+              hexStringToColor("D1EEE1"),
+              hexStringToColor("AFE1CE")
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
