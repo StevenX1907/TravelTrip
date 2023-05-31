@@ -116,7 +116,7 @@ Container nextButton(BuildContext context, Function onTap) {
         onTap();
       },
       child: const Text(
-        'Next',
+        'Submit',
         style: TextStyle(
           color: Colors.black87,
           fontWeight: FontWeight.bold,

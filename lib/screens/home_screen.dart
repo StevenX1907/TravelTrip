@@ -21,13 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
   late BuildContext _context;
   bool isDarkMode = false;
 
-
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     Color appBarColor = Colors.green;
     final isDarkMode = darkModeProvider.isDarkMode;
-    appBarColor = isDarkMode ? Colors.black : Colors.green;
+    appBarColor = isDarkMode ? Colors.blueGrey : Colors.green;
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
@@ -38,12 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: isDarkMode ? Colors.black38 : Colors.green[200],
-        // decoration: BoxDecoration(
-        //     gradient: LinearGradient(colors: [
-        //       hexStringToColor("F1F9F6"),
-        //       hexStringToColor("D1EEE1"),
-        //       hexStringToColor("AFE1CE")
-        //     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Stack(
           children: [
             Positioned(

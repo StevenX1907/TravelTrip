@@ -94,18 +94,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   MaterialPageRoute(builder: (context) => PersonalityScreen()),
                 );
               }),
-              // ElevatedButton(
-              //   onPressed: () {
-              //     service.saveUser(userNameTextController.text, emailTextController.text,
-              //         passwordTextController.text);
-              //   },
-              //   child: Text(
-              //     'Register',
-              //     style: TextStyle(
-              //       fontSize: 25,
-              //     ),
-              //   ),
-              // )
             ],
           ),
         ),
