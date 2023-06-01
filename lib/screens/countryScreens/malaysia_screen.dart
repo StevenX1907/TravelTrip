@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 
+import '../../reusable_widgets/dark_mode.dart';
 import '../utils/utils.dart';
 
 class Malaysia_screen extends StatefulWidget {
@@ -13,6 +15,8 @@ class Malaysia_screen extends StatefulWidget {
 class _MalaysiaScreenState extends State<Malaysia_screen> {
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
         backgroundColor: Colors.white,
         drawer: NavDrawer(),
@@ -23,11 +27,18 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
+                gradient: LinearGradient(colors: isDarkMode
+                    ? [
+                  Colors.black,
+                  Colors.black
+                ]
+                    :[
                   hexStringToColor("F1F9F6"),
                   hexStringToColor("D1EEE1"),
                   hexStringToColor("AFE1CE")
                 ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
+            padding: EdgeInsets.all(16),
             child: Stack(
           children: [
             Positioned(

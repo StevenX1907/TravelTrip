@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
+import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
 
@@ -25,12 +27,27 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Personality'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: isDarkMode
+                ? [
+              Colors.black,
+              Colors.black
+            ]
+                :[
+              hexStringToColor("F1F9F6"),
+              hexStringToColor("D1EEE1"),
+              hexStringToColor("AFE1CE")
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
+        padding: EdgeInsets.all(16),
+        // padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

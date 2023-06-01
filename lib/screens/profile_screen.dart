@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
+import 'package:travel_trip_application/screens/utils/utils.dart';
+
+import '../reusable_widgets/dark_mode.dart';
 
 class ProfilePage extends StatefulWidget {
   final String name = 'John Doe';
@@ -30,14 +34,31 @@ class _ProfilePage extends State<ProfilePage>
 
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       drawer: NavDrawer(),
+
       appBar: AppBar(
         title: Text(widget.username),
+        backgroundColor: isDarkMode? Colors.black : Colors.green,
       ),
       body: Column(
         children: [
           Container(
+            color: isDarkMode ? Colors.black26 : Colors.white10,
+            // decoration: BoxDecoration(
+            //     gradient: LinearGradient(colors: isDarkMode
+            //         ? [
+            //       Colors.black,
+            //       Colors.black
+            //     ]
+            //         :[
+            //       hexStringToColor("F1F9F6"),
+            //       hexStringToColor("D1EEE1"),
+            //       hexStringToColor("AFE1CE")
+            //     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
             padding: EdgeInsets.all(16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,6 +172,18 @@ class _ProfilePage extends State<ProfilePage>
               children: [
                 // Posts page
                 Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: isDarkMode
+                          ? [
+                        Colors.black,
+                        Colors.black
+                      ]
+                          :[
+                        hexStringToColor("F1F9F6"),
+                        hexStringToColor("D1EEE1"),
+                        hexStringToColor("AFE1CE")
+                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
                   child: GridView.count(
                     crossAxisCount: 3,
                     crossAxisSpacing: 4.0,

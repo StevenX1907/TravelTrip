@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/reusable_widget.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
+import '../reusable_widgets/dark_mode.dart';
 import 'personality_screen.dart';
 import 'package:travel_trip_application/screens/utils/Service.dart';
 
@@ -25,6 +27,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Service service = Service();
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -46,14 +50,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
             .size
             .height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  hexStringToColor("F1F9F6"),
-                  hexStringToColor("D1EEE1"),
-                  hexStringToColor("AFE1CE")
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
+            gradient: LinearGradient(colors: isDarkMode
+                ? [
+              Colors.black,
+              Colors.black
+            ]
+                :[
+              hexStringToColor("F1F9F6"),
+              hexStringToColor("D1EEE1"),
+              hexStringToColor("AFE1CE")
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
         child: Padding(
           padding: EdgeInsets.fromLTRB(20, MediaQuery
               .of(context)
