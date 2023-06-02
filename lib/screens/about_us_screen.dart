@@ -176,12 +176,12 @@ List<TeamMember> teamMembers = [
   ),
   TeamMember(
     name: 'Jason',
-    position: 'Font-end',
+    position: 'UI/UX',
     imageAsset: 'assets/members/jason.jpg',
   ),
   TeamMember(
     name: 'Jie',
-    position: 'Back-end',
+    position: 'BA',
     imageAsset: 'assets/members/jie.jpg',
   ),
 ];

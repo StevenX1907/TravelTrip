@@ -46,7 +46,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
       drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('Itinerary'),
-        backgroundColor: isDarkMode?Colors.black:Colors.green,
+        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

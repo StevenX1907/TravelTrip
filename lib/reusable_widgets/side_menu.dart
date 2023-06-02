@@ -26,7 +26,7 @@ class _SideMenuState extends State<SideMenu> {
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
-    Color drawerHeaderColor = isDarkMode ? Colors.black45 : Colors.green;
+    Color drawerHeaderColor = isDarkMode ? Colors.black45 : Color(0xFF306550);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -128,7 +128,7 @@ class _SideMenuState extends State<SideMenu> {
                     leading: const Icon(Icons.info),
                     title: const Text('About Us'),
                     onTap: () => {
-                      Navigator.pushReplacement(context, 
+                      Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context)=> AboutUsScreen()))
                     },
                   ),

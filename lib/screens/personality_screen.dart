@@ -31,6 +31,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
         title: const Text('Personality'),
       ),
       body: Container(

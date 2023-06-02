@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                      image: AssetImage('assets/images/Taiwan1.jpeg'),
+                      image: AssetImage('assets/images/Taipei.jpg'),
                       width: 180,
                       height: 350,
                       fit: BoxFit.cover,
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Indonesia1.jpeg'),
+                        image: AssetImage('assets/images/Indonesia.jpg'),
                         width: 180,
                         height: 350,
                         fit: BoxFit.cover
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Malaysia1.jpeg'),
+                        image: AssetImage('assets/images/Malaysia.jpg'),
                         width: 180,
                         height: 350,
                         fit: BoxFit.cover
@@ -222,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Vietnam1.jpg'),
+                        image: AssetImage('assets/images/Vietnam.jpg'),
                         width: 180,
                         height: 350,
                         fit: BoxFit.cover),
