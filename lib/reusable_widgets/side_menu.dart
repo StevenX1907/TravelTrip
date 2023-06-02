@@ -22,8 +22,9 @@ class _SideMenuState extends State<SideMenu> {
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
-    Color drawerHeaderColor = isDarkMode ? Colors.black45 : Color(0xFF306550);
+    Color drawerHeaderColor = isDarkMode ? Colors.black : Color(0xFF306550);
     return Drawer(
+      backgroundColor: isDarkMode?Colors.grey[1]:Colors.white,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
