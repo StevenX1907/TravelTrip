@@ -41,24 +41,12 @@ class _ProfilePage extends State<ProfilePage>
 
       appBar: AppBar(
         title: Text(widget.username),
-        backgroundColor: isDarkMode? Colors.black : Colors.green,
+        backgroundColor: isDarkMode? Colors.black : Color(0xFF306550),
       ),
       body: Column(
         children: [
           Container(
-            color: isDarkMode ? Colors.black26 : Colors.white10,
-            // decoration: BoxDecoration(
-            //     gradient: LinearGradient(colors: isDarkMode
-            //         ? [
-            //       Colors.black,
-            //       Colors.black
-            //     ]
-            //         :[
-            //       hexStringToColor("F1F9F6"),
-            //       hexStringToColor("D1EEE1"),
-            //       hexStringToColor("AFE1CE")
-            //     ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
+            color: isDarkMode ? Colors.black38 : Colors.white10,
             padding: EdgeInsets.all(16),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,8 +163,8 @@ class _ProfilePage extends State<ProfilePage>
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: isDarkMode
                           ? [
-                        Colors.black,
-                        Colors.black
+                        Colors.black38,
+                        Colors.black38
                       ]
                           :[
                         hexStringToColor("F1F9F6"),

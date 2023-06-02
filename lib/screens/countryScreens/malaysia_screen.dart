@@ -18,10 +18,10 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-        backgroundColor: Colors.white,
         drawer: NavDrawer(),
         appBar: AppBar(
           title: Text('TravelTrip'),
+          backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
         ),
         body: Container(
             width: MediaQuery.of(context).size.width,
@@ -29,8 +29,8 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: isDarkMode
                     ? [
-                  Colors.black,
-                  Colors.black
+                  Colors.black38,
+                  Colors.black38
                 ]
                     :[
                   hexStringToColor("F1F9F6"),

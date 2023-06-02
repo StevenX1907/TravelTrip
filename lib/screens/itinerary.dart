@@ -37,11 +37,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
     'Malaysia': ['West', 'East'],
   };
 
-  get colors => [
-    hexStringToColor("F1F9F6"),
-    hexStringToColor("D1EEE1"),
-    hexStringToColor("AFE1CE")
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +46,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
       drawer: const NavDrawer(),
       appBar: AppBar(
         title: const Text('Itinerary'),
-        backgroundColor: isDarkMode?Colors.black45:Colors.green,
+        backgroundColor: isDarkMode?Colors.black:Colors.green,
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -59,8 +54,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: isDarkMode
                 ? [
-              Colors.black,
-              Colors.black
+              Colors.black38,
+              Colors.black38
             ]
                 :[
               hexStringToColor("F1F9F6"),

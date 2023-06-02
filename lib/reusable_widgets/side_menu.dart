@@ -7,6 +7,8 @@ import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/about_us_screen.dart';
+
 IconData iconLight = Icons.wb_sunny;
 IconData iconDark = Icons.nights_stay;
 bool iconBool = false;
@@ -118,7 +120,10 @@ class NavDrawer extends StatelessWidget {
                   ListTile(
                     leading: const Icon(Icons.info),
                     title: const Text('About Us'),
-                    onTap: () => {Navigator.of(context).pop()},
+                    onTap: () => {
+                      Navigator.pushReplacement(context, 
+                      MaterialPageRoute(builder: (context)=> AboutUsScreen()))
+                    },
                   ),
                 ],
               ),
