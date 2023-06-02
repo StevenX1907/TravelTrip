@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
 import '../../reusable_widgets/dark_mode.dart';
 import '../utils/utils.dart';
+import 'package:provider/provider.dart';
+
 
 class Indonesia_screen extends StatefulWidget {
   const Indonesia_screen({Key? key}) : super(key: key);
@@ -20,8 +21,8 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     return Scaffold(
         drawer: NavDrawer(),
         appBar: AppBar(
-          backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
           title: Text('TravelTrip'),
+          backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
         ),
         body: Container(
             width: MediaQuery.of(context).size.width,
@@ -40,14 +41,14 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
 
             padding: EdgeInsets.all(16),
             child: Stack(
-          children: [
-            Positioned(
-                left: 20,
-                top: 20,
-                child: Image(
-                  image: AssetImage('assets/images/Indonesia.jpg'),
-                )),
-          ],
-        )));
+              children: [
+                Positioned(
+                    left: 20,
+                    top: 20,
+                    child: Image(
+                      image: AssetImage('assets/images/Indonesia.jpg'),
+                    )),
+              ],
+            )));
   }
 }
