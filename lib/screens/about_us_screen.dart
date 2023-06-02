@@ -19,10 +19,10 @@ class _State extends State<AboutUsScreen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-      drawer: SideMenu(),
+      drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('About Us'),
-        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
+        backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -176,12 +176,12 @@ List<TeamMember> teamMembers = [
   ),
   TeamMember(
     name: 'Jason',
-    position: 'UI/UX',
+    position: 'UI/UX Designer',
     imageAsset: 'assets/members/jason.jpg',
   ),
   TeamMember(
     name: 'Jie',
-    position: 'BA',
+    position: 'Data analyst',
     imageAsset: 'assets/members/jie.jpg',
   ),
 ];

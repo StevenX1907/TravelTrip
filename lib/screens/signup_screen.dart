@@ -72,12 +72,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 20,
               ),
               reusableTextField("Enter Username", Icons.person_outline, false,
-                  userNameTextController),
+                  userNameTextController, isDarkMode),
               const SizedBox(
                 height: 20,
               ),
               reusableTextField("Enter Your Email", Icons.email_outlined, false,
-                  emailTextController),
+                  emailTextController, isDarkMode),
               const SizedBox(
                 height: 20,
               ),
@@ -87,13 +87,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 children: [
                   reusableTextField(
                       "Enter Password", Icons.password_outlined, !showPassword,
-                      passwordTextController),
+                      passwordTextController, isDarkMode),
                 ],
               ),
               const SizedBox(height: 20),
               reusableTextField(
                   "Retype Password", Icons.password_outlined, !showPassword,
-                  retypePasswordTextController),
+                  retypePasswordTextController, isDarkMode),
               const SizedBox(height: 20),
               nextButton(context, () {
                 Navigator.push(

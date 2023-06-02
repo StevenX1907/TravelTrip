@@ -21,112 +21,39 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
+      backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
       drawer: SideMenu(),
-        appBar: AppBar(
-          title: const Text('TravelTrip'),
-        ),
-      body: FutureBuilder<Map<String, double>>(
-        future: exchangeRateService.getExchangeRate('CNY','AND'),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Error: ${snapshot.error}'),
-            );
-            } else if (snapshot.hasData) {
-              final exchangeRates = snapshot.data!;
-              final currencyDataList = currencies.map((currency) {
-                final exchangeRate = exchangeRates[currency] ?? 0.0;
-
-                return CurrencyData(
-                  currencyName: currency,
-                  exchangeRate: exchangeRate,
-                  buyRate: '10',
-                  sellRate: '10',
-                );
-              }).toList();
-
+      appBar: AppBar(
+        title: const Text('TravelTrip'),
+      ),
+        body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: isDarkMode
+                    ? [
+                  Colors.black38,
+                  Colors.black38
+                ]
+                    :[
+                  hexStringToColor("F1F9F6"),
+                  hexStringToColor("D1EEE1"),
+                  hexStringToColor("AFE1CE")
+                ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
 
             padding: EdgeInsets.all(16),
             child: Stack(
-          children: [
-            Positioned(
-                left: 20,
-                top: 20,
-                child: Image(
-                  image: AssetImage('assets/images/Malaysia1.jpeg'),
-                )),
-          ],
-        )));
 
-              return GridView.count(
-                crossAxisCount: 3,
-                children: List.generate(currencyDataList.length, (index) {
-                  final currencyData = currencyDataList[index];
-                  return GridTile(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: isDarkMode
-                              ? [
-                            Colors.black38,
-                            Colors.black38
-                          ]
-                              :[
-                            hexStringToColor("F1F9F6"),
-                            hexStringToColor("D1EEE1"),
-                            hexStringToColor("AFE1CE")
-                          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-                      padding: EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            currencyData.currencyName,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'Buy: ${currencyData.buyRate}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            'Sell: ${currencyData.sellRate}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            'Exchange Rate: ${currencyData.exchangeRate}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                }),
-              );
-            }
-            return const SizedBox.shrink();
-          },
-        ),
-    );
+              children: [
+                Positioned(
+                    left: 20,
+                    top: 20,
+                    child: Image(
+                      image: AssetImage('assets/images/Malaysia1.jpeg'),
+                    )),
+              ],
+            )));
+
 
   }
 }

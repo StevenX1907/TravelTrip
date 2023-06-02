@@ -11,21 +11,24 @@ Image logoWidget(String imageName) {
 }
 
 TextField reusableTextField(String text, IconData icon, bool isPassWordType,
-    TextEditingController controller) {
+    TextEditingController controller, bool isDarkMode) {
+  Color textColor = isDarkMode ? Colors.white : Colors.black.withOpacity(0.9);
+  Color labelColor = isDarkMode ? Colors.white : Colors.black.withOpacity(0.9);
+  Color fillColor = isDarkMode ? Colors.black.withOpacity(0.3) : Colors.grey.withOpacity(0.3);
   return TextField(
     controller: controller,
     obscureText: isPassWordType,
     enableSuggestions: !isPassWordType,
     autocorrect: !isPassWordType,
     cursorColor: Colors.black,
-    style: TextStyle(color: Colors.black.withOpacity(0.9)),
+    style: TextStyle(color: textColor),
     decoration: InputDecoration(
         prefixIcon: Icon(icon, color: Colors.black54),
         labelText: text,
-        labelStyle: TextStyle(color: Colors.black.withOpacity(0.9)),
+        labelStyle: TextStyle(color: labelColor),
         filled: true,
         floatingLabelBehavior: FloatingLabelBehavior.never,
-        fillColor: Colors.black.withOpacity(0.3),
+        fillColor: fillColor,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
             borderSide: const BorderSide(width: 0, style: BorderStyle.none))),

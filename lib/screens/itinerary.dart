@@ -37,11 +37,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
     'Malaysia': ['West', 'East'],
   };
 
-  get colors => [
-    hexStringToColor("F1F9F6"),
-    hexStringToColor("D1EEE1"),
-    hexStringToColor("AFE1CE")
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +46,12 @@ class _ItineraryPageState extends State<ItineraryPage> {
       drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('Itinerary'),
-
         backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
-
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-
           gradient: LinearGradient(colors: isDarkMode
               ? [Colors.black38, Colors.black38]
               : [hexStringToColor("F1F9F6"), hexStringToColor("D1EEE1"), hexStringToColor("AFE1CE")],
@@ -73,7 +65,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
           children: [
             DropdownButtonFormField<String>(
               value: selectedCountry,
-              hint: Text('Select a country'),
+              hint: const Text('Select a country'),
               items: ['Indonesia', 'Malaysia', 'Taiwan', 'Vietnam']
                   .map((country) => DropdownMenuItem(
                 value: country,

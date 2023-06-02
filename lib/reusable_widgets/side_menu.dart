@@ -5,7 +5,6 @@ import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
 
 import '../screens/about_us_screen.dart';
 
@@ -18,9 +17,6 @@ class SideMenu extends StatefulWidget {
   @override
   State<SideMenu> createState() => _SideMenuState();
 }
-
-
-
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
@@ -67,14 +63,14 @@ class _SideMenuState extends State<SideMenu> {
             title: const Text('Profile'),
             onTap: () => {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()))
+                  MaterialPageRoute(builder: (context) => const ProfilePage()))
             },
           ),
           ListTile(
             leading: const Icon(Icons.map),
             title: const Text('Explore'),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => HomeScreen()))},
+                MaterialPageRoute(builder: (context) => const HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.edit),
@@ -107,35 +103,32 @@ class _SideMenuState extends State<SideMenu> {
             ],
           ),
           const Divider(),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                mainAxisAlignment:
-                    MainAxisAlignment.end, //still unable to change alignment
-                children: <Widget>[
-                  ListTile(
-                    leading: const Icon(Icons.exit_to_app),
-                    title: const Text('Logout'),
-                    onTap: () => {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignInScreen()))
-                    },
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              ListTile(
+                leading: const Icon(Icons.exit_to_app),
+                title: const Text('Logout'),
+                onTap: () => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInScreen()),
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.info),
-                    title: const Text('About Us'),
-                    onTap: () => {
-                      Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context)=> AboutUsScreen()))
-                    },
-                  ),
-                ],
+                },
               ),
-            ),
-          ),
+              ListTile(
+                leading: const Icon(Icons.info),
+                title: const Text('About Us'),
+                onTap: () => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                  ),
+                },
+              ),
+            ],
+          )
+
         ],
       ),
     );

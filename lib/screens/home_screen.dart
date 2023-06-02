@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
+import 'package:travel_trip_application/screens/about_us_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/indonesia_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/malaysia_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/taiwan_screen.dart';
@@ -18,18 +19,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late BuildContext _context;
   bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
-    Color appBarColor = isDarkMode ? Colors.black : Color(0xFF306550);
+    Color appBarColor = isDarkMode ? Colors.black : const Color(0xFF306550);
     return Scaffold(
-      drawer: SideMenu(),
+      drawer: const SideMenu(),
       appBar: AppBar(
-        title: Text('TravelTrip'),
+        title: const Text('TravelTrip'),
         backgroundColor: appBarColor,
       ),
       body: Container(
@@ -57,12 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Taiwan_screen()),
+                    MaterialPageRoute(builder: (context) => const Taiwan_screen()),
                   );
                 },
                 child: Stack(
                   children: [
-                    Image(
+                    const Image(
 
                       image: AssetImage('assets/images/Taiwan1.jpeg'),
 
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       left: 30,
                       top: 300,
                       child: Text(
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 child: Stack(
                   children: [
-                    Image(
+                    const Image(
                         image: AssetImage('assets/images/Indonesia1.jpeg'),
                         width: 180,
                         height: 350,
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       right: 4,
                       top: 300,
                       child: Text(
@@ -171,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 child: Stack(
                   children: [
-                    Image(
+                    const Image(
                         image: AssetImage('assets/images/Malaysia1.jpeg'),
                         width: 180,
                         height: 350,
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       left: 15,
                       bottom: 10,
                       child: Text(
@@ -219,12 +219,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Vietnam_screen()),
+                    MaterialPageRoute(builder: (context) => const Vietnam_screen()),
                   );
                 },
                 child: Stack(
                   children: [
-                    Image(
+                    const Image(
                         image: AssetImage('assets/images/Vietnam1.jpg'),
                         width: 180,
                         height: 350,
@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       right: 15,
                       bottom: 10,
                       child: Text(

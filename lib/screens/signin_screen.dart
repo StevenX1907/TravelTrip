@@ -53,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const Text(
                 "Travel Trip",
                 style: TextStyle(
-                  color: Colors.black,
+                  color:Colors.black,
                   fontSize: 40,
                   fontFamily: 'DancingScript',
                   fontWeight: FontWeight.bold,
@@ -61,17 +61,17 @@ class _SignInScreenState extends State<SignInScreen> {
                   // Add other text style properties as desired
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               reusableTextField("Enter Email", Icons.email_outlined, false,
-                  emailTextController),
-              SizedBox(
+                  emailTextController, isDarkMode),
+              const SizedBox(
                 height: 30,
               ),
               reusableTextField("Enter Password", Icons.lock_outline, true,
-                  passwordTextController),
-              SizedBox(
+                  passwordTextController, isDarkMode),
+              const SizedBox(
                 height: 30,
               ),
               signInSignUpButton(context, true, () {
@@ -87,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 });
               }),
               signUpOption(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               forgotPasswordOption()
