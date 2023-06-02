@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/reusable_widgets/exchange_coin.dart';
-
+import '../../reusable_widgets/dark_mode.dart';
+import '../utils/utils.dart';
+import 'package:provider/provider.dart';
 
 class Malaysia_screen extends StatefulWidget {
   const Malaysia_screen({Key? key}) : super(key: key);
@@ -12,10 +14,14 @@ class Malaysia_screen extends StatefulWidget {
 class _MalaysiaScreenState extends State<Malaysia_screen> {
   final ExchangeRateService exchangeRateService = ExchangeRateService();
   final List<String> currencies = ['USD', 'GBP', 'EUR'];
+
+
   @override
   Widget build(BuildContext context) {
+    final darkModeProvider = Provider.of<DarkModeExample>(context);
+    final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
         drawer: const NavDrawer(),
         appBar: AppBar(
           title: const Text('TravelTrip'),
@@ -50,7 +56,20 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                   final currencyData = currencyDataList[index];
                   return GridTile(
                     child: Container(
-                      color: Colors.blue,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(colors: isDarkMode
+                              ? [
+                            Colors.black38,
+                            Colors.black38
+                          ]
+                              :[
+                            hexStringToColor("F1F9F6"),
+                            hexStringToColor("D1EEE1"),
+                            hexStringToColor("AFE1CE")
+                          ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                      padding: EdgeInsets.all(16),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
