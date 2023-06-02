@@ -10,6 +10,7 @@ import 'package:travel_trip_application/screens/countryScreens/vietnam_screen.da
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
 import '../reusable_widgets/dark_mode.dart';
+import 'countryScreens/weatherapp_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Taiwan_screen()),
+                    MaterialPageRoute(builder: (context) =>  WeatherApp()),
                   );
                 },
                 child: Stack(
