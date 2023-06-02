@@ -12,9 +12,16 @@ import '../screens/about_us_screen.dart';
 IconData iconLight = Icons.wb_sunny;
 IconData iconDark = Icons.nights_stay;
 bool iconBool = false;
+class SideMenu extends StatefulWidget {
+  const SideMenu({Key? key}) : super(key: key);
 
-class NavDrawer extends StatelessWidget {
-  const NavDrawer({super.key});
+  @override
+  State<SideMenu> createState() => _SideMenuState();
+}
+
+
+
+class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);

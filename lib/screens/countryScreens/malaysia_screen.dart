@@ -22,7 +22,7 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
         backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
-        drawer: const NavDrawer(),
+      drawer: SideMenu(),
         appBar: AppBar(
           title: const Text('TravelTrip'),
         ),

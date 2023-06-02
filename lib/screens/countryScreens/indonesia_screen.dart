@@ -19,7 +19,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-        drawer: NavDrawer(),
+        drawer: SideMenu(),
         appBar: AppBar(
           title: Text('TravelTrip'),
           backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),

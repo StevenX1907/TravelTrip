@@ -19,7 +19,7 @@ class _State extends State<AboutUsScreen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-      drawer: const NavDrawer(),
+      drawer: SideMenu(),
       appBar: AppBar(
         title: const Text('About Us'),
         backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),

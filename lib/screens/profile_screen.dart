@@ -37,7 +37,7 @@ class _ProfilePage extends State<ProfilePage>
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: SideMenu(),
 
       appBar: AppBar(
         title: Text(widget.username),
