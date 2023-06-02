@@ -42,7 +42,7 @@ class _VietnamScreenState extends State<Vietnam_screen> {
             padding: EdgeInsets.all(16),
             child: Stack(
               children: [
-                Positioned(left:20, top: 20, child:Image(image:AssetImage('assets/images/Vietnam.jpg'),
+                Positioned(left:20, top: 20, child:Image(image:AssetImage('assets/images/Vietnam1.jpg'),
                 )
                 ),
               ],

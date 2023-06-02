@@ -49,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         child: Stack(
           children: [
+
             Positioned(
               left: 20,
               top: 20,
@@ -62,18 +63,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Taipei.jpg'),
-                        width: 180,
-                        height: 350,
-                        fit: BoxFit.cover),
+                      image: AssetImage('assets/images/Taiwan1.jpeg'),
+                      width: 180,
+                      height: 350,
+                      fit: BoxFit.cover,
+                    ),
                     Positioned(
-                      left: 38,
-                      top: 50,
+                      left: 0,
+                      top: 0,
+                      child: Opacity(
+                        opacity: 0.2, // Adjust the opacity value as needed
+                        child: Container(
+                          width: 180,
+                          height: 350,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 300,
                       child: Text(
                         'Taiwan',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 34.5,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2, 2),
+                              blurRadius: 3,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -94,18 +116,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Indonesia.jpg'),
+                        image: AssetImage('assets/images/Indonesia1.jpeg'),
                         width: 180,
                         height: 350,
-                        fit: BoxFit.cover),
+                        fit: BoxFit.cover
+                    ),
                     Positioned(
-                      right: 20,
-                      top: 50,
+                      left: 0,
+                      top: 0,
+                      child: Opacity(
+                        opacity: 0.2, // Adjust the opacity value as needed
+                        child: Container(
+                          width: 180,
+                          height: 350,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 4,
+                      top: 300,
                       child: Text(
                         'Indonesia',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 34.5,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2, 2),
+                              blurRadius: 3,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -115,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Positioned(
               left: 20,
-              bottom: 20,
+              bottom: 70,
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -126,18 +169,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Malaysia.jpg'),
+                        image: AssetImage('assets/images/Malaysia1.jpeg'),
                         width: 180,
                         height: 350,
-                        fit: BoxFit.cover),
+                        fit: BoxFit.cover
+                    ),
                     Positioned(
-                      left: 25,
-                      bottom: 300,
+                      left: 0,
+                      top: 0,
+                      child: Opacity(
+                        opacity: 0.2, // Adjust the opacity value as needed
+                        child: Container(
+                          width: 180,
+                          height: 350,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 15,
+                      bottom: 10,
                       child: Text(
                         'Malaysia',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 34.5,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2, 2),
+                              blurRadius: 3,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -147,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Positioned(
               right: 20,
-              bottom: 20,
+              bottom: 70,
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -158,18 +222,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
-                        image: AssetImage('assets/images/Vietnam.jpg'),
+                        image: AssetImage('assets/images/Vietnam1.jpg'),
                         width: 180,
                         height: 350,
                         fit: BoxFit.cover),
                     Positioned(
-                      right: 28,
-                      bottom: 300,
+                      left: 0,
+                      top: 0,
+                      child: Opacity(
+                        opacity: 0.2, // Adjust the opacity value as needed
+                        child: Container(
+                          width: 180,
+                          height: 350,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      right: 15,
+                      bottom: 10,
                       child: Text(
                         'Vietnam',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 40,
+                          fontSize: 34.5,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black,
+                              offset: Offset(2, 2),
+                              blurRadius: 3,
+                            ),
+                          ],
                         ),
                       ),
                     ),

@@ -45,7 +45,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 left: 20,
                 top: 20,
                 child: Image(
-                  image: AssetImage('assets/images/Taipei.jpg'),
+                  image: AssetImage('assets/images/Taiwan1.jpeg'),
                 )),
           ],
         )));

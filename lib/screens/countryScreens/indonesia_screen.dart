@@ -45,7 +45,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                 left: 20,
                 top: 20,
                 child: Image(
-                  image: AssetImage('assets/images/Indonesia.jpg'),
+                  image: AssetImage('assets/images/Indonesia1.jpeg'),
                 )),
           ],
         )));
