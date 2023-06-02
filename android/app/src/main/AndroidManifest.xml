@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.travel_trip_application">
-   <application
+    package="com.example.travel_trip_application"
+    >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
         android:label="travel_trip_application"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
