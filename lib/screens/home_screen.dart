@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     Color appBarColor = isDarkMode ? Colors.black : Color(0xFF306550);
     return Scaffold(
-      drawer: NavDrawer(),
+      drawer: SideMenu(),
       appBar: AppBar(
         title: Text('TravelTrip'),
         backgroundColor: appBarColor,
@@ -63,7 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     Image(
+
                       image: AssetImage('assets/images/Taiwan1.jpeg'),
+
+
                       width: 180,
                       height: 350,
                       fit: BoxFit.cover,

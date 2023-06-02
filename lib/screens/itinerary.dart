@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
 import '../reusable_widgets/dark_mode.dart';
+import '../reusable_widgets/side_menu.dart';
 
 class ItineraryPage extends StatefulWidget {
   @override
@@ -14,8 +14,8 @@ class ItineraryPage extends StatefulWidget {
 
 class _ItineraryPageState extends State<ItineraryPage> {
   String? selectedCountry;
-  String? selectedArea;
-  String? selectedCategory;
+  List<String> selectedAreas = [];
+  List<String> selectedCategories = [];
   DateTime? fromDate;
   DateTime? untilDate;
   TimeOfDay? arrivalTime;
@@ -48,26 +48,25 @@ class _ItineraryPageState extends State<ItineraryPage> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-      drawer: const NavDrawer(),
+      drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('Itinerary'),
-        backgroundColor: isDarkMode?Colors.black45:Colors.green,
+
+        backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
+
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: isDarkMode
-                ? [
-              Colors.black,
-              Colors.black
-            ]
-                :[
-              hexStringToColor("F1F9F6"),
-              hexStringToColor("D1EEE1"),
-              hexStringToColor("AFE1CE")
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
 
+          gradient: LinearGradient(colors: isDarkMode
+              ? [Colors.black38, Colors.black38]
+              : [hexStringToColor("F1F9F6"), hexStringToColor("D1EEE1"), hexStringToColor("AFE1CE")],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -84,43 +83,70 @@ class _ItineraryPageState extends State<ItineraryPage> {
               onChanged: (value) {
                 setState(() {
                   selectedCountry = value;
-                  selectedArea = null;
+                  selectedAreas.clear();
+                  selectedCategories.clear();
                   areas = areasByCountry[value]??[];
                 });
               },
             ),
             const SizedBox(height: 16.0),
             if (selectedCountry != null)
-              DropdownButtonFormField<String>(
-                value: selectedArea,
-                hint: Text('Select an area'),
-                items: areas
-                    .map((area) => DropdownMenuItem(
-                  value: area,
-                  child: Text(area),
-                ))
-                    .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    selectedArea = value;
-                  });
-                },
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text('Select area(s)'),
+                  Wrap(
+                    children: areas.map((area) {
+                      return Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Checkbox(
+                            value: selectedAreas.contains(area),
+                            onChanged: (bool? value) {
+                              setState(() {
+                                if (value != null && value) {
+                                  selectedAreas.add(area);
+                                } else {
+                                  selectedAreas.remove(area);
+                                }
+                              });
+                            },
+                          ),
+                          Text(area),
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                ],
               ),
             const SizedBox(height: 16.0),
-            DropdownButtonFormField<String>(
-              value: selectedCategory,
-              hint: Text('Select a category'),
-              items: categories
-                  .map((category) => DropdownMenuItem(
-                value: category,
-                child: Text(category),
-              ))
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  selectedCategory = value;
-                });
-              },
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('Select category(s)'),
+                Wrap(
+                  children: categories.map((category) {
+                    return Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Checkbox(
+                          value: selectedCategories.contains(category),
+                          onChanged: (bool? value) {
+                            setState(() {
+                              if (value != null && value) {
+                                selectedCategories.add(category);
+                              } else {
+                                selectedCategories.remove(category);
+                              }
+                            });
+                          },
+                        ),
+                        Text(category),
+                      ],
+                    );
+                  }).toList(),
+                ),
+              ],
             ),
             const SizedBox(height: 16.0),
             ListTile(
