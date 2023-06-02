@@ -50,6 +50,19 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                 );
               }).toList();
 
+
+            padding: EdgeInsets.all(16),
+            child: Stack(
+          children: [
+            Positioned(
+                left: 20,
+                top: 20,
+                child: Image(
+                  image: AssetImage('assets/images/Malaysia1.jpeg'),
+                )),
+          ],
+        )));
+
               return GridView.count(
                 crossAxisCount: 3,
                 children: List.generate(currencyDataList.length, (index) {
@@ -114,5 +127,6 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
           },
         ),
     );
+
   }
 }

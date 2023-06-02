@@ -41,6 +41,17 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
 
             padding: EdgeInsets.all(16),
             child: Stack(
+
+          children: [
+            Positioned(
+                left: 20,
+                top: 20,
+                child: Image(
+                  image: AssetImage('assets/images/Indonesia1.jpeg'),
+                )),
+          ],
+        )));
+
               children: [
                 Positioned(
                     left: 20,
