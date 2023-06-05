@@ -22,9 +22,10 @@ class _VietnamScreenState extends State<Vietnam_screen> {
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
   List<String> events = [
-    'Da_nang1.jfif',
-    'Ha_long_bay.jfif',
-    'haiphong.jfif',
+    'vn.jfif',
+    'vn1.jfif',
+    'vn2.jfif',
+    'vn3.jfif',
   ];
   List<Map<String, String>> destinations = [
     {
