@@ -21,6 +21,61 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController emailTextController = TextEditingController();
   late BuildContext _context;
   bool isDarkMode = false;
+  List<DropdownMenuItem<String>> languageItems = [
+    DropdownMenuItem(
+      value: 'tw',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/tw.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('中文(繁體)'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'vn',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/vn.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('Tiếng Việt'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'id',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/id.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('Bahasa Indonesia'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'my',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/my.png', width: 24),
+          SizedBox(width: 8),
+          const Text('Bahasa Melayu'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'us',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/en.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('English '),
+        ],
+      ),
+    ),
+  ];
+
+  String selectedLanguage = 'us';
+
 
 
   @override
@@ -90,7 +145,27 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(
                 height: 20,
               ),
-              forgotPasswordOption()
+              forgotPasswordOption(),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  DropdownButton<String>(
+                    dropdownColor: Color(0xFFD1EEE1),
+                    value: selectedLanguage,
+                    items: languageItems,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedLanguage = value!;
+                      });
+                    },
+                  ),
+                ],
+              ),
+
+
             ],
           ),
         )),
@@ -107,7 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
         GestureDetector(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
+                MaterialPageRoute(builder: (context) => const SignUpScreen()));
           },
           child: const Text(
             "Sign Up",

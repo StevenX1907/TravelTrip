@@ -7,6 +7,7 @@ import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 
 import '../screens/about_us_screen.dart';
+import '../screens/chat_screen.dart';
 
 IconData iconLight = Icons.wb_sunny;
 IconData iconDark = Icons.nights_stay;
@@ -79,6 +80,12 @@ class _SideMenuState extends State<SideMenu> {
             onTap: () => {Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ItineraryPage()))},
           ),
+          // ListTile(
+          //   leading: const Icon(Icons.ac_unit),
+          //   title: const Text('Chat box'),
+          //   onTap: () => {Navigator.pushReplacement(context,
+          // //       MaterialPageRoute(builder: (context) => ChatScreen()))},
+          // ),
           ListTile(
             leading: const Icon(Icons.notifications),
             title: const Text('Notification'),
