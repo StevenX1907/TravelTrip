@@ -1,4 +1,6 @@
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:travel_trip_application/screens/utils/VerifyEmailScreen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
@@ -16,12 +18,10 @@ void main() async {
   runApp(
     ChangeNotifierProvider<DarkModeExample>(
       create: (context) => DarkModeExample(),
-      child: MyApp()
+      child: MyApp(),
     ),
   );
-
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key});
@@ -34,12 +34,11 @@ class MyApp extends StatelessWidget {
           : ThemeData.light(),
       themeMode: ThemeMode.system,
       darkTheme: ThemeData.dark(),
+
       home: const Scaffold(
         body: SignInScreen(),
       ),
-
       debugShowCheckedModeBanner: false,
-
     );
   }
 }
