@@ -4,7 +4,7 @@ import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
+import 'package:travel_trip_application/screens/personality_screen.dart';
 import '../reusable_widgets/dark_mode.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -39,10 +39,35 @@ class _ProfilePage extends State<ProfilePage>
     return Scaffold(
       drawer: SideMenu(),
 
-      appBar: AppBar(
+      appBar:
+      AppBar(
         title: Text(widget.username),
-        backgroundColor: isDarkMode? Colors.black : Color(0xFF306550),
+        backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              // Handle menu item selection here
+              if (value == 'option1') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PersonalityScreen()));
+              } else if (value == 'option2') {
+                // Do something for option 2
+              }
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'option1',
+                child: Text('Personality Test'),
+              ),
+              PopupMenuItem<String>(
+                value: 'option2',
+                child: Text('Option 2'),
+              ),
+            ],
+          ),
+        ],
       ),
+
       body: Column(
         children: [
           Container(

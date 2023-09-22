@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
+import 'itinerary_display_page.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
 
@@ -36,7 +36,29 @@ class _ItineraryPageState extends State<ItineraryPage> {
     'Vietnam': ['North', 'South'],
     'Malaysia': ['West', 'East'],
   };
+  List<String> generateItinerary() {
+    List<String> itinerary = [];
 
+    if (selectedCountry == null ||
+        selectedAreas.isEmpty ||
+        selectedCategories.isEmpty ||
+        fromDate == null ||
+        untilDate == null ||
+        arrivalTime == null ||
+        departureTime == null) {
+      return [];
+    }
+
+    for (String area in selectedAreas) {
+      for (String category in selectedCategories) {
+        itinerary.add('Visit ${area} - ${category}');
+      }
+    }
+
+    itinerary.add('Arrival at ${arrivalTime!.format(context)}');
+    itinerary.add('Departure at ${departureTime!.format(context)}');
+    return itinerary;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +228,35 @@ class _ItineraryPageState extends State<ItineraryPage> {
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                // Perform filtering logic or navigate to the next page with the selected choices
+                List<String> itinerary = generateItinerary();
+
+                if (itinerary.isEmpty) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Error'),
+                        content: Text('Please fill in all the required fields.'),
+                        actions: <Widget>[
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  // Navigate to the new page to display the full itinerary
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ItineraryDisplayPage(itinerary: itinerary),
+                    ),
+                  );
+                }
               },
               child: Text('Create Itinerary'),
             ),

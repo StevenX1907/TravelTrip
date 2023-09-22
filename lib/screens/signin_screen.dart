@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
       value: 'my',
       child: Row(
         children: [
-          Image.asset('assets/icons/id.jfif', width: 24),
+          Image.asset('assets/icons/my.jfif', width: 24),
           SizedBox(width: 8),
           const Text('Bahasa Melayu'),
         ],
@@ -75,8 +75,6 @@ class _SignInScreenState extends State<SignInScreen> {
   ];
 
   String selectedLanguage = 'us';
-
-
 
   @override
   Widget build(BuildContext context) {
