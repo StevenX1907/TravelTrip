@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/reusable_widget.dart';
 import 'package:travel_trip_application/screens/utils/VerifyEmailScreen.dart';
+import 'package:travel_trip_application/screens/personality_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'personality_screen.dart';
@@ -117,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const VerifyEmailScreen(),
+                          builder: (context) => const PersonalityScreen(),
                         ),
                       );
                     }).catchError((error) {

@@ -64,10 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Stack(
                   children: [
                     const Image(
-
-                      image: AssetImage('assets/images/Taiwan1.jpeg'),
-
-
+                      image: AssetImage('assets/images/Taiwan2.jpeg'),
                       width: 180,
                       height: 350,
                       fit: BoxFit.cover,
