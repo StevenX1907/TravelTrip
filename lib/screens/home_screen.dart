@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Colors.black38
             ]
                 :[
-              hexStringToColor("F1F9F6"),
+              hexStringToColor("F1F9F6"),//yhghghjhjgjh
               hexStringToColor("D1EEE1"),
               hexStringToColor("AFE1CE")
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
