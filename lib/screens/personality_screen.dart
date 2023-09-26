@@ -381,6 +381,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                 );
               }).toList(),
             ),
+
             Text(
               '\n9. Planner vs Spontaneous',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
