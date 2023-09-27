@@ -1,4 +1,7 @@
 {
-  "enterEmail": "越南enter email",
-  "enterPassword": "越南Enter Password"
+
+  "@@locale": "vi",
+  "enterEmail": "Nhập Email",
+  "enterPassword": "Nhập Mật khẩu",
+  "signUp": "Đăng ký"
 }

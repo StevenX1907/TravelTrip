@@ -7,6 +7,7 @@ import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
@@ -16,15 +17,41 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    ChangeNotifierProvider<DarkModeExample>(
-      create: (context) => DarkModeExample(),
-      child: MyApp(),
+    MaterialApp( // Wrap your app with MaterialApp
+      home: ChangeNotifierProvider<DarkModeExample>(
+        create: (context) => DarkModeExample(),
+        child: MyApp(),
+      ),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key});
+
+  static void setLocale(BuildContext context, Locale locale) {
+    _MyAppState state = context.findAncestorStateOfType<_MyAppState>()!;
+    state.setLocale(locale);
+  }
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late Locale _appLocale;
+
+  @override
+  void initState() {
+    super.initState();
+    _appLocale = Locale('en'); // Initialize with a default locale
+  }
+
+  void setLocale(Locale newLocale) {
+    setState(() {
+      _appLocale = newLocale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +61,18 @@ class MyApp extends StatelessWidget {
           : ThemeData.light(),
       themeMode: ThemeMode.system,
       darkTheme: ThemeData.dark(),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      locale: _appLocale, // Use the _appLocale to set the locale
+      supportedLocales: [
+        Locale('en'),
+        Locale('zh'),
+        Locale('vi')
+      ],
 
       home: const Scaffold(
         body: SignInScreen(),

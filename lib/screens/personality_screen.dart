@@ -37,6 +37,16 @@ class PersonalityScreen extends StatefulWidget {
 }
 
 class _PersonalityScreenState extends State<PersonalityScreen> {
+  void _onRadioSelected(String? groupValue, String? newValue, Map<String, bool?> personalityMap) {
+    setState(() {
+      groupValue = newValue;
+
+      // Add or subtract points based on the selected option
+      final points = personalityPoints[newValue] ?? 0;
+      init_Value += points;
+    });
+  }
+
   Map<String, bool> selectedDestinations = {
     'Beaches': false,
     'Museum': false,
@@ -78,6 +88,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
   'Based on how Instagrammable it is': false,
   };
   String? selectedHotel;
+  int init_Value = 0;
 
   Map<String, bool?> personality_1 = {
     'I love adrenaline-pumping activities and explore new locations': false,
@@ -109,6 +120,19 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
   };
   String? selectedPersonality_5;
 
+  Map<String, int> personalityPoints = {
+    'I love adrenaline-pumping activities and explore new locations': 2,
+    'I prefer to relax at a spa or on a quiet beach with a good book': -2,
+    'I love to immerse myself in different cultures, try local food, and visit historical sites': 2,
+    'I find it peaceful to go to natural landscapes like forests, mountains, or beaches': -2,
+    'I enjoy traveling with a group of friends or family': 2,
+    'I love to enjoy the freedom of solo traveling by myself': -2,
+    'I plan every detail of my trip from accommodation to daily itineraries': 2,
+    'I prefer to go with the flow and make my decisions on the spot based on my mood.': -2,
+    'I am willing to spend on luxury accommodation and a fine dining experience.': 2,
+    'I prioritize budget-friendly options and saving money during my travels.': -2,
+  };
+
   TextEditingController hobbyController = TextEditingController();
   TextEditingController favoriteFoodController = TextEditingController();
 
@@ -119,8 +143,12 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
       ) {
     setState(() {
       selectedItemMap[itemKey] = newValue;
+
+      final points = personalityPoints[itemKey] ?? 0;
+      init_Value += newValue ? points : 0;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -283,7 +311,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                         groupValue: selectedPersonality_1,
                         onChanged: (newValue) {
                           setState(() {
-                            selectedPersonality_1 = newValue.toString();
+                            _onRadioSelected(selectedPersonality_1 = newValue.toString(), activity, personality_1);
                           });
                         },
                       ),
@@ -312,7 +340,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                         groupValue: selectedPersonality_2,
                         onChanged: (newValue) {
                           setState(() {
-                            selectedPersonality_2 = newValue.toString();
+                            _onRadioSelected(selectedPersonality_2 = newValue.toString(), activity, personality_2);
                           });
                         },
                       ),
@@ -341,7 +369,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                         groupValue: selectedPersonality_3,
                         onChanged: (newValue) {
                           setState(() {
-                            selectedPersonality_3 = newValue.toString();
+                            _onRadioSelected(selectedPersonality_3 = newValue.toString(), activity, personality_3);
                           });
                         },
                       ),
@@ -353,6 +381,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                 );
               }).toList(),
             ),
+
             Text(
               '\n9. Planner vs Spontaneous',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -369,7 +398,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                         groupValue: selectedPersonality_4,
                         onChanged: (newValue) {
                           setState(() {
-                            selectedPersonality_4 = newValue.toString();
+                            _onRadioSelected(selectedPersonality_4 = newValue.toString(), activity, personality_4);
                           });
                         },
                       ),
@@ -398,7 +427,7 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
                         groupValue: selectedPersonality_5,
                         onChanged: (newValue) {
                           setState(() {
-                            selectedPersonality_5 = newValue.toString();
+                            _onRadioSelected(selectedPersonality_5 = newValue.toString(), activity, personality_5);
                           });
                         },
                       ),
@@ -449,5 +478,6 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
     print('Favorite Season: $selectedSeason');
     print('Advance Booking: $selectedBook');
     print('Perfect Hotel: $selectedHotel');
+    print('Personality Points: $init_Value');
   }
 }
