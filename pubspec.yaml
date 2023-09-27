@@ -38,6 +38,7 @@ dependencies:
   dio: ^5.0.1
   flutter_localizations:
     sdk: flutter
+  intl: any
   carousel_slider: ^4.2.1
   multi_select_flutter: ^4.1.3
   multiselect: ^0.1.0
@@ -83,6 +84,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
   uses-material-design: true
   fonts:
     - family: DancingScript

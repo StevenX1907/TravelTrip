@@ -95,11 +95,17 @@ class _SideMenuState extends State<SideMenu> {
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
             children: <Widget>[
-              ListTile(
+              ExpansionTile(
                 leading: const Icon(Icons.language),
                 title: const Text('Language'),
-                onTap: () => {Navigator.of(context).pop()},
+                children: <Widget>[
+                  ListTile(
+                    title: const Text('English'),
+                    onTap: () => {Navigator.of(context).pop()},
+                  )
+                ],
               ),
+
               ListTile(
                 leading: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
                 title: Text(isDarkMode ? 'Light Mode' : 'Dark Mode'),
