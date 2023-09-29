@@ -34,22 +34,22 @@ class _SignInScreenState extends State<SignInScreen> {
   bool isDarkMode = false;
   List<DropdownMenuItem<String>> languageItems = [
     DropdownMenuItem(
+      value: 'en',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/en.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('English'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
       value: 'zh',
       child: Row(
         children: [
           Image.asset('assets/icons/tw.jfif', width: 24),
           SizedBox(width: 8),
           const Text('中文(繁體)'),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: 'vi',
-      child: Row(
-        children: [
-          Image.asset('assets/icons/vn.jfif', width: 24),
-          SizedBox(width: 8),
-          const Text('Tiếng Việt'),
         ],
       ),
     ),
@@ -64,6 +64,16 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     ),
     DropdownMenuItem(
+      value: 'vi',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/vn.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('Tiếng Việt'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
       value: 'ms',
       child: Row(
         children: [
@@ -73,19 +83,9 @@ class _SignInScreenState extends State<SignInScreen> {
         ],
       ),
     ),
-    DropdownMenuItem(
-      value: 'en',
-      child: Row(
-        children: [
-          Image.asset('assets/icons/en.jfif', width: 24),
-          SizedBox(width: 8),
-          const Text('English'),
-        ],
-      ),
-    ),
   ];
 
-  String selectedLanguage = 'zh';
+  String selectedLanguage = 'en';
 
   @override
   Widget build(BuildContext context) {
@@ -131,12 +131,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                reusableTextField("Enter Email", Icons.email_outlined, false,
+                reusableTextField(AppLocalizations.of(context).enterEmail, Icons.email_outlined, false,
                     emailTextController, isDarkMode),
                 const SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter Password", Icons.lock_outline, true,
+                reusableTextField(AppLocalizations.of(context).enterPassword, Icons.lock_outline, true,
                     passwordTextController, isDarkMode),
                 const SizedBox(
                   height: 30,
@@ -173,7 +173,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedLanguage = value!;
-                          _changeLanguage(selectedLanguage); // Call the method to change the locale
+                          _changeLanguage(selectedLanguage);
+                          print(selectedLanguage);// Call the method to change the locale
                         });
                       },
                     )
@@ -191,7 +192,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account?  ",
+        Text(AppLocalizations.of(context).haveAccount,
             style: TextStyle(color: Colors.black)),
         GestureDetector(
           onTap: () {
@@ -202,6 +203,9 @@ class _SignInScreenState extends State<SignInScreen> {
           },
           child: Text(
             AppLocalizations.of(context).signUp,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],
@@ -211,9 +215,8 @@ class _SignInScreenState extends State<SignInScreen> {
   Row forgotPasswordOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text(
-          "Forgot password",
+      children: [
+        Text(AppLocalizations.of(context).forgotPassword,
           style:
           TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
         ),

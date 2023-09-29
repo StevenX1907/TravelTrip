@@ -2,5 +2,24 @@
   "@@locale": "en",
   "enterEmail": "Enter Email",
   "enterPassword": "Enter Password",
-  "signUp": "Sign Up"
+  "haveAccount": "Don't have an account?  ",
+  "signUp": "Sign Up",
+  "logInCaps": "LOG IN",
+  "forgotPassword": "Forgot Password?",
+
+  "english": "English",
+  "chinese": "Chinese",
+  "indonesian": "Indonesian",
+  "vietnamese": "Vietnamese",
+  "malay": "Malay",
+  "profile": "Profile",
+  "explore": "Explore",
+  "createItinerary": "Create Itinerary",
+  "notification": "Notification",
+  "settings": "Settings",
+  "language": "Language",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode",
+  "logOut": "Log Out",
+  "aboutUs": "About Us"
 }

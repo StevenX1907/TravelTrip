@@ -2,5 +2,24 @@
   "@@locale": "zh",
   "enterEmail": "請填入電子郵件",
   "enterPassword": "請填入密碼",
-  "signUp": "註冊"
+  "haveAccount": "還沒有帳號?  ",
+  "signUp": "註冊",
+  "logInCaps":"登入",
+  "forgotPassword": "忘記密碼？",
+
+  "english": "英文",
+  "chinese": "繁體中文",
+  "indonesian": "印尼文",
+  "vietnamese": "越南文",
+  "malay": "馬來文",
+  "profile": "個人",
+  "explore": "探索",
+  "createItinerary": "建立行程",
+  "notification": "通知",
+  "settings": "設定",
+  "language": "語言",
+  "lightMode": "淺色模式",
+  "darkMode": "深色模式",
+  "logOut": "登出",
+  "aboutUs": "關於我們"
 }

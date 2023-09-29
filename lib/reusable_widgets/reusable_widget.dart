@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Image logoWidget(String imageName) {
   return Image.asset(
@@ -90,8 +91,8 @@ Container signInSignUpButton(
           onTap();
         },
         child: Text(
-          isLogin ? 'LOG IN' : 'SIGN UP',
-          style: const TextStyle(
+          AppLocalizations.of(context).logInCaps,
+          style: TextStyle(
               color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
         ),
         style: ButtonStyle(

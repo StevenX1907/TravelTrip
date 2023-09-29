@@ -2,5 +2,24 @@
   "@@locale": "vi",
   "enterEmail": "Nhập Email",
   "enterPassword": "Nhập Mật khẩu",
-  "signUp": "Đăng ký"
+  "haveAccount": "Vẫn chưa có tài khoản?  ",
+  "signUp": "Đăng ký",
+  "logInCaps": "ĐĂNG NHẬP",
+  "forgotPassword": "Quên Mật Khẩu??",
+
+  "english": "Tiếng Anh",
+  "chinese": "Tiếng Phổ Thông",
+  "indonesian": "Tiếng Indonesia",
+  "vietnamese": "Tiếng Việt",
+  "malay": "Tiếng Mã Lai",
+  "profile": "Hồ sơ",
+  "explore": "Khám phá",
+  "createItinerary": "Tạo hành trình",
+  "notification": "Thông báo",
+  "settings": "Cài đặt",
+  "language": "Ngôn ngữ",
+  "lightMode": "Chế độ sáng",
+  "darkMode": "Chế độ tối",
+  "logOut": "Đăng xuất",
+  "aboutUs": "Về chúng tôi"
 }

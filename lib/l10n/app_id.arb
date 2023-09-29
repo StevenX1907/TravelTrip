@@ -2,5 +2,24 @@
   "@@locale": "id",
   "enterEmail": "Masukkan email",
   "enterPassword": "Masukkan kata sandi",
-  "signUp": "Daftar"
+  "haveAccount": "Belum punya akun?   ",
+  "signUp": "Daftar",
+  "logInCaps": "MASUK",
+  "forgotPassword": "Lupa Kata Sandi?",
+
+  "english": "Bahasa Inggris",
+  "chinese": "Bahasa Mandarin",
+  "indonesian": "Bahasa Indonesia",
+  "vietnamese": "Bahasa Vietnam",
+  "malay": "Bahasa Melayu",
+  "profile": "Profil",
+  "explore": "Jelajahi",
+  "createItinerary": "Buat Rencana Perjalanan",
+  "notification": "Notifikasi",
+  "settings": "Pengaturan",
+  "language": "Bahasa",
+  "lightMode": "Mode Terang",
+  "darkMode": "Mode Gelap",
+  "logOut": "Keluar",
+  "aboutUs": "Tentang Kami"
 }
