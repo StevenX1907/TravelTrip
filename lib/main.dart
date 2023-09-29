@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:intl/intl.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,7 +72,9 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: [
         Locale('en'),
         Locale('zh'),
-        Locale('vi')
+        Locale('vi'),
+        Locale('ms'),
+        Locale('id')
       ],
 
       home: const Scaffold(

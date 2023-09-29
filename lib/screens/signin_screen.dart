@@ -7,7 +7,7 @@ import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:intl/intl.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
@@ -21,6 +21,13 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
+  void _changeLanguage(String selectedLanguage) {
+    final locale = Locale(selectedLanguage);
+    MyApp.setLocale(context, locale);
+    Intl.defaultLocale = selectedLanguage; // Set the default locale for intl package
+  }
+
   TextEditingController passwordTextController = TextEditingController();
   TextEditingController emailTextController = TextEditingController();
   late BuildContext _context;
@@ -57,7 +64,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     ),
     DropdownMenuItem(
-      value: 'my',
+      value: 'ms',
       child: Row(
         children: [
           Image.asset('assets/icons/my.jfif', width: 24),
@@ -79,13 +86,6 @@ class _SignInScreenState extends State<SignInScreen> {
   ];
 
   String selectedLanguage = 'zh';
-
-  // Method to change the app's locale based on the selected language
-  void _changeLanguage(String selectedLanguage) {
-    final locale = Locale(selectedLanguage);
-    MyApp.setLocale(context, locale);
-    Intl.defaultLocale = selectedLanguage; // Set the default locale for intl package
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +175,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           selectedLanguage = value!;
                           _changeLanguage(selectedLanguage); // Call the method to change the locale
                         });
-                        print(selectedLanguage);
                       },
                     )
                   ],
