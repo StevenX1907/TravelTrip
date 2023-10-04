@@ -7,7 +7,7 @@ import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:intl/intl.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
@@ -21,11 +21,28 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
+  void _changeLanguage(String selectedLanguage) {
+    final locale = Locale(selectedLanguage);
+    MyApp.setLocale(context, locale);
+    Intl.defaultLocale = selectedLanguage; // Set the default locale for intl package
+  }
+
   TextEditingController passwordTextController = TextEditingController();
   TextEditingController emailTextController = TextEditingController();
   late BuildContext _context;
   bool isDarkMode = false;
   List<DropdownMenuItem<String>> languageItems = [
+    DropdownMenuItem(
+      value: 'en',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/en.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('English'),
+        ],
+      ),
+    ),
     DropdownMenuItem(
       value: 'zh',
       child: Row(
@@ -33,16 +50,6 @@ class _SignInScreenState extends State<SignInScreen> {
           Image.asset('assets/icons/tw.jfif', width: 24),
           SizedBox(width: 8),
           const Text('中文(繁體)'),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: 'vi',
-      child: Row(
-        children: [
-          Image.asset('assets/icons/vn.jfif', width: 24),
-          SizedBox(width: 8),
-          const Text('Tiếng Việt'),
         ],
       ),
     ),
@@ -57,7 +64,17 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     ),
     DropdownMenuItem(
-      value: 'my',
+      value: 'vi',
+      child: Row(
+        children: [
+          Image.asset('assets/icons/vn.jfif', width: 24),
+          SizedBox(width: 8),
+          const Text('Tiếng Việt'),
+        ],
+      ),
+    ),
+    DropdownMenuItem(
+      value: 'ms',
       child: Row(
         children: [
           Image.asset('assets/icons/my.jfif', width: 24),
@@ -66,26 +83,9 @@ class _SignInScreenState extends State<SignInScreen> {
         ],
       ),
     ),
-    DropdownMenuItem(
-      value: 'en',
-      child: Row(
-        children: [
-          Image.asset('assets/icons/en.jfif', width: 24),
-          SizedBox(width: 8),
-          const Text('English'),
-        ],
-      ),
-    ),
   ];
 
-  String selectedLanguage = 'zh';
-
-  // Method to change the app's locale based on the selected language
-  void _changeLanguage(String selectedLanguage) {
-    final locale = Locale(selectedLanguage);
-    MyApp.setLocale(context, locale);
-    Intl.defaultLocale = selectedLanguage; // Set the default locale for intl package
-  }
+  String selectedLanguage = 'en';
 
   @override
   Widget build(BuildContext context) {
@@ -131,12 +131,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(
                   height: 40,
                 ),
-                reusableTextField("Enter Email", Icons.email_outlined, false,
+                reusableTextField(AppLocalizations.of(context).enterEmail, Icons.email_outlined, false,
                     emailTextController, isDarkMode),
                 const SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter Password", Icons.lock_outline, true,
+                reusableTextField(AppLocalizations.of(context).enterPassword, Icons.lock_outline, true,
                     passwordTextController, isDarkMode),
                 const SizedBox(
                   height: 30,
@@ -173,9 +173,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedLanguage = value!;
-                          _changeLanguage(selectedLanguage); // Call the method to change the locale
+                          _changeLanguage(selectedLanguage);
+                          print(selectedLanguage);// Call the method to change the locale
                         });
-                        print(selectedLanguage);
                       },
                     )
                   ],
@@ -192,7 +192,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account?  ",
+        Text(AppLocalizations.of(context).haveAccount,
             style: TextStyle(color: Colors.black)),
         GestureDetector(
           onTap: () {
@@ -203,6 +203,9 @@ class _SignInScreenState extends State<SignInScreen> {
           },
           child: Text(
             AppLocalizations.of(context).signUp,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],
@@ -212,9 +215,8 @@ class _SignInScreenState extends State<SignInScreen> {
   Row forgotPasswordOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text(
-          "Forgot password",
+      children: [
+        Text(AppLocalizations.of(context).forgotPassword,
           style:
           TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
         ),

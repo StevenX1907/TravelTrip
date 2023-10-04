@@ -5,7 +5,9 @@ import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_emoji/flutter_emoji.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../main.dart';
 import '../screens/about_us_screen.dart';
 import '../screens/chat_screen.dart';
 
@@ -62,7 +64,7 @@ class _SideMenuState extends State<SideMenu> {
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
-            title: const Text('Profile'),
+            title: Text(AppLocalizations.of(context).profile),
             onTap: () => {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => const ProfilePage()))
@@ -70,13 +72,13 @@ class _SideMenuState extends State<SideMenu> {
           ),
           ListTile(
             leading: const Icon(Icons.map),
-            title: const Text('Explore'),
+            title: Text(AppLocalizations.of(context).explore),
             onTap: () => {Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.edit),
-            title: const Text('Create Itinerary'),
+            title: Text(AppLocalizations.of(context).createItinerary),
             onTap: () => {Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => ItineraryPage()))},
           ),
@@ -88,27 +90,43 @@ class _SideMenuState extends State<SideMenu> {
           // ),
           ListTile(
             leading: const Icon(Icons.notifications),
-            title: const Text('Notification'),
+            title: Text(AppLocalizations.of(context).notification),
             onTap: () => {Navigator.of(context).pop()}, //go back to screen
           ),
           ExpansionTile(
             leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            title: Text(AppLocalizations.of(context).settings),
             children: <Widget>[
               ExpansionTile(
                 leading: const Icon(Icons.language),
-                title: const Text('Language'),
+                title: Text(AppLocalizations.of(context).language),
                 children: <Widget>[
                   ListTile(
-                    title: const Text('English'),
-                    onTap: () => {Navigator.of(context).pop()},
-                  )
+                    title: Text(EmojiParser().emojify('🇺🇸') + ' ' + AppLocalizations.of(context).english),
+                    onTap: () => {MyApp.setLocale(context, Locale('en'))},
+                  ),
+                  ListTile(
+                    title: Text(EmojiParser().emojify('🇹🇼') + ' ' + AppLocalizations.of(context).chinese),
+                    onTap: () => {MyApp.setLocale(context, Locale('zh'))},
+                  ),
+                  ListTile(
+                    title: Text(EmojiParser().emojify('🇮🇩') + ' ' + AppLocalizations.of(context).indonesian),
+                    onTap: () => {MyApp.setLocale(context, Locale('id'))},
+                  ),
+                  ListTile(
+                    title: Text(EmojiParser().emojify('🇻🇳') + ' ' + AppLocalizations.of(context).vietnamese),
+                    onTap: () => {MyApp.setLocale(context, Locale('vi'))},
+                  ),
+                  ListTile(
+                    title: Text(EmojiParser().emojify('🇲🇾') + ' ' + AppLocalizations.of(context).malay),
+                    onTap: () => {MyApp.setLocale(context, Locale('ms'))},
+                  ),
                 ],
               ),
 
               ListTile(
                 leading: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
-                title: Text(isDarkMode ? 'Light Mode' : 'Dark Mode'),
+                title: Text(isDarkMode ? AppLocalizations.of(context).lightMode : AppLocalizations.of(context).darkMode),
                 onTap: () {
                   darkModeProvider.toggleTheme();
                   // Navigator.of(context).pop();
@@ -122,7 +140,7 @@ class _SideMenuState extends State<SideMenu> {
             children: <Widget>[
               ListTile(
                 leading: const Icon(Icons.exit_to_app),
-                title: const Text('Logout'),
+                title: Text(AppLocalizations.of(context).logOut),
                 onTap: () => {
                   Navigator.pushReplacement(
                     context,
@@ -132,7 +150,7 @@ class _SideMenuState extends State<SideMenu> {
               ),
               ListTile(
                 leading: const Icon(Icons.info),
-                title: const Text('About Us'),
+                title: Text(AppLocalizations.of(context).aboutUs),
                 onTap: () => {
                   Navigator.pushReplacement(
                     context,

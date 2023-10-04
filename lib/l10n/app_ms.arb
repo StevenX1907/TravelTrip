@@ -1,0 +1,25 @@
+{
+  "@@locale": "ms",
+  "enterEmail": "Masukkan email",
+  "enterPassword": "Masukkan kata laluan",
+  "haveAccount": "Belum mempunyai akaun?  ",
+  "signUp": "Daftar",
+  "logInCaps": "MASUK",
+  "forgotPassword": "Lupa Kata Laluan?",
+
+  "english": "Bahasa Inggeris",
+  "chinese": "Bahasa Cina",
+  "indonesian": "Bahasa Indonesia",
+  "vietnamese": "Bahasa Vietnam",
+  "malay": "Bahasa Melayu",
+  "profile": "Profil",
+  "explore": "Meneroka",
+  "createItinerary": "Buat Jadual Perjalanan",
+  "notification": "Pemberitahuan",
+  "settings": "Tetapan",
+  "language": "Bahasa",
+  "lightMode": "Mod Terang",
+  "darkMode": "Mod Gelap",
+  "logOut": "Log Keluar",
+  "aboutUs": "Tentang Kita"
+}
