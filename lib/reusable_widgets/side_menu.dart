@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_trip_application/screens/discussion_page.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
 import 'package:travel_trip_application/screens/itinerary.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
@@ -63,12 +64,17 @@ class _SideMenuState extends State<SideMenu> {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.house),
+            title: Text(AppLocalizations.of(context).home),
+            onTap: () => {Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
+          ),
+          ListTile(
             leading: const Icon(Icons.person_rounded),
             title: Text(AppLocalizations.of(context).profile),
             onTap: () => {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()))
-            },
+                  MaterialPageRoute(builder: (context) => const ProfilePage()))},
           ),
           ListTile(
             leading: const Icon(Icons.map),
