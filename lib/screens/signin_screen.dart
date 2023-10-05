@@ -6,8 +6,9 @@ import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/signup_screen.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import '../gen_l10n/app_localizations.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
@@ -224,3 +225,4 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 }
+

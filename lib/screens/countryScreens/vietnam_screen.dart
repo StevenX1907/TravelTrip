@@ -2,7 +2,7 @@
   import 'dart:typed_data';
 
   import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
   import 'package:provider/provider.dart';
   import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
   import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
@@ -24,9 +24,7 @@ import 'package:flutter/material.dart';
     String currentTemperature = "Loading...";
     double exchangeRate = 0.0;
     Map<String, dynamic>? countryData;
-    bool _hasFetchedData = false;
-    String countryName = 'Unknown';
-    String base64ImageData = '';
+    bool isCountryDataLoaded = false;
     List<String> events = [
       'vn.jfif',
       'vn1.jfif',
@@ -82,6 +80,8 @@ import 'package:flutter/material.dart';
       fetchExchangeRate();
       if (countryData == null) {
         fetchCountryFromServer(1); // Gọi hàm này chỉ khi chưa có dữ liệu
+      }else {
+        isCountryDataLoaded = true;
       }
     }
     Future<void> getCurrentTemperature() async {
@@ -126,7 +126,7 @@ import 'package:flutter/material.dart';
         });
       }
     }
-    Future<Map<String, dynamic>> fetchCountryFromServer(int id) async {
+    Future<Map<String, dynamic>>? fetchCountryFromServer(int id) async {
       try {
         final response = await http.get(Uri.parse('http://10.0.2.2:8080/getCountry/$id'));
 
@@ -143,6 +143,8 @@ import 'package:flutter/material.dart';
         throw Exception('Error: $e');
       }
     }
+
+
 
     // Future<void> getCurrentTemperature() async {
     //   try {
@@ -204,8 +206,8 @@ import 'package:flutter/material.dart';
                   enableInfiniteScroll: true,
                   initialPage: 1,
                   autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
+                  autoPlayInterval: const Duration(seconds: 3),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
                   onPageChanged: (index, reason) {
                     setState(() {
                       currentIndex = index;
@@ -244,7 +246,7 @@ import 'package:flutter/material.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     '  Current Temperature',
                     style: TextStyle(fontSize: 16),
                   ),
@@ -255,7 +257,7 @@ import 'package:flutter/material.dart';
                         MaterialPageRoute(builder: (context) =>  WeatherApp()),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'More Detail',
                       style: TextStyle(fontSize: 16, color: Colors.blue),
                     ),

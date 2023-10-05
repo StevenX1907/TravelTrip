@@ -7,9 +7,11 @@ import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
