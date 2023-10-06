@@ -7,8 +7,8 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
 import 'package:http/http.dart' as http;
 import '../../reusable_widgets/dark_mode.dart';
+import '../../reusable_widgets/destination_details.dart';
 import '../utils/utils.dart';
-
 class Taiwan_screen extends StatefulWidget {
   const Taiwan_screen({Key? key}) : super(key: key);
 
@@ -17,6 +17,7 @@ class Taiwan_screen extends StatefulWidget {
 }
 
 class _TaiwanScreenState extends State<Taiwan_screen> {
+  List<Map<String, dynamic>> destinationList = [];
   int currentIndex = 0;
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
@@ -26,6 +27,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     'taiwan2.jfif',
     'taiwan3.jfif',
   ];
+
   List<Map<String, String>> destinations = [
     {
       'name': 'Wulai',
@@ -69,11 +71,14 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       'image': 'assets/images/hotels/MatsusakaTei.jfif',
     },
   ];
+
+  get index => 1;
   @override
   void initState() {
     super.initState();
     getCurrentTemperature();
     fetchExchangeRate();
+    // fetchDestinations();
   }
   Future<void> getCurrentTemperature() async {
     try {
@@ -117,6 +122,114 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       });
     }
   }
+  Future<Map<String, dynamic>> fetchDestinationDetails(int id) async {
+    final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/getDestination/$id'));
+    if (response.statusCode == 200) {
+      // Successfully fetched data
+      Map<String, dynamic> data = jsonDecode(response.body);
+      return data; // Return the fetched data
+    } else {
+      throw Exception('Failed to load destination');
+    }
+  }
+
+
+  // Future<void> fetchDestinations() async {
+  //   try {
+  //     final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/destinations'));
+  //     if (response.statusCode == 200) {
+  //       List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(jsonDecode(response.body));
+  //       setState(() {
+  //         destinationList = data;
+  //       });
+  //     } else {
+  //       throw Exception('Failed to load destinations');
+  //     }
+  //   } catch (e) {
+  //     print('Error fetching destinations: $e');
+  //   }
+  // }
+
+  // Function to save a new destination to the backend
+  Future<void> saveNewDestination(Map<String, dynamic> destinationData) async {
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/api/destinations/save'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(destinationData),
+    );
+
+    if (response.statusCode == 200) {
+      print('Destination saved successfully');
+    } else {
+      throw Exception('Failed to save destination');
+    }
+  }
+  void _onSubmitButtonPressed() {
+    Map<String, dynamic> newDestinationData = {
+      'Destination_ID': 123,
+      'Destination_Name': 'New Destination',
+      'Destination_Description': 'Description of new destination',
+      'City_ID': 456,
+      'Type_ID': 789,
+    };
+
+    try {
+      saveNewDestination(newDestinationData);
+    } catch (e) {
+      print('Error saving destination: $e');
+    }
+  }
+  // Function to delete a destination by ID
+  Future<void> deleteDestination(int id) async {
+    final response = await http.delete(Uri.parse('http://10.0.2.2:8080/api/destinations/delete/$id'));
+
+    if (response.statusCode == 204) {
+      print('Destination deleted successfully');
+    } else {
+      throw Exception('Failed to delete destination');
+    }
+  }
+  // void _onDestinationTap(Map<String, String> destination) {
+  //   int id = destinations.indexOf(destination) + 1; // Assuming ids start from 1
+  //   fetchDestinationDetails(id).then((destinationData) {
+  //     // Navigate to the destination details screen
+  //     Navigator.of(context).push(
+  //       MaterialPageRoute(
+  //         builder: (context) => DestinationDetailsScreen(
+  //           image: destination['image']!,
+  //           name: destination['name']!,
+  //           description: destination['Destination_Description'] ?? 'No description available',
+  //         ),
+  //       ),
+  //     );
+  //   }).catchError((error) {
+  //     print('Error fetching destination details: $error');
+  //   });
+  // }
+  void _onDestinationTap(Map<String, String> destination) {
+    int id = destinations.indexOf(destination) + 1; // Assuming ids start from 1
+
+    // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
+    fetchDestinationDetails(id).then((destinationData) {
+      // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
+      Map<String, String> convertedData = Map<String, String>.from(destinationData);
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => DestinationDetailsScreen(
+            image: destination['image']!,
+            name: destination['Destination_Name']!,
+            description: convertedData['Destination_Description'] ?? 'No description available',
+          ),
+        ),
+      );
+    }).catchError((error) {
+      print('Error fetching destination details: $error');
+    });
+  }
+
   // Future<void> getCurrentTemperature() async {
   //   try {
   //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
@@ -139,6 +252,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
   //     });
   //   }
   // }
+
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -311,36 +425,41 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             ),
             const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              height: 150,
-              color: Colors.white,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: destinations.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            destinations[index]['image']!,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          destinations[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  );
+              width: 150,
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: GestureDetector(
+                onTap: () {
+                  if (index >= 0 && index < destinationList.length) {
+                    Map<String, String> destinationData = {
+                      'image': destinationList[index]['image'],
+                      'Destination_Name': destinationList[index]['Destination_Name'],
+                    };
+                    _onDestinationTap(destinationData);
+                  }
                 },
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Image.network(
+                        index >= 0 && index < destinationList.length
+                            ? destinationList[index]['image']
+                            : '', // Provide a default value or handle this case
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      index >= 0 && index < destinationList.length
+                          ? destinationList[index]['Destination_Name']
+                          : '', // Provide a default value or handle this case
+                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
+
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
