@@ -38,6 +38,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get malay => 'Malay';
 
   @override
+  String get home => 'Home';
+
+  @override
   String get profile => 'Profile';
 
   @override

@@ -38,6 +38,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get malay => 'Tiếng Mã Lai';
 
   @override
+  String get home => 'Trang chủ';
+
+  @override
   String get profile => 'Hồ sơ';
 
   @override
