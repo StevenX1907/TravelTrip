@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:http/http.dart' as http;
 import '../../reusable_widgets/dark_mode.dart';
 import '../../reusable_widgets/destination_details.dart';
 import '../utils/utils.dart';
+import 'ExchangeApp.dart';
 class Taiwan_screen extends StatefulWidget {
   const Taiwan_screen({Key? key}) : super(key: key);
 
@@ -78,7 +80,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     super.initState();
     getCurrentTemperature();
     fetchExchangeRate();
-    // fetchDestinations();
+    fetchDestinations();
   }
   Future<void> getCurrentTemperature() async {
     try {
@@ -123,93 +125,45 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     }
   }
   Future<Map<String, dynamic>> fetchDestinationDetails(int id) async {
-    final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/getDestination/$id'));
-    if (response.statusCode == 200) {
-      // Successfully fetched data
-      Map<String, dynamic> data = jsonDecode(response.body);
-      return data; // Return the fetched data
-    } else {
-      throw Exception('Failed to load destination');
-    }
-  }
-
-
-  // Future<void> fetchDestinations() async {
-  //   try {
-  //     final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/destinations'));
-  //     if (response.statusCode == 200) {
-  //       List<Map<String, dynamic>> data = List<Map<String, dynamic>>.from(jsonDecode(response.body));
-  //       setState(() {
-  //         destinationList = data;
-  //       });
-  //     } else {
-  //       throw Exception('Failed to load destinations');
-  //     }
-  //   } catch (e) {
-  //     print('Error fetching destinations: $e');
-  //   }
-  // }
-
-  // Function to save a new destination to the backend
-  Future<void> saveNewDestination(Map<String, dynamic> destinationData) async {
-    final response = await http.post(
-      Uri.parse('http://10.0.2.2:8080/api/destinations/save'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(destinationData),
-    );
-
-    if (response.statusCode == 200) {
-      print('Destination saved successfully');
-    } else {
-      throw Exception('Failed to save destination');
-    }
-  }
-  void _onSubmitButtonPressed() {
-    Map<String, dynamic> newDestinationData = {
-      'Destination_ID': 123,
-      'Destination_Name': 'New Destination',
-      'Destination_Description': 'Description of new destination',
-      'City_ID': 456,
-      'Type_ID': 789,
-    };
-
     try {
-      saveNewDestination(newDestinationData);
+      final response = await http.get(Uri.parse('http://10.0.2.2:8080/getDestination/$id'));
+      if (response.statusCode == 200) {
+        Map<String, dynamic> destinationData = jsonDecode(response.body);
+        return {
+          'imageData': destinationData['imgData'],
+          'destinationName': destinationData['destinationName'],
+          // 'destination_description': destinationData['description'],
+        };
+      } else {
+        throw Exception('Failed to load destination details');
+      }
     } catch (e) {
-      print('Error saving destination: $e');
+      print('Error fetching destination details: $e');
+      throw e;
     }
   }
-  // Function to delete a destination by ID
-  Future<void> deleteDestination(int id) async {
-    final response = await http.delete(Uri.parse('http://10.0.2.2:8080/api/destinations/delete/$id'));
 
-    if (response.statusCode == 204) {
-      print('Destination deleted successfully');
-    } else {
-      throw Exception('Failed to delete destination');
+  Future<void> fetchDestinations() async {
+    try {
+      final response = await http.get(Uri.parse('http://10.0.2.2:8080/getDestinations'));
+      if (response.statusCode == 200) {
+        List<dynamic> destinationData = jsonDecode(response.body);
+        setState(() {
+          destinationList = List<Map<String, dynamic>>.from(destinationData);
+        });
+      } else {
+        throw Exception('Failed to load destinations');
+      }
+    } catch (e) {
+      print('Error fetching destinations: $e');
     }
   }
-  // void _onDestinationTap(Map<String, String> destination) {
-  //   int id = destinations.indexOf(destination) + 1; // Assuming ids start from 1
-  //   fetchDestinationDetails(id).then((destinationData) {
-  //     // Navigate to the destination details screen
-  //     Navigator.of(context).push(
-  //       MaterialPageRoute(
-  //         builder: (context) => DestinationDetailsScreen(
-  //           image: destination['image']!,
-  //           name: destination['name']!,
-  //           description: destination['Destination_Description'] ?? 'No description available',
-  //         ),
-  //       ),
-  //     );
-  //   }).catchError((error) {
-  //     print('Error fetching destination details: $error');
-  //   });
-  // }
-  void _onDestinationTap(Map<String, String> destination) {
-    int id = destinations.indexOf(destination) + 1; // Assuming ids start from 1
+
+
+
+
+  void _onDestinationTap(Map<String, dynamic> destination) {
+    int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
 
     // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
     fetchDestinationDetails(id).then((destinationData) {
@@ -220,8 +174,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         MaterialPageRoute(
           builder: (context) => DestinationDetailsScreen(
             image: destination['image']!,
-            name: destination['Destination_Name']!,
-            description: convertedData['Destination_Description'] ?? 'No description available',
+            name: destination['destination_name']!,
+            description: convertedData['destination_description'] ?? 'No description available',
           ),
         ),
       );
@@ -266,6 +220,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        // height: 600,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: isDarkMode
                 ? [
@@ -328,7 +283,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   '  Current Temperature',
                   style: TextStyle(fontSize: 16),
                 ),
@@ -339,7 +294,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                       MaterialPageRoute(builder: (context) =>  WeatherApp()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'More Detail',
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
@@ -366,7 +321,10 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 ),
                 InkWell(
                   onTap: () {
-
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  ExchangeApp()),
+                    );
                   },
                   child: const Text(
                     'More Detail',
@@ -423,42 +381,92 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
-            Container(
-              width: 150,
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              child: GestureDetector(
-                onTap: () {
-                  if (index >= 0 && index < destinationList.length) {
-                    Map<String, String> destinationData = {
-                      'image': destinationList[index]['image'],
-                      'Destination_Name': destinationList[index]['Destination_Name'],
-                    };
-                    _onDestinationTap(destinationData);
-                  }
-                },
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.network(
-                        index >= 0 && index < destinationList.length
-                            ? destinationList[index]['image']
-                            : '', // Provide a default value or handle this case
+            FutureBuilder<Map<String, dynamic>>(
+              future: fetchDestinationDetails(1),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else if (snapshot.hasData) {
+                  final countryData = snapshot.data!;
+                  final String countryName = countryData['destinationName'] ?? 'Unknown';
+                  final String base64ImageData = countryData['imageData'] ?? ''; // Dữ liệu hình ảnh Base64
+
+                  double desiredWidth = 100.0;
+                  double desiredHeight = 100.0;
+
+                  // Chuyển dữ liệu Base64 thành mảng bytes
+                  Uint8List bytes = base64.decode(base64ImageData);
+
+                  return Column(
+                    children: [
+                      Text('Country Name: $countryName'),
+                      SizedBox(height: 10),
+                      // Sử dụng Image.memory để hiển thị hình ảnh từ dữ liệu Base64
+                      Image.memory(
+                        bytes,
+                        width: desiredWidth,
+                        height: desiredHeight,
                         fit: BoxFit.cover,
                       ),
+                    ],
+                  );
+                } else {
+                  return Text('No country data.');
+                }
+              },
+            ),
+            const SizedBox(height: 10),
+            Container(
+              height: 150,
+              color: Colors.white,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: destinationList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final destination = destinationList[index];
+                  return Container(
+                    width: 150,
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: GestureDetector(
+                      onTap: () async {
+                        final destinationData = await fetchDestinationDetails(destination['id']);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => DestinationDetailsScreen(
+                              image: destinationData['image'] ?? 'assets/images/Taiwan1.jpeg',
+                              name: destinationData['destination_name'] ?? 'Unknown',
+                              description: destinationData['destination_description'] ?? 'No description available',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Flexible(
+                            child: Image.memory(
+                              base64.decode(destination['image'] ?? ''),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            destination['destination_name'] ?? '',
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      index >= 0 && index < destinationList.length
-                          ? destinationList[index]['Destination_Name']
-                          : '', // Provide a default value or handle this case
-                      style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ),
+
+
+
+
 
             const SizedBox(height: 20),
             Row(
@@ -493,6 +501,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     color: Colors.white,
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
                           child: Image.asset(
@@ -545,6 +554,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     color: Colors.white,
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
                           child: Image.asset(
