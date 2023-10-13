@@ -38,6 +38,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get malay => 'Bahasa Melayu';
 
   @override
+  String get home => 'Halaman Utama';
+
+  @override
   String get profile => 'Profil';
 
   @override

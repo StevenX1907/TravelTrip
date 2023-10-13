@@ -165,6 +165,12 @@ abstract class AppLocalizations {
   /// **'Malay'**
   String get malay;
 
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
   /// No description provided for @profile.
   ///
   /// In en, this message translates to:

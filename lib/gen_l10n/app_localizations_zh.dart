@@ -38,6 +38,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get malay => '馬來文';
 
   @override
+  String get home => '主畫面';
+
+  @override
   String get profile => '個人';
 
   @override
