@@ -3,28 +3,138 @@ import 'package:flutter/material.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
+import 'package:travel_trip_application/screens/editprofile.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:travel_trip_application/screens/personality_screen.dart';
 import '../reusable_widgets/dark_mode.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:flutter/gestures.dart';
+import 'package:travel_trip_application/reusable_widgets//photo_utils.dart';
+
 
 class ProfilePage extends StatefulWidget {
-  final String name = 'John Doe';
-  final String username = '@johndoe';
-  final int posts = 9;
+  final String name ;
+  final String gender ;
+  final String nationality;
+  final int posts = 30;
   final int followers = 1000;
   final int following = 500;
-  final String nationality = 'American';
-  const ProfilePage({Key? key}) : super(key: key);
+  ProfilePage({required this.name, required this.gender, required this.nationality});
 
   @override
   State<ProfilePage> createState() => _ProfilePage();
 }
+class UserProfile {
+  String name;
+  String gender;
+  String nationality;
 
+  UserProfile(this.name, this.gender, this.nationality);
+}
+
+//class UserProfileProvider extends ChangeNotifier {
+ // UserProfile _userProfile;
+
+ // UserProfile get userProfile => _userProfile;
+
+ // void updateUserProfile(String name, String gender, String nationality) {
+  //  _userProfile = UserProfile(name, gender, nationality);
+  //  notifyListeners();
+  //}
+//}
 class _ProfilePage extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
+  final ImagePicker _imagePicker = ImagePicker();
+  int selectedIndex = 0;
+  List<File?> gridImages = List.generate(100, (index) => null);
+
   late TabController _tabController;
   final parser = EmojiParser();
   final US = Emoji('flag_us', '🇺🇸');
+
+
+  Future<void> _selectImageForGrid(int index) async {
+    if (gridImages[0] != null) {
+      // 如果第一个格子已经有图片，将图片放入第二个格子
+      int newIndex = 1;
+
+      while (gridImages[newIndex] != null) {
+        newIndex++; // 寻找下一个空的格子
+      }
+
+      if (newIndex < 100) {
+        index = newIndex;
+      } else {
+        // 如果所有格子都已被填满，可以在此处添加处理逻辑
+        // 例如显示一个提示或清空第一个格子
+        // 你可以根据需求进行定制
+        return;
+      }
+    }
+
+    final pickedFile = await _imagePicker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        gridImages[index] = File(pickedFile.path);
+      });
+    }
+  }
+
+  void _showDeleteMenu(BuildContext context, int index) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.delete),
+              title: Text('刪除照片'),
+              onTap: () {
+                // 執行刪除照片的操作
+                setState(() {
+                  gridImages[index] = null; // 將圖片設置為 null，表示刪除
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.visibility),
+              title: Text('查看照片'),
+              onTap: () {
+                // 執行查看照片的操作
+                _viewImage(index);
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+  void _viewImage(int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: Colors.black,
+            child: Center(
+              child: gridImages[index] != null
+                  ? Image.file(
+                gridImages[index]!,
+                fit: BoxFit.contain,
+              )
+                  : Text('No image available'),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -41,7 +151,7 @@ class _ProfilePage extends State<ProfilePage>
 
       appBar:
       AppBar(
-        title: Text(widget.username),
+        title: Text(widget.name),
         backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -51,6 +161,11 @@ class _ProfilePage extends State<ProfilePage>
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => PersonalityScreen()));
               } else if (value == 'option2') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => EditProfilePage(onProfileUpdated:(name,gender,nationality){
+                    setState(() {
+                    });
+                    })));
                 // Do something for option 2
               }
             },
@@ -61,13 +176,12 @@ class _ProfilePage extends State<ProfilePage>
               ),
               PopupMenuItem<String>(
                 value: 'option2',
-                child: Text('Option 2'),
+                child: Text('Edit Profile'),
               ),
             ],
           ),
         ],
       ),
-
       body: Column(
         children: [
           Container(
@@ -87,13 +201,20 @@ class _ProfilePage extends State<ProfilePage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.name,
+                        'Name: ${widget.name}',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 8),
+                      Text(
+                        'Gender: ${widget.gender}',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(height: 16),
                       Text(
                         widget.nationality + ' ' + parser.emojify('🇺🇸'),
                         style: TextStyle(
@@ -196,27 +317,37 @@ class _ProfilePage extends State<ProfilePage>
                         hexStringToColor("D1EEE1"),
                         hexStringToColor("AFE1CE")
                       ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
                   child: GridView.count(
                     crossAxisCount: 3,
                     crossAxisSpacing: 4.0,
                     mainAxisSpacing: 4.0,
                     padding: EdgeInsets.all(4.0),
                     children: List.generate(
-                      9,
-                      (index) => Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                'https://picsum.photos/200?random=$index'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                      30,
+                       (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              _selectImageForGrid(index);
+                            },
+                            onLongPress: () {
+                              _showDeleteMenu(context, index); // 显示删除菜单
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                image: gridImages[index] != null
+                                    ? DecorationImage(
+                                  image: FileImage(gridImages[index]!),
+                                  fit: BoxFit.cover,
+                                )
+                                    : null,
+                              ),
+                            ),
+                          );
+                        },
                     ),
-                  ),
                 ),
-                // Reels page
+                ),// Reels page
                 Container(
                   child: const Center(
                     child: Text("You don't have any ratings yet"),
@@ -233,6 +364,14 @@ class _ProfilePage extends State<ProfilePage>
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _selectImageForGrid(0); // 这里假设你要将图片放入第一个格子
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
+
 }
+
