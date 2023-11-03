@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/discussion_page.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
 import 'package:travel_trip_application/screens/itinerary.dart';
+import 'package:travel_trip_application/screens/notification_screen.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
+import 'package:travel_trip_application/screens/destination_desc.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
@@ -75,7 +77,7 @@ class _SideMenuState extends State<SideMenu> {
             title: Text(AppLocalizations.of(context).profile),
             onTap: () => {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()))},
+                  MaterialPageRoute(builder: (context) => ProfilePage(name: 'John Doe', gender: 'Male', nationality: 'American')))},
           ),
           ListTile(
             leading: const Icon(Icons.map),
@@ -98,7 +100,8 @@ class _SideMenuState extends State<SideMenu> {
           ListTile(
             leading: const Icon(Icons.notifications),
             title: Text(AppLocalizations.of(context).notification),
-            onTap: () => {Navigator.of(context).pop()}, //go back to screen
+            onTap: () => {Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => NotificationScreen()))}, //go back to screen
           ),
           ExpansionTile(
             leading: const Icon(Icons.settings),
@@ -161,7 +164,7 @@ class _SideMenuState extends State<SideMenu> {
                 onTap: () => {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => AboutUsScreen()),
+                    MaterialPageRoute(builder: (context) => DestinationDesc()),
                   ),
                 },
               ),
