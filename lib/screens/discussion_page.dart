@@ -6,7 +6,6 @@ import '../reusable_widgets/dark_mode.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
-import 'package:image_picker/image_picker.dart';
 
 class Post {
   final int id;

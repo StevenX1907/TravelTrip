@@ -70,7 +70,7 @@ class _SideMenuState extends State<SideMenu> {
             leading: const Icon(Icons.house),
             title: Text(AppLocalizations.of(context).home),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
+                MaterialPageRoute(builder: (context) => const HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
@@ -83,7 +83,7 @@ class _SideMenuState extends State<SideMenu> {
             leading: const Icon(Icons.map),
             title: Text(AppLocalizations.of(context).explore),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()))},
+                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
           ),
           ListTile(
             leading: const Icon(Icons.edit),
