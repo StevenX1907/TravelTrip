@@ -6,7 +6,11 @@
   "signUp": "Sign Up",
   "logInCaps": "LOG IN",
   "forgotPassword": "Forgot Password?",
-
+  "posts": "Posts",
+  "ratings": "Ratings",
+  "comments": "Comments",
+  "followers": "Followers",
+  "following": "Following",
   "english": "English",
   "chinese": "Chinese",
   "indonesian": "Indonesian",

@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/discussion_page.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
 import 'package:travel_trip_application/screens/itinerary.dart';
-import 'package:travel_trip_application/screens/notification_screen.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
-import 'package:travel_trip_application/screens/destination_desc.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../gen_l10n/app_localizations.dart';
 import '../main.dart';
 import '../screens/about_us_screen.dart';
@@ -70,20 +68,20 @@ class _SideMenuState extends State<SideMenu> {
             leading: const Icon(Icons.house),
             title: Text(AppLocalizations.of(context).home),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()))},
+                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
             title: Text(AppLocalizations.of(context).profile),
             onTap: () => {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage(name: 'John Doe', gender: 'Male', nationality: 'American')))},
+                  MaterialPageRoute(builder: (context) => ProfilePage(name:"John Doe",gender:"Female",nationality:"America")))},
           ),
           ListTile(
             leading: const Icon(Icons.map),
             title: Text(AppLocalizations.of(context).explore),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
+                MaterialPageRoute(builder: (context) => const HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.edit),
@@ -100,8 +98,7 @@ class _SideMenuState extends State<SideMenu> {
           ListTile(
             leading: const Icon(Icons.notifications),
             title: Text(AppLocalizations.of(context).notification),
-            onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => NotificationScreen()))}, //go back to screen
+            onTap: () => {Navigator.of(context).pop()}, //go back to screen
           ),
           ExpansionTile(
             leading: const Icon(Icons.settings),
@@ -164,7 +161,7 @@ class _SideMenuState extends State<SideMenu> {
                 onTap: () => {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => DestinationDesc()),
+                    MaterialPageRoute(builder: (context) => AboutUsScreen()),
                   ),
                 },
               ),

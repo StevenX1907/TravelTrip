@@ -13,6 +13,7 @@ import 'package:travel_trip_application/screens/utils/utils.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'personality_screen.dart';
 import 'package:travel_trip_application/screens/utils/Service.dart';
+import '../gen_l10n/app_localizations.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);

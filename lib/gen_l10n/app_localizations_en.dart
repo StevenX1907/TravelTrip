@@ -69,4 +69,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutUs => 'About Us';
+  @override
+  String get posts => 'Posts';
+  @override
+  String get ratings => 'Ratings';
+  @override
+  String get commets => 'Commets';
+  @override
+  String get followers => 'Followers';
+  @override
+  String get following => 'Followering';
 }

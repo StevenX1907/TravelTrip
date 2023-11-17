@@ -9,7 +9,7 @@ import 'package:travel_trip_application/screens/countryScreens/taiwan_screen.dar
 import 'package:travel_trip_application/screens/countryScreens/vietnam_screen.dart';
 import 'package:travel_trip_application/screens/utils/test.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
+import '../gen_l10n/app_localizations.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'countryScreens/weatherapp_screen.dart';
 

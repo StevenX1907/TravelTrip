@@ -6,7 +6,11 @@
   "signUp": "註冊",
   "logInCaps":"登入",
   "forgotPassword": "忘記密碼？",
-
+  "posts": "帖文",
+  "ratings": "回饋",
+  "comments": "評論",
+  "followers": "追踪者",
+  "following": "追踪",
   "english": "英文",
   "chinese": "繁體中文",
   "indonesian": "印尼文",

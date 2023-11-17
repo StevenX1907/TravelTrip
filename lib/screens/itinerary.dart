@@ -8,6 +8,7 @@ import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../gen_l10n/app_localizations.dart';
 
 class ItineraryPage extends StatefulWidget {
   @override

@@ -1,17 +1,17 @@
-import 'package:mysql1/mysql1.dart';
+//import 'package:mysql1/mysql1.dart';
 
-Future main() async {
-  final conn = await MySqlConnection.connect(
-    ConnectionSettings(
-      host: '127.0.0.1',
-      port: 3306,
-      user: 'root',
-      password: '',
-      db: 'flutter_test',
-    ),
-  );
+//Future main() async {
+  //final conn = await MySqlConnection.connect(
+   // ConnectionSettings(
+   //   host: '127.0.0.1',
+   //   port: 3306,
+   //   user: 'root',
+    //  password: '',
+   //   db: 'flutter_test',
+   // ),
+ // );
   //连接成功，可以进行相应的操作
-}
+//}
 
 
 

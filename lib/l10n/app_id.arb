@@ -6,7 +6,11 @@
   "signUp": "Daftar",
   "logInCaps": "MASUK",
   "forgotPassword": "Lupa Kata Sandi?",
-
+  "posts": "Unggah",
+  "ratings": "Peringkat",
+  "comments": "Komentar",
+  "followers": "Pengikut",
+  "following": "Mengikuti",
   "english": "Bahasa Inggris",
   "chinese": "Bahasa Mandarin",
   "indonesian": "Bahasa Indonesia",

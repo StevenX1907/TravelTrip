@@ -69,4 +69,14 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get aboutUs => 'Tentang Kita';
+  @override
+  String get posts => 'Jawatan';
+  @override
+  String get ratings => 'Penilaian';
+  @override
+  String get commets => 'Komen';
+  @override
+  String get followers => 'Pengikut';
+  @override
+  String get following => 'Mengikut';
 }

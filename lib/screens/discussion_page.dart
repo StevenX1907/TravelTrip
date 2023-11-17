@@ -6,6 +6,8 @@ import '../reusable_widgets/dark_mode.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
+import '../gen_l10n/app_localizations.dart';
+
 
 class Post {
   final int id;
@@ -39,7 +41,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('Explore'),
+        title: Text(AppLocalizations.of(context).explore),
         backgroundColor: appBarColor,
       ),
       body: Container(

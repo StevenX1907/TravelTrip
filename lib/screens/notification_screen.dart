@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
+import '../gen_l10n/app_localizations.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
 

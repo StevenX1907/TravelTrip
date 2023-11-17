@@ -230,6 +230,11 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About Us'**
   String get aboutUs;
+  String get posts;
+  String get ratings;
+  String get commets;
+  String get followers;
+  String get following;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

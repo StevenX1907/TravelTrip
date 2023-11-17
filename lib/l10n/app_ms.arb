@@ -6,7 +6,11 @@
   "signUp": "Daftar",
   "logInCaps": "MASUK",
   "forgotPassword": "Lupa Kata Laluan?",
-
+  "posts": "jawatan",
+  "ratings": "penilaian",
+  "comments": "komen",
+  "followers": "pengikut",
+  "following": "mengikut",
   "english": "Bahasa Inggeris",
   "chinese": "Bahasa Cina",
   "indonesian": "Bahasa Indonesia",
@@ -23,4 +27,5 @@
   "darkMode": "Mod Gelap",
   "logOut": "Log Keluar",
   "aboutUs": "Tentang Kita"
+
 }

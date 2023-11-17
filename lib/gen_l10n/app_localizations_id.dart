@@ -69,4 +69,15 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get aboutUs => 'Tentang Kami';
+  @override
+  String get posts => 'Unggah';
+  @override
+  String get ratings => 'Peringkat';
+  @override
+  String get commets => 'Komentar';
+  @override
+  String get followers => 'Pengikut';
+  @override
+  String get following => 'Mengikuti';
+
 }

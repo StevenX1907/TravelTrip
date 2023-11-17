@@ -5,6 +5,8 @@ import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import '../gen_l10n/app_localizations.dart';
+
 
 class DestinationDesc extends StatefulWidget {
   const DestinationDesc({Key? key}) : super(key: key);

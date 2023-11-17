@@ -6,7 +6,11 @@
   "signUp": "Đăng ký",
   "logInCaps": "ĐĂNG NHẬP",
   "forgotPassword": "Quên Mật Khẩu??",
-
+  "posts": "bài đăng",
+  "ratings": "xếp hạng",
+  "comments": "Bình luận",
+  "followers": "người theo dõi",
+  "following": "tiếp theo",
   "english": "Tiếng Anh",
   "chinese": "Tiếng Phổ Thông",
   "indonesian": "Tiếng Indonesia",

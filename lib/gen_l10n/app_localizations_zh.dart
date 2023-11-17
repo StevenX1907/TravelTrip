@@ -69,4 +69,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aboutUs => '關於我們';
+
+  @override
+  String get posts => '帖文';
+
+  @override
+  String get ratings => '回饋';
+
+  @override
+  String get commets => '評論';
+
+  @override
+  String get followers => '追踪者';
+
+  @override
+  String get following => '追踪';
 }

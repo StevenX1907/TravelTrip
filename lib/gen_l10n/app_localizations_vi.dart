@@ -69,4 +69,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aboutUs => 'Về chúng tôi';
+  @override
+  String get posts => 'bài đăng';
+  @override
+  String get ratings => 'xếp hạng';
+  @override
+  String get commets => 'Bình luận';
+  @override
+  String get followers => 'người theo dõi';
+  @override
+  String get following => 'tiếp theo';
 }
