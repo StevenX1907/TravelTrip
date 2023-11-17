@@ -6,6 +6,8 @@ import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'itinerary_display_page.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ItineraryPage extends StatefulWidget {
   @override
@@ -20,6 +22,33 @@ class _ItineraryPageState extends State<ItineraryPage> {
   DateTime? untilDate;
   TimeOfDay? arrivalTime;
   TimeOfDay? departureTime;
+
+  Future<String> getOpenAIResponse(String input) async {
+    final apiKey = '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'; // Replace with your OpenAI API key
+    final apiUrl = 'https://api.openai.com/v1/completions';
+
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $apiKey',
+      },
+      body: '{"model": "text-davinci-003", "prompt": "$input",temperature: 0.8,max_tokens: 1500,}', // Customize as needed
+    );
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw Exception('Failed to get response from OpenAI');
+    }
+  }
+  String truncateInput(String input, int maxTokens) {
+    List<String> tokens = input.split(' ');
+    if (tokens.length > maxTokens) {
+      tokens = tokens.sublist(0, maxTokens);
+    }
+    return tokens.join(' ');
+  }
 
   List<String> areas = [];
   List<String> categories = [
@@ -58,6 +87,27 @@ class _ItineraryPageState extends State<ItineraryPage> {
     itinerary.add('Arrival at ${arrivalTime!.format(context)}');
     itinerary.add('Departure at ${departureTime!.format(context)}');
     return itinerary;
+  }
+  String generateItineraryPrompt() {
+    List<String> itinerary = generateItinerary();
+
+    if (itinerary.isEmpty) {
+      throw Exception('Please fill in all the required fields.');
+    }
+
+    String input = '';
+
+    for (String item in itinerary) {
+      input += '- $item\n';
+    }
+
+    // Add weather and cultural prompts
+    String formattedFromDate = DateFormat('yyyy-MM-dd').format(fromDate!);
+    String formattedUntilDate = DateFormat('yyyy-MM-dd').format(untilDate!);
+
+    input += 'Describe the weather in $selectedCountry during $formattedFromDate to $formattedUntilDate.\n';
+    input += 'List 5 things to take note about $selectedCountry culture and category ${selectedCategories.join(', ')}\n';
+    return input;
   }
 
   @override
@@ -226,17 +276,20 @@ class _ItineraryPageState extends State<ItineraryPage> {
             ),
 
             SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                List<String> itinerary = generateItinerary();
 
-                if (itinerary.isEmpty) {
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  String input = generateItineraryPrompt();
+                  String response = await getOpenAIResponse(input);
+
+                  // Hiển thị kết quả
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Error'),
-                        content: Text('Please fill in all the required fields.'),
+                        title: Text('Generated Itinerary'),
+                        content: Text(response),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
@@ -248,18 +301,32 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       );
                     },
                   );
-                } else {
-                  // Navigate to the new page to display the full itinerary
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ItineraryDisplayPage(itinerary: itinerary),
-                    ),
+                } catch (e) {
+                  // Xử lý lỗi khi không thể tạo prompt hoặc kết nối với OpenAI
+                  print('Error: $e');
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Error'),
+                        content: Text('Failed to generate itinerary. Please fill in all the required fields.'),
+                        actions: <Widget>[
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
                   );
                 }
               },
               child: Text('Create Itinerary'),
             ),
+
+
           ],
         ),
       ),

@@ -7,6 +7,7 @@ import 'package:travel_trip_application/screens/countryScreens/indonesia_screen.
 import 'package:travel_trip_application/screens/countryScreens/malaysia_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/taiwan_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/vietnam_screen.dart';
+import 'package:travel_trip_application/screens/utils/test.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 
 import '../reusable_widgets/dark_mode.dart';
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  Taiwan_screen()),
+                    MaterialPageRoute(builder: (context) =>  TestPage()),
                   );
                 },
                 child: Stack(
