@@ -23,9 +23,9 @@ class _ItineraryPageState extends State<ItineraryPage> {
   TimeOfDay? arrivalTime;
   TimeOfDay? departureTime;
   List<String> generatedItinerary = [];
-
+////saddd
   Future<String> getOpenAIResponse(String input) async {
-    final apiKey = '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'; // Replace with your OpenAI API key
+    final apiKey = ''; // Replace with your OpenAI API key
     final apiUrl = 'https://api.openai.com/v1/completions';
     print('Prompt: $input');
     final response = await http.post(
@@ -111,8 +111,12 @@ class _ItineraryPageState extends State<ItineraryPage> {
     String formattedFromDate = DateFormat('yyyy-MM-dd').format(fromDate!);
     String formattedUntilDate = DateFormat('yyyy-MM-dd').format(untilDate!);
 
-    input += 'Describe the weather in $selectedCountry during $formattedFromDate to $formattedUntilDate.\n';
-    input += 'List 5 things to take note about $selectedCountry culture and category ${selectedCategories.join(', ')}\n';
+    // input += 'Describe the weather in $selectedCountry during $formattedFromDate to $formattedUntilDate.';
+    // input += 'List 5 things to take note about $selectedCountry culture and category ${selectedCategories.join(', ')}';
+    // input += 'Describe the weather that month, and also 5 things to take note about this $selectedCountry culture. Keep to a maximum travel area to the size of Hokkaido, if possible, to minimize traveling time between cities.For each day, list me the following:- Attractions suitable for that season';
+    // input += '. I need create specific times that include hotels and restaurants';
+    input +='Create a time during $formattedFromDate to $formattedUntilDate for trip to $selectedAreas in $selectedCountry and i like $selectedCategories' ;
+    input += 'Include details such as arrival and departure times, activities, meals, and notable attractions. Ensure that the schedule is well-organized and follows a logical sequence. Additionally, provide recommendations for specific locations to visit, dining options, and scenic walks. Use a conversational and informative tone to make the generated itinerary user-friendly.';
     return input;
   }
 
@@ -126,7 +130,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
         title: const Text('Itinerary'),
         backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
       ),
-      body: Container(
+      body: SingleChildScrollView(
+        child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -289,14 +294,15 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   String input = generateItineraryPrompt();
                   String response = await getOpenAIResponse(input);
 
-                  // Parse the response into a list of itinerary items
-                  List<String> itinerary = response.split('\n');
+                  // Parse the response JSON
+                  Map<String, dynamic> jsonResponse = jsonDecode(response);
 
-                  // Remove any empty or whitespace-only lines
-                  itinerary.removeWhere((item) => item.trim().isEmpty);
+                  // Extract the generated text
+                  String generatedText = jsonResponse['choices'][0]['text'];
 
+                  // Update the UI with the generated text
                   setState(() {
-                    generatedItinerary = itinerary;
+                    generatedItinerary = generatedText.split('\n').where((item) => item.isNotEmpty).toList();
                   });
                 } catch (e) {
                   // Handle errors
@@ -306,7 +312,9 @@ class _ItineraryPageState extends State<ItineraryPage> {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: Text('Error'),
-                        content: Text('Failed to generate itinerary. Please fill in all the required fields.'),
+                        content: Text(
+                          'Failed to generate itinerary. Please try again.',
+                        ),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
@@ -320,10 +328,10 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   );
                 }
               },
-              child: Text('Create Itinerary'),
+              child: Text('Generate Itinerary'),
             ),
 
-// Display the generated itinerary
+            // Display the generated itinerary
             if (generatedItinerary.isNotEmpty)
               Expanded(
                 child: ListView(
@@ -331,7 +339,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
                     SizedBox(height: 16.0),
                     Text(
                       'Generated Itinerary:',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     for (String item in generatedItinerary) ...[
                       Text('- $item'),
@@ -342,6 +351,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
 
           ],
         ),
+      ),
       ),
     );
   }
