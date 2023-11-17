@@ -325,20 +325,20 @@ class _ItineraryPageState extends State<ItineraryPage> {
 
 // Display the generated itinerary
             if (generatedItinerary.isNotEmpty)
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(height: 16.0),
-                  Text(
-                    'Generated Itinerary:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  for (String item in generatedItinerary) ...[
-                    Text('- $item'),
+              Expanded(
+                child: ListView(
+                  children: [
+                    SizedBox(height: 16.0),
+                    Text(
+                      'Generated Itinerary:',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    for (String item in generatedItinerary) ...[
+                      Text('- $item'),
+                    ],
                   ],
-                ],
+                ),
               ),
-
 
           ],
         ),
