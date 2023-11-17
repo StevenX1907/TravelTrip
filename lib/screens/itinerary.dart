@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
@@ -23,7 +24,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   TimeOfDay? arrivalTime;
   TimeOfDay? departureTime;
   List<String> generatedItinerary = [];
-////saddd
+////s
   Future<String> getOpenAIResponse(String input) async {
     final apiKey = ''; // Replace with your OpenAI API key
     final apiUrl = 'https://api.openai.com/v1/completions';
@@ -90,8 +91,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
       }
     }
 
-    itinerary.add('Arrival at ${arrivalTime!.format(context)}');
-    itinerary.add('Departure at ${departureTime!.format(context)}');
+    // itinerary.add('Arrival at ${arrivalTime!.format(context)}');
+    // itinerary.add('Departure at ${departureTime!.format(context)}');
     return itinerary;
   }
   String generateItineraryPrompt() {
@@ -288,67 +289,95 @@ class _ItineraryPageState extends State<ItineraryPage> {
 
             SizedBox(height: 16.0),
 
-            ElevatedButton(
-              onPressed: () async {
-                try {
-                  String input = generateItineraryPrompt();
-                  String response = await getOpenAIResponse(input);
-
-                  // Parse the response JSON
-                  Map<String, dynamic> jsonResponse = jsonDecode(response);
-
-                  // Extract the generated text
-                  String generatedText = jsonResponse['choices'][0]['text'];
-
-                  // Update the UI with the generated text
-                  setState(() {
-                    generatedItinerary = generatedText.split('\n').where((item) => item.isNotEmpty).toList();
-                  });
-                } catch (e) {
-                  // Handle errors
-                  print('Error: $e');
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Error'),
-                        content: Text(
-                          'Failed to generate itinerary. Please try again.',
-                        ),
-                        actions: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
-              },
-              child: Text('Generate Itinerary'),
-            ),
-
-            // Display the generated itinerary
             if (generatedItinerary.isNotEmpty)
-              Expanded(
-                child: ListView(
-                  children: [
-                    SizedBox(height: 16.0),
-                    Text(
-                      'Generated Itinerary:',
-                      style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    for (String item in generatedItinerary) ...[
-                      Text('- $item'),
-                    ],
-                  ],
-                ),
-              ),
+              ElevatedButton(
+                onPressed: () async {
+                  try {
+                    String input = generateItineraryPrompt();
+                    String response = await getOpenAIResponse(input);
 
+                    // Parse the response JSON
+                    Map<String, dynamic> jsonResponse = jsonDecode(response);
+
+                    // Extract the generated text
+                    String generatedText = jsonResponse['choices'][0]['text'];
+
+                    // Show the generated itinerary in a pop-up dialog
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Row(
+                            children: [
+                              Text('Generated Itinerary'),
+                              SizedBox(width: 10),
+                              RatingBar.builder(
+                                initialRating: 5,
+                                itemSize: 20,
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {
+                                  // Handle rating update
+                                },
+                              ),
+                            ],
+                          ),
+                          content: Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Generated Itinerary:',
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                                  ),
+                                  for (String item in generatedText.split('\n').where((item) => item.isNotEmpty)) ...[
+                                    Text('- $item'),
+                                  ],
+                                ],
+                              ),
+                            ),
+                          ),
+                          actions: <Widget>[
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  } catch (e) {
+                    // Handle errors
+                    print('Error: $e');
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error'),
+                          content: Text(
+                            'Failed to generate itinerary. Please try again.',
+                          ),
+                          actions: <Widget>[
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Generate Itinerary'),
+              ),
           ],
         ),
       ),
