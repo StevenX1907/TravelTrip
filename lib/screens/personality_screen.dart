@@ -149,7 +149,6 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);

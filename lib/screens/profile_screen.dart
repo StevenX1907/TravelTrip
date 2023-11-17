@@ -151,7 +151,7 @@ class _ProfilePage extends State<ProfilePage>
 
       appBar:
       AppBar(
-        title: Text(widget.name),
+        title: Text('Profile'),
         backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -201,7 +201,7 @@ class _ProfilePage extends State<ProfilePage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Name: ${widget.name}',
+                        widget.name,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -209,7 +209,7 @@ class _ProfilePage extends State<ProfilePage>
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Gender: ${widget.gender}',
+                        widget.gender,
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -326,9 +326,9 @@ class _ProfilePage extends State<ProfilePage>
                       30,
                        (index) {
                           return GestureDetector(
-                            onTap: () {
-                              _selectImageForGrid(index);
-                            },
+                            //onTap: () {
+                              //_selectImageForGrid(index);
+                            //},
                             onLongPress: () {
                               _showDeleteMenu(context, index); // 显示删除菜单
                             },
@@ -365,10 +365,12 @@ class _ProfilePage extends State<ProfilePage>
         ],
       ),
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           _selectImageForGrid(0); // 这里假设你要将图片放入第一个格子
         },
         child: Icon(Icons.add),
+        backgroundColor: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
       ),
     );
   }

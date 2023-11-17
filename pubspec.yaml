@@ -70,8 +70,11 @@ dependencies:
   velocity_x: ^4.1.0
   dotenv: ^4.1.0
   email_auth: ^1.0.0
+  mysql1: ^0.20.0
+  font_awesome_flutter: ^10.0.0
+
 dev_dependencies:
-  intl: ^0.18.0
+  intl: ^0.17.0
   flutter_test:
     sdk: flutter
 

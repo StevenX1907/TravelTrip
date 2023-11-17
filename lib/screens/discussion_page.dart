@@ -6,7 +6,6 @@ import '../reusable_widgets/dark_mode.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'dart:io';
-import 'package:image_picker/image_picker.dart';
 
 class Post {
   final int id;
@@ -40,7 +39,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('TravelTrip'),
+        title: const Text('Explore'),
         backgroundColor: appBarColor,
       ),
       body: Container(
@@ -79,7 +78,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
-                        "https://randomuser.me/api/portraits/men/6.jpg", //change to per account's picture
+                        "https://randomuser.me/api/portraits/men/47.jpg", //change to per account's picture
                       ),
                     ),
                     title: Row(
@@ -434,7 +433,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
           onPressed: () {
             _showPostDialog(context);
           },
-          backgroundColor: Color(0xFF306550),
+          backgroundColor: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
           elevation: 8,
           child: Icon(
             Icons.add,
@@ -601,7 +600,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
                   // Create a new post and add it to the posts list
                   Post newPost = Post(
                     id: posts.length,
-                    username: 'yejunjie',
+                    username: 'johndoe123',
                     content: postText,
                     timestamp: DateTime.now(),
                   );

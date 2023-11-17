@@ -7,6 +7,9 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../reusable_widgets/dark_mode.dart';
+import '../indonesia/borobudur_temple.dart';
+import '../indonesia/komodo_park.dart';
+import '../indonesia/kota_tua.dart';
 import '../utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -23,10 +26,11 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
   List<String> events = [
-    'indo.jpg',
-    'indo1.jpg',
-    'indo2.jpg',
-    'indo3.jfif',
+    'Event_Indonesia_1.jpeg',
+    'Event_Indonesia_2.jpeg',
+    'Event_Indonesia_3.jpeg',
+    'Event_Indonesia_4.jpeg',
+    'Event_Indonesia_5.jpeg'
   ];
   List<Map<String, String>> destinations = [
     {
@@ -99,6 +103,28 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     }
   }
 
+  void navigateToDetailPage(int index) {
+    // You can replace these conditions with your actual logic
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => borobudurTemple()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => komodoPark()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => kotaTua()),
+      );
+    }
+    // Add more conditions for other items as needed
+  }
+
+
   Future<void> fetchExchangeRate() async {
     try {
       final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/IDR'));
@@ -118,28 +144,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
       });
     }
   }
-  // Future<void> getCurrentTemperature() async {
-  //   try {
-  //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
-  //     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Vietnam&appid=$apiKey";
-  //     final response = await http.get(Uri.parse(apiUrl));
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //       final temperature = data['main']['temp'];
-  //       setState(() {
-  //         currentTemperature = "$temperature°C";
-  //       });
-  //     } else {
-  //       setState(() {
-  //         currentTemperature = "Error";
-  //       });
-  //     }
-  //   } catch (e) {
-  //     setState(() {
-  //       currentTemperature = "Error";
-  //     });
-  //   }
-  // }
+
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -185,12 +190,22 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                   });
                 },
               ),
-              items: events.map((event) {
+              items: events.asMap().entries.map((entry) {
+                int index = entry.key;
+                String event = entry.value;
                 return Builder(
                   builder: (BuildContext context) {
-                    return Image.asset(
-                      'assets/images/events/$event',
-                      fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle the image click here, e.g., navigate to a detail screen
+                        // You can use the index to identify the selected image
+                        navigateToDetailPage(index);
+                        print('Image at index $index clicked');
+                      },
+                      child: Image.asset(
+                        'assets/images/events/$event',
+                        fit: BoxFit.cover,
+                      ),
                     );
                   },
                 );
@@ -399,7 +414,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  '   Restaurants',
+                  'Restaurants',
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
