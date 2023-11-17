@@ -1,6 +1,6 @@
 
 import 'package:firebase_core/firebase_core.dart';
-//import 'package:mysql1/mysql1.dart';
+import 'package:mysql1/mysql1.dart';
 import 'package:travel_trip_application/screens/utils/VerifyEmailScreen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
@@ -19,15 +19,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  //final conn = await MySqlConnection.connect(
-   // ConnectionSettings(
-   //   host: 'localhost',
-    //  port: 3306,
-    //  user: 'root',
-    //  password: '12345678',
-   //   db: 'traveltrip',
-  //  ),
-  //);
+  // final conn = await MySqlConnection.connect(
+  //   ConnectionSettings(
+  //     host: 'localhost',
+  //     port: 3306,
+  //     user: 'root',
+  //     password: '12345678',
+  //     db: 'traveltrip',
+  //   ),
+  // );
     //连接成功，可以进行相应的操作
 
   runApp(
@@ -69,7 +69,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       theme: context.watch<DarkModeExample>().isDarkMode
           ? ThemeData.dark()

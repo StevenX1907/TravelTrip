@@ -37,7 +37,6 @@ class _TestPageState extends State<TestPage> {
 
   bool includeRestaurants = true;
   bool includeHotels = true;
-
   String apiOutput = '';
   bool isGenerating = false;
 
@@ -60,7 +59,7 @@ class _TestPageState extends State<TestPage> {
     basePrompt += 'and give me a daily summary of the above points into a paragraph or two.\n';
 
     try {
-      final openAiApi = OpenAiApi('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'); // Replace with your OpenAI API key
+      final openAiApi = OpenAiApi('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'); // Replace with your OpenAI API key
       final response = await openAiApi.generateCompletion(basePrompt);
 
       setState(() {
