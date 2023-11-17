@@ -113,13 +113,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
     // Add weather and cultural prompts
     String formattedFromDate = DateFormat('yyyy-MM-dd').format(fromDate!);
     String formattedUntilDate = DateFormat('yyyy-MM-dd').format(untilDate!);
-
-    // input += 'Describe the weather in $selectedCountry during $formattedFromDate to $formattedUntilDate.';
-    // input += 'List 5 things to take note about $selectedCountry culture and category ${selectedCategories.join(', ')}';
-    // input += 'Describe the weather that month, and also 5 things to take note about this $selectedCountry culture. Keep to a maximum travel area to the size of Hokkaido, if possible, to minimize traveling time between cities.For each day, list me the following:- Attractions suitable for that season';
-    // input += '. I need create specific times that include hotels and restaurants';
     input +='Create a time during $formattedFromDate to $formattedUntilDate for trip to $selectedAreas in $selectedCountry and i like $selectedCategories' ;
-    input += 'Include details such as arrival and departure times, activities, meals, and notable attractions. Ensure that the schedule is well-organized and follows a logical sequence. Additionally, provide recommendations for specific locations to visit, dining options, and scenic walks. Use a conversational and informative tone to make the generated itinerary user-friendly.';
+    input += 'Include details such as arrival and departure times, activities, meals, and notable attractions. Ensure that the schedule is well-organized and follows a logical sequence. Additionally, provide recommendations for specific locations to visit, dining options, and scenic walks. Use a conversational and informative tone to make the generated itinerary user-friendly.I need to list each time period for my itinerary. For example: 9:00: where to go 10:00: where to go';
     return input;
   }
 
@@ -299,69 +294,76 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   String input = generateItineraryPrompt();
                   String response = await getOpenAIResponse(input);
 
-                  // Parse the response JSON
                   Map<String, dynamic> jsonResponse = jsonDecode(response);
-
-                  // Extract the generated text
                   String generatedText =
                   jsonResponse['choices'][0]['text'];
 
-                  // Show the generated itinerary in a pop-up dialog with RatingBar
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return StatefulBuilder(
-                        builder: (context, setState) {
-                          return AlertDialog(
-                            title: Text('Generated Itinerary'),
-                            content: Container(
-                              width:MediaQuery.of(context).size.width * 0.8,
-                              height: MediaQuery.of(context).size.width * 0.8,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Generated Itinerary:',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    for (String item in generatedText
-                                        .split('\n')
-                                        .where((item) =>
-                                    item.isNotEmpty)) ...[
-                                      Text('- $item'),
-                                    ],
-                                    SizedBox(height: 16.0),
-                                    Text('Rate this itinerary:'),
-                                    RatingBar.builder(
-                                      initialRating: userRating,
-                                      minRating: 1,
-                                      direction: Axis.horizontal,
-                                      allowHalfRating: true,
-                                      itemCount: 5,
-                                      itemSize: 30.0,
-                                      itemPadding: EdgeInsets.symmetric(
-                                          horizontal: 4.0),
-                                      itemBuilder: (context, _) => Icon(
-                                        Icons.star,
-                                        color: Colors.amber,
-                                      ),
-                                      onRatingUpdate: (rating) {
-                                        setState(() {
-                                          // Update the user's rating
-                                          userRating = rating;
-                                        });
-                                      },
-                                    ),
-                                  ],
+                      return AlertDialog(
+                        title: Text('Generated Itinerary'),
+                        content: Container(
+                          width:
+                          MediaQuery.of(context).size.width * 0.8,
+                          height:
+                          MediaQuery.of(context).size.width * 0.8,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Generated Itinerary:',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
+                                for (String item in generatedText
+                                    .split('\n')
+                                    .where((item) =>
+                                item.isNotEmpty)) ...[
+                                  Text('- $item'),
+                                ],
+                                SizedBox(height: 16.0),
+                              ],
                             ),
-                            actions: <Widget>[
+                          ),
+                        ),
+                        actions: [
+                          Row(
+                          mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Rate this itinerary:'),
+                              Text(''),
+                            ],
+                          ),
+
+                          Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                            children: [
+                              RatingBar.builder(
+                                initialRating: userRating,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 30.0,
+                                itemPadding: EdgeInsets.symmetric(
+                                    horizontal: 4.0),
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {
+                                  setState(() {
+                                    userRating = rating;
+                                  });
+                                },
+                              ),
                               ElevatedButton(
                                 onPressed: () {
                                   // Save the user's rating and close the dialog
@@ -371,13 +373,13 @@ class _ItineraryPageState extends State<ItineraryPage> {
                                 child: Text('OK'),
                               ),
                             ],
-                          );
-                        },
+                          ),
+                        ],
+                        // ... (your other properties)
                       );
                     },
                   );
                 } catch (e) {
-                  // Handle errors
                   print('Error: $e');
                   showDialog(
                     context: context,
@@ -402,7 +404,6 @@ class _ItineraryPageState extends State<ItineraryPage> {
               },
               child: Text('Generate Itinerary'),
             ),
-
 
           ],
         ),
