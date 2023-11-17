@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-import '../reusable_widgets/dark_mode.dart';
-import '../reusable_widgets/side_menu.dart';
+import '../../reusable_widgets/dark_mode.dart';
+import '../../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
-class DestinationDesc extends StatefulWidget {
-  const DestinationDesc({Key? key}) : super(key: key);
+class borobudurTemple extends StatefulWidget {
+  const borobudurTemple({Key? key}) : super(key: key);
 
   @override
-  State<DestinationDesc> createState() => _DestinationDescState();
+  State<borobudurTemple> createState() => _borobudurTemple();
 }
 
-class _DestinationDescState extends State<DestinationDesc> {
+class _borobudurTemple extends State<borobudurTemple> {
   bool isLiked = false; // State for the like button
   List<String> comments = [
     'Great place!',
@@ -27,9 +27,8 @@ class _DestinationDescState extends State<DestinationDesc> {
     final isDarkMode = darkModeProvider.isDarkMode;
 
     return Scaffold(
-      drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('Explore'),
+        title: const Text('Borobudur Temple'),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -59,12 +58,12 @@ class _DestinationDescState extends State<DestinationDesc> {
                   width: 400,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                      color: Colors.amber,
-                      image: DecorationImage(
-                        image: AssetImage(
-                            'assets/images/destinations/indonesia-borobudur.jpg'),
-                        fit: BoxFit.cover,
-                      ),
+                    color: Colors.amber,
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'assets/images/destinations/indonesia-borobudur.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   // child: YourImageWidget(), // Uncomment and replace with your image widget
                 ),
@@ -174,12 +173,12 @@ class _DestinationDescState extends State<DestinationDesc> {
                           decoration: BoxDecoration(
                             color: Colors.grey[300], // Placeholder color, replace with your image
                             borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/images/destinations/Borobudur 1.jpeg'),
-                                fit: BoxFit.cover,
-                              ),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/images/destinations/Borobudur 1.jpeg'),
+                              fit: BoxFit.cover,
                             ),
+                          ),
                           // child: YourImageWidget(), // Uncomment and replace with your image widget
                         ),
                       ),
