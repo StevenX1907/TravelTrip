@@ -19,15 +19,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  final conn = await MySqlConnection.connect(
-    ConnectionSettings(
-      host: 'localhost',
-      port: 3306,
-      user: 'root',
-      password: '12345678',
-      db: 'traveltrip',
-    ),
-  );
+  // final conn = await MySqlConnection.connect(
+  //   ConnectionSettings(
+  //     host: 'localhost',
+  //     port: 3306,
+  //     user: 'root',
+  //     password: '12345678',
+  //     db: 'traveltrip',
+  //   ),
+  // );
     //连接成功，可以进行相应的操作
 
   runApp(

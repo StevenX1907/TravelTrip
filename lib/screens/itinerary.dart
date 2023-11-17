@@ -22,18 +22,24 @@ class _ItineraryPageState extends State<ItineraryPage> {
   DateTime? untilDate;
   TimeOfDay? arrivalTime;
   TimeOfDay? departureTime;
+  List<String> generatedItinerary = [];
 
   Future<String> getOpenAIResponse(String input) async {
-    final apiKey = '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'; // Replace with your OpenAI API key
+    final apiKey = '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'; // Replace with your OpenAI API key
     final apiUrl = 'https://api.openai.com/v1/completions';
-
+    print('Prompt: $input');
     final response = await http.post(
       Uri.parse(apiUrl),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $apiKey',
       },
-      body: '{"model": "text-davinci-003", "prompt": "$input",temperature: 0.8,max_tokens: 1500,}', // Customize as needed
+      body: jsonEncode({
+        'model': 'text-davinci-003',
+        'prompt': '$input',
+        'temperature': 0.8,
+        'max_tokens': 1500,
+      }),
     );
 
     if (response.statusCode == 200) {
@@ -283,26 +289,17 @@ class _ItineraryPageState extends State<ItineraryPage> {
                   String input = generateItineraryPrompt();
                   String response = await getOpenAIResponse(input);
 
-                  // Hiển thị kết quả
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Generated Itinerary'),
-                        content: Text(response),
-                        actions: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
+                  // Parse the response into a list of itinerary items
+                  List<String> itinerary = response.split('\n');
+
+                  // Remove any empty or whitespace-only lines
+                  itinerary.removeWhere((item) => item.trim().isEmpty);
+
+                  setState(() {
+                    generatedItinerary = itinerary;
+                  });
                 } catch (e) {
-                  // Xử lý lỗi khi không thể tạo prompt hoặc kết nối với OpenAI
+                  // Handle errors
                   print('Error: $e');
                   showDialog(
                     context: context,
@@ -325,6 +322,22 @@ class _ItineraryPageState extends State<ItineraryPage> {
               },
               child: Text('Create Itinerary'),
             ),
+
+// Display the generated itinerary
+            if (generatedItinerary.isNotEmpty)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 16.0),
+                  Text(
+                    'Generated Itinerary:',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  for (String item in generatedItinerary) ...[
+                    Text('- $item'),
+                  ],
+                ],
+              ),
 
 
           ],
