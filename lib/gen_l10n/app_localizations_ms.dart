@@ -79,4 +79,6 @@ class AppLocalizationsMs extends AppLocalizations {
   String get followers => 'Pengikut';
   @override
   String get following => 'Mengikut';
+  @override
+  String get BorobudurTemple => 'Kuil Borobudur';
 }

@@ -79,4 +79,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get followers => 'Followers';
   @override
   String get following => 'Followering';
+  @override
+  String get BorobudurTemple => 'Borobudur Temple';
 }

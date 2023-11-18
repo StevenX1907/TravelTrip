@@ -79,5 +79,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get followers => 'Pengikut';
   @override
   String get following => 'Mengikuti';
-
+  @override
+  String get BorobudurTemple => 'Candi Borobudur';
 }

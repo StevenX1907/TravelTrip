@@ -235,6 +235,8 @@ abstract class AppLocalizations {
   String get commets;
   String get followers;
   String get following;
+  String get BorobudurTemple;
+
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -79,4 +79,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get followers => 'người theo dõi';
   @override
   String get following => 'tiếp theo';
+  @override
+  String get BorobudurTemple => 'Đền Borobudur';
 }

@@ -84,4 +84,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get following => '追踪';
+
+  @override
+  String get BorobudurTemple => '菩提浮屠';
 }
