@@ -1,6 +1,5 @@
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mysql1/mysql1.dart';
 import 'package:travel_trip_application/screens/utils/VerifyEmailScreen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';

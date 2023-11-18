@@ -28,6 +28,7 @@ class DiscussionPage extends StatefulWidget {
 }
 
 class _DiscussionPageState extends State<DiscussionPage> {
+  File? selectedImage;
   TextEditingController _postController = TextEditingController();
   XFile? image;
   final ImagePicker picker = ImagePicker();
@@ -456,65 +457,6 @@ class _DiscussionPageState extends State<DiscussionPage> {
       return '${difference.inMinutes}m';
     }
   }
-
-  void openImageSelectionDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          title: Text('Please choose media to select'),
-          content: Container(
-            height: MediaQuery.of(context).size.height / 6,
-            child: Column(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    getImage(ImageSource.gallery);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.image),
-                      Text('From Gallery'),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    getImage(ImageSource.camera);
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.camera),
-                      Text('From Camera'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Future getImage(ImageSource source) async {
-    var img = await picker.pickImage(source: source);
-
-    if (img != null) {
-      image = XFile(img.path);
-      print("Selected Image Path: ${img.path}");
-    } else {
-      print("No image selected");
-    }
-
-    setState(() {
-      image = img;
-    });
-  }
-
   void _deletePost(int postId) {
     setState(() {
       int index = posts.indexWhere((post) => post.id == postId);
@@ -554,78 +496,139 @@ class _DiscussionPageState extends State<DiscussionPage> {
       }
     });
   }
-  void _showPostDialog(BuildContext context) {
+
+
+  void openImageSelectionDialog(StateSetter setState) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        File? selectedImage; // Initialize a variable to store the selected image.
-
         return AlertDialog(
-          title: Text("Create a New Post"),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          title: Text('Please choose media to select'),
           content: Container(
-            height: 350.0,
-            width: 600.0,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-            ),
+            height: MediaQuery.of(context).size.height / 6,
             child: Column(
               children: [
-                Expanded(
-                  child: TextField(
-                    controller: _postController,
-                    maxLines: 12,
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(12.0),
-                      hintText: "What's on your mind?",
-                      border: InputBorder.none,
-                    ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    getImage(ImageSource.gallery,setState);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.image),
+                      Text('From Gallery'),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    getImage(ImageSource.camera,setState);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.camera),
+                      Text('From Camera'),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
-          actions: [
-            if (selectedImage != null)
-              Image.file(
-                selectedImage,
-                fit: BoxFit.cover,
-                height: 200.0,
-              ),
-            IconButton(
-              onPressed: (openImageSelectionDialog),
-              icon: Icon(Icons.image_outlined),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                String postText = _postController.text;
-                if (postText.isNotEmpty) {
-                  // Create a new post and add it to the posts list
-                  Post newPost = Post(
-                    id: posts.length,
-                    username: 'johndoe123',
-                    content: postText,
-                    timestamp: DateTime.now(),
-                  );
-                  setState(() {
-                    posts.add(newPost);
-                  });
-                  print('New Post: $postText');
-                }
-                _postController.clear();
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text("Post"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _postController.clear();
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text("Cancel"),
-            ),
-          ],
         );
       },
     );
   }
+
+  Future getImage(ImageSource source,StateSetter setState) async {
+    final picker = ImagePicker();
+    var img = await picker.pickImage(source: source);
+    if (img != null) {
+      setState((){
+        selectedImage = File(img.path);
+      });
+      print("Selected Image Path: ${img.path}");
+    } else {
+      print("No image selected");
+    }
+  }
+
+  Future<void> _showPostDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              title: Text("Create a New Post"),
+              content: Container(
+                height: 350.0,
+                width: 600.0,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                ),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: _postController,
+                        maxLines: 12,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(12.0),
+                          hintText: "What's on your mind?",
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    if (selectedImage != null)
+                      Image.file(
+                        selectedImage!,
+                        fit: BoxFit.cover,
+                        height: 200.0,
+                      ),
+                    IconButton(
+                      onPressed: () {
+                        openImageSelectionDialog(setState);
+                      },
+                      icon: Icon(Icons.image_outlined),
+                    ),
+                  ],
+                ),
+              ),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    String postText = _postController.text;
+                    if (postText.isNotEmpty) {
+                      // Create a new post and add it to the posts list
+                      Post newPost = Post(
+                        id: posts.length,
+                        username: 'johndoe123',
+                        content: postText,
+                        timestamp: DateTime.now(),
+                      );
+                      setState(() {
+                        posts.add(newPost);
+                      });
+                      print('New Post: $postText');
+                    }
+                    _postController.clear();
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: Text("Post"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    _postController.clear();
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: Text("Cancel"),
+                ),
+              ],
+            );
+          },
+        );
+      });
+      }
 }
