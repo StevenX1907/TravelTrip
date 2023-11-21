@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:travel_trip_application/screens/vietnam/destinations/danang.dart';
 
 import 'app_localizations_en.dart';
 import 'app_localizations_id.dart';
@@ -235,7 +236,13 @@ abstract class AppLocalizations {
   String get commets;
   String get followers;
   String get following;
+
+  //indonesia
   String get BorobudurTemple;
+  String get borobudurTempleDescription;
+
+  //vietnam
+  String get DanangScreen;
 
 }
 

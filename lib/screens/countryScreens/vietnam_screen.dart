@@ -12,6 +12,10 @@
   import 'package:carousel_slider/carousel_slider.dart';
   import 'package:http/http.dart' as http;
 
+import '../vietnam/destinations/danang.dart';
+import '../vietnam/destinations/haiphong.dart';
+import '../vietnam/destinations/halongbay.dart';
+
   class Vietnam_screen extends StatefulWidget {
     const Vietnam_screen({Key? key}) : super(key: key);
 
@@ -78,11 +82,11 @@
       super.initState();
       getCurrentTemperature();
       fetchExchangeRate();
-      if (countryData == null) {
-        fetchCountryFromServer(1); // Gọi hàm này chỉ khi chưa có dữ liệu
-      }else {
-        isCountryDataLoaded = true;
-      }
+      // if (countryData == null) {
+      //   fetchCountryFromServer(1); // Gọi hàm này chỉ khi chưa có dữ liệu
+      // }else {
+      //   isCountryDataLoaded = true;
+      // }
     }
     Future<void> getCurrentTemperature() async {
       try {
@@ -126,48 +130,25 @@
         });
       }
     }
-    Future<Map<String, dynamic>>? fetchCountryFromServer(int id) async {
-      try {
-        final response = await http.get(Uri.parse('http://10.0.2.2:8080/getCountry/$id'));
-
-        if (response.statusCode == 200) {
-          final data = jsonDecode(response.body);
-          return {
-            'countryName': data['countryName'],
-            'imageData': data['imageData'],
-          };
-        } else {
-          throw Exception('Failed to load country data');
-        }
-      } catch (e) {
-        throw Exception('Error: $e');
+    void navigateToDestinationDetail(int index) {
+      if (index == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const DanangScreen()),
+        );
+      } else if (index == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Halongbay()),
+        );
+      } else if (index == 2) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const haiphong()),
+        );
       }
+      // Add more conditions for other items as needed
     }
-
-
-
-    // Future<void> getCurrentTemperature() async {
-    //   try {
-    //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
-    //     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Vietnam&appid=$apiKey";
-    //     final response = await http.get(Uri.parse(apiUrl));
-    //     if (response.statusCode == 200) {
-    //       final data = jsonDecode(response.body);
-    //       final temperature = data['main']['temp'];
-    //       setState(() {
-    //         currentTemperature = "$temperature°C";
-    //       });
-    //     } else {
-    //       setState(() {
-    //         currentTemperature = "Error";
-    //       });
-    //     }
-    //   } catch (e) {
-    //     setState(() {
-    //       currentTemperature = "Error";
-    //     });
-    //   }
-    // }
 
     @override
     Widget build(BuildContext context) {
@@ -269,43 +250,6 @@
               //   currentTemperature,
               //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               // ),
-              FutureBuilder<Map<String, dynamic>>(
-                future: fetchCountryFromServer(1),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else if (snapshot.hasData) {
-                    final countryData = snapshot.data!;
-                    final String countryName = countryData['countryName'] ?? 'Unknown';
-                    final String base64ImageData = countryData['imageData'] ?? ''; // Dữ liệu hình ảnh Base64
-
-                    double desiredWidth = 100.0;
-                    double desiredHeight = 100.0;
-
-                    // Chuyển dữ liệu Base64 thành mảng bytes
-                    Uint8List bytes = base64.decode(base64ImageData);
-
-                    return Column(
-                      children: [
-                        Text('Country Name: $countryName'),
-                        SizedBox(height: 10),
-                        // Sử dụng Image.memory để hiển thị hình ảnh từ dữ liệu Base64
-                        Image.memory(
-                          bytes,
-                          width: desiredWidth,
-                          height: desiredHeight,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    );
-                  } else {
-                    return Text('No country data.');
-                  }
-                },
-              ),
-
 
               Card(
                 child: Container(
@@ -380,37 +324,43 @@
                 ],
               ),
             const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              height: 150,
-              color: Colors.white,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: destinations.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            destinations[index]['image']!,
-                            fit: BoxFit.cover,
-                          ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                height: 150,
+                color: Colors.white,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: destinations.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle the destination image click here
+                        navigateToDestinationDetail(index);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                destinations[index]['image']!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              destinations[index]['name']!,
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          destinations[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

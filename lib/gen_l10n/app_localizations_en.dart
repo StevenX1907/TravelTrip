@@ -79,6 +79,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get followers => 'Followers';
   @override
   String get following => 'Followering';
+
+  //indonesia
   @override
   String get BorobudurTemple => 'Borobudur Temple';
+  @override
+  String get borobudurTempleDescription => 'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex. It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.';
+  @override
+  String get DanangScreen => 'Da nang';
+
+
 }

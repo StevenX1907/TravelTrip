@@ -1,3 +1,5 @@
+import 'package:travel_trip_application/screens/indonesia/destinations/borobudur_temple.dart';
+
 import 'app_localizations.dart';
 
 /// The translations for Indonesian (`id`).
@@ -79,6 +81,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get followers => 'Pengikut';
   @override
   String get following => 'Mengikuti';
+
+  //indonesia
   @override
   String get BorobudurTemple => 'Candi Borobudur';
+  @override
+  String get borobudurTempleDescription => 'Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Budha terbesar di dunia yang menakjubkan. Ini menampilkan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno.';
+  @override
+  String get DanangScreen => 'Da nang';
 }

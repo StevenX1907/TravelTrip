@@ -85,6 +85,11 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get following => '追踪';
 
+  //indonesia
   @override
   String get BorobudurTemple => '菩提浮屠';
+  @override
+  String get borobudurTempleDescription => 'Candi Borobudur 或婆羅浮屠寺是印尼聯合國教科文組織世界遺產，以其令人驚嘆的世界上最大的佛教寺廟建築群而聞名。 它以複雜的石雕為特色，讓您可以一睹古代爪哇的歷史和文化。';
+  @override
+  String get DanangScreen => '峴港';
 }

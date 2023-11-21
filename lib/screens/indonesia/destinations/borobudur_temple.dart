@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-import '../../reusable_widgets/dark_mode.dart';
-import '../../reusable_widgets/side_menu.dart';
+import '../../../gen_l10n/app_localizations.dart';
+import '../../../reusable_widgets/dark_mode.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
-class kotaTua extends StatefulWidget {
-  const kotaTua({Key? key}) : super(key: key);
+class borobudurTemple extends StatefulWidget {
+  const borobudurTemple({Key? key}) : super(key: key);
 
   @override
-  State<kotaTua> createState() => _kotaTua();
+  State<borobudurTemple> createState() => _borobudurTemple();
 }
 
-class _kotaTua extends State<kotaTua> {
+class _borobudurTemple extends State<borobudurTemple> {
   bool isLiked = false; // State for the like button
   List<String> comments = [
     'Great place!',
     'Love the atmosphere.',
     'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  ];
+  // List of comments (you can initialize it with your existing comments)
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _kotaTua extends State<kotaTua> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Jakarta Old Town'),
+        title: Text(AppLocalizations.of(context).BorobudurTemple),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -77,9 +79,10 @@ class _kotaTua extends State<kotaTua> {
                   ),
                 ),
                 const SizedBox(height: 8),
+
                 Text(
-                  'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                  AppLocalizations.of(context).borobudurTempleDescription,
+                 style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(

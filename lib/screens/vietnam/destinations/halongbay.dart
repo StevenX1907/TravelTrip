@@ -1,25 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:travel_trip_application/screens/utils/utils.dart';
-import '../../reusable_widgets/dark_mode.dart';
-import '../../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
-class komodoPark extends StatefulWidget {
-  const komodoPark({Key? key}) : super(key: key);
+import '../../../gen_l10n/app_localizations.dart';
+import '../../../reusable_widgets/dark_mode.dart';
+import '../../utils/utils.dart';
+
+class Halongbay extends StatefulWidget {
+  const Halongbay({super.key});
 
   @override
-  State<komodoPark> createState() => _komodoPark();
+  State<Halongbay> createState() => _HalongbayState();
 }
 
-class _komodoPark extends State<komodoPark> {
+class _HalongbayState extends State<Halongbay> {
   bool isLiked = false; // State for the like button
   List<String> comments = [
     'Great place!',
     'Love the atmosphere.',
     'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  ];
+  // List of comments (you can initialize it with your existing comments)
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class _komodoPark extends State<komodoPark> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Komodo Park'),
+        title: Text(AppLocalizations.of(context).BorobudurTemple),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -77,6 +79,7 @@ class _komodoPark extends State<komodoPark> {
                   ),
                 ),
                 const SizedBox(height: 8),
+
                 Text(
                   'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),

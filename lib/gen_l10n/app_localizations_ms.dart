@@ -79,6 +79,12 @@ class AppLocalizationsMs extends AppLocalizations {
   String get followers => 'Pengikut';
   @override
   String get following => 'Mengikut';
+
+  //indonesia
   @override
   String get BorobudurTemple => 'Kuil Borobudur';
+  @override
+  String get borobudurTempleDescription => 'Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Budha terbesar di dunia yang menakjubkan. Ini menampilkan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno.';
+  @override
+  String get DanangScreen => 'Da nang';
 }

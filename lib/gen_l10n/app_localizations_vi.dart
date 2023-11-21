@@ -79,6 +79,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get followers => 'người theo dõi';
   @override
   String get following => 'tiếp theo';
+
+  //indonesia
   @override
   String get BorobudurTemple => 'Đền Borobudur';
+  @override
+  String get borobudurTempleDescription => 'Candi Borobudur hay Đền Borobudur là Di sản Thế giới được UNESCO công nhận ở Indonesia, nổi tiếng với quần thể chùa Phật giáo lớn nhất thế giới tuyệt đẹp. Nơi đây có các tác phẩm chạm khắc bằng đá phức tạp và mang đến cái nhìn thoáng qua về lịch sử và văn hóa Java cổ đại.';
+  @override
+  String get DanangScreen => 'Đà Nẵng';
 }

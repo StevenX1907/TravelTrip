@@ -7,9 +7,9 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../reusable_widgets/dark_mode.dart';
-import '../indonesia/borobudur_temple.dart';
-import '../indonesia/komodo_park.dart';
-import '../indonesia/kota_tua.dart';
+import '../indonesia/destinations/borobudur_temple.dart';
+import '../indonesia/destinations/komodo_park.dart';
+import '../indonesia/destinations/kota_tua.dart';
 import '../utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -144,7 +144,25 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
       });
     }
   }
-
+  void navigateToDestinationDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => komodoPark()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => borobudurTemple()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => kotaTua()),
+      );
+    }
+    // Add more conditions for other items as needed
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -307,6 +325,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
               ),
             ),
             const SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -325,7 +344,6 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10),
               height: 150,
@@ -334,29 +352,37 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: destinations.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            destinations[index]['image']!,
-                            fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle the destination image click here
+                      navigateToDestinationDetail(index);
+                    },
+                    child: Container(
+                      width: 150,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              destinations[index]['image']!,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          destinations[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            destinations[index]['name']!,
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
               ),
             ),
+            const SizedBox(height: 10),
+
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
