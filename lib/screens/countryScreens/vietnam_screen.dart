@@ -6,6 +6,10 @@
   import 'package:provider/provider.dart';
   import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
   import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/vietnam/hotels/RAON.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/Era.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terraco.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
   import '../../gen_l10n/app_localizations.dart';
 import '../../reusable_widgets/dark_mode.dart';
   import '../utils/utils.dart';
@@ -16,6 +20,8 @@ import '../../reusable_widgets/dark_mode.dart';
 import '../vietnam/destinations/danang.dart';
 import '../vietnam/destinations/haiphong.dart';
 import '../vietnam/destinations/halongbay.dart';
+import '../vietnam/hotels/eden.dart';
+import '../vietnam/hotels/metooHomestay.dart';
 
   class Vietnam_screen extends StatefulWidget {
     const Vietnam_screen({Key? key}) : super(key: key);
@@ -32,7 +38,7 @@ import '../vietnam/destinations/halongbay.dart';
     bool isCountryDataLoaded = false;
     late List<Map<String, String>> destinations;
     late List<Map<String, String>> hotels;
-
+    late List<Map<String, String>> restaurants;
     List<String> events = [
       'vn.jfif',
       'vn1.jfif',
@@ -60,33 +66,34 @@ import '../vietnam/destinations/halongbay.dart';
 
       hotels = [
         {
-          'name': 'Eden Hotel',
+          'name': AppLocalizations.of(context).edenHotels,
           'image': 'assets/images/hotels/eden_hotel.jpg',
         },
         {
-          'name': 'Metoo Homestay',
+          'name': AppLocalizations.of(context).metooHomestay,
           'image': 'assets/images/hotels/metoo_homestay.jpg',
         },
         {
-          'name': 'RAON hotel',
+          'name': AppLocalizations.of(context).raonHotels,
           'image': 'assets/images/hotels/RAON_hotel.jpg',
         },
       ];
+      restaurants = [
+        {
+          'name': AppLocalizations.of(context).terracoSkyBar,
+          'image': 'assets/images/restaurants/terraco-sky-bar-offers.jpg',
+        },
+        {
+          'name': AppLocalizations.of(context).eraRes,
+          'image': 'assets/images/restaurants/era.jpg',
+        },
+        {
+          'name': AppLocalizations.of(context).caugoRes,
+          'image': 'assets/vietnam/restaurants/caugores4.jpg',
+        },
+      ];
     }
-    List<Map<String, String>> restaurants = [
-      {
-        'name': 'Terraço Sky Bar & Restaurant',
-        'image': 'assets/images/restaurants/terraco-sky-bar-offers.jpg',
-      },
-      {
-        'name': 'Era Restaurant',
-        'image': 'assets/images/restaurants/era.jpg',
-      },
-      {
-        'name': 'Terraço',
-        'image': 'assets/images/restaurants/terraco-sky-bar-offers.jpg',
-      },
-    ];
+
     @override
     void initState() {
       super.initState();
@@ -159,7 +166,44 @@ import '../vietnam/destinations/halongbay.dart';
       }
       // Add more conditions for other items as needed
     }
-
+    void navigateToHotelsDetail(int index) {
+      if (index == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const edenHotels()),
+        );
+      } else if (index == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const metooHomestay()),
+        );
+      } else if (index == 2) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const RAONHotel()),
+        );
+      }
+      // Add more conditions for other items as needed
+    }
+    void navigateToRestaurantDetail(int index) {
+      if (index == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const terracoSkyBar()),
+        );
+      } else if (index == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const EraRes()),
+        );
+      } else if (index == 2) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const terracoRes()),
+        );
+      }
+      // Add more conditions for other items as needed
+    }
     @override
     Widget build(BuildContext context) {
       final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -399,25 +443,30 @@ import '../vietnam/destinations/halongbay.dart';
                   scrollDirection: Axis.horizontal,
                   itemCount: hotels.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      width: 150,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Image.asset(
-                              hotels[index]['image']!,
-                              fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle the destination image click here
+                        navigateToHotelsDetail(index);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                hotels[index]['image']!,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            hotels[index]['name']!,
-                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                            const SizedBox(height: 8),
+                            Text(
+                              hotels[index]['name']!,
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -451,25 +500,30 @@ import '../vietnam/destinations/halongbay.dart';
                   scrollDirection: Axis.horizontal,
                   itemCount: restaurants.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      width: 150,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Image.asset(
-                              restaurants[index]['image']!,
-                              fit: BoxFit.cover,
+                    return GestureDetector(
+                      onTap: () {
+                        // Handle the destination image click here
+                        navigateToRestaurantDetail(index);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                restaurants[index]['image']!,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            restaurants[index]['name']!,
-                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                            const SizedBox(height: 8),
+                            Text(
+                              restaurants[index]['name']!,
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

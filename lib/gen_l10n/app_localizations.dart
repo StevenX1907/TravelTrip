@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 import 'package:travel_trip_application/screens/vietnam/destinations/danang.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
 
 import 'app_localizations_en.dart';
 import 'app_localizations_id.dart';
@@ -271,6 +272,19 @@ abstract class AppLocalizations {
   String get haiPhong;
   String get haiphongDescription;
   String get haiPhongAddress;
+  String get edenHotels;
+  String get edenDescription;
+  String get metooHomestay;
+  String get metooDescription;
+  String get MetooAddress;
+  String get raonHotels;
+  String get raonDescription;
+  String get eraRes;
+  String get eraDescription;
+  String get terracoSkyBar;
+  String get terracoSkyBarDescription;
+  String get caugoRes;
+  String get caugoResDescription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

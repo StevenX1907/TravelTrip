@@ -6,14 +6,14 @@ import 'package:provider/provider.dart';
 import '../../../gen_l10n/app_localizations.dart';
 import '../../../reusable_widgets/dark_mode.dart';
 import '../../utils/utils.dart';
-class edenHotels extends StatefulWidget {
-  const edenHotels({super.key});
+class terracoRes extends StatefulWidget {
+  const terracoRes({super.key});
 
   @override
-  State<edenHotels> createState() => _edenHotelsState();
+  State<terracoRes> createState() => _terracoResState();
 }
 
-class _edenHotelsState extends State<edenHotels> {
+class _terracoResState extends State<terracoRes> {
   bool isLiked = false; // State for the like button
   late List<String> comments;
 
@@ -36,7 +36,7 @@ class _edenHotelsState extends State<edenHotels> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).edenHotels),
+        title: Text(AppLocalizations.of(context).caugoRes),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +69,7 @@ class _edenHotelsState extends State<edenHotels> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/hotels/eden_hotel.jpg'),
+                          'assets/vietnam/restaurants/caugores1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -77,7 +77,7 @@ class _edenHotelsState extends State<edenHotels> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  AppLocalizations.of(context).edenHotels,
+                  AppLocalizations.of(context).caugoRes,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class _edenHotelsState extends State<edenHotels> {
                 const SizedBox(height: 8),
 
                 Text(
-                  AppLocalizations.of(context).DanangDescription,
+                  AppLocalizations.of(context).caugoResDescription,
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
@@ -184,7 +184,7 @@ class _edenHotelsState extends State<edenHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/eden1.jpg'),
+                                  'assets/vietnam/restaurants/caugores2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _edenHotelsState extends State<edenHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/eden2.jpg'),
+                                  'assets/vietnam/restaurants/caugores3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _edenHotelsState extends State<edenHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/eden3.jpg'),
+                                  'assets/vietnam/restaurants/caugores4.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
