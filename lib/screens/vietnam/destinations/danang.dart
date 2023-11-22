@@ -17,11 +17,18 @@ class DanangScreen extends StatefulWidget {
 
 class _DanangScreenState extends State<DanangScreen> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ];
+  late List<String> comments;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   // List of comments (you can initialize it with your existing comments)
 
   @override
@@ -72,7 +79,7 @@ class _DanangScreenState extends State<DanangScreen> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Da nang',
+                    AppLocalizations.of(context).DanangScreen,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -82,7 +89,7 @@ class _DanangScreenState extends State<DanangScreen> {
                 const SizedBox(height: 8),
 
                 Text(
-                  'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
+                  AppLocalizations.of(context).DanangDescription,
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
@@ -103,7 +110,7 @@ class _DanangScreenState extends State<DanangScreen> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -154,11 +161,11 @@ class _DanangScreenState extends State<DanangScreen> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -237,7 +244,7 @@ class _DanangScreenState extends State<DanangScreen> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -246,20 +253,20 @@ class _DanangScreenState extends State<DanangScreen> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours: 9:00 AM - 6:00 PM'),
+                  title: Text(AppLocalizations.of(context).DanangOpenHours),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: No. 123, XYZ Street, Taipei, Taiwan'),
+                  title: Text(AppLocalizations.of(context).DanangAddress),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +123 456 789'),
+                  title: Text(AppLocalizations.of(context).DanangContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -280,7 +287,7 @@ class _DanangScreenState extends State<DanangScreen> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -294,7 +301,7 @@ class _DanangScreenState extends State<DanangScreen> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

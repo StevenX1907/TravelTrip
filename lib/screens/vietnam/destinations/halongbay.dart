@@ -16,13 +16,18 @@ class Halongbay extends StatefulWidget {
 
 class _HalongbayState extends State<Halongbay> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ];
-  // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -30,7 +35,7 @@ class _HalongbayState extends State<Halongbay> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).BorobudurTemple),
+        title: Text(AppLocalizations.of(context).haLongBay),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -63,7 +68,7 @@ class _HalongbayState extends State<Halongbay> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/destinations/indonesia-borobudur.jpg'),
+                          'assets/images/events/Ha_long_bay.jfif'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -71,7 +76,7 @@ class _HalongbayState extends State<Halongbay> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Borobudur Temple',
+                  AppLocalizations.of(context).haLongBay,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -81,8 +86,8 @@ class _HalongbayState extends State<Halongbay> {
                 const SizedBox(height: 8),
 
                 Text(
-                  'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).haLongBayDescription,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -102,7 +107,7 @@ class _HalongbayState extends State<Halongbay> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -153,11 +158,11 @@ class _HalongbayState extends State<Halongbay> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -178,7 +183,7 @@ class _HalongbayState extends State<Halongbay> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 1.jpeg'),
+                                  'assets/vietnam/destinations/halongbay1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -199,7 +204,7 @@ class _HalongbayState extends State<Halongbay> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 2.jpeg'),
+                                  'assets/vietnam/destinations/halongbay2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -220,7 +225,7 @@ class _HalongbayState extends State<Halongbay> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 3.jpeg'),
+                                  'assets/vietnam/destinations/halongbay3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -236,7 +241,7 @@ class _HalongbayState extends State<Halongbay> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -245,20 +250,20 @@ class _HalongbayState extends State<Halongbay> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours: 9:00 AM - 6:00 PM'),
+                  title: Text(AppLocalizations.of(context).DanangOpenHours),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: No. 123, XYZ Street, Taipei, Taiwan'),
+                  title: Text(AppLocalizations.of(context).haLongBayAddress),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +123 456 789'),
+                  title: Text(AppLocalizations.of(context).DanangContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -279,7 +284,7 @@ class _HalongbayState extends State<Halongbay> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -293,7 +298,7 @@ class _HalongbayState extends State<Halongbay> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

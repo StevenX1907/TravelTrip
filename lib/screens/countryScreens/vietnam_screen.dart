@@ -6,7 +6,8 @@
   import 'package:provider/provider.dart';
   import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
   import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
-  import '../../reusable_widgets/dark_mode.dart';
+  import '../../gen_l10n/app_localizations.dart';
+import '../../reusable_widgets/dark_mode.dart';
   import '../utils/utils.dart';
   import 'dart:async';
   import 'package:carousel_slider/carousel_slider.dart';
@@ -29,40 +30,49 @@ import '../vietnam/destinations/halongbay.dart';
     double exchangeRate = 0.0;
     Map<String, dynamic>? countryData;
     bool isCountryDataLoaded = false;
+    late List<Map<String, String>> destinations;
+    late List<Map<String, String>> hotels;
+
     List<String> events = [
       'vn.jfif',
       'vn1.jfif',
       'vn2.jfif',
       'vn3.jfif',
     ];
-    List<Map<String, String>> destinations = [
-      {
-        'name': 'Da Nang',
-        'image': 'assets/images/events/Da_nang1.jfif',
-      },
-      {
-        'name': 'Ha Long Bay',
-        'image': 'assets/images/events/Ha_long_bay.jfif',
-      },
-      {
-        'name': 'Hai Phong',
-        'image': 'assets/images/events/haiphong.jfif',
-      },
-    ];
-    List<Map<String, String>> hotels = [
-      {
-        'name': 'Eden Hotel',
-        'image': 'assets/images/hotels/eden_hotel.jpg',
-      },
-      {
-        'name': 'Metoo Homestay',
-        'image': 'assets/images/hotels/metoo_homestay.jpg',
-      },
-      {
-        'name': 'RAON hotel',
-        'image': 'assets/images/hotels/RAON_hotel.jpg',
-      },
-    ];
+    @override
+    void didChangeDependencies() {
+      super.didChangeDependencies();
+      // Initialize lists with translated text
+      destinations = [
+        {
+          'name': AppLocalizations.of(context).DanangScreen,
+          'image': 'assets/images/events/Da_nang1.jfif',
+        },
+        {
+          'name': AppLocalizations.of(context).haLongBay,
+          'image': 'assets/images/events/Ha_long_bay.jfif',
+        },
+        {
+          'name': AppLocalizations.of(context).haiPhong,
+          'image': 'assets/images/events/haiphong.jfif',
+        },
+      ];
+
+      hotels = [
+        {
+          'name': 'Eden Hotel',
+          'image': 'assets/images/hotels/eden_hotel.jpg',
+        },
+        {
+          'name': 'Metoo Homestay',
+          'image': 'assets/images/hotels/metoo_homestay.jpg',
+        },
+        {
+          'name': 'RAON hotel',
+          'image': 'assets/images/hotels/RAON_hotel.jpg',
+        },
+      ];
+    }
     List<Map<String, String>> restaurants = [
       {
         'name': 'Terraço Sky Bar & Restaurant',
@@ -157,7 +167,7 @@ import '../vietnam/destinations/halongbay.dart';
       return Scaffold(
         drawer: const SideMenu(),
         appBar: AppBar(
-          title: const Text('Vietnam'),
+          title: Text(AppLocalizations.of(context).vietnam),
           backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
         ),
         body: Container(
@@ -227,8 +237,8 @@ import '../vietnam/destinations/halongbay.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '  Current Temperature',
+                  Text(
+                    AppLocalizations.of(context).currentTemperature,
                     style: TextStyle(fontSize: 16),
                   ),
                   InkWell(
@@ -238,8 +248,8 @@ import '../vietnam/destinations/halongbay.dart';
                         MaterialPageRoute(builder: (context) =>  WeatherApp()),
                       );
                     },
-                    child: const Text(
-                      'More Detail',
+                    child: Text(
+                      AppLocalizations.of(context).moreDetail,
                       style: TextStyle(fontSize: 16, color: Colors.blue),
                     ),
                   ),
@@ -260,17 +270,17 @@ import '../vietnam/destinations/halongbay.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '   Exchange Rate',
+                  Text(
+                    AppLocalizations.of(context).exchangeRate,
                     style: TextStyle(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
 
                     },
-                    child: const Text(
-                      'More Detail',
-                      style: TextStyle(fontSize: 16, color: Colors.blue),
+                    child: Text(
+                      AppLocalizations.of(context).moreDetail,
+                      style: const TextStyle(fontSize: 16, color: Colors.blue),
                     ),
                   ),
                 ],
@@ -308,16 +318,16 @@ import '../vietnam/destinations/halongbay.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '   Destinations',
+                  Text(
+                    AppLocalizations.of(context).destinations,
                     style: TextStyle(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
 
                     },
-                    child: const Text(
-                      'More Detail',
+                    child: Text(
+                      AppLocalizations.of(context).moreDetail,
                       style: TextStyle(fontSize: 16, color: Colors.blue),
                     ),
                   ),
@@ -365,16 +375,16 @@ import '../vietnam/destinations/halongbay.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '   Hotels',
+                  Text(
+                    AppLocalizations.of(context).hotels,
                     style: TextStyle(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
 
                     },
-                    child: const Text(
-                      'More Detail',
+                    child: Text(
+                      AppLocalizations.of(context).moreDetail,
                       style: TextStyle(fontSize: 16, color: Colors.blue),
                     ),
                   ),
@@ -417,16 +427,16 @@ import '../vietnam/destinations/halongbay.dart';
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    '   Restaurants',
+                  Text(
+                    AppLocalizations.of(context).restaurants,
                     style: TextStyle(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
 
                     },
-                    child: const Text(
-                      'More Detail',
+                    child: Text(
+                      AppLocalizations.of(context).moreDetail,
                       style: TextStyle(fontSize: 16, color: Colors.blue),
                     ),
                   ),

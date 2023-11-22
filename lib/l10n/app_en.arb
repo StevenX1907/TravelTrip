@@ -29,5 +29,9 @@
   "aboutUs": "About Us",
 //indonesia
   "BorobudurTemple": "Borobudur Temple",
-  "borobudurTempleDescription": "Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex. It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture."
+  "borobudurTempleDescription": "Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex. It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.",
+
+//vietnam
+    "DanangDescription":"Nestled along Vietnam's central coast, Da Nang is a city of captivating contrasts, seamlessly blending history with modernity. From its ancient Cham Empire roots to its dynamic urban landscape, Da Nang offers a diverse tapestry for visitors. The city's history is evident in the remnants of the Cham civilization at My Khe Beach and the wartime relics around the Marble Mountains. Yet, Da Nang has embraced the 21st century with striking modern architecture, exemplified by landmarks like the Dragon Bridge."
+
 }

@@ -236,14 +236,41 @@ abstract class AppLocalizations {
   String get commets;
   String get followers;
   String get following;
-
+  String get AddtoFavorite;
+  String get Photos;
+  String get MoreInformation;
+  String get Comments;
+  String get AddtoComment;
+  String get AddComment;
+  String get greatPlace;
+  String get loveTheAtmosphere;
+  String get recommendVisiting;
+  String get vietnam;
+  String get currentTemperature;
+  String get moreDetail;
+  String get exchangeRate;
+  String get destinations;
+  String get restaurants;
+  String get hotels;
+  String get img;
+  String get like;
   //indonesia
   String get BorobudurTemple;
   String get borobudurTempleDescription;
 
   //vietnam
   String get DanangScreen;
+  String get DanangDescription;
+  String get DanangOpenHours;
+  String get DanangAddress;
+  String get DanangContact;
 
+  String get haLongBay;
+  String get haLongBayDescription;
+  String get haLongBayAddress;
+  String get haiPhong;
+  String get haiphongDescription;
+  String get haiPhongAddress;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
