@@ -61,7 +61,7 @@ class _kotaTua extends State<kotaTua> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/destinations/indonesia-borobudur.jpg'),
+                          'assets/indonesia/destinations/Kota Tua 4.jpeg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -69,7 +69,7 @@ class _kotaTua extends State<kotaTua> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Borobudur Temple',
+                  'Jakarta Old Town',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _kotaTua extends State<kotaTua> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
+                  'Jakarta OId Town or Kota Tua in Indonesian is a remainder of Old Batavia, the first walled settlement of the Dutch in Jakarta area. It was an inner walled city with its own Castle. The area gained importance during the 17th-19th century when it was established as the de facto capital of the Dutch East Indies.',
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
@@ -111,7 +111,7 @@ class _kotaTua extends State<kotaTua> {
                           color: Colors.amber,
                         ),
                         Text(
-                          ' 4.5 / 5', // Replace with your actual rating value
+                          ' 4.0 / 5', // Replace with your actual rating value
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -165,8 +165,15 @@ class _kotaTua extends State<kotaTua> {
                   children: <Widget>[
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the first photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Wayang Museum',
+                              'assets/indonesia/destinations/Kota Tua 2.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -175,7 +182,7 @@ class _kotaTua extends State<kotaTua> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 1.jpeg'),
+                                  'assets/indonesia/destinations/Kota Tua 2.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -186,8 +193,15 @@ class _kotaTua extends State<kotaTua> {
                     SizedBox(width: 8),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the second photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Nightlife at Jakarta Old Town',
+                              'assets/indonesia/destinations/Kota Tua 3.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -196,7 +210,7 @@ class _kotaTua extends State<kotaTua> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 2.jpeg'),
+                                  'assets/indonesia/destinations/Kota Tua 3.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -207,8 +221,15 @@ class _kotaTua extends State<kotaTua> {
                     SizedBox(width: 8),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the third photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Jakarta History Museum',
+                              'assets/indonesia/destinations/Kota Tua 1.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -217,7 +238,7 @@ class _kotaTua extends State<kotaTua> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 3.jpeg'),
+                                  'assets/indonesia/destinations/Kota Tua 1.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -242,15 +263,15 @@ class _kotaTua extends State<kotaTua> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours: 9:00 AM - 6:00 PM'),
+                  title: Text('Open Hours: Everyday except Monday from 9:00 AM - 15:00 PM'),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: No. 123, XYZ Street, Taipei, Taiwan'),
+                  title: Text('Address: Taman Fatahillah No.1, Pinangsia, Kec. Taman Sari, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11110, Indonesia'),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +123 456 789'),
+                  title: Text('Contact: +62 21 6929101'),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
@@ -322,3 +343,42 @@ class SocialMediaButton extends StatelessWidget {
     );
   }
 }
+
+Widget imageDialog(text, path, context) {
+  return Dialog(
+    // backgroundColor: Colors.transparent,
+    // elevation: 0,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '$text',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              // IconButton(
+              //   onPressed: () {
+              //     Navigator.of(context).pop();
+              //   },
+              //   icon: Icon(Icons.close_rounded),
+              //   color: Colors.redAccent,
+              // ),
+            ],
+          ),
+        ),
+        Container(
+          width: 220,
+          height: 200,
+          child: Image.asset(
+            '$path',
+            fit: BoxFit.cover,
+          ),
+        ),
+      ],
+    ),
+  );}
