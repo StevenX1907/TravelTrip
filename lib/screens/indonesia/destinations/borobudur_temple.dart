@@ -63,7 +63,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/destinations/indonesia-borobudur.jpg'),
+                          'assets/indonesia/destinations/Borobudur 4.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -79,7 +79,6 @@ class _borobudurTemple extends State<borobudurTemple> {
                   ),
                 ),
                 const SizedBox(height: 8),
-
                 Text(
                   AppLocalizations.of(context).borobudurTempleDescription,
                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
@@ -168,8 +167,15 @@ class _borobudurTemple extends State<borobudurTemple> {
                   children: <Widget>[
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the first photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Borobudur Temple',
+                              'assets/indonesia/destinations/Borobudur 1.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -178,7 +184,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 1.jpeg'),
+                                  'assets/indonesia/destinations/Borobudur 1.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -189,8 +195,15 @@ class _borobudurTemple extends State<borobudurTemple> {
                     SizedBox(width: 8),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the second photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Borobudur Temple',
+                              'assets/indonesia/destinations/Borobudur 2.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -199,7 +212,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 2.jpeg'),
+                                  'assets/indonesia/destinations/Borobudur 2.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -210,8 +223,15 @@ class _borobudurTemple extends State<borobudurTemple> {
                     SizedBox(width: 8),
                     Expanded(
                       child: GestureDetector(
-                        onTap: () {
-                          // Add action for tapping the third photo
+                        onTap: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (_) => imageDialog(
+                              'Borobudur Temple',
+                              'assets/indonesia/destinations/Borobudur 3.jpeg',
+                              context,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 100,
@@ -220,7 +240,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/images/destinations/Borobudur 3.jpeg'),
+                                  'assets/indonesia/destinations/Borobudur 3.jpeg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -245,15 +265,15 @@ class _borobudurTemple extends State<borobudurTemple> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours: 9:00 AM - 6:00 PM'),
+                  title: Text('Open Hours:\nEveryday from 6:30 AM - 4:30 PM'),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: No. 123, XYZ Street, Taipei, Taiwan'),
+                  title: Text('Address:\nJl. Badrawati, Kw. Candi Borobudur, Borobudur, Kec. Borobudur, Kabupaten Magelang, Jawa Tengah, Indonesia'),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +123 456 789'),
+                  title: Text('Contact: +62 293 788266'),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
@@ -325,3 +345,42 @@ class SocialMediaButton extends StatelessWidget {
     );
   }
 }
+
+Widget imageDialog(text, path, context) {
+  return Dialog(
+    // backgroundColor: Colors.transparent,
+    // elevation: 0,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '$text',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              // IconButton(
+              //   onPressed: () {
+              //     Navigator.of(context).pop();
+              //   },
+              //   icon: Icon(Icons.close_rounded),
+              //   color: Colors.redAccent,
+              // ),
+            ],
+          ),
+        ),
+        Container(
+          width: 220,
+          height: 200,
+          child: Image.asset(
+            '$path',
+            fit: BoxFit.cover,
+          ),
+        ),
+      ],
+    ),
+  );}

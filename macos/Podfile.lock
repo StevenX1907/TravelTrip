@@ -9,7 +9,7 @@ PODS:
     - Firebase/CoreOnly (~> 10.6.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (2.8.0):
+  - firebase_core (2.23.0):
     - Firebase/CoreOnly (~> 10.6.0)
     - FlutterMacOS
   - FirebaseAuth (10.6.0):
