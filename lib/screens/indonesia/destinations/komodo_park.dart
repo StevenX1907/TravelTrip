@@ -61,7 +61,7 @@ class _komodoPark extends State<komodoPark> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/destinations/indonesia-borobudur.jpg'),
+                          'assets/images/destinations/Borobudur 4.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -78,7 +78,7 @@ class _komodoPark extends State<komodoPark> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex.It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.',
+                  'Bali is Indonesia\'s most famous island, known for its picturesque beaches, vibrant nightlife, and rich Balinese culture. It\'s a top destination for travelers seeking a blend of relaxation and adventure.',
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),

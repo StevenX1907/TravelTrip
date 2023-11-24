@@ -157,11 +157,32 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       print('Error fetching destinations: $e');
     }
   }
+
+
+
+  void _onDestinationTap(Map<String, dynamic> destination) {
+    int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
+
+    // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
+    fetchDestinationDetails(id).then((destinationData) {
+      // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
+      Map<String, String> convertedData = Map<String, String>.from(destinationData);
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => DestinationDetailsScreen(
+            image: destination['image']!,
+            name: destination['destination_name']!,
+            description: convertedData['destination_description'] ?? 'No description available',
+          ),
+        ),
+
   void navigateToDestinationDetail(int index) {
     if (index == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const wulai()),
+
       );
     } else if (index == 1) {
       Navigator.push(

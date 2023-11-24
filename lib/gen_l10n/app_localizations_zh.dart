@@ -126,6 +126,19 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get borobudurTempleDescription => 'Candi Borobudur 或婆羅浮屠寺是印尼聯合國教科文組織世界遺產，以其令人驚嘆的世界上最大的佛教寺廟建築群而聞名。 它以複雜的石雕為特色，讓您可以一睹古代爪哇的歷史和文化。';
 
+  String get indonesia => '印尼';
+  String get baliIsland => '峇里島';
+  String get jakartaOldTown => '雅加達老城';
+  String get fourSeasons => '峇里四季酒店';
+  String get gaiaHotel => 'Gaia酒店萬隆';
+  String get kempinski => '印尼雅加達凱賓斯基酒店';
+  String get bandarDjakarta => 'Bandar Djakarta';
+  String get blueTerrace => 'Blue Terrace';
+  String get kudeta => 'Ku De Ta';
+
+  //taiwan
+  String get Taiwan => '台灣';
+
   //vietnam
   @override
   String get DanangScreen => '峴港';
@@ -175,6 +188,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get caugoRes => '考高餐廳';
   @override
   String get caugoResDescription => 'Cau Go 餐廳坐落在越南的中心地帶，以其迷人的氛圍和美味的菜餚體現了越南美食的精髓。 這間美食瑰寶位於充滿活力的河內市，坐落在還劍湖邊緣，可欣賞到令人驚嘆的全景，成為令人難忘的用餐體驗的迷人背景。 餐廳採用越南傳統裝飾，散發著溫暖和真實的氣息，為尋求融入越南豐富文化的顧客營造出溫馨的氛圍。 當您踏入 Cau Go 時，您就會感受到越南香料的誘人香氣和現場傳統音樂的舒緩旋律。 餐廳內部以深色木製家具和柔和的燈光為特色，將客人帶入時間放慢的境界，讓客人悠閒地探索越南的美食寶藏。 菜單是穿越該國不同地區的美食之旅，包括河粉、越南三明治和新鮮海鮮等招牌菜餚。 每道菜都是傑作，精心呈現，體現了越南美食對細節的一絲不苟。';
+
+  //malaysia
+  String get malaysia => '馬來西亞';
+
 //taiwan
   @override
   String get kenting => '墾丁';
@@ -220,6 +237,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get matsuContact => '聯絡方式: +886 2 2345 8833';
   @override
   String get matsuAddress => '地址: 松高路19號新光三越信義新天地A4館6F, Taipei, Taiwan';
+
 
 
 }

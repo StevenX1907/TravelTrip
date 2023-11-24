@@ -259,6 +259,18 @@ abstract class AppLocalizations {
   //indonesia
   String get BorobudurTemple;
   String get borobudurTempleDescription;
+  String get indonesia;
+  String get baliIsland;
+  String get jakartaOldTown;
+  String get fourSeasons;
+  String get gaiaHotel;
+  String get kempinski;
+  String get bandarDjakarta;
+  String get blueTerrace;
+  String get kudeta;
+
+  //taiwan
+  String get Taiwan;
 
   //vietnam
   String get DanangScreen;
@@ -287,6 +299,10 @@ abstract class AppLocalizations {
   String get caugoRes;
   String get caugoResDescription;
 
+
+  //malaysia
+  String get malaysia;
+
   //taiwan
   String get kenting;
   String get kentingDescription;
@@ -310,7 +326,8 @@ abstract class AppLocalizations {
   String get matsuDescription;
   String get matsuContact;
   String get matsuAddress;
-}
+
+ }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();

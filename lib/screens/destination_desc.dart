@@ -64,7 +64,7 @@ class _DestinationDescState extends State<DestinationDesc> {
                       color: Colors.amber,
                       image: DecorationImage(
                         image: AssetImage(
-                            'assets/images/destinations/indonesia-borobudur.jpg'),
+                            'assets/images/destinations/Borobudur 4.jpg'),
                         fit: BoxFit.cover,
                       ),
                   ),
