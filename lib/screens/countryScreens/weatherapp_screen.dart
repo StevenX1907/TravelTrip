@@ -88,32 +88,36 @@ class _WeatherAppState extends State<WeatherApp> {
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
-    return MaterialApp(
-      title: 'Weather App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        drawer: SideMenu(),
-        appBar: AppBar(
-          title: Text('Weather'),
-          backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
-        ),
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: isDarkMode
-                  ? [
-                Colors.black38,
-                Colors.black38
-              ]
-                  :[
-                hexStringToColor("F1F9F6"),
-                hexStringToColor("D1EEE1"),
-                hexStringToColor("AFE1CE")
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+    Color appBarColor = isDarkMode ? Colors.black : const Color(0xFF306550);
 
+    return Scaffold(
+      drawer: const SideMenu(),
+      appBar: AppBar(
+        title: const Text('TravelTrip'),
+        backgroundColor: appBarColor,
+      ),
+      body: Container(
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: isDarkMode
+                ? [Colors.black38, Colors.black38]
+                : [
+              hexStringToColor("F1F9F6"),
+              hexStringToColor("D1EEE1"),
+              hexStringToColor("AFE1CE"),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -223,7 +227,6 @@ class _WeatherAppState extends State<WeatherApp> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

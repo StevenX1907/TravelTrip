@@ -6,7 +6,11 @@
   "signUp": "Đăng ký",
   "logInCaps": "ĐĂNG NHẬP",
   "forgotPassword": "Quên Mật Khẩu??",
-
+  "posts": "bài đăng",
+  "ratings": "xếp hạng",
+  "comments": "Bình luận",
+  "followers": "người theo dõi",
+  "following": "tiếp theo",
   "english": "Tiếng Anh",
   "chinese": "Tiếng Phổ Thông",
   "indonesian": "Tiếng Indonesia",
@@ -22,5 +26,9 @@
   "lightMode": "Chế độ sáng",
   "darkMode": "Chế độ tối",
   "logOut": "Đăng xuất",
-  "aboutUs": "Về chúng tôi"
+  "aboutUs": "Về chúng tôi",
+
+  "BorobudurTemple": "Đền Borobudur",
+  "borobudurTempleDescription": "Chùa Borobudur hay đền Borobudur là một di tích thế giới của UNESCO tại Indonesia, nổi tiếng với quần thể đền Phật giáo lớn nhất thế giới. Nó có những khắc điêu đá tinh xảo và mở ra cái nhìn về lịch sử và văn hóa cổ đại của người Java."
+
 }

@@ -6,7 +6,11 @@
   "signUp": "Daftar",
   "logInCaps": "MASUK",
   "forgotPassword": "Lupa Kata Sandi?",
-
+  "posts": "Unggah",
+  "ratings": "Peringkat",
+  "comments": "Komentar",
+  "followers": "Pengikut",
+  "following": "Mengikuti",
   "english": "Bahasa Inggris",
   "chinese": "Bahasa Mandarin",
   "indonesian": "Bahasa Indonesia",
@@ -22,5 +26,9 @@
   "lightMode": "Mode Terang",
   "darkMode": "Mode Gelap",
   "logOut": "Keluar",
-  "aboutUs": "Tentang Kami"
+  "aboutUs": "Tentang Kami",
+//indonesia
+  "BorobudurTemple": "Candi Borobudur",
+  "borobudurTempleDescription": "Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Budha terbesar di dunia yang menakjubkan. Ini menampilkan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno."
+
 }

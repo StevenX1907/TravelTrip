@@ -1,16 +1,36 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
-import 'package:http/http.dart' as http;
+import 'package:travel_trip_application/screens/taiwan/destinations/kenting.dart';
+import 'package:travel_trip_application/screens/taiwan/destinations/kinmen.dart';
+import 'package:travel_trip_application/screens/taiwan/destinations/wulai.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/Hanns.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/workINN.dart';
+import 'package:travel_trip_application/screens/taiwan/restaurants/mosun.dart';
+import 'package:travel_trip_application/screens/taiwan/restaurants/shabu.dart';
+import 'package:travel_trip_application/screens/vietnam/hotels/RAON.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/Era.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terraco.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
+import '../../gen_l10n/app_localizations.dart';
 import '../../reusable_widgets/dark_mode.dart';
-import '../../reusable_widgets/destination_details.dart';
+import '../taiwan/restaurants/matsusaka.dart';
 import '../utils/utils.dart';
-import 'ExchangeApp.dart';
+import 'dart:async';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart' as http;
+
+import '../vietnam/destinations/danang.dart';
+import '../vietnam/destinations/haiphong.dart';
+import '../vietnam/destinations/halongbay.dart';
+import '../vietnam/hotels/eden.dart';
+import '../vietnam/hotels/metooHomestay.dart';
+
 class Taiwan_screen extends StatefulWidget {
   const Taiwan_screen({Key? key}) : super(key: key);
 
@@ -19,68 +39,79 @@ class Taiwan_screen extends StatefulWidget {
 }
 
 class _TaiwanScreenState extends State<Taiwan_screen> {
-  List<Map<String, dynamic>> destinationList = [];
   int currentIndex = 0;
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
+  Map<String, dynamic>? countryData;
+  bool isCountryDataLoaded = false;
+  late List<Map<String, String>> destinations;
+  late List<Map<String, String>> hotels;
+  late List<Map<String, String>> restaurants;
   List<String> events = [
     'taiwan.jfif',
     'taiwan1.jfif',
     'taiwan2.jfif',
     'taiwan3.jfif',
   ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    destinations = [
+      {
+        'name': AppLocalizations.of(context).wulai,
+        'image': 'assets/images/destinations/wulai.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).kenting,
+        'image': 'assets/images/destinations/kenting_national_park.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).kinmen,
+        'image': 'assets/images/destinations/kinmen_islands.jpg',
+      },
 
-  List<Map<String, String>> destinations = [
-    {
-      'name': 'Wulai',
-      'image': 'assets/images/destinations/wulai.jpg',
-    },
-    {
-      'name': ' Kenting National Park',
-      'image': 'assets/images/destinations/kenting_national_park.jpg',
-    },
-    {
-      'name': 'Kinmen Islands',
-      'image': 'assets/images/destinations/kinmen_islands.jpg',
-    },
+    ];
+    hotels = [
+      {
+        'name': AppLocalizations.of(context).grandTaipei,
+        'image': 'assets/images/hotels/Grand_Hyatt.jfif',
+      },
+      {
+        'name': AppLocalizations.of(context).workinn,
+        'image': 'assets/images/hotels/WORKINN.jfif',
+      },
+      {
+        'name': AppLocalizations.of(context).hanns,
+        'image': 'assets/images/hotels/HannsHouse.jfif',
+      },
+    ];
+    restaurants = [
+      {
+        'name': AppLocalizations.of(context).mosun,
+        'image': 'assets/images/hotels/Mosun_Teppanyaki.jfif',
+      },
+      {
+        'name': AppLocalizations.of(context).shabu,
+        'image': 'assets/images/hotels/Shabu.jfif',
+      },
+      {
+        'name': AppLocalizations.of(context).matsu,
+        'image': 'assets/images/hotels/MatsusakaTei.jfif',
+      },
+    ];
+  }
 
-  ];
-  List<Map<String, String>> hotels = [
-    {
-      'name': 'Grand Hyatt Taipei',
-      'image': 'assets/images/hotels/Grand_Hyatt.jfif',
-    },
-    {
-      'name': 'WORK INN at Taipei 101',
-      'image': 'assets/images/hotels/WORKINN.jfif',
-    },
-    {
-      'name': 'Hanns House',
-      'image': 'assets/images/hotels/HannsHouse.jfif',
-    },
-  ];
-  List<Map<String, String>> restaurants = [
-    {
-      'name': 'Mosun Teppanyaki',
-      'image': 'assets/images/hotels/Mosun_Teppanyaki.jfif',
-    },
-    {
-      'name': '食令Shabu',
-      'image': 'assets/images/hotels/Shabu.jfif',
-    },
-    {
-      'name': 'Matsusaka Tei',
-      'image': 'assets/images/hotels/MatsusakaTei.jfif',
-    },
-  ];
 
-  get index => 1;
   @override
   void initState() {
     super.initState();
     getCurrentTemperature();
     fetchExchangeRate();
-    fetchDestinations();
+    // if (countryData == null) {
+    //   fetchCountryFromServer(1); // Gọi hàm này chỉ khi chưa có dữ liệu
+    // }else {
+    //   isCountryDataLoaded = true;
+    // }
   }
   Future<void> getCurrentTemperature() async {
     try {
@@ -107,7 +138,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
 
   Future<void> fetchExchangeRate() async {
     try {
-      final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/TWD'));
+      final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/VND'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         setState(() {
@@ -124,89 +155,63 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       });
     }
   }
-  Future<Map<String, dynamic>> fetchDestinationDetails(int id) async {
-    try {
-      final response = await http.get(Uri.parse('http://10.0.2.2:8080/getDestination/$id'));
-      if (response.statusCode == 200) {
-        Map<String, dynamic> destinationData = jsonDecode(response.body);
-        return {
-          'imageData': destinationData['imgData'],
-          'destinationName': destinationData['destinationName'],
-          // 'destination_description': destinationData['description'],
-        };
-      } else {
-        throw Exception('Failed to load destination details');
-      }
-    } catch (e) {
-      print('Error fetching destination details: $e');
-      throw e;
-    }
-  }
-
-  Future<void> fetchDestinations() async {
-    try {
-      final response = await http.get(Uri.parse('http://10.0.2.2:8080/getDestinations'));
-      if (response.statusCode == 200) {
-        List<dynamic> destinationData = jsonDecode(response.body);
-        setState(() {
-          destinationList = List<Map<String, dynamic>>.from(destinationData);
-        });
-      } else {
-        throw Exception('Failed to load destinations');
-      }
-    } catch (e) {
-      print('Error fetching destinations: $e');
-    }
-  }
-
-
-
-
-  void _onDestinationTap(Map<String, dynamic> destination) {
-    int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
-
-    // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
-    fetchDestinationDetails(id).then((destinationData) {
-      // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
-      Map<String, String> convertedData = Map<String, String>.from(destinationData);
-
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => DestinationDetailsScreen(
-            image: destination['image']!,
-            name: destination['destination_name']!,
-            description: convertedData['destination_description'] ?? 'No description available',
-          ),
-        ),
+  void navigateToDestinationDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const wulai()),
       );
-    }).catchError((error) {
-      print('Error fetching destination details: $error');
-    });
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Kenting()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const kinmen()),
+      );
+    }
+    // Add more conditions for other items as needed
   }
-
-  // Future<void> getCurrentTemperature() async {
-  //   try {
-  //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
-  //     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Vietnam&appid=$apiKey";
-  //     final response = await http.get(Uri.parse(apiUrl));
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //       final temperature = data['main']['temp'];
-  //       setState(() {
-  //         currentTemperature = "$temperature°C";
-  //       });
-  //     } else {
-  //       setState(() {
-  //         currentTemperature = "Error";
-  //       });
-  //     }
-  //   } catch (e) {
-  //     setState(() {
-  //       currentTemperature = "Error";
-  //     });
-  //   }
-  // }
-
+  void navigateToHotelsDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const grandTaipei()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const WorkINN()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const hanns()),
+      );
+    }
+    // Add more conditions for other items as needed
+  }
+  void navigateToRestaurantDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const mosun()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const shabu()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const matsusaka()),
+      );
+    }
+    // Add more conditions for other items as needed
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -214,13 +219,12 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('Taiwan'),
+        title: Text(AppLocalizations.of(context).Taiwan),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        // height: 600,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: isDarkMode
                 ? [
@@ -245,8 +249,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 enableInfiniteScroll: true,
                 initialPage: 1,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 onPageChanged: (index, reason) {
                   setState(() {
                     currentIndex = index;
@@ -260,10 +264,12 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                       'assets/images/events/$event',
                       fit: BoxFit.cover,
                     );
+
                   },
                 );
               }).toList(),
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: events.map((event) {
@@ -283,8 +289,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '  Current Temperature',
+                Text(
+                  AppLocalizations.of(context).currentTemperature,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
@@ -294,8 +300,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                       MaterialPageRoute(builder: (context) =>  WeatherApp()),
                     );
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -306,6 +312,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             //   currentTemperature,
             //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             // ),
+
             Card(
               child: Container(
                 child: Image.asset('assets/images/taiwan_weather.png'),
@@ -315,20 +322,17 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Exchange Rate',
+                Text(
+                  AppLocalizations.of(context).exchangeRate,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  ExchangeApp()),
-                    );
+
                   },
-                  child: const Text(
-                    'More Detail',
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
+                    style: const TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
               ],
@@ -366,93 +370,49 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Destinations',
+                Text(
+                  AppLocalizations.of(context).destinations,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
               ],
             ),
-            FutureBuilder<Map<String, dynamic>>(
-              future: fetchDestinationDetails(1),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                } else if (snapshot.hasData) {
-                  final countryData = snapshot.data!;
-                  final String countryName = countryData['destinationName'] ?? 'Unknown';
-                  final String base64ImageData = countryData['imageData'] ?? ''; // Dữ liệu hình ảnh Base64
-
-                  double desiredWidth = 100.0;
-                  double desiredHeight = 100.0;
-
-                  // Chuyển dữ liệu Base64 thành mảng bytes
-                  Uint8List bytes = base64.decode(base64ImageData);
-
-                  return Column(
-                    children: [
-                      Text('Country Name: $countryName'),
-                      SizedBox(height: 10),
-                      // Sử dụng Image.memory để hiển thị hình ảnh từ dữ liệu Base64
-                      Image.memory(
-                        bytes,
-                        width: desiredWidth,
-                        height: desiredHeight,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
-                  );
-                } else {
-                  return Text('No country data.');
-                }
-              },
-            ),
             const SizedBox(height: 10),
             Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
               height: 150,
               color: Colors.white,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: destinationList.length,
+                itemCount: destinations.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final destination = destinationList[index];
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: GestureDetector(
-                      onTap: () async {
-                        final destinationData = await fetchDestinationDetails(destination['id']);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => DestinationDetailsScreen(
-                              image: destinationData['image'] ?? 'assets/images/Taiwan1.jpeg',
-                              name: destinationData['destination_name'] ?? 'Unknown',
-                              description: destinationData['destination_description'] ?? 'No description available',
-                            ),
-                          ),
-                        );
-                      },
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle the destination image click here
+                      navigateToDestinationDetail(index);
+                    },
+                    child: Container(
+                      width: 150,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
                         children: [
-                          Flexible(
-                            child: Image.memory(
-                              base64.decode(destination['image'] ?? ''),
+                          Expanded(
+                            child: Image.asset(
+                              destinations[index]['image']!,
                               fit: BoxFit.cover,
                             ),
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            destination['destination_name'] ?? '',
+                            destinations[index]['name']!,
                             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
@@ -463,25 +423,20 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 },
               ),
             ),
-
-
-
-
-
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Hotels',
+                Text(
+                  AppLocalizations.of(context).hotels,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -496,26 +451,30 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: hotels.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            hotels[index]['image']!,
-                            fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle the destination image click here
+                      navigateToHotelsDetail(index);
+                    },
+                    child: Container(
+                      width: 150,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              hotels[index]['image']!,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          hotels[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            hotels[index]['name']!,
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -525,16 +484,16 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Restaurants',
+                Text(
+                  AppLocalizations.of(context).restaurants,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -549,26 +508,30 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: restaurants.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            restaurants[index]['image']!,
-                            fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle the destination image click here
+                      navigateToRestaurantDetail(index);
+                    },
+                    child: Container(
+                      width: 150,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              restaurants[index]['image']!,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          restaurants[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            restaurants[index]['name']!,
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

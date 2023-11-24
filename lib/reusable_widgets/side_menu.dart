@@ -7,9 +7,10 @@ import 'package:travel_trip_application/screens/signin_screen.dart';
 import 'package:travel_trip_application/reusable_widgets/dark_mode.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../gen_l10n/app_localizations.dart';
 import '../main.dart';
+import 'dart:convert';
 import '../screens/about_us_screen.dart';
 import '../screens/chat_screen.dart';
 
@@ -68,20 +69,20 @@ class _SideMenuState extends State<SideMenu> {
             leading: const Icon(Icons.house),
             title: Text(AppLocalizations.of(context).home),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
+                MaterialPageRoute(builder: (context) => const HomeScreen()))},
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
             title: Text(AppLocalizations.of(context).profile),
             onTap: () => {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()))},
+                  MaterialPageRoute(builder: (context) => ProfilePage(name:"John Doe",gender:"Female",nationality:"America")))},
           ),
           ListTile(
             leading: const Icon(Icons.map),
             title: Text(AppLocalizations.of(context).explore),
             onTap: () => {Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()))},
+                MaterialPageRoute(builder: (context) => const DiscussionPage()))},
           ),
           ListTile(
             leading: const Icon(Icons.edit),

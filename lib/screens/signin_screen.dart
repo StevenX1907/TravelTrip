@@ -13,6 +13,7 @@ import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
 import '../main.dart';
+import '../gen_l10n/app_localizations.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);

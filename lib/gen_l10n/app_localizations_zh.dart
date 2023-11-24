@@ -191,6 +191,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   //malaysia
   String get malaysia => '馬來西亞';
+
   @override
   String get LangkawiScreen => '浮罗交怡岛';
   String get LangkawiDescription => '一個美麗的群島，蘭卡威島是以其廣闊的沙灘和湛藍的海水而聞名，吸引遊客。蘭卡威地質公園是一個吸引大量遊客的聯合國教科文組織遺址，無疑是馬來西亞必遊景點中的首選之一。它完美地展示了該地區的地質遺產。它是家人一起遊覽馬來西亞的最佳地點之一。';
@@ -241,6 +242,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get LeQueRestaurantDescription => 'Le Que 餐廳成立於2014年，相對於全國許多其他餐廳，可能歷史較短，但您總是可以期待由訓練有素且經驗豐富的廚師烹製的美食。這是一家融合咖啡館，您可以品嚐到各種西式料理和豐富的義大利麵選擇。如果您在馬六甲市並且想吃義大利麵，絕對應該前往 Le Que。';
 
 
+
 //taiwan
   @override
   String get kenting => '墾丁';
@@ -287,4 +289,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get matsuAddress => '地址: 松高路19號新光三越信義新天地A4館6F, Taipei, Taiwan';
 
+
 }
+

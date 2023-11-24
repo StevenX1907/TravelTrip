@@ -7,8 +7,10 @@ import 'package:travel_trip_application/screens/countryScreens/indonesia_screen.
 import 'package:travel_trip_application/screens/countryScreens/malaysia_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/taiwan_screen.dart';
 import 'package:travel_trip_application/screens/countryScreens/vietnam_screen.dart';
+import 'package:travel_trip_application/screens/utils/test.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
-
+import '../gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'countryScreens/weatherapp_screen.dart';
 
@@ -27,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     Color appBarColor = isDarkMode ? Colors.black : const Color(0xFF306550);
+
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
@@ -37,233 +40,99 @@ class _HomeScreenState extends State<HomeScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: isDarkMode
-                ? [
-              Colors.black38,
-              Colors.black38
-            ]
-                :[
-              hexStringToColor("F1F9F6"),//yhghghjhjgjhnbnbn
+          gradient: LinearGradient(
+            colors: isDarkMode
+                ? [Colors.black38, Colors.black38]
+                : [
+              hexStringToColor("F1F9F6"),
               hexStringToColor("D1EEE1"),
-              hexStringToColor("AFE1CE")
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
-        child: Stack(
+              hexStringToColor("AFE1CE"),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
-            Positioned(
-              left: 20,
-              top: 20,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  Taiwan_screen()),
-                  );
-                },
-                child: Stack(
-                  children: [
-                    const Image(
-                      image: AssetImage('assets/images/Taiwan2.jpeg'),
-                      width: 180,
-                      height: 350,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      child: Opacity(
-                        opacity: 0.2, // Adjust the opacity value as needed
-                        child: Container(
-                          width: 180,
-                          height: 350,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      left: 30,
-                      top: 300,
-                      child: Text(
-                        'Taiwan',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 34.5,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black,
-                              offset: Offset(2, 2),
-                              blurRadius: 3,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            buildImageRow(
+              imagePath1: 'assets/images/Taiwan2.jpeg',
+              text1: AppLocalizations.of(context).Taiwan,
+              imagePath2: 'assets/images/Indonesia1.jpeg',
+              text2: AppLocalizations.of(context).indonesia,
             ),
-            Positioned(
-              right: 20,
-              top: 20,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Indonesia_screen()),
-                  );
-                },
-                child: Stack(
-                  children: [
-                    const Image(
-                        image: AssetImage('assets/images/Indonesia1.jpeg'),
-                        width: 180,
-                        height: 350,
-                        fit: BoxFit.cover
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      child: Opacity(
-                        opacity: 0.2, // Adjust the opacity value as needed
-                        child: Container(
-                          width: 180,
-                          height: 350,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      right: 4,
-                      top: 300,
-                      child: Text(
-                        'Indonesia',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 34.5,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black,
-                              offset: Offset(2, 2),
-                              blurRadius: 3,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              left: 20,
-              bottom: 70,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Malaysia_screen()),
-                  );
-                },
-                child: Stack(
-                  children: [
-                    const Image(
-                        image: AssetImage('assets/images/Malaysia1.jpeg'),
-                        width: 180,
-                        height: 350,
-                        fit: BoxFit.cover
-                    ),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      child: Opacity(
-                        opacity: 0.2, // Adjust the opacity value as needed
-                        child: Container(
-                          width: 180,
-                          height: 350,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      left: 15,
-                      bottom: 10,
-                      child: Text(
-                        'Malaysia',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 34.5,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black,
-                              offset: Offset(2, 2),
-                              blurRadius: 3,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-              right: 20,
-              bottom: 70,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Vietnam_screen()),
-                  );
-                },
-                child: Stack(
-                  children: [
-                    const Image(
-                        image: AssetImage('assets/images/Vietnam1.jpg'),
-                        width: 180,
-                        height: 350,
-                        fit: BoxFit.cover),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      child: Opacity(
-                        opacity: 0.2, // Adjust the opacity value as needed
-                        child: Container(
-                          width: 180,
-                          height: 350,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    const Positioned(
-                      right: 15,
-                      bottom: 10,
-                      child: Text(
-                        'Vietnam',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 34.5,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black,
-                              offset: Offset(2, 2),
-                              blurRadius: 3,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            buildImageRow(
+              imagePath1: 'assets/images/Malaysia1.jpeg',
+              text1: AppLocalizations.of(context).malaysia,
+              imagePath2: 'assets/images/Vietnam1.jpg',
+              text2: AppLocalizations.of(context).vietnam,
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildImageRow({
+    required String imagePath1,
+    required String text1,
+    required String imagePath2,
+    required String text2,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        buildImageCard(imagePath: imagePath1, text: text1),
+        buildImageCard(imagePath: imagePath2, text: text2),
+      ],
+    );
+  }
+
+  Widget buildImageCard({required String imagePath, required String text}) {
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the respective screen
+      },
+      child: Stack(
+        children: [
+          Image(
+            image: AssetImage(imagePath),
+            width: 180,
+            height: 350,
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            left: 0,
+            top: 0,
+            child: Opacity(
+              opacity: 0.2,
+              child: Container(
+                width: 180,
+                height: 350,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 30,
+            top: 300,
+            child: Text(
+              text,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 34.5,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  Shadow(
+                    color: Colors.black,
+                    offset: Offset(2, 2),
+                    blurRadius: 3,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

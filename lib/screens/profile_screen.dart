@@ -4,6 +4,7 @@ import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/editprofile.dart';
+import 'package:travel_trip_application/screens/utils/post.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:travel_trip_application/screens/personality_screen.dart';
 import '../reusable_widgets/dark_mode.dart';
@@ -11,6 +12,10 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter/gestures.dart';
 import 'package:travel_trip_application/reusable_widgets//photo_utils.dart';
+import 'package:path_provider/path_provider.dart';
+import '../gen_l10n/app_localizations.dart';
+import 'utils/post.dart';
+
 
 
 class ProfilePage extends StatefulWidget {
@@ -20,7 +25,7 @@ class ProfilePage extends StatefulWidget {
   final int posts = 30;
   final int followers = 1000;
   final int following = 500;
-  ProfilePage({required this.name, required this.gender, required this.nationality});
+  ProfilePage({required this.name,required this.gender,required this.nationality});
 
   @override
   State<ProfilePage> createState() => _ProfilePage();
@@ -235,8 +240,8 @@ class _ProfilePage extends State<ProfilePage>
                                 ),
                               ),
                               Text(
-                                'Posts',
-                                style: TextStyle(
+                                AppLocalizations.of(context).posts,
+                                    style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey,
                                 ),
@@ -253,7 +258,7 @@ class _ProfilePage extends State<ProfilePage>
                                 ),
                               ),
                               Text(
-                                'Followers',
+                                AppLocalizations.of(context).followers,
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey,
@@ -271,7 +276,7 @@ class _ProfilePage extends State<ProfilePage>
                                 ),
                               ),
                               Text(
-                                'Following',
+                                AppLocalizations.of(context).following,
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey,
@@ -290,9 +295,9 @@ class _ProfilePage extends State<ProfilePage>
           TabBar(
             controller: _tabController,
             tabs: [
-              Tab(text: 'Posts'),
-              Tab(text: 'Ratings'),
-              Tab(text: 'Comments'),
+              Text(AppLocalizations.of(context).posts),
+              Text(AppLocalizations.of(context).ratings),
+              Text(AppLocalizations.of(context).commets),
             ],
             labelColor: Colors.blueAccent,
             unselectedLabelColor: Colors.blueGrey,

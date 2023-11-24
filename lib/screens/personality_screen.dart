@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'home_screen.dart';
+import '../gen_l10n/app_localizations.dart';
 
 class MultipleChoiceOption extends StatelessWidget {
   final String optionText;
@@ -148,7 +149,6 @@ class _PersonalityScreenState extends State<PersonalityScreen> {
       init_Value += newValue ? points : 0;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {

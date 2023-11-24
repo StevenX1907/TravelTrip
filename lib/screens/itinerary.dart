@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'itinerary_display_page.dart';
 import '../reusable_widgets/dark_mode.dart';
 import '../reusable_widgets/side_menu.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../gen_l10n/app_localizations.dart';
 
 class ItineraryPage extends StatefulWidget {
   @override
@@ -20,6 +24,41 @@ class _ItineraryPageState extends State<ItineraryPage> {
   DateTime? untilDate;
   TimeOfDay? arrivalTime;
   TimeOfDay? departureTime;
+  List<String> generatedItinerary = [];
+  double userRating = 0.0;
+
+////s
+  Future<String> getOpenAIResponse(String input) async {
+    final apiKey = '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'; // Replace with your OpenAI API key
+    final apiUrl = 'https://api.openai.com/v1/completions';
+    print('Prompt: $input');
+    final response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $apiKey',
+      },
+      body: jsonEncode({
+        'model': 'text-davinci-003',
+        'prompt': '$input',
+        'temperature': 0.8,
+        'max_tokens': 1500,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      throw Exception('Failed to get response from OpenAI');
+    }
+  }
+  String truncateInput(String input, int maxTokens) {
+    List<String> tokens = input.split(' ');
+    if (tokens.length > maxTokens) {
+      tokens = tokens.sublist(0, maxTokens);
+    }
+    return tokens.join(' ');
+  }
 
   List<String> areas = [];
   List<String> categories = [
@@ -55,9 +94,29 @@ class _ItineraryPageState extends State<ItineraryPage> {
       }
     }
 
-    itinerary.add('Arrival at ${arrivalTime!.format(context)}');
-    itinerary.add('Departure at ${departureTime!.format(context)}');
+    // itinerary.add('Arrival at ${arrivalTime!.format(context)}');
+    // itinerary.add('Departure at ${departureTime!.format(context)}');
     return itinerary;
+  }
+  String generateItineraryPrompt() {
+    List<String> itinerary = generateItinerary();
+
+    if (itinerary.isEmpty) {
+      throw Exception('Please fill in all the required fields.');
+    }
+
+    String input = '';
+
+    for (String item in itinerary) {
+      input += '- $item\n';
+    }
+
+    // Add weather and cultural prompts
+    String formattedFromDate = DateFormat('yyyy-MM-dd').format(fromDate!);
+    String formattedUntilDate = DateFormat('yyyy-MM-dd').format(untilDate!);
+    input +='Create a time during $formattedFromDate to $formattedUntilDate for trip to $selectedAreas in $selectedCountry and i like $selectedCategories' ;
+    input += 'Include details such as arrival and departure times, activities, meals, and notable attractions. Ensure that the schedule is well-organized and follows a logical sequence. Additionally, provide recommendations for specific locations to visit, dining options, and scenic walks. Use a conversational and informative tone to make the generated itinerary user-friendly.I need to list each time period for my itinerary. For example: 9:00: where to go 10:00: where to go';
+    return input;
   }
 
   @override
@@ -70,7 +129,8 @@ class _ItineraryPageState extends State<ItineraryPage> {
         title: const Text('Itinerary'),
         backgroundColor: isDarkMode?Colors.black:Color(0xFF306550),
       ),
-      body: Container(
+      body: SingleChildScrollView(
+        child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -226,17 +286,110 @@ class _ItineraryPageState extends State<ItineraryPage> {
             ),
 
             SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                List<String> itinerary = generateItinerary();
 
-                if (itinerary.isEmpty) {
+            // Display the generated itinerary
+
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  String input = generateItineraryPrompt();
+                  String response = await getOpenAIResponse(input);
+
+                  Map<String, dynamic> jsonResponse = jsonDecode(response);
+                  String generatedText =
+                  jsonResponse['choices'][0]['text'];
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Generated Itinerary'),
+                        content: Container(
+                          width:
+                          MediaQuery.of(context).size.width * 0.8,
+                          height:
+                          MediaQuery.of(context).size.width * 0.8,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Generated Itinerary:',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                for (String item in generatedText
+                                    .split('\n')
+                                    .where((item) =>
+                                item.isNotEmpty)) ...[
+                                  Text('- $item'),
+                                ],
+                                SizedBox(height: 16.0),
+                              ],
+                            ),
+                          ),
+                        ),
+                        actions: [
+                          Row(
+                          mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Rate this itinerary:'),
+                              Text(''),
+                            ],
+                          ),
+
+                          Row(
+                            mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                            children: [
+                              RatingBar.builder(
+                                initialRating: userRating,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 30.0,
+                                itemPadding: EdgeInsets.symmetric(
+                                    horizontal: 4.0),
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {
+                                  setState(() {
+                                    userRating = rating;
+                                  });
+                                },
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Save the user's rating and close the dialog
+                                  print('User rating: $userRating');
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          ),
+                        ],
+                        // ... (your other properties)
+                      );
+                    },
+                  );
+                } catch (e) {
+                  print('Error: $e');
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: Text('Error'),
-                        content: Text('Please fill in all the required fields.'),
+                        content: Text(
+                          'Failed to generate itinerary. Please try again.',
+                        ),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
@@ -248,20 +401,14 @@ class _ItineraryPageState extends State<ItineraryPage> {
                       );
                     },
                   );
-                } else {
-                  // Navigate to the new page to display the full itinerary
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ItineraryDisplayPage(itinerary: itinerary),
-                    ),
-                  );
                 }
               },
-              child: Text('Create Itinerary'),
+              child: Text('Generate Itinerary'),
             ),
+
           ],
         ),
+      ),
       ),
     );
   }

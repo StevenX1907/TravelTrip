@@ -18,6 +18,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+
   runApp(
     MaterialApp( // Wrap your app with MaterialApp
       home: ChangeNotifierProvider<DarkModeExample>(
