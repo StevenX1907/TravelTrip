@@ -186,10 +186,9 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get caugoResDescription => 'Cau Go Restaurant, yang terletak di jantung kota Vietnam, menampilkan esensi masakan Vietnam dengan suasananya yang menawan dan sajiannya yang lezat. Terletak di kota Hanoi yang ramai, permata kuliner ini terletak di tepi Danau Hoan Kiem, menawarkan pemandangan panorama menakjubkan yang menjadi latar belakang menawan untuk pengalaman bersantap yang tak terlupakan. Restoran ini, dihiasi dengan dekorasi tradisional Vietnam, memancarkan kehangatan dan keaslian, menciptakan suasana ramah bagi pengunjung yang ingin menyelami kekayaan budaya negara tersebut. Saat Anda melangkah ke Cau Go, Anda akan disambut oleh aroma rempah-rempah Vietnam yang menggoda dan melodi musik tradisional live yang menenangkan. Interior restoran, dengan ciri khas furnitur kayu gelap dan pencahayaan lembut, membawa para tamu ke dunia di mana waktu melambat, memungkinkan untuk menjelajahi kekayaan kuliner Vietnam dengan santai. Menunya adalah perjalanan gastronomi melintasi beragam wilayah di negara ini, menampilkan hidangan khas seperti pho, banh mi, dan hidangan laut segar yang nikmat. Setiap piring merupakan mahakarya, disajikan dengan penuh seni untuk mencerminkan perhatian cermat terhadap detail yang mendefinisikan masakan Vietnam.';
 
-<<<<<<<<< Temporary merge branch 1
   //malaysia
   String get malaysia => 'Malaysia';
-=========
+
   //taiwan
   @override
   String get kenting => 'Kenting';
@@ -236,8 +235,5 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get matsuAddress => 'Alamat: No.19, Songgao Road 6F, A4, Xintiandi, Shin Kong Mitsukoshi Xinyi, Distrik Xinyi, Taipei 110 Taiwan';
 
-
-
->>>>>>>>> Temporary merge branch 2
 
 }

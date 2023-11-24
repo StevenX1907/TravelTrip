@@ -184,12 +184,9 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get caugoResDescription => 'Nhà hàng Cầu Gỗ, ẩn mình giữa lòng Việt Nam, lưu giữ tinh hoa của ẩm thực Việt Nam với bầu không khí mê hoặc và những món ăn ngon miệng. Tọa lạc tại thành phố Hà Nội sôi động, viên ngọc ẩm thực này nằm bên bờ Hồ Hoàn Kiếm, mang đến tầm nhìn toàn cảnh ngoạn mục, tạo nên khung cảnh quyến rũ cho trải nghiệm ẩm thực khó quên. Nhà hàng được trang trí theo phong cách truyền thống của Việt Nam, toát lên vẻ ấm áp và chân thực, tạo ra bầu không khí chào đón cho những thực khách muốn hòa mình vào tấm thảm văn hóa phong phú của đất nước. Khi bước vào Cầu Gỗ, bạn sẽ được chào đón bởi hương thơm quyến rũ của các loại gia vị Việt Nam và giai điệu nhẹ nhàng của nhạc sống truyền thống. Nội thất của nhà hàng, đặc trưng với đồ nội thất bằng gỗ tối màu và ánh sáng dịu nhẹ, đưa du khách đến một thế giới nơi thời gian trôi chậm lại, cho phép du khách nhàn nhã khám phá kho tàng ẩm thực của Việt Nam. Thực đơn là hành trình ẩm thực qua các vùng miền đa dạng của đất nước, bao gồm các món ăn đặc trưng như phở, bánh mì và các món hải sản tươi ngon. Mỗi đĩa là một kiệt tác, được trình bày một cách nghệ thuật để phản ánh sự chú ý tỉ mỉ đến từng chi tiết đặc trưng của ẩm thực Việt Nam.';
 
-<<<<<<<<< Temporary merge branch 1
   //malaysia
   String get malaysia => 'Malaysia';
 
-}
-=========
 //taiwan
   @override
   String get kenting => 'Kenting';
@@ -236,7 +233,5 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get matsuAddress => 'Địa chỉ: Số 19, Đường Songgao 6F, A4, Xintiandi, Shin Kong Mitsukoshi Xinyi, Quận Xinyi, Đài Bắc 110 Đài Loan';
 
-
-
 }
->>>>>>>>> Temporary merge branch 2
+
