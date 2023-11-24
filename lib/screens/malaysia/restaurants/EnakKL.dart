@@ -69,7 +69,7 @@ class _EnakKLState extends State<EnakKL> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/restaurants/enak1.jpg'),
+                          'assets/malaysia/restaurants/enak1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _EnakKLState extends State<EnakKL> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/enak1.jpg'),
+                                  'assets/malaysia/restaurants/enak1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _EnakKLState extends State<EnakKL> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/enak2.jpg'),
+                                  'assets/malaysia/restaurants/enak2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _EnakKLState extends State<EnakKL> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/enak3.jpg'),
+                                  'assets/malaysia/restaurants/enak3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

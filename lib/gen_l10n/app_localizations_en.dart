@@ -1,3 +1,4 @@
+
 import 'package:travel_trip_application/screens/indonesia/destinations/bali_island.dart';
 import 'package:travel_trip_application/screens/indonesia/restaurants/blueTerrace.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
@@ -43,7 +44,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vietnamese => 'Vietnamese';
-
   @override
   String get malay => 'Malay';
 
@@ -84,11 +84,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get ratings => 'Ratings';
   @override
-  String get commets => 'Comments';
+  String get commets => 'Commets';
   @override
   String get followers => 'Followers';
   @override
-  String get following => 'Following';
+  String get following => 'Followering';
   @override
   String get AddtoFavorite => 'Add to Favorite';
   @override
@@ -125,24 +125,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get img =>'assets/images/events/Da_nang1.jfif';
   @override
   String get like => 'Like';
-  //indonesia
+//indonesia
   @override
   String get BorobudurTemple => 'Borobudur Temple';
   @override
   String get borobudurTempleDescription => 'Candi Borobudur or Borobudur Temple is a UNESCO World Heritage site in Indonesia, renowned for its stunning world’s largest Buddhist temple complex. It features intricate stone carvings and offers a glimpse into ancient Javanese history and culture.';
   @override
   String get indonesia => 'Indonesia';
+
   String get baliIsland => 'Bali Island';
   String get jakartaOldTown => 'Jakarta Old Town';
   String get fourSeasons => 'Four Seasons Hotel Bali';
   String get gaiaHotel => 'The Gaia Hotel Bandung';
+
   String get kempinski => 'Indonesia Kempinski Jakarta Hotel';
   String get bandarDjakarta => 'Bandar Djakarta';
   String get blueTerrace => 'Blue Terrace';
   String get kudeta => 'Ku De Ta';
 
   //taiwan
-  String get Taiwan => 'Taiwan';
+  String get taiwan => 'Taiwan';
 
   //vietnam
   @override
@@ -193,9 +195,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get caugoRes => 'Cau go Restaurant';
   @override
   String get caugoResDescription => 'Cau Go Restaurant, nestled in the heart of Vietnam, captures the essence of Vietnamese cuisine with its enchanting ambiance and delectable offerings. Located in the vibrant city of Hanoi, this culinary gem is perched on the edge of Hoan Kiem Lake, offering breathtaking panoramic views that serve as a captivating backdrop to an unforgettable dining experience. The restaurant, adorned with traditional Vietnamese décor, exudes warmth and authenticity, creating a welcoming atmosphere for patrons seeking an immersion into the country rich cultural tapestry. As you step into Cau Go, you are greeted by the tantalizing aroma of Vietnamese spices and the soothing melody of live traditional music. The restaurant interior, characterized by dark wooden furniture and soft lighting, transports guests to a realm where time slows down, allowing for a leisurely exploration of Vietnam culinary treasures. The menu is a gastronomic journey through the diverse regions of the country, featuring signature dishes like pho, banh mi, and fresh seafood delights. Each plate is a masterpiece, artfully presented to reflect the meticulous attention to detail that defines Vietnamese cuisine.';
-  @override
-  String get malaysia =>'Malaysia';
-  //taiwan
+
+
+//malaysia
+  String get malaysia => 'Malaysia';
+
+
+//taiwan
   @override
   String get kenting => 'Kenting';
   @override
@@ -292,7 +298,68 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get LeQueRestaurantDescription => 'Established in 2014, Le Que Restaurant might be relatively compared to many other restaurants around the country, but you can always expect great prepared by trained and experienced chefs. It is a fusion café where you can enjoy a wide range of Western cuisines and a good selection of pastas. If you are in the city of Melaka and have an appetite for pasta, you should make your way to Le Que for sure.';
 
+  @override
+  String get deletephoto => 'Delete Picture';
+  @override
+  String get checkphoto => 'check Picture';
+  @override
+  String get Noimageavailable => 'No image available';
+  @override
+  String get PersonalityTest => 'Personality Test';
 
+  @override
+  String get EditProfile => 'Edit Profile';
 
+  @override
+  String get Youdonthaveanyratingsyet => 'You don\'t have any ratings yet';
+
+  @override
+  String get Youhaventleaveanycommentsyet => 'You haven\'t left any comments yet';
+
+  @override
+  String get N1 => 'Natural landscape';
+
+  @override
+  String get N2 => 'Shopping District';
+
+  @override
+  String get N3 => 'Historical Place';
+
+  @override
+  String get N4 => 'Religious Place';
+
+  @override
+  String get N5 => 'Theme Park';
+  @override
+  String get A1 => 'Sumatra';
+  @override
+  String get A2 => 'Java';
+
+  @override
+  String get A3 => 'Kalimantan';
+
+  @override
+  String get A4 => 'Sulawesi';
+
+  @override
+  String get A5 => 'Pupua';
+
+  @override
+  String get A6 => 'North';
+
+  @override
+  String get A7 => 'Central';
+
+  @override
+  String get A8 => 'South';
+
+  @override
+  String get A9 => 'East';
+
+  @override
+  String get itenary => 'Itenary';
+
+  @override
+  String get Selectacountry => 'Select a country';
 
 }

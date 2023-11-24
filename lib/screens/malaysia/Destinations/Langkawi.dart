@@ -71,7 +71,7 @@ class _langkawiScreenState extends State<langkawiScreen> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/events/pulau langkawi1.jpg'),
+                          'assets/malaysia/destinations/pulau langkawi1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -186,7 +186,7 @@ class _langkawiScreenState extends State<langkawiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/pulau langkawi1.jpg'),
+                                'assets/malaysia/destinations/pulau langkawi1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -207,7 +207,7 @@ class _langkawiScreenState extends State<langkawiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/pulau langkawi2.jpg'),
+                                  'assets/malaysia/destinations/pulau langkawi2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -228,7 +228,7 @@ class _langkawiScreenState extends State<langkawiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/pulau langkawi3.jpg'),
+                                  'assets/malaysia/destinations/pulau langkawi3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

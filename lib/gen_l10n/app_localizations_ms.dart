@@ -158,7 +158,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get kudeta => 'Ku De Ta';
 
   //taiwan
-  String get Taiwan => 'Taiwan';
+  String get taiwan => 'Taiwan';
 
   //vietnam
   @override
@@ -345,6 +345,66 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get LeQueRestaurantDescription => 'Ditubuhkan pada tahun 2014, Restoran Le Que mungkin agak baru dibandingkan dengan banyak restoran lain di seluruh negara, tetapi anda boleh sentiasa mengharapkan hidangan yang lazat disediakan oleh jurumasak yang terlatih dan berpengalaman. Ia merupakan sebuah kafe fusi di mana anda boleh menikmati pelbagai masakan Barat dan pilihan pasta yang baik. Jika anda berada di bandar Melaka dan mempunyai selera untuk pasta, anda haruslah ke Le Que.';
+  @override
+  String get deletephoto => 'Padam Gambar';
+  @override
+  String get checkphoto => 'Semak Gambar';
+  @override
+  String get Noimageavailable => 'Gambar tidak tersedia';
+  @override
+  String get PersonalityTest => 'Ujian Personaliti';
+
+  @override
+  String get EditProfile => 'Edit Profil';
+  @override
+  String get Youdonthaveanyratingsyet => 'Anda belum mempunyai penilaian';
+
+  @override
+  String get Youhaventleaveanycommentsyet => 'Anda belum meninggalkan komen';
+  @override
+  String get N1 => 'Lanskap semula jadi';
+
+  @override
+  String get N2 => 'Kawasan Membeli-belah';
+
+  @override
+  String get N3 => 'Tempat Bersejarah';
+
+  @override
+  String get N4 => 'Tempat Beribadah';
+
+  @override
+  String get N5 => 'Taman Tema';
+  @override
+  String get A1 => 'Sumatera';
+
+  @override
+  String get A2 => 'Jawa';
+
+  @override
+  String get A3 => 'Kalimantan';
+
+  @override
+  String get A4 => 'Sulawesi';
+
+  @override
+  String get A5 => 'Papua';
+
+  @override
+  String get A6 => 'Utara';
+
+  @override
+  String get A7 => 'Tengah';
+
+  @override
+  String get A8 => 'Selatan';
+
+  @override
+  String get A9 => 'Timur';
+  @override
+  String get itenary => 'Jadual';
+  @override
+  String get Selectacountry => 'Pilih sebuah negara';
 
 }
 

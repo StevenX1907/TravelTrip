@@ -131,284 +131,284 @@ class _ItineraryPageState extends State<ItineraryPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(colors: isDarkMode
-              ? [Colors.black38, Colors.black38]
-              : [hexStringToColor("F1F9F6"), hexStringToColor("D1EEE1"), hexStringToColor("AFE1CE")],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            DropdownButtonFormField<String>(
-              value: selectedCountry,
-              hint: const Text('Select a country'),
-              items: ['Indonesia', 'Malaysia', 'Taiwan', 'Vietnam']
-                  .map((country) => DropdownMenuItem(
-                value: country,
-                child: Text(country),
-              ))
-                  .toList(),
-              onChanged: (value) {
-                setState(() {
-                  selectedCountry = value;
-                  selectedAreas.clear();
-                  selectedCategories.clear();
-                  areas = areasByCountry[value]??[];
-                });
-              },
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: isDarkMode
+                ? [Colors.black38, Colors.black38]
+                : [hexStringToColor("F1F9F6"), hexStringToColor("D1EEE1"), hexStringToColor("AFE1CE")],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
-            const SizedBox(height: 16.0),
-            if (selectedCountry != null)
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              DropdownButtonFormField<String>(
+                value: selectedCountry,
+                hint: const Text('Select a country'),
+                items: ['Indonesia', 'Malaysia', 'Taiwan', 'Vietnam']
+                    .map((country) => DropdownMenuItem(
+                  value: country,
+                  child: Text(country),
+                ))
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    selectedCountry = value;
+                    selectedAreas.clear();
+                    selectedCategories.clear();
+                    areas = areasByCountry[value]??[];
+                  });
+                },
+              ),
+              const SizedBox(height: 16.0),
+              if (selectedCountry != null)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text('Select area(s)'),
+                    Wrap(
+                      children: areas.map((area) {
+                        return Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Checkbox(
+                              value: selectedAreas.contains(area),
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  if (value != null && value) {
+                                    selectedAreas.add(area);
+                                  } else {
+                                    selectedAreas.remove(area);
+                                  }
+                                });
+                              },
+                            ),
+                            Text(area),
+                          ],
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
+              const SizedBox(height: 16.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('Select area(s)'),
+                  Text('Select category(s)'),
                   Wrap(
-                    children: areas.map((area) {
+                    children: categories.map((category) {
                       return Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Checkbox(
-                            value: selectedAreas.contains(area),
+                            value: selectedCategories.contains(category),
                             onChanged: (bool? value) {
                               setState(() {
                                 if (value != null && value) {
-                                  selectedAreas.add(area);
+                                  selectedCategories.add(category);
                                 } else {
-                                  selectedAreas.remove(area);
+                                  selectedCategories.remove(category);
                                 }
                               });
                             },
                           ),
-                          Text(area),
+                          Text(category),
                         ],
                       );
                     }).toList(),
                   ),
                 ],
               ),
-            const SizedBox(height: 16.0),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text('Select category(s)'),
-                Wrap(
-                  children: categories.map((category) {
-                    return Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Checkbox(
-                          value: selectedCategories.contains(category),
-                          onChanged: (bool? value) {
-                            setState(() {
-                              if (value != null && value) {
-                                selectedCategories.add(category);
-                              } else {
-                                selectedCategories.remove(category);
-                              }
-                            });
-                          },
-                        ),
-                        Text(category),
-                      ],
-                    );
-                  }).toList(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16.0),
-            ListTile(
-              title: Text('From'),
-              subtitle: Text(fromDate != null ? DateFormat('yyyy-MM-dd').format(fromDate!) : 'Select a date'),
-              onTap: () async {
-                final selectedDate = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime.now().add(Duration(days: 365)),
-                );
-                setState(() {
-                  fromDate = selectedDate;
-                });
-              },
-            ),
-
-            ListTile(
-              title: Text('Until'),
-              subtitle: Text(untilDate != null ? DateFormat('yyyy-MM-dd').format(untilDate!) : 'Select a date'),
-              onTap: () async {
-                final selectedDate = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime.now(),
-                  lastDate: DateTime.now().add(Duration(days: 365)),
-                );
-                setState(() {
-                  untilDate = selectedDate;
-                });
-              },
-            ),
-            ListTile(
-              title: Text('Departure Estimation'),
-              subtitle: Text(departureTime != null
-                  ? departureTime!.format(context)
-                  : 'Select a time'),
-              onTap: () async {
-                final selectedTime = await showTimePicker(
-                  context: context,
-                  initialTime: TimeOfDay.now(),
-                );
-                setState(() {
-                  departureTime = selectedTime;
-                });
-              },
-            ),
-            ListTile(
-              title: Text('Arrival Estimation'),
-              subtitle: Text(arrivalTime != null
-                  ? arrivalTime!.format(context)
-                  : 'Select a time'),
-              onTap: () async {
-                final selectedTime = await showTimePicker(
-                  context: context,
-                  initialTime: TimeOfDay.now(),
-                );
-                setState(() {
-                  arrivalTime = selectedTime;
-                });
-              },
-            ),
-
-            SizedBox(height: 16.0),
-
-            // Display the generated itinerary
-
-            ElevatedButton(
-              onPressed: () async {
-                try {
-                  String input = generateItineraryPrompt();
-                  String response = await getOpenAIResponse(input);
-
-                  Map<String, dynamic> jsonResponse = jsonDecode(response);
-                  String generatedText =
-                  jsonResponse['choices'][0]['text'];
-
-                  showDialog(
+              const SizedBox(height: 16.0),
+              ListTile(
+                title: Text('From'),
+                subtitle: Text(fromDate != null ? DateFormat('yyyy-MM-dd').format(fromDate!) : 'Select a date'),
+                onTap: () async {
+                  final selectedDate = await showDatePicker(
                     context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Generated Itinerary'),
-                        content: Container(
-                          width:
-                          MediaQuery.of(context).size.width * 0.8,
-                          height:
-                          MediaQuery.of(context).size.width * 0.8,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Generated Itinerary:',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime.now().add(Duration(days: 365)),
+                  );
+                  setState(() {
+                    fromDate = selectedDate;
+                  });
+                },
+              ),
+
+              ListTile(
+                title: Text('Until'),
+                subtitle: Text(untilDate != null ? DateFormat('yyyy-MM-dd').format(untilDate!) : 'Select a date'),
+                onTap: () async {
+                  final selectedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime.now().add(Duration(days: 365)),
+                  );
+                  setState(() {
+                    untilDate = selectedDate;
+                  });
+                },
+              ),
+              ListTile(
+                title: Text('Departure Estimation'),
+                subtitle: Text(departureTime != null
+                    ? departureTime!.format(context)
+                    : 'Select a time'),
+                onTap: () async {
+                  final selectedTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                  setState(() {
+                    departureTime = selectedTime;
+                  });
+                },
+              ),
+              ListTile(
+                title: Text('Arrival Estimation'),
+                subtitle: Text(arrivalTime != null
+                    ? arrivalTime!.format(context)
+                    : 'Select a time'),
+                onTap: () async {
+                  final selectedTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                  setState(() {
+                    arrivalTime = selectedTime;
+                  });
+                },
+              ),
+
+              SizedBox(height: 16.0),
+
+              // Display the generated itinerary
+
+              ElevatedButton(
+                onPressed: () async {
+                  try {
+                    String input = generateItineraryPrompt();
+                    String response = await getOpenAIResponse(input);
+
+                    Map<String, dynamic> jsonResponse = jsonDecode(response);
+                    String generatedText =
+                    jsonResponse['choices'][0]['text'];
+
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Generated Itinerary'),
+                          content: Container(
+                            width:
+                            MediaQuery.of(context).size.width * 0.8,
+                            height:
+                            MediaQuery.of(context).size.width * 0.8,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Generated Itinerary:',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                for (String item in generatedText
-                                    .split('\n')
-                                    .where((item) =>
-                                item.isNotEmpty)) ...[
-                                  Text('- $item'),
+                                  for (String item in generatedText
+                                      .split('\n')
+                                      .where((item) =>
+                                  item.isNotEmpty)) ...[
+                                    Text('- $item'),
+                                  ],
+                                  SizedBox(height: 16.0),
                                 ],
-                                SizedBox(height: 16.0),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                        actions: [
-                          Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Rate this itinerary:'),
-                              Text(''),
-                            ],
-                          ),
+                          actions: [
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Rate this itinerary:'),
+                                Text(''),
+                              ],
+                            ),
 
-                          Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
-                            children: [
-                              RatingBar.builder(
-                                initialRating: userRating,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemCount: 5,
-                                itemSize: 30.0,
-                                itemPadding: EdgeInsets.symmetric(
-                                    horizontal: 4.0),
-                                itemBuilder: (context, _) => Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
+                            Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.spaceBetween,
+                              children: [
+                                RatingBar.builder(
+                                  initialRating: userRating,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemSize: 30.0,
+                                  itemPadding: EdgeInsets.symmetric(
+                                      horizontal: 4.0),
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {
+                                    setState(() {
+                                      userRating = rating;
+                                    });
+                                  },
                                 ),
-                                onRatingUpdate: (rating) {
-                                  setState(() {
-                                    userRating = rating;
-                                  });
-                                },
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  // Save the user's rating and close the dialog
-                                  print('User rating: $userRating');
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('OK'),
-                              ),
-                            ],
+                                ElevatedButton(
+                                  onPressed: () {
+                                    // Save the user's rating and close the dialog
+                                    print('User rating: $userRating');
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('OK'),
+                                ),
+                              ],
+                            ),
+                          ],
+                          // ... (your other properties)
+                        );
+                      },
+                    );
+                  } catch (e) {
+                    print('Error: $e');
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error'),
+                          content: Text(
+                            'Failed to generate itinerary. Please try again.',
                           ),
-                        ],
-                        // ... (your other properties)
-                      );
-                    },
-                  );
-                } catch (e) {
-                  print('Error: $e');
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Error'),
-                        content: Text(
-                          'Failed to generate itinerary. Please try again.',
-                        ),
-                        actions: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
-              },
-              child: Text('Generate Itinerary'),
-            ),
+                          actions: <Widget>[
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Generate Itinerary'),
+              ),
 
-          ],
+            ],
+          ),
         ),
-      ),
       ),
     );
   }

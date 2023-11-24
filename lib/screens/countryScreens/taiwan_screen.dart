@@ -219,7 +219,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).Taiwan),
+        title: Text(AppLocalizations.of(context).taiwan),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(

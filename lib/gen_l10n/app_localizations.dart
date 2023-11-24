@@ -270,7 +270,7 @@ abstract class AppLocalizations {
   String get kudeta;
 
   //taiwan
-  String get Taiwan;
+  String get taiwan;
 
   //vietnam
   String get DanangScreen;
@@ -324,6 +324,29 @@ abstract class AppLocalizations {
   String get matsuDescription;
   String get matsuContact;
   String get matsuAddress;
+  String get deletephoto;
+  String get checkphoto;
+  String get Noimageavailable;
+  String get PersonalityTest;
+  String get EditProfile;
+  String get Youdonthaveanyratingsyet;
+  String get Youhaventleaveanycommentsyet;
+  String get N1;
+  String get N2;
+  String get N3;
+  String get N4;
+  String get N5;
+  String get A1;
+  String get A2;
+  String get A3;
+  String get A4;
+  String get A5;
+  String get A6;
+  String get A7;
+  String get A8;
+  String get A9;
+  String get itenary;
+  String get Selectacountry;
 
   String get MountKinabaluScreen;
   String get MountKinabaluDescription;

@@ -137,7 +137,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get kudeta => 'Ku De Ta';
 
   //taiwan
-  String get Taiwan => '台灣';
+  String get taiwan => '台灣';
 
   //vietnam
   @override
@@ -288,7 +288,65 @@ class AppLocalizationsZh extends AppLocalizations {
   String get matsuContact => '聯絡方式: +886 2 2345 8833';
   @override
   String get matsuAddress => '地址: 松高路19號新光三越信義新天地A4館6F, Taipei, Taiwan';
+  @override
+  String get deletephoto => '刪除照片';
+  @override
+  String get checkphoto => '查看照片';
+  @override
+  String get Noimageavailable => '無圖片可用';
+  @override
+  String get PersonalityTest => '個性測試';
+  @override
+  String get EditProfile => '編輯個人資料';
+  @override
+  String get Youdonthaveanyratingsyet => '你還沒有任何評分';
 
+  @override
+  String get Youhaventleaveanycommentsyet => '你還沒有留下任何評論';
+  @override
+  String get N1 => '自然景觀';
+
+  @override
+  String get N2 => '購物商場';
+
+  @override
+  String get N3 => '歷史古蹟';
+
+  @override
+  String get N4 => '宗教場所';
+
+  @override
+  String get N5 => '主題樂園';
+  @override
+  String get A1 => 'Sumatra';
+
+  @override
+  String get A2 => 'Java';
+
+  @override
+  String get A3 => 'Kalimantan';
+
+  @override
+  String get A4 => 'Sulawesi';
+
+  @override
+  String get A5 => 'Pupua';
+
+  @override
+  String get A6 => '北部';
+
+  @override
+  String get A7 => '中部';
+
+  @override
+  String get A8 => '南部';
+
+  @override
+  String get A9 => '東部';
+  @override
+  String get itenary => '行程';
+  @override
+  String get Selectacountry => '選擇國家';
 
 }
 

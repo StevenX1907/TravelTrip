@@ -69,7 +69,7 @@ class _RestoranSamyState extends State<RestoranSamy> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/restaurants/samy1.jpg'),
+                          'assets/malaysia/restaurants/samy1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _RestoranSamyState extends State<RestoranSamy> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/samy1.jpg'),
+                                  'assets/malaysia/restaurants/samy1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _RestoranSamyState extends State<RestoranSamy> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/samy2.jpg'),
+                                  'assets/malaysia/restaurants/samy2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _RestoranSamyState extends State<RestoranSamy> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/samy3.jpg'),
+                                  'assets/malaysia/restaurants/samy3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

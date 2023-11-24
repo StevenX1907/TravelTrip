@@ -93,7 +93,7 @@ class _ProfilePage extends State<ProfilePage>
           children: <Widget>[
             ListTile(
               leading: Icon(Icons.delete),
-              title: Text('刪除照片'),
+              title: Text(AppLocalizations.of(context).deletephoto),
               onTap: () {
                 // 執行刪除照片的操作
                 setState(() {
@@ -104,7 +104,7 @@ class _ProfilePage extends State<ProfilePage>
             ),
             ListTile(
               leading: Icon(Icons.visibility),
-              title: Text('查看照片'),
+              title: Text(AppLocalizations.of(context).checkphoto),
               onTap: () {
                 // 執行查看照片的操作
                 _viewImage(index);
@@ -131,7 +131,7 @@ class _ProfilePage extends State<ProfilePage>
                 gridImages[index]!,
                 fit: BoxFit.contain,
               )
-                  : Text('No image available'),
+                  : Text(AppLocalizations.of(context).Noimageavailable),
             ),
           ),
         );
@@ -175,11 +175,11 @@ class _ProfilePage extends State<ProfilePage>
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
               PopupMenuItem<String>(
                 value: 'option1',
-                child: Text('Personality Test'),
+                child: Text(AppLocalizations.of(context).PersonalityTest),
               ),
               PopupMenuItem<String>(
                 value: 'option2',
-                child: Text('Edit Profile'),
+                child: Text(AppLocalizations.of(context).EditProfile),
               ),
             ],
           ),
@@ -361,14 +361,14 @@ class _ProfilePage extends State<ProfilePage>
                 ),
                 ),// Reels page
                 Container(
-                  child: const Center(
-                    child: Text("You don't have any ratings yet"),
+                  child: Center(
+                    child: Text(AppLocalizations.of(context).Youdonthaveanyratingsyet),
                   ),
                 ),
                 // Photos of You page
                 Container(
                   child: Center(
-                    child: Text("You haven't leave any comments yet"),
+                    child: Text(AppLocalizations.of(context).Youhaventleaveanycommentsyet),
                   ),
                 ),
               ],

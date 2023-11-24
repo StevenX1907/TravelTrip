@@ -69,7 +69,7 @@ class _PacificSuteraHotelState extends State<PacificSuteraHotel> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/hotels/Mov1.jpg'),
+                          'assets/malaysia/hotels/PacificSuteraHotel1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _PacificSuteraHotelState extends State<PacificSuteraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/PacificSuteraHotel1.jpg'),
+                                  'assets/malaysia/hotels/PacificSuteraHotel1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _PacificSuteraHotelState extends State<PacificSuteraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/PacificSuteraHotel2.jpg'),
+                                  'assets/malaysia/hotels/PacificSuteraHotel2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _PacificSuteraHotelState extends State<PacificSuteraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/PacificSuteraHotel3.jpg'),
+                                  'assets/malaysia/hotels/PacificSuteraHotel3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

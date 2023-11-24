@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             buildImageRow(
               imagePath1: 'assets/images/Taiwan2.jpeg',
-              text1: AppLocalizations.of(context).Taiwan,
+              text1: AppLocalizations.of(context).taiwan,
               onTap1: () {
                 Navigator.push(
                   context,

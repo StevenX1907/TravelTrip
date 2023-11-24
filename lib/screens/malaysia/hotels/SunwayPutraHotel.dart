@@ -69,7 +69,7 @@ class _SunwayPutraHotelState extends State<SunwayPutraHotel> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/hotels/Mov1.jpg'),
+                          'assets/malaysia/hotels/sunway1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _SunwayPutraHotelState extends State<SunwayPutraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Sunway1.jpg'),
+                                  'assets/malaysia/hotels/sunway1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _SunwayPutraHotelState extends State<SunwayPutraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Sunway2.jpg'),
+                                  'assets/malaysia/hotels/sunway2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _SunwayPutraHotelState extends State<SunwayPutraHotel> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Sunway3.jpg'),
+                                'assets/malaysia/hotels/sunway3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

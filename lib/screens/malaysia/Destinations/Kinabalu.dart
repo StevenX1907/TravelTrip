@@ -71,7 +71,7 @@ class _kinabaluScreenState extends State<kinabaluScreen> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/events/kinabalu1.jpg'),
+                          'assets/malaysia/destinations/kinabalu1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -186,7 +186,7 @@ class _kinabaluScreenState extends State<kinabaluScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/kinabalu1.jpg'),
+                                  'assets/malaysia/destinations/kinabalu1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -207,7 +207,7 @@ class _kinabaluScreenState extends State<kinabaluScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/Kinabalu2.jpg'),
+                                  'assets/malaysia/destinations/kinabalu2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -228,7 +228,7 @@ class _kinabaluScreenState extends State<kinabaluScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/kinabalu3.jpg'),
+                                  'assets/malaysia/destinations/kinabalu3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

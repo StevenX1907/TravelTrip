@@ -69,7 +69,7 @@ class _LeQueRestaurantState extends State<LeQueRestaurant> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/restaurants/samy1.jpg'),
+                          'assets/malaysia/restaurants/leque1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _LeQueRestaurantState extends State<LeQueRestaurant> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/leque1.jpg'),
+                                  'assets/malaysia/restaurants/leque1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _LeQueRestaurantState extends State<LeQueRestaurant> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/leque2.jpg'),
+                                  'assets/malaysia/restaurants/leque2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _LeQueRestaurantState extends State<LeQueRestaurant> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/restaurants/leque3.jpg'),
+                                  'assets/malaysia/restaurants/leque3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

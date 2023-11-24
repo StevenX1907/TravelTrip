@@ -32,54 +32,63 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
   int currentIndex = 0;
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
+  late List<Map<String, String>> destinations;
+  late List<Map<String, String>> hotels;
+  late List<Map<String, String>> restaurants;
   List<String> events = [
     'malaysia.jfif',
     'malaysia1.jfif',
     'malaysia2.jfif',
     'malaysia3.jfif',
   ];
-  List<Map<String, String>> destinations = [
-    {
-      'name': 'Kuala Lumpur',
-      'image': 'assets/images/destinations/KL.jfif',
-    },
-    {
-      'name': 'Penang',
-      'image': 'assets/images/destinations/Penang.jfif',
-    },
-    {
-      'name': 'The Perhentian Islands',
-      'image': 'assets/images/destinations/Perhentian_Islands.jpeg',
-    },
-  ];
-  List<Map<String, String>> hotels = [
-    {
-      'name': 'Cloud9 Holiday Cottages',
-      'image': 'assets/images/hotels/eden_hotel.jpg',
-    },
-    {
-      'name': 'De Baron Resort',
-      'image': 'assets/images/hotels/Cloud9_Holiday_Cottages.jfif',
-    },
-    {
-      'name': 'Bayview Hotel Langkawi',
-      'image': 'assets/images/hotels/Bayview_Hotel_Langkawi.jfif',
-    },
-  ];
-  List<Map<String, String>> restaurants = [
-    {
-      'name': 'Chambers Grill',
-      'image': 'assets/images/hotels/Chambers_Grill.jfif',
-    },
-    {
-      'name': 'Beta_KL',
-      'image': 'assets/images/restaurants/Beta_KL.jfif',
-    },
-    {
-      'name': ' Iketeru Restaurant',
-      'image': 'assets/images/restaurants/Iketeru_Restaurant.jfif',
-    },
-  ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    destinations = [
+      {
+        'name': AppLocalizations.of(context).LangkawiScreen,
+        'image': 'assets/malaysia/destinations/pulau langkawi1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).MountKinabaluScreen,
+        'image': 'assets/malaysia/destinations/kinabalu1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).MantananiScreen,
+        'image': 'assets/malaysia/destinations/mantani1.jpg',
+      },
+    ];
+    hotels = [
+      {
+        'name': AppLocalizations.of(context).MovHotels,
+        'image':'assets/malaysia/hotels/Mov1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).SunwayPutraHotel,
+        'image': 'assets/malaysia/hotels/sunway1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).PacificSuteraHotel,
+        'image': 'assets/malaysia/hotels/PacificSuteraHotel1.jpg',
+      },
+    ];
+    restaurants = [
+      {
+        'name': AppLocalizations.of(context).EnakKL,
+        'image': 'assets/malaysia/restaurants/enak1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).RestoranSamy,
+        'image': 'assets/malaysia/restaurants/samy1.jpg',
+      },
+      {
+        'name': AppLocalizations.of(context).LeQueRestaurant,
+        'image': 'assets/malaysia/restaurants/leque1.jpg',
+      },
+    ];
+
+  }
+
 
   @override
   void initState() {

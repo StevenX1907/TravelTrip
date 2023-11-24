@@ -69,7 +69,7 @@ class _MovHotelsState extends State<MovHotels> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/hotels/Mov1.jpg'),
+                        'assets/malaysia/hotels/Mov1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -184,7 +184,7 @@ class _MovHotelsState extends State<MovHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Mov1.jpg'),
+                                  'assets/malaysia/hotels/Mov1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -205,7 +205,7 @@ class _MovHotelsState extends State<MovHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Mov2.jpg'),
+                                  'assets/malaysia/hotels/Mov2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -226,7 +226,7 @@ class _MovHotelsState extends State<MovHotels> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/hotels/Mov3.jpg'),
+                                  'assets/malaysia/hotels/Mov3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),

@@ -182,7 +182,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get kudeta => 'Ku De Ta';
 
   //taiwan
-  String get Taiwan => 'Đài Loan';
+  String get taiwan => 'Đài Loan';
 
   //vietnam
   @override
@@ -282,6 +282,62 @@ class AppLocalizationsVi extends AppLocalizations {
   String get matsuContact => 'Liên hệ: +886 2 2345 8833';
   @override
   String get matsuAddress => 'Địa chỉ: Số 19, Đường Songgao 6F, A4, Xintiandi, Shin Kong Mitsukoshi Xinyi, Quận Xinyi, Đài Bắc 110 Đài Loan';
+  @override
+  String get deletephoto => 'Xóa Hình Ảnh';
+  @override
+  String get checkphoto => 'Kiểm Tra Hình Ảnh';
+  @override
+  String get Noimageavailable => 'Không có hình ảnh nào';
+  @override
+  String get PersonalityTest => 'Bài Test Tính Cách';
+  @override
+  String get EditProfile => 'Chỉnh sửa Hồ sơ';
+  @override
+  String get Youdonthaveanyratingsyet => 'Bạn chưa có bất kỳ đánh giá nào';
+  @override
+  String get Youhaventleaveanycommentsyet => 'Bạn chưa để lại bất kỳ bình luận nào';
+  @override
+  String get N1 => 'Phong cảnh tự nhiên';
 
+  @override
+  String get N2 => 'Khu mua sắm';
 
+  @override
+  String get N3 => 'Địa điểm lịch sử';
+
+  @override
+  String get N4 => 'Nơi tôn giáo';
+
+  @override
+  String get N5 => 'Công viên chủ đề';
+  @override
+  String get A1 => 'Sumatra';
+
+  @override
+  String get A2 => 'Java';
+
+  @override
+  String get A3 => 'Kalimantan';
+
+  @override
+  String get A4 => 'Sulawesi';
+
+  @override
+  String get A5 => 'Papua';
+
+  @override
+  String get A6 => 'Bắc';
+
+  @override
+  String get A7 => 'Trung';
+
+  @override
+  String get A8 => 'Nam';
+
+  @override
+  String get A9 => 'Đông';
+  @override
+  String get itenary => 'Lịch trình';
+  @override
+  String get Selectacountry => 'Chọn một quốc gia';
 }

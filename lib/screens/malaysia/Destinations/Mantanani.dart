@@ -72,7 +72,7 @@ class _MantananiScreenState extends State<MantananiScreen> {
                     color: Colors.amber,
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/events/kinabalu1.jpg'),
+                          'assets/malaysia/destinations/mantani1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -187,7 +187,7 @@ class _MantananiScreenState extends State<MantananiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/mantanani1.jpg'),
+                                  'assets/malaysia/destinations/mantani1.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -208,7 +208,7 @@ class _MantananiScreenState extends State<MantananiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/mantanani2.jpg'),
+                                  'assets/malaysia/destinations/mantani2.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -229,7 +229,7 @@ class _MantananiScreenState extends State<MantananiScreen> {
                             borderRadius: BorderRadius.circular(12),
                             image: DecorationImage(
                               image: AssetImage(
-                                  'assets/vietnam/destinations/mantanani3.jpg'),
+                                  'assets/malaysia/destinations/mantani3.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
