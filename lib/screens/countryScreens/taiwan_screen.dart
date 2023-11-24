@@ -160,8 +160,6 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
   }
 
 
-
-
   void _onDestinationTap(Map<String, dynamic> destination) {
     int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
 

@@ -121,6 +121,19 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get borobudurTempleDescription => 'Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Budha terbesar di dunia yang menakjubkan. Ini menampilkan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno.';
 
+  String get indonesia => 'Indonesia';
+  String get baliIsland => 'Bali Island';
+  String get jakartaOldTown => 'Jakarta Old Town';
+  String get fourSeasons => 'Four Seasons Hotel Bali';
+  String get gaiaHotel => 'The Gaia Hotel Bandung';
+  String get kempinski => 'Indonesia Kempinski Jakarta Hotel';
+  String get bandarDjakarta => 'Bandar Djakarta';
+  String get blueTerrace => 'Blue Terrace';
+  String get kudeta => 'Ku De Ta';
+
+  //taiwan
+  String get Taiwan => 'Taiwan';
+
   //vietnam
   @override
   String get DanangScreen => 'Da nang';
@@ -170,4 +183,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get caugoRes => 'Kamu pergi ke Restoran';
   @override
   String get caugoResDescription => 'Cau Go Restaurant, yang terletak di jantung kota Vietnam, menampilkan esensi masakan Vietnam dengan suasananya yang menawan dan sajiannya yang lezat. Terletak di kota Hanoi yang ramai, permata kuliner ini terletak di tepi Danau Hoan Kiem, menawarkan pemandangan panorama menakjubkan yang menjadi latar belakang menawan untuk pengalaman bersantap yang tak terlupakan. Restoran ini, dihiasi dengan dekorasi tradisional Vietnam, memancarkan kehangatan dan keaslian, menciptakan suasana ramah bagi pengunjung yang ingin menyelami kekayaan budaya negara tersebut. Saat Anda melangkah ke Cau Go, Anda akan disambut oleh aroma rempah-rempah Vietnam yang menggoda dan melodi musik tradisional live yang menenangkan. Interior restoran, dengan ciri khas furnitur kayu gelap dan pencahayaan lembut, membawa para tamu ke dunia di mana waktu melambat, memungkinkan untuk menjelajahi kekayaan kuliner Vietnam dengan santai. Menunya adalah perjalanan gastronomi melintasi beragam wilayah di negara ini, menampilkan hidangan khas seperti pho, banh mi, dan hidangan laut segar yang nikmat. Setiap piring merupakan mahakarya, disajikan dengan penuh seni untuk mencerminkan perhatian cermat terhadap detail yang mendefinisikan masakan Vietnam.';
+
+  //malaysia
+  String get malaysia => 'Malaysia';
 }
