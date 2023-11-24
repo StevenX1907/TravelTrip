@@ -5,10 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/reusable_widgets/exchange_coin.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/Kinabalu.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/Langkawi.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/Mantanani.dart';
+import 'package:travel_trip_application/screens/malaysia/hotels/MOVHotel.dart';
+import 'package:travel_trip_application/screens/malaysia/hotels/PacificSuteraHotel.dart';
+import 'package:travel_trip_application/screens/malaysia/hotels/SunwayPutraHotel.dart';
+import 'package:travel_trip_application/screens/malaysia/restaurants/EnakKL.dart';
+import 'package:travel_trip_application/screens/malaysia/restaurants/LeQue.dart';
+import 'package:travel_trip_application/screens/malaysia/restaurants/Samy.dart';
+import '../../gen_l10n/app_localizations.dart';
 import '../../reusable_widgets/dark_mode.dart';
 import '../utils/utils.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'dart:async';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart' as http;
+import '../malaysia/destinations/Langkawi.dart';
 
 class Malaysia_screen extends StatefulWidget {
   const Malaysia_screen({Key? key}) : super(key: key);
@@ -68,12 +81,14 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
       'image': 'assets/images/restaurants/Iketeru_Restaurant.jfif',
     },
   ];
+
   @override
   void initState() {
     super.initState();
     getCurrentTemperature();
     fetchExchangeRate();
   }
+
   Future<void> getCurrentTemperature() async {
     try {
       const apiKey = "";
@@ -99,7 +114,8 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
 
   Future<void> fetchExchangeRate() async {
     try {
-      final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/MYR'));
+      final response = await http.get(
+          Uri.parse('https://api.exchangerate-api.com/v4/latest/MYR'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         setState(() {
@@ -116,6 +132,65 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
       });
     }
   }
+
+  void navigateToDestinationDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const langkawiScreen()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const kinabaluScreen()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MantananiScreen()),
+      );
+    }
+  }
+
+  void navigateToHotelsDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MovHotels()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SunwayPutraHotel()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const PacificSuteraHotel()),
+      );
+    }
+    // Add more conditions for other items as needed
+  }
+
+  void navigateToRestaurantDetail(int index) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const EnakKL()),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const RestoranSamy()),
+      );
+    } else if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const LeQueRestaurant()),
+      );
+    }
+  }
+
   // Future<void> getCurrentTemperature() async {
   //   try {
   //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
@@ -146,18 +221,24 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
       drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('Malaysia'),
-        backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
+        backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: isDarkMode
                 ? [
               Colors.black38,
               Colors.black38
             ]
-                :[
+                : [
               hexStringToColor("F1F9F6"),
               hexStringToColor("D1EEE1"),
               hexStringToColor("AFE1CE")
@@ -221,7 +302,7 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  WeatherApp()),
+                      MaterialPageRoute(builder: (context) => WeatherApp()),
                     );
                   },
                   child: Text(
@@ -268,17 +349,19 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             Card(
               child: Container(
                 width: 50,
-                height:50,
+                height: 50,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: isDarkMode
                         ? [
                       Colors.black38,
                       Colors.black38
                     ]
-                        :[
+                        : [
                       Colors.grey.shade50,
                       Colors.grey.shade50,
-                    ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                    ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter)),
 
                 child: Align(
                   alignment: Alignment.center,
@@ -293,16 +376,20 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Destinations',
+                Text(
+                  AppLocalizations
+                      .of(context)
+                      .destinations,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations
+                        .of(context)
+                        .moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -317,24 +404,31 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: destinations.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            destinations[index]['image']!,
-                            fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () {
+                      // Handle the destination image click here
+                      navigateToDestinationDetail(index);
+                    },
+                    child: Container(
+                      width: 150,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Image.asset(
+                              destinations[index]['image']!,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          destinations[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            destinations[index]['name']!,
+                            style: const TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -344,16 +438,20 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Hotels',
+                Text(
+                  AppLocalizations
+                      .of(context)
+                      .hotels,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations
+                        .of(context)
+                        .moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -368,26 +466,33 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: hotels.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            hotels[index]['image']!,
-                            fit: BoxFit.cover,
-                          ),
+                  return GestureDetector(
+                      onTap: () {
+                        // Handle the destination image click here
+                        navigateToHotelsDetail(index);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                hotels[index]['image']!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              hotels[index]['name']!,
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          hotels[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                      )
                   );
                 },
               ),
@@ -396,16 +501,20 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Restaurants',
+                Text(
+                  AppLocalizations
+                      .of(context)
+                      .restaurants,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations
+                        .of(context)
+                        .moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -420,35 +529,40 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: restaurants.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 150,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            restaurants[index]['image']!,
-                            fit: BoxFit.cover,
-                          ),
+                  return GestureDetector(
+                      onTap: () {
+                        // Handle the destination image click here
+                        navigateToRestaurantDetail(index);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Image.asset(
+                                restaurants[index]['image']!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              restaurants[index]['name']!,
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          restaurants[index]['name']!,
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                      )
                   );
                 },
               ),
             ),
           ],
         ),
-
       ),
-
     );
   }
 }

@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
+import 'package:travel_trip_application/screens/vietnam/destinations/danang.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
 
 import 'app_localizations_en.dart';
 import 'app_localizations_id.dart';
@@ -230,6 +233,119 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About Us'**
   String get aboutUs;
+  String get posts;
+  String get ratings;
+  String get commets;
+  String get followers;
+  String get following;
+  String get AddtoFavorite;
+  String get Photos;
+  String get MoreInformation;
+  String get Comments;
+  String get AddtoComment;
+  String get AddComment;
+  String get greatPlace;
+  String get loveTheAtmosphere;
+  String get recommendVisiting;
+  String get vietnam;
+  String get currentTemperature;
+  String get moreDetail;
+  String get exchangeRate;
+  String get destinations;
+  String get restaurants;
+  String get hotels;
+  String get img;
+  String get like;
+  //indonesia
+  String get BorobudurTemple;
+  String get borobudurTempleDescription;
+  String get indonesia;
+  String get baliIsland;
+  String get jakartaOldTown;
+  String get fourSeasons;
+  String get gaiaHotel;
+  String get kempinski;
+  String get bandarDjakarta;
+  String get blueTerrace;
+  String get kudeta;
+
+  //taiwan
+  String get Taiwan;
+
+  //vietnam
+  String get DanangScreen;
+  String get DanangDescription;
+  String get DanangOpenHours;
+  String get DanangAddress;
+  String get DanangContact;
+
+  String get haLongBay;
+  String get haLongBayDescription;
+  String get haLongBayAddress;
+  String get haiPhong;
+  String get haiphongDescription;
+  String get haiPhongAddress;
+  String get edenHotels;
+  String get edenDescription;
+  String get metooHomestay;
+  String get metooDescription;
+  String get MetooAddress;
+  String get raonHotels;
+  String get raonDescription;
+  String get eraRes;
+  String get eraDescription;
+  String get terracoSkyBar;
+  String get terracoSkyBarDescription;
+  String get caugoRes;
+  String get caugoResDescription;
+
+  //malaysia
+  String get malaysia;
+  String get MountKinabaluScreen;
+  String get MountKinabaluDescription;
+  String get MountKinabaluAddress;
+  String get LangkawiScreen;
+  String get LangkawiDescription;
+  String get LangkawiAddress;
+  String get MantananiScreen;
+  String get MantananiDescription;
+  String get MantananiAddress;
+  String get MovHotels;
+  String get MovHotelsDescription;
+  String get SunwayPutraHotel;
+  String get SunwayPutraHotelDescription;
+  String get PacificSuteraHotel;
+  String get PacificSuteraHotelDescriptionl;
+  String get EnakKL;
+  String get EnakKLDescription;
+  String get RestoranSamy;
+  String get RestoranSamyDescription;
+  String get LeQueRestaurant;
+  String get LeQueRestaurantDescription;
+
+  //taiwan
+  String get kenting;
+  String get kentingDescription;
+  String get kinmen;
+  String get kinmenDescription;
+  String get wulai;
+  String get wulaiDescription;
+  String get grandTaipei;
+  String get grandTaipeiDescription;
+  String get workinn;
+  String get workinnDescription;
+  String get hanns;
+  String get hannsDescription;
+  String get hannsContact;
+  String get hannsAddress;
+  String get mosun;
+  String get mosunDescription;
+  String get shabu;
+  String get shabuDescription;
+  String get matsu;
+  String get matsuDescription;
+  String get matsuContact;
+  String get matsuAddress;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
