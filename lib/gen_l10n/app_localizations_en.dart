@@ -79,11 +79,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get ratings => 'Ratings';
   @override
-  String get commets => 'Commets';
+  String get commets => 'Comments';
   @override
   String get followers => 'Followers';
   @override
-  String get following => 'Followering';
+  String get following => 'Following';
   @override
   String get AddtoFavorite => 'Add to Favorite';
   @override

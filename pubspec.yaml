@@ -72,7 +72,7 @@ dependencies:
   dotenv: ^4.1.0
   email_auth: ^1.0.0
 dev_dependencies:
-  intl: ^0.18.1
+  intl: ^0.17.0
   flutter_test:
     sdk: flutter
 

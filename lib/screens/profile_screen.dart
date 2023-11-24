@@ -16,8 +16,6 @@ import 'package:path_provider/path_provider.dart';
 import '../gen_l10n/app_localizations.dart';
 import 'utils/post.dart';
 
-
-
 class ProfilePage extends StatefulWidget {
   final String name ;
   final String gender ;
@@ -31,8 +29,8 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePage();
 }
 class UserProfile {
-  String name;
-  String gender;
+  String name = 'John Doe';
+  String gender = 'Male';
   String nationality;
 
   UserProfile(this.name, this.gender, this.nationality);
@@ -156,7 +154,7 @@ class _ProfilePage extends State<ProfilePage>
 
       appBar:
       AppBar(
-        title: Text(widget.name),
+        title: Text('Profile'),
         backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -206,7 +204,7 @@ class _ProfilePage extends State<ProfilePage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Name: ${widget.name}',
+                        'John Doe',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -214,14 +212,14 @@ class _ProfilePage extends State<ProfilePage>
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Gender: ${widget.gender}',
+                        'Male',
                         style: TextStyle(
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(height: 16),
+                      SizedBox(height: 8),
                       Text(
-                        widget.nationality + ' ' + parser.emojify('🇺🇸'),
+                        'American' + ' ' + parser.emojify('🇺🇸'),
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -292,20 +290,29 @@ class _ProfilePage extends State<ProfilePage>
               ],
             ),
           ),
-          TabBar(
-            controller: _tabController,
-            tabs: [
-              Text(AppLocalizations.of(context).posts),
-              Text(AppLocalizations.of(context).ratings),
-              Text(AppLocalizations.of(context).commets),
-            ],
-            labelColor: Colors.blueAccent,
-            unselectedLabelColor: Colors.blueGrey,
-            indicatorColor: Colors.black,
-            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            unselectedLabelStyle: TextStyle(fontSize: 16),
+      TabBar(
+        controller: _tabController,
+        tabs: [
+          Padding(
+            padding: EdgeInsets.all(8.0), // Adjust the padding as needed
+            child: Text(AppLocalizations.of(context).posts),
           ),
-          Expanded(
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(AppLocalizations.of(context).ratings),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(AppLocalizations.of(context).commets),
+          ),
+        ],
+        labelColor: Colors.blueAccent,
+        unselectedLabelColor: Colors.blueGrey,
+        indicatorColor: Colors.black,
+        labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        unselectedLabelStyle: TextStyle(fontSize: 16),
+      ),
+      Expanded(
             child: TabBarView(
               controller: _tabController,
               children: [

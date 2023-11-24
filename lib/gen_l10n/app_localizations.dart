@@ -301,7 +301,6 @@ abstract class AppLocalizations {
 
   //malaysia
   String get malaysia;
-
   //taiwan
   String get kenting;
   String get kentingDescription;
