@@ -136,7 +136,7 @@ class AppLocalizationsId extends AppLocalizations {
   //taiwan
   String get Taiwan => 'Taiwan';
 
- //vietnam
+  //vietnam
   @override
   String get DanangScreen => 'Da nang';
   @override

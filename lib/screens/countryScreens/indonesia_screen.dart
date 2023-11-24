@@ -36,11 +36,11 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
   late List<Map<String, String>> hotels;
   late List<Map<String, String>> restaurants;
   List<String> events = [
-    'Event_Indonesia_1.jpeg',
-    'Event_Indonesia_2.jpeg',
-    'Event_Indonesia_3.jpeg',
-    'Event_Indonesia_4.jpeg',
-    'Event_Indonesia_5.jpeg'
+    'assets/indonesia/events/Event_Indonesia_1.jpeg',
+    'assets/indonesia/events/Event_Indonesia_2.jpeg',
+    'assets/indonesia/events/Event_Indonesia_3.jpeg',
+    'assets/indonesia/events/Event_Indonesia_4.jpeg',
+    'assets/indonesia/events/Event_Indonesia_5.jpeg'
   ];
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -49,15 +49,15 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     destinations = [
       {
         'name': AppLocalizations.of(context).baliIsland,
-        'image': 'assets/indonesia/destination/Bali_3.jpeg',
+        'image': 'assets/indonesia/destinations/Bali_3.jpeg',
       },
       {
         'name': AppLocalizations.of(context).BorobudurTemple,
-        'image': 'assets/indonesia/destination/Borobudur 3.jpeg',
+        'image': 'assets/indonesia/destinations/Borobudur 3.jpeg',
       },
       {
         'name': AppLocalizations.of(context).jakartaOldTown,
-        'image': 'assets/indonesia/destination/Kota Tua 1.jpeg',
+        'image': 'assets/indonesia/destinations/Kota Tua 1.jpeg',
       },
     ];
 
@@ -280,7 +280,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                         print('Image at index $index clicked');
                       },
                       child: Image.asset(
-                        'assets/images/events/$event',
+                        '$event',
                         fit: BoxFit.cover,
                       ),
                     );

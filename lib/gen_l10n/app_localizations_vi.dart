@@ -234,4 +234,3 @@ class AppLocalizationsVi extends AppLocalizations {
   String get matsuAddress => 'Địa chỉ: Số 19, Đường Songgao 6F, A4, Xintiandi, Shin Kong Mitsukoshi Xinyi, Quận Xinyi, Đài Bắc 110 Đài Loan';
 
 }
-

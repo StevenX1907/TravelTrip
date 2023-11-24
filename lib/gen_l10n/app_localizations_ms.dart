@@ -261,6 +261,8 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get wulaiDescription => 'Wulai, terletak di pegunungan subur di Taiwan utara, adalah desa adat indah yang terkenal dengan keindahan alam, kekayaan budaya, dan sumber air panas yang menenangkan. Sebagai bagian dari tanah leluhur suku Atayal, Wulai menawarkan gambaran unik tentang warisan adat Taiwan. Desa ini dikelilingi oleh hutan lebat dan Sungai Nanshih yang berkilauan, menciptakan latar belakang yang tenang bagi pengunjung yang mencari ketenangan dari kehidupan perkotaan. Salah satu daya tarik utama Wulai adalah sumber air panasnya yang meremajakan, yang menarik penduduk lokal dan wisatawan untuk mencari relaksasi. Perairan panas bumi diyakini memiliki khasiat penyembuhan, sehingga berendam di pemandian terbuka menjadi pengalaman yang terapeutik dan mendalam. Pengunjung juga dapat menjelajahi Air Terjun Wulai yang indah, mengalir secara dramatis dari ketinggian 80 meter, dapat diakses melalui jalan setapak berpemandangan indah yang melintasi hutan hijau. Wulai bukan hanya surga bagi pecinta alam; ini juga menawarkan gambaran sekilas tentang cara hidup masyarakat adat. Museum Adat Atayal memberikan wawasan komprehensif tentang tradisi suku, memamerkan artefak, pakaian tradisional, dan pameran interaktif yang menceritakan kekayaan sejarah budaya masyarakat Atayal.';
 
+  // @override
+  // String get malaysia => 'Malaysia';
 
 
 
