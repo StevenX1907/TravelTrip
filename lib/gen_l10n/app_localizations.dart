@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
+import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
 import 'package:travel_trip_application/screens/vietnam/destinations/danang.dart';
 import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
 
@@ -298,9 +299,35 @@ abstract class AppLocalizations {
   String get caugoRes;
   String get caugoResDescription;
 
+
   //malaysia
   String get malaysia;
-}
+
+  //taiwan
+  String get kenting;
+  String get kentingDescription;
+  String get kinmen;
+  String get kinmenDescription;
+  String get wulai;
+  String get wulaiDescription;
+  String get grandTaipei;
+  String get grandTaipeiDescription;
+  String get workinn;
+  String get workinnDescription;
+  String get hanns;
+  String get hannsDescription;
+  String get hannsContact;
+  String get hannsAddress;
+  String get mosun;
+  String get mosunDescription;
+  String get shabu;
+  String get shabuDescription;
+  String get matsu;
+  String get matsuDescription;
+  String get matsuContact;
+  String get matsuAddress;
+
+ }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
