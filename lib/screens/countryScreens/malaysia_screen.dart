@@ -6,7 +6,7 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/reusable_widgets/exchange_coin.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
 import 'package:travel_trip_application/screens/malaysia/Destinations/Kinabalu.dart';
-import 'package:travel_trip_application/screens/malaysia/Destinations/Langkawi.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/langkawi.dart';
 import 'package:travel_trip_application/screens/malaysia/Destinations/Mantanani.dart';
 import 'package:travel_trip_application/screens/malaysia/hotels/MOVHotel.dart';
 import 'package:travel_trip_application/screens/malaysia/hotels/PacificSuteraHotel.dart';
@@ -21,7 +21,6 @@ import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:http/http.dart' as http;
-import '../malaysia/destinations/Langkawi.dart';
 
 class Malaysia_screen extends StatefulWidget {
   const Malaysia_screen({Key? key}) : super(key: key);

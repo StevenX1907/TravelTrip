@@ -315,7 +315,7 @@ abstract class AppLocalizations {
   String get SunwayPutraHotel;
   String get SunwayPutraHotelDescription;
   String get PacificSuteraHotel;
-  String get PacificSuteraHotelDescriptionl;
+  String get PacificSuteraHotelDescription;
   String get EnakKL;
   String get EnakKLDescription;
   String get RestoranSamy;
