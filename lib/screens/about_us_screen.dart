@@ -21,7 +21,7 @@ class _State extends State<AboutUsScreen> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('About Us'),
+        title:  Text(AppLocalizations.of(context).aboutUs),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(

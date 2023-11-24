@@ -361,5 +361,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get Selectacountry => 'Select a country';
+  String get amount =>'Amount: ';
+  String get amountDes =>'Please enter your amount';
+  String get exchangerate => 'Exchange rate';
+  String get from =>"From: ";
+  String get to => 'To: ';
+  String get tranfer => 'Tranfer';
+  String get usd => 'United States Dollar (USD)';
+  String get vnd =>'Vietnamese Dong (VND)';
+  String get twd =>'New Taiwan Dollar (TWD)';
+  String get idr =>'Indonesian Rupiah (IDR)';
+  String get myr =>'Malaysian Ringgit (MYR)';
+  String get bali => "Bali Island";
+  String get baliDescription => 'Bali is Indonesia\'s most famous island, known for its picturesque beaches, vibrant nightlife, and rich Balinese culture. It\'s a top destinations for travelers seeking a blend of relaxation and adventure.';
+  String get kotaTua => "Jakarta Old Town";
+  String get kotaTuaDescription => "Jakarta OId Town or Kota Tua in Indonesian is a remainder of Old Batavia, the first walled settlement of the Dutch in Jakarta area. It was an inner walled city with its own Castle. The area gained importance during the 17th-19th century when it was established as the de facto capital of the Dutch East Indies.";
+  String get open => 'Open Hours: 24 hours';
+  String get ads =>'Address: Bali, Indonesia';
+  String get kotaads => 'Address: Taman Fatahillah No.1, Pinangsia, Kec. Taman Sari, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11110, Indonesia';
+  String get four => 'Four Seasons Bali';
+  String get fourDescription=> 'Become one with Bali\'s magical energy and gentle nature. Sheltered in a calm bay along three miles of sand, our breezy villas channel an authentic Balinese village. Together with unforgettable views and authentic arts offerings, we bring you a deeper understanding of the island’s stunning landscapes and inimitable culture.';
+  String get gaia=> 'The Gaia Hotel Bandung';
+  String get gaiaDescription=> 'Spanning over 2.3 hectares and perched on a valley facing luscious mountains with a breathtaking view of the city, The Gaia Hotel Bandung offers an experience beyond mere 5-star elegance. With multiple facilities, a myriad of activities and events, and art installations, there is always something for you to see, do and enjoy during your stay.';
+  String get kempin=> 'Hotel Kempinski Jakarta';
+  String get kempinDescription=> 'Discover opulence at our 5-star hotel in Jakarta. Adjacent to Grand Indonesia mall, it offers a coveted location near offices, attractions, embassies, and the Sudirman Central Boulevard District. Indulge in exceptional service, full range of facilities and impressive selection of six restaurants. A memorable stay awaits discerning travellers in vibrant Jakarta.';
+  String get bandar=> 'Bandar Djakarta Jakarta';
+  String get bandarDescription=> 'As a major metropolis, many people forget that Jakarta is still a seaside city with access to the freshest seafood. Bandar Djakarta serves some of the best seafood dishes in a modern setting. Diners can choose fresh fish, crabs, clams, and prawns, directly from the aquarium. Even with the endless food and restaurant options in Jakarta this restaurant remains in high demand, serving hundreds daily and even more on special occasions.';
+  String get blue=> 'Blue Terrace';
+  String get blueDesription=> 'Neutralize a portion of Jakarta’s toxins at this Blue Terrace, which specialties flawlessly displayed dishes for the well-being cognizant. The menu is crammed with mains and colorful salads, all gently organized and many decorated with palatable blooms. They also offer a healthy breakfast which includes pineapple smoothie bowls and avo and eggs.';
+  String get kudeta1=> 'Ku De Ta';
+  String get kudeta1Description=> 'Ku De Ta is a Bali icon, where moments are shared over exceptional food, drinks, and soulful soundtracks from dawn ’til dusk. Nestled on Seminyak’s sandy shores, this idyllic beachfront space was created for sun-drenched days and unforgettable island nights.';
 
-}
+  String get kudeta1ads => 'Address: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia';
+  String get kudeta1open => 'Open Hours:\nSun-Thu: 08:00 AM - 12:00 AM\nFri-Sat: 08:00 AM - 01:00 AM';
+  String get kudetaContact => 'Contact: +62 361 736969';
+  String get usa => 'America';
+  String get male => 'Male';
+  }

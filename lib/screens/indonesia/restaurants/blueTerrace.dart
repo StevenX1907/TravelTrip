@@ -6,6 +6,8 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../gen_l10n/app_localizations.dart';
+
 class blueTerrace extends StatefulWidget {
   const blueTerrace({Key? key}) : super(key: key);
 
@@ -15,12 +17,18 @@ class blueTerrace extends StatefulWidget {
 
 class _blueTerrace extends State<blueTerrace> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -28,7 +36,7 @@ class _blueTerrace extends State<blueTerrace> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Blue Terrace'),
+        title:  Text(AppLocalizations.of(context).blue),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +77,7 @@ class _blueTerrace extends State<blueTerrace> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Bandar Djakarta Restaurant',
+                  AppLocalizations.of(context).blue,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,8 +86,8 @@ class _blueTerrace extends State<blueTerrace> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Neutralize a portion of Jakarta’s toxins at this Blue Terrace, which specialties flawlessly displayed dishes for the well-being cognizant. The menu is crammed with mains and colorful salads, all gently organized and many decorated with palatable blooms. They also offer a healthy breakfast which includes pineapple smoothie bowls and avo and eggs.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).blueDesription,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -99,7 +107,7 @@ class _blueTerrace extends State<blueTerrace> {
                           },
                         ),
                         Text(
-                          'Like',
+                            AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -150,11 +158,11 @@ class _blueTerrace extends State<blueTerrace> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text( AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +262,7 @@ class _blueTerrace extends State<blueTerrace> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +271,20 @@ class _blueTerrace extends State<blueTerrace> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours:\nEveryday from 10:00 AM - 10:00 PM'),
+                  title: Text(AppLocalizations.of(context).kudeta1open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: AYANA Midplaza JAKARTA Lobby Level, Jakarta 10220, Indonesia'),
+                  title: Text( AppLocalizations.of(context).kudeta1ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 21 2514225'),
+                  title: Text( AppLocalizations.of(context).kudetaContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +305,7 @@ class _blueTerrace extends State<blueTerrace> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +319,7 @@ class _blueTerrace extends State<blueTerrace> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

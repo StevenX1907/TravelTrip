@@ -6,6 +6,8 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../gen_l10n/app_localizations.dart';
+
 class kudeta extends StatefulWidget {
   const kudeta({Key? key}) : super(key: key);
 
@@ -15,12 +17,18 @@ class kudeta extends StatefulWidget {
 
 class _kudeta extends State<kudeta> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -28,7 +36,7 @@ class _kudeta extends State<kudeta> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ku De Ta'),
+        title:  Text(AppLocalizations.of(context).kudeta1),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +77,7 @@ class _kudeta extends State<kudeta> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Ku De Ta Restaurant',
+                  AppLocalizations.of(context).kudeta1,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,8 +86,8 @@ class _kudeta extends State<kudeta> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Ku De Ta is a Bali icon, where moments are shared over exceptional food, drinks, and soulful soundtracks from dawn ’til dusk. Nestled on Seminyak’s sandy shores, this idyllic beachfront space was created for sun-drenched days and unforgettable island nights.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).kudeta1Description,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -99,7 +107,7 @@ class _kudeta extends State<kudeta> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -150,11 +158,11 @@ class _kudeta extends State<kudeta> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +262,7 @@ class _kudeta extends State<kudeta> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +271,20 @@ class _kudeta extends State<kudeta> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours:\nSun-Thu: 08:00 AM - 12:00 AM\nFri-Sat: 08:00 AM - 01:00 AM'),
+                  title: Text(AppLocalizations.of(context).kudeta1open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia'),
+                  title: Text( AppLocalizations.of(context).kudeta1ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 361 736969'),
+                  title: Text( AppLocalizations.of(context).kudetaContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +305,7 @@ class _kudeta extends State<kudeta> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +319,7 @@ class _kudeta extends State<kudeta> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

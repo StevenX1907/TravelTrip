@@ -21,6 +21,8 @@ import 'package:provider/provider.dart';
 import '../../gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 
+import 'ExchangeApp.dart';
+
 
 class Indonesia_screen extends StatefulWidget {
   const Indonesia_screen({Key? key}) : super(key: key);
@@ -230,7 +232,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Indonesia'),
+        title: Text(AppLocalizations.of(context).indonesia),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(
@@ -309,77 +311,58 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '  Current Temperature',
+                  AppLocalizations.of(context).currentTemperature,
                   style: TextStyle(fontSize: 16),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  WeatherApp()),
-                    );
-                  },
-                  child: Text(
-                    'More Detail',
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
-                  ),
                 ),
               ],
             ),
             const SizedBox(height: 20),
-            // Text(
-            //   currentTemperature,
-            //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            // ),
-            Card(
-              child: Container(
-                child: Image.asset('assets/images/Indo_weather.png'),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WeatherApp()),
+                );
+              },
+              child: Card(
+                child: Container(
+                  child: Image.asset('assets/images/Indo_weather.png'),
+                ),
               ),
             ),
-            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Exchange Rate',
+                Text(
+                  AppLocalizations.of(context).exchangeRate,
                   style: TextStyle(fontSize: 16),
                 ),
-                InkWell(
-                  onTap: () {
 
-                  },
-                  child: const Text(
-                    'More Detail',
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
-                  ),
-                ),
               ],
             ),
             const SizedBox(height: 20),
-            // Text(
-            //   '1 VND = ${exchangeRate.toStringAsFixed(2)} TWD',
-            //   style: TextStyle(fontSize: 16),
-            // ),
+            const SizedBox(height: 10),
             Card(
-              child: Container(
-                width: 50,
-                height:50,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: isDarkMode
-                        ? [
-                      Colors.black38,
-                      Colors.black38
-                    ]
-                        :[
-                      Colors.grey.shade50,
-                      Colors.grey.shade50,
-                    ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '1 IDR = ${exchangeRate.toStringAsFixed(2)} TWD',
-                    style: TextStyle(fontSize: 16),
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate to the exchange rate screen when the text is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ExchangeApp()),
+                  );
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    // Your decoration properties...
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '1,000 IDR = 2.033 TWD',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                 ),
               ),
@@ -389,16 +372,16 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Destinations',
+                 Text(
+                  AppLocalizations.of(context).destinations,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -441,22 +424,22 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+
 
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Hotels',
+                 Text(
+                  AppLocalizations.of(context).hotels,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child:  Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
@@ -504,16 +487,16 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '  Restaurants',
+                 Text(
+                  AppLocalizations.of(context).restaurants,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
 
                   },
-                  child: const Text(
-                    'More Detail',
+                  child: Text(
+                    AppLocalizations.of(context).moreDetail,
                     style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),

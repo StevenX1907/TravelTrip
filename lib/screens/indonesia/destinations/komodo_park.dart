@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
+import '../../../gen_l10n/app_localizations.dart';
 import '../../../reusable_widgets/dark_mode.dart';
 import '../../../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,11 +16,18 @@ class komodoPark extends StatefulWidget {
 
 class _komodoPark extends State<komodoPark> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

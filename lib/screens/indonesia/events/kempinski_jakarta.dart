@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
+import '../../../gen_l10n/app_localizations.dart';
 import '../../../reusable_widgets/dark_mode.dart';
 import '../../../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,12 +16,18 @@ class kempinskiJakarta extends StatefulWidget {
 
 class _kempinskiJakarta extends State<kempinskiJakarta> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -28,7 +35,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hotel Kempinski Jakarta'),
+        title: Text(AppLocalizations.of(context).kempin),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +76,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Hotel Kempinski Jakarta',
+                  AppLocalizations.of(context).kempin,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,8 +85,8 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Discover opulence at our 5-star hotel in Jakarta. Adjacent to Grand Indonesia mall, it offers a coveted location near offices, attractions, embassies, and the Sudirman Central Boulevard District. Indulge in exceptional service, full range of facilities and impressive selection of six restaurants. A memorable stay awaits discerning travellers in vibrant Jakarta.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).kempinDescription,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -99,7 +106,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -150,11 +157,11 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +261,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +270,20 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Check-in time: 2:00 PM\nCheck-out time: 12:00 PM'),
+                  title: Text(AppLocalizations.of(context).kudeta1open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: Jl. M.H. Thamrin No.1, RT.1/RW.5, Menteng, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10310, Indonesia'),
+                  title: Text( AppLocalizations.of(context).kudeta1ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 21 23583800'),
+                  title: Text( AppLocalizations.of(context).kudetaContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +304,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +318,7 @@ class _kempinskiJakarta extends State<kempinskiJakarta> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

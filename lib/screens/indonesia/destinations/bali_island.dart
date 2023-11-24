@@ -16,11 +16,18 @@ class baliIsland extends StatefulWidget {
 
 class _baliIsland extends State<baliIsland> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Love this place!',
-    'Absolutely enormous the atmosphere.',
-    'Would definitely come back again.',
-  ];
+  late List<String> comments;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   // List of comments (you can initialize it with your existing comments)
 
   @override
@@ -30,7 +37,7 @@ class _baliIsland extends State<baliIsland> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bali Island'),
+        title: Text(AppLocalizations.of(context).bali),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -71,7 +78,7 @@ class _baliIsland extends State<baliIsland> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Bali Island',
+                    AppLocalizations.of(context).bali,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -80,7 +87,7 @@ class _baliIsland extends State<baliIsland> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Bali is Indonesia\'s most famous island, known for its picturesque beaches, vibrant nightlife, and rich Balinese culture. It\'s a top destinations for travelers seeking a blend of relaxation and adventure.',
+                  AppLocalizations.of(context).baliDescription,
                   style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
@@ -101,7 +108,7 @@ class _baliIsland extends State<baliIsland> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -152,11 +159,11 @@ class _baliIsland extends State<baliIsland> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +261,7 @@ class _baliIsland extends State<baliIsland> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +270,20 @@ class _baliIsland extends State<baliIsland> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours: 24 hours'),
+                  title: Text(AppLocalizations.of(context).open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: Bali, Indonesia'),
+                  title: Text(AppLocalizations.of(context).ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: -'),
+                  title: Text(AppLocalizations.of(context).DanangContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +304,7 @@ class _baliIsland extends State<baliIsland> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +318,7 @@ class _baliIsland extends State<baliIsland> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

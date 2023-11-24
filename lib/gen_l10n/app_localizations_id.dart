@@ -406,5 +406,39 @@ class AppLocalizationsId extends AppLocalizations {
   String get itenary => 'Jadual';
   @override
   String get Selectacountry => 'Pilih sebuah negara';
-
+  String get amount =>'Jumlah';
+  String get amountDes =>'Silakan masukkan jumlah Anda';
+  String get exchangerate => 'Nilai tukar';
+  String get from =>"Dari: ";
+  String get to => 'Ke: ';
+  String get tranfer => 'Tranfer';
+  String get usd => 'Dolar Amerika Serikat (USD)';
+  String get vnd => 'Dong Vietnam (VND)';
+  String get twd => 'Dolar Taiwan Baru (TWD)';
+  String get idr => 'Rupiah Indonesia (IDR)';
+  String get myr => 'Ringgit Malaysia (MYR)';
+  String get bali => "Pulau Bali";
+  String get baliDescription => 'Bali adalah pulau paling terkenal di Indonesia, dikenal dengan pantainya yang indah, kehidupan malam yang berwarna-warni, dan budaya Bali yang kaya. Ini adalah tujuan utama bagi wisatawan yang mencari gabungan relaksasi dan petualangan.';
+  String get kotaTua => "Kota Tua Jakarta";
+  String get kotaTuaDescription => "Kota Tua Jakarta atau Kota Tua dalam bahasa Indonesia adalah sisa-sisa Batavia Lama, pemukiman berdinding pertama Belanda di wilayah Jakarta. Ini adalah kota berdinding dalam dengan bentengnya sendiri. Kawasan ini mendapatkan kepentingan selama abad ke-17 hingga ke-19 ketika dijadikan ibu kota de facto Hindia Belanda.";
+  String get open => 'Jam Buka: 24 jam';
+  String get ads =>'Alamat: Bali, Indonesia';
+  String get kotaads => 'Address: Taman Fatahillah No.1, Pinangsia, Kec. Taman Sari, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11110, Indonesia';
+  String get four => 'Four Seasons Bali';
+  String get fourDescription=> 'Menjadi satu dengan energi magis dan alam lembut Bali. Terletak di teluk yang tenang sepanjang tiga mil pasir, vila semilir kami mencerminkan desa Bali yang otentik. Bersama dengan pemandangan tak terlupakan dan persembahan seni autentik, kami memberikan Anda pemahaman yang lebih mendalam tentang bentang alam pulau yang menakjubkan dan budaya yang tak ada bandingannya.';
+  String get gaia=> 'The Gaia Hotel Bandung';
+  String get gaiaDescription=> 'Terbentang lebih dari 2,3 hektar dan terletak di lembah yang menghadap pegunungan indah dengan pemandangan kota yang menakjubkan, The Gaia Hotel Bandung menawarkan pengalaman yang lebih dari sekadar keanggunan bintang 5. Dengan beragam fasilitas, segudang aktivitas dan acara, serta instalasi seni, selalu ada sesuatu untuk Anda lihat, lakukan, dan nikmati selama Anda menginap.';
+  String get kempin=> 'Hotel Kempinski Jakarta';
+  String get kempinDescription=> 'Temukan kemewahan di hotel bintang 5 kami di Jakarta. Berdekatan dengan mal Grand Indonesia, hotel ini menawarkan lokasi yang diidam-idamkan dekat dengan perkantoran, objek wisata, kedutaan besar, dan Distrik Sudirman Central Boulevard. Manjakan diri dengan layanan luar biasa, beragam fasilitas, dan enam pilihan restoran yang mengesankan. Pengalaman menginap yang mengesankan menanti wisatawan cerdas di Jakarta yang dinamis.';
+  String get bandar=> 'Bandar Djakarta Jakarta';
+  String get bandarDescription=> 'Sebagai kota metropolitan, banyak orang yang lupa bahwa Jakarta masih merupakan kota tepi pantai dengan akses terhadap makanan laut paling segar. Bandar Djakarta menyajikan beberapa hidangan makanan laut terbaik dalam suasana modern. Pengunjung dapat memilih ikan segar, kepiting, kerang, dan udang, langsung dari akuarium. Bahkan dengan banyaknya pilihan makanan dan restoran di Jakarta, restoran ini tetap memiliki permintaan yang tinggi, melayani ratusan orang setiap hari dan bahkan lebih banyak lagi pada acara-acara khusus.';
+  String get blue=> 'Teras Biru';
+  String get blueDesription=> 'Netralkan sebagian racun Jakarta di Blue Terrace ini, yang mengkhususkan hidangan yang disajikan dengan sempurna untuk mereka yang sadar akan kesehatan. Menunya penuh dengan hidangan utama dan salad berwarna-warni, semuanya ditata dengan rapi dan banyak dihias dengan bunga-bunga yang lezat. Mereka juga menawarkan sarapan sehat yang mencakup mangkuk smoothie nanas, avo, dan telur.';
+  String get kudeta1=> 'Ku De Ta';
+  String get kudeta1Description=> 'Ku De Ta adalah ikon Bali, di mana momen-momen dibagikan melalui makanan, minuman, dan soundtrack yang penuh perasaan dari fajar hingga senja. Terletak di pantai berpasir Seminyak, ruang tepi pantai yang indah ini diciptakan untuk siang hari yang bermandikan sinar matahari dan malam pulau yang tak terlupakan.';
+  String get kudeta1ads => 'Alamat: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia';
+  String get kudeta1open => 'Jam Buka:\nMinggu-Kamis: 08.00 Pagi - 12.00 Malam\nJumat-Sabtu: 08.00 Pagi - 01.00 Pagi';
+  String get kudetaContact => 'Kontak: +62 361 736969';
+  String get usa => 'Amerika';
+  String get male => 'Pria';
 }

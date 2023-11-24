@@ -22,6 +22,8 @@ import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:http/http.dart' as http;
 
+import 'ExchangeApp.dart';
+
 class Malaysia_screen extends StatefulWidget {
   const Malaysia_screen({Key? key}) : super(key: key);
   @override
@@ -302,49 +304,37 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '  Current Temperature',
+                  AppLocalizations.of(context).currentTemperature,
                   style: TextStyle(fontSize: 16),
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => WeatherApp()),
-                    );
-                  },
-                  child: Text(
-                    'More Detail',
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
-                  ),
-                ),
+
               ],
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WeatherApp()),
+                );
+              },
+              child: Card(
+                child: Container(
+                  child: Image.asset('assets/images/Malaysia_weather.png'),
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             // Text(
             //   currentTemperature,
             //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             // ),
-            Card(
-              child: Container(
-                child: Image.asset('assets/images/Malaysia_weather.png'),
-              ),
-            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  '   Exchange Rate',
+                 Text(
+                  AppLocalizations.of(context).exchangeRate,
                   style: TextStyle(fontSize: 16),
-                ),
-                InkWell(
-                  onTap: () {
-
-                  },
-                  child: const Text(
-                    'More Detail',
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
-                  ),
                 ),
               ],
             ),
@@ -354,27 +344,26 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
             //   style: TextStyle(fontSize: 16),
             // ),
             Card(
-              child: Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: isDarkMode
-                        ? [
-                      Colors.black38,
-                      Colors.black38
-                    ]
-                        : [
-                      Colors.grey.shade50,
-                      Colors.grey.shade50,
-                    ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter)),
-
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '1 MYR = ${exchangeRate.toStringAsFixed(2)} TWD',
-                    style: TextStyle(fontSize: 16),
+              child: GestureDetector(
+                onTap: () {
+                  // Navigate to the exchange rate screen when the text is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ExchangeApp()),
+                  );
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    // Your decoration properties...
+                  ),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '1 MYR = 6.755 TWD',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                 ),
               ),

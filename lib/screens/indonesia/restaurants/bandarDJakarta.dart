@@ -6,6 +6,8 @@ import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../gen_l10n/app_localizations.dart';
+
 class bandarDjakarta extends StatefulWidget {
   const bandarDjakarta({Key? key}) : super(key: key);
 
@@ -15,12 +17,18 @@ class bandarDjakarta extends StatefulWidget {
 
 class _bandarDjakarta extends State<bandarDjakarta> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -28,7 +36,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bandar Djakarta Jakarta'),
+        title:  Text(AppLocalizations.of(context).bandar),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +77,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Bandar Djakarta Restaurant',
+                  AppLocalizations.of(context).bandar,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,8 +86,8 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'As a major metropolis, many people forget that Jakarta is still a seaside city with access to the freshest seafood. Bandar Djakarta serves some of the best seafood dishes in a modern setting. Diners can choose fresh fish, crabs, clams, and prawns, directly from the aquarium. Even with the endless food and restaurant options in Jakarta this restaurant remains in high demand, serving hundreds daily and even more on special occasions.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).bandarDescription,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -99,7 +107,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -150,11 +158,11 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +262,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +271,20 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours:\nMon-Fri: 11:00 AM - 9:00 PM\nSat-Sun: 10:00 AM - 11:00 PM'),
+                  title: Text(AppLocalizations.of(context).kudeta1open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: Jl. Pantai Indah No.7, Ancol, Kec. Pademangan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14430, Indonesia'),
+                  title: Text( AppLocalizations.of(context).kudeta1ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 21 6455472'),
+                  title: Text( AppLocalizations.of(context).kudetaContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +305,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +319,7 @@ class _bandarDjakarta extends State<bandarDjakarta> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
