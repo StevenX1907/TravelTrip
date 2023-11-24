@@ -382,6 +382,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get kudetaContact => '联系方式：+62 361 736969';
   String get usa => '美國';
   String get male => '男';
-
+  String get n1=> '喜歡你的貼文';
+  String get n2=> '評論了你的照片';
+  String get n3=> '開始關注你';
+  String get n4=> '喜歡你的貼文';
 }
 

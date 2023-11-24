@@ -397,4 +397,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get kudetaContact => 'Contact: +62 361 736969';
   String get usa => 'America';
   String get male => 'Male';
+  String get n1=> 'liked your post';
+  String get n2=> 'commented on your photo';
+  String get n3=> 'started following you';
+  String get n4=> 'liked your post';
   }

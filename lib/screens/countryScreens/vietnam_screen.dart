@@ -385,7 +385,11 @@ import 'ExchangeApp.dart';
                             const SizedBox(height: 8),
                             Text(
                               destinations[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -442,7 +446,11 @@ import 'ExchangeApp.dart';
                             const SizedBox(height: 8),
                             Text(
                               hotels[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -499,7 +507,11 @@ import 'ExchangeApp.dart';
                             const SizedBox(height: 8),
                             Text(
                               restaurants[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],

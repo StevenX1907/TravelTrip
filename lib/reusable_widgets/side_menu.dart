@@ -13,6 +13,7 @@ import '../main.dart';
 import 'dart:convert';
 import '../screens/about_us_screen.dart';
 import '../screens/chat_screen.dart';
+import '../screens/notification_screen.dart';
 
 IconData iconLight = Icons.wb_sunny;
 IconData iconDark = Icons.nights_stay;
@@ -99,7 +100,8 @@ class _SideMenuState extends State<SideMenu> {
           ListTile(
             leading: const Icon(Icons.notifications),
             title: Text(AppLocalizations.of(context).notification),
-            onTap: () => {Navigator.of(context).pop()}, //go back to screen
+              onTap: () => {Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => NotificationScreen()))},
           ),
           ExpansionTile(
             leading: const Icon(Icons.settings),

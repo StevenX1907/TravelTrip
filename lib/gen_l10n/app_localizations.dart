@@ -406,6 +406,10 @@ abstract class AppLocalizations {
   String get kudetaContact;
   String get usa;
   String get male;
+  String get n1;
+  String get n2;
+  String get n3;
+  String get n4;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

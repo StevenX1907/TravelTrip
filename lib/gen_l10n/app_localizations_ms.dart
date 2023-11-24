@@ -440,5 +440,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get kudetaContact => 'Kontak: +62 361 736969';
   String get usa => 'Amerika';
   String get male => 'Pria';
+  String get n1=> 'menyukai postingan Anda';
+  String get n2=> 'mengomentari foto Anda';
+  String get n3=> 'mulai mengikuti Anda';
+  String get n4=> 'menyukai postingan Anda';
 }
 

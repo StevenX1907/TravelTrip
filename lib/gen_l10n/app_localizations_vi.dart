@@ -375,5 +375,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get kudetaContact => 'Liên hệ: +62 361 736969';
   String get usa => 'Mỹ';
   String get male => 'Nam';
-
+  String get n1=> 'thích bài viết của bạn';
+  String get n2=> 'đã bình luận về ảnh của bạn';
+  String get n3=> 'bắt đầu theo dõi bạn';
+  String get n4=> 'thích bài viết của bạn';
 }
