@@ -301,31 +301,6 @@ abstract class AppLocalizations {
 
   //malaysia
   String get malaysia;
-  String get MountKinabaluScreen;
-  String get MountKinabaluDescription;
-  String get MountKinabaluAddress;
-  String get LangkawiScreen;
-  String get LangkawiDescription;
-  String get LangkawiAddress;
-  String get MantananiScreen;
-  String get MantananiDescription;
-  String get MantananiAddress;
-  String get MovHotels;
-  String get MovHotelsDescription;
-  String get SunwayPutraHotel;
-  String get SunwayPutraHotelDescription;
-  String get PacificSuteraHotel;
-  String get PacificSuteraHotelDescription;
-  String get EnakKL;
-  String get EnakKLDescription;
-  String get RestoranSamy;
-  String get RestoranSamyDescription;
-  String get LeQueRestaurant;
-  String get LeQueRestaurantDescription;
-
-
- 
-
   //taiwan
   String get kenting;
   String get kentingDescription;
@@ -349,7 +324,6 @@ abstract class AppLocalizations {
   String get matsuDescription;
   String get matsuContact;
   String get matsuAddress;
-
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -380,9 +354,9 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-          'an issue with the localizations generation tool. Please file an issue '
-          'on GitHub with a reproducible sample app and the gen-l10n configuration '
-          'that was used.'
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
   );
 }
