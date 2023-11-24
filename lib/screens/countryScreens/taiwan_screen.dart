@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
+import 'package:travel_trip_application/screens/countryScreens/ExchangeApp.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/kenting.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/kinmen.dart';
@@ -217,7 +218,6 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
-      drawer: const SideMenu(),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).Taiwan),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
@@ -328,7 +328,10 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 ),
                 InkWell(
                   onTap: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  ExchangeApp()),
+                    );
                   },
                   child: Text(
                     AppLocalizations.of(context).moreDetail,

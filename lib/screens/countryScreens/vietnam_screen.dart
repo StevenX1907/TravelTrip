@@ -208,7 +208,6 @@ import '../vietnam/hotels/metooHomestay.dart';
       final darkModeProvider = Provider.of<DarkModeExample>(context);
       final isDarkMode = darkModeProvider.isDarkMode;
       return Scaffold(
-        drawer: const SideMenu(),
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).vietnam),
           backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),

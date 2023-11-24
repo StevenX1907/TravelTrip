@@ -91,7 +91,6 @@ class _WeatherAppState extends State<WeatherApp> {
     Color appBarColor = isDarkMode ? Colors.black : const Color(0xFF306550);
 
     return Scaffold(
-      drawer: const SideMenu(),
       appBar: AppBar(
         title: const Text('TravelTrip'),
         backgroundColor: appBarColor,

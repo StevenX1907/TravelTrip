@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
       theme: context.watch<DarkModeExample>().isDarkMode
           ? ThemeData.dark()
           : ThemeData.light(),
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       darkTheme: ThemeData.dark(),
       localizationsDelegates: [
         AppLocalizations.delegate,
