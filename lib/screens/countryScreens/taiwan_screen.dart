@@ -157,7 +157,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       print('Error fetching destinations: $e');
     }
   }
-<<<<<<<<< Temporary merge branch 1
+
+
 
 
   void _onDestinationTap(Map<String, dynamic> destination) {
@@ -176,13 +177,15 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             description: convertedData['destination_description'] ?? 'No description available',
           ),
         ),
-=========
+
+
+
+
   void navigateToDestinationDetail(int index) {
     if (index == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const wulai()),
->>>>>>>>> Temporary merge branch 2
       );
     } else if (index == 1) {
       Navigator.push(
@@ -233,30 +236,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         MaterialPageRoute(builder: (context) => const matsusaka()),
       );
     }
-    // Add more conditions for other items as needed
-  }
-  // Future<void> getCurrentTemperature() async {
-  //   try {
-  //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
-  //     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Vietnam&appid=$apiKey";
-  //     final response = await http.get(Uri.parse(apiUrl));
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //       final temperature = data['main']['temp'];
-  //       setState(() {
-  //         currentTemperature = "$temperature°C";
-  //       });
-  //     } else {
-  //       setState(() {
-  //         currentTemperature = "Error";
-  //       });
-  //     }
-  //   } catch (e) {
-  //     setState(() {
-  //       currentTemperature = "Error";
-  //     });
-  //   }
-  // }
+
 
   @override
   Widget build(BuildContext context) {
