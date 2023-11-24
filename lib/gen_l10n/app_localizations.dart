@@ -299,9 +299,32 @@ abstract class AppLocalizations {
   String get caugoRes;
   String get caugoResDescription;
 
-
   //malaysia
   String get malaysia;
+  String get MountKinabaluScreen;
+  String get MountKinabaluDescription;
+  String get MountKinabaluAddress;
+  String get LangkawiScreen;
+  String get LangkawiDescription;
+  String get LangkawiAddress;
+  String get MantananiScreen;
+  String get MantananiDescription;
+  String get MantananiAddress;
+  String get MovHotels;
+  String get MovHotelsDescription;
+  String get SunwayPutraHotel;
+  String get SunwayPutraHotelDescription;
+  String get PacificSuteraHotel;
+  String get PacificSuteraHotelDescriptionl;
+  String get EnakKL;
+  String get EnakKLDescription;
+  String get RestoranSamy;
+  String get RestoranSamyDescription;
+  String get LeQueRestaurant;
+  String get LeQueRestaurantDescription;
+
+
+ 
 
   //taiwan
   String get kenting;

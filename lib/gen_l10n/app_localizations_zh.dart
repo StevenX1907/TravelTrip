@@ -192,6 +192,57 @@ class AppLocalizationsZh extends AppLocalizations {
   //malaysia
   String get malaysia => '馬來西亞';
 
+  @override
+  String get LangkawiScreen => '浮罗交怡岛';
+  String get LangkawiDescription => '一個美麗的群島，蘭卡威島是以其廣闊的沙灘和湛藍的海水而聞名，吸引遊客。蘭卡威地質公園是一個吸引大量遊客的聯合國教科文組織遺址，無疑是馬來西亞必遊景點中的首選之一。它完美地展示了該地區的地質遺產。它是家人一起遊覽馬來西亞的最佳地點之一。';
+  String get LangkawiAddress => '地址：浮罗交怡岛,馬來西亞';
+  @override
+  String get MountKinabaluScreen => '金寶山';
+  @override
+  String get MountKinabaluDescription => '婆罗洲最高的山脉，金寶山是一道引人注目的景观。登山者喜欢走上壮观的山径，一睹该地区如画的景色。广受爱好冒险的人群喜爱，是马来西亚最佳的探险胜地之一。在马来西亚旅游景点中名列前茅。';
+  @override
+  String get MountKinabaluAddress => '地址：金寶山，馬來西亞';
+  @override
+  String get MantananiScreen => '曼坦尼';
+
+  @override
+  String get MantananiDescription => '位於Kota Belud附近的沙巴曼坦尼群島是馬來西亞最著名的旅遊勝地之一，距離哥打京那巴魯僅一小時車程，提供婆羅洲最優質的潛水場所。這是馬來西亞最著名的地方之一，因其潛水景點而聞名，也是所有浮潛和潛水愛好者的最愛，他們從首都來此島進行一日遊。潛水者大量涌入這些島嶼，來自世界各地，在清澈的水中漫遊，與海馬和魟魚相遇。在這裡，有超過20個地點供應潛水運動，適合擁有潛水證書的潛水愛好者。';
+
+  @override
+  String get MantananiAddress => '地址：曼坦尼，馬來西亞';
+  @override
+  String get MovHotels => 'Mov 酒店';
+
+  @override
+  String get MovHotelsDescription => '坐落在武吉免登的中心地带，该酒店方便前往各种餐馆、购物中心和令人兴奋的美食街。拥有现代化和美观的客房、景观优美的屋顶游泳池以及友好的员工，是舒适便利的理想选择。';
+  @override
+  String get SunwayPutraHotel => '双威普特拉酒店';
+
+  @override
+  String get SunwayPutraHotelDescription => '迷人的酒店与购物商场相连，提供便利的餐饮和公共交通。拥有宽敞、干净的客房，可提供免费升级，令人印象深刻的景观，以及舒适的现场咖啡屋。优越的位置靠近PWTC车站，便于探索城市。';
+  @override
+  String get PacificSuteraHotel => '太平洋素特拉酒店';
+
+  @override
+  String get PacificSuteraHotelDescription => '豪華度假酒店，享有美麗的海景和花園景觀。乾淨、高雅的客房，帶有本地風味。設有私人海灘、高爾夫球場、游泳池和兒童遊樂場。多家餐廳供選擇，包括Al Fresco、Silk Garden和Cafe Boleh。令人難忘的住宿體驗，樂於助人的工作人員。';
+  @override
+  String get EnakKL => 'Enak KL';
+
+  @override
+  String get EnakKLDescription => 'Enak位於吉隆坡Starhill Gallery內，是一家高級的馬來餐廳。作為吉隆坡最好的用餐地點之一，您可以品嚐到最美味的馬來菜餚，其中許多菜餚都是基於Sherena Razaly家族代代相傳的食譜而製作的，她是餐廳的老板。儘管Enak的招牌菜色如Ayam Goreng Lengkuas（藍薑炸雞）等口味都非常傳統，但Enak無疑是吉隆坡最好的馬來西亞餐廳，在您造訪城市時絕對是必去之地。';
+  @override
+  String get RestoranSamy => 'Restoran Samy';
+
+  @override
+  String get RestoranSamyDescription => '在馬來西亞尋找頂級的印度餐廳？如果您想嚐嚐正宗的印度菜，不妨造訪怡保的Restoran Samy。這家餐廳相當於吉隆坡的Devi’s Corner，在經營超過20年後，Restoran Samy提供一流的香蕉葉飯，以及令人驚艷的素食和非素食菜餚。';
+  @override
+  String get LeQueRestaurant => 'Le Que 餐廳';
+
+  @override
+  String get LeQueRestaurantDescription => 'Le Que 餐廳成立於2014年，相對於全國許多其他餐廳，可能歷史較短，但您總是可以期待由訓練有素且經驗豐富的廚師烹製的美食。這是一家融合咖啡館，您可以品嚐到各種西式料理和豐富的義大利麵選擇。如果您在馬六甲市並且想吃義大利麵，絕對應該前往 Le Que。';
+
+
+
 //taiwan
   @override
   String get kenting => '墾丁';
@@ -238,4 +289,6 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get matsuAddress => '地址: 松高路19號新光三越信義新天地A4館6F, Taipei, Taiwan';
 
+
 }
+
