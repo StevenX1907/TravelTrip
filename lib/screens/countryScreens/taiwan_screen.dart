@@ -160,29 +160,32 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
 
 
 
-  // void _onDestinationTap(Map<String, dynamic> destination) {
-  //   int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
-  //
-  //   // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
-  //   fetchDestinationDetails(id).then((destinationData) {
-  //     // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
-  //     Map<String, String> convertedData = Map<String, String>.from(destinationData);
-  //
-  //     Navigator.of(context).push(
-  //       MaterialPageRoute(
-  //         builder: (context) => DestinationDetailsScreen(
-  //           image: destination['image']!,
-  //           name: destination['destination_name']!,
-  //           description: convertedData['destination_description'] ?? 'No description available',
-  //         ),
-  //       ),
+
+  void _onDestinationTap(Map<String, dynamic> destination) {
+    int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
+
+    // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
+    fetchDestinationDetails(id).then((destinationData) {
+      // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
+      Map<String, String> convertedData = Map<String, String>.from(destinationData);
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => DestinationDetailsScreen(
+            image: destination['image']!,
+            name: destination['destination_name']!,
+            description: convertedData['destination_description'] ?? 'No description available',
+          ),
+        ),
+
+
+
 
   void navigateToDestinationDetail(int index) {
     if (index == 0) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const wulai()),
-
       );
     } else if (index == 1) {
       Navigator.push(
@@ -233,30 +236,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         MaterialPageRoute(builder: (context) => const matsusaka()),
       );
     }
-    // Add more conditions for other items as needed
-  }
-  // Future<void> getCurrentTemperature() async {
-  //   try {
-  //     const apiKey = "fe65bdcc943ea9296fb86ce7009d0216";
-  //     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Vietnam&appid=$apiKey";
-  //     final response = await http.get(Uri.parse(apiUrl));
-  //     if (response.statusCode == 200) {
-  //       final data = jsonDecode(response.body);
-  //       final temperature = data['main']['temp'];
-  //       setState(() {
-  //         currentTemperature = "$temperature°C";
-  //       });
-  //     } else {
-  //       setState(() {
-  //         currentTemperature = "Error";
-  //       });
-  //     }
-  //   } catch (e) {
-  //     setState(() {
-  //       currentTemperature = "Error";
-  //     });
-  //   }
-  // }
+
 
   @override
   Widget build(BuildContext context) {

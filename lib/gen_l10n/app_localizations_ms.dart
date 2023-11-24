@@ -239,8 +239,11 @@ class AppLocalizationsMs extends AppLocalizations {
   String get caugoRes => 'Kamu pergi ke Restoran';
 
   @override
-  String get caugoResDescription =>
-      'Cau Go Restaurant, yang terletak di jantung kota Vietnam, menampilkan esensi masakan Vietnam dengan suasananya yang menawan dan sajiannya yang lezat. Terletak di kota Hanoi yang ramai, permata kuliner ini terletak di tepi Danau Hoan Kiem, menawarkan pemandangan panorama menakjubkan yang menjadi latar belakang menawan untuk pengalaman bersantap yang tak terlupakan. Restoran ini, dihiasi dengan dekorasi tradisional Vietnam, memancarkan kehangatan dan keaslian, menciptakan suasana ramah bagi pengunjung yang ingin menyelami kekayaan budaya negara tersebut. Saat Anda melangkah ke Cau Go, Anda akan disambut oleh aroma rempah-rempah Vietnam yang menggoda dan melodi musik tradisional live yang menenangkan. Interior restoran, dengan ciri khas furnitur kayu gelap dan pencahayaan lembut, membawa para tamu ke dunia di mana waktu melambat, memungkinkan untuk menjelajahi kekayaan kuliner Vietnam dengan santai. Menunya adalah perjalanan gastronomi melintasi beragam wilayah di negara ini, menampilkan hidangan khas seperti pho, banh mi, dan hidangan laut segar yang nikmat. Setiap piring merupakan mahakarya, disajikan dengan penuh seni untuk mencerminkan perhatian cermat terhadap detail yang mendefinisikan masakan Vietnam.';
+
+  String get caugoResDescription => 'Cau Go Restaurant, yang terletak di jantung kota Vietnam, menampilkan esensi masakan Vietnam dengan suasananya yang menawan dan sajiannya yang lezat. Terletak di kota Hanoi yang ramai, permata kuliner ini terletak di tepi Danau Hoan Kiem, menawarkan pemandangan panorama menakjubkan yang menjadi latar belakang menawan untuk pengalaman bersantap yang tak terlupakan. Restoran ini, dihiasi dengan dekorasi tradisional Vietnam, memancarkan kehangatan dan keaslian, menciptakan suasana ramah bagi pengunjung yang ingin menyelami kekayaan budaya negara tersebut. Saat Anda melangkah ke Cau Go, Anda akan disambut oleh aroma rempah-rempah Vietnam yang menggoda dan melodi musik tradisional live yang menenangkan. Interior restoran, dengan ciri khas furnitur kayu gelap dan pencahayaan lembut, membawa para tamu ke dunia di mana waktu melambat, memungkinkan untuk menjelajahi kekayaan kuliner Vietnam dengan santai. Menunya adalah perjalanan gastronomi melintasi beragam wilayah di negara ini, menampilkan hidangan khas seperti pho, banh mi, dan hidangan laut segar yang nikmat. Setiap piring merupakan mahakarya, disajikan dengan penuh seni untuk mencerminkan perhatian cermat terhadap detail yang mendefinisikan masakan Vietnam.';
+
+  //malaysia
+  String get malaysia => 'Malaysia';
 
   //taiwan
   @override
@@ -258,10 +261,9 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get wulaiDescription => 'Wulai, terletak di pegunungan subur di Taiwan utara, adalah desa adat indah yang terkenal dengan keindahan alam, kekayaan budaya, dan sumber air panas yang menenangkan. Sebagai bagian dari tanah leluhur suku Atayal, Wulai menawarkan gambaran unik tentang warisan adat Taiwan. Desa ini dikelilingi oleh hutan lebat dan Sungai Nanshih yang berkilauan, menciptakan latar belakang yang tenang bagi pengunjung yang mencari ketenangan dari kehidupan perkotaan. Salah satu daya tarik utama Wulai adalah sumber air panasnya yang meremajakan, yang menarik penduduk lokal dan wisatawan untuk mencari relaksasi. Perairan panas bumi diyakini memiliki khasiat penyembuhan, sehingga berendam di pemandian terbuka menjadi pengalaman yang terapeutik dan mendalam. Pengunjung juga dapat menjelajahi Air Terjun Wulai yang indah, mengalir secara dramatis dari ketinggian 80 meter, dapat diakses melalui jalan setapak berpemandangan indah yang melintasi hutan hijau. Wulai bukan hanya surga bagi pecinta alam; ini juga menawarkan gambaran sekilas tentang cara hidup masyarakat adat. Museum Adat Atayal memberikan wawasan komprehensif tentang tradisi suku, memamerkan artefak, pakaian tradisional, dan pameran interaktif yang menceritakan kekayaan sejarah budaya masyarakat Atayal.';
 
-
-
-  //malaysia
+  @override
   String get malaysia => 'Malaysia';
+
 
 
   String get grandTaipei => 'Grand Hyatt Taipei';
@@ -296,7 +298,4 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get matsuAddress => 'Alamat: No.19, Songgao Road 6F, A4, Xintiandi, Shin Kong Mitsukoshi Xinyi, Distrik Xinyi, Taipei 110 Taiwan';
 
-
-
 }
-

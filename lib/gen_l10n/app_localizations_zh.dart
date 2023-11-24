@@ -238,6 +238,4 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get matsuAddress => '地址: 松高路19號新光三越信義新天地A4館6F, Taipei, Taiwan';
 
-
-
 }

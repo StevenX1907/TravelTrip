@@ -299,10 +299,10 @@ abstract class AppLocalizations {
   String get caugoRes;
   String get caugoResDescription;
 
-
+<<<<<<<<< Temporary merge branch 1
   //malaysia
   String get malaysia;
-
+=========
   //taiwan
   String get kenting;
   String get kentingDescription;
@@ -326,8 +326,8 @@ abstract class AppLocalizations {
   String get matsuDescription;
   String get matsuContact;
   String get matsuAddress;
-
- }
+>>>>>>>>> Temporary merge branch 2
+}
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
