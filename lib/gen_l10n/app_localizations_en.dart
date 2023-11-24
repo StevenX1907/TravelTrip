@@ -1,9 +1,6 @@
-<<<<<<<<< Temporary merge branch 1
 import 'package:travel_trip_application/screens/indonesia/destinations/bali_island.dart';
 import 'package:travel_trip_application/screens/indonesia/restaurants/blueTerrace.dart';
-=========
 import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
->>>>>>>>> Temporary merge branch 2
 import 'package:travel_trip_application/screens/vietnam/destinations/haiphong.dart';
 
 import 'app_localizations.dart';
@@ -191,12 +188,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get caugoRes => 'Cau go Restaurant';
   @override
   String get caugoResDescription => 'Cau Go Restaurant, nestled in the heart of Vietnam, captures the essence of Vietnamese cuisine with its enchanting ambiance and delectable offerings. Located in the vibrant city of Hanoi, this culinary gem is perched on the edge of Hoan Kiem Lake, offering breathtaking panoramic views that serve as a captivating backdrop to an unforgettable dining experience. The restaurant, adorned with traditional Vietnamese décor, exudes warmth and authenticity, creating a welcoming atmosphere for patrons seeking an immersion into the country rich cultural tapestry. As you step into Cau Go, you are greeted by the tantalizing aroma of Vietnamese spices and the soothing melody of live traditional music. The restaurant interior, characterized by dark wooden furniture and soft lighting, transports guests to a realm where time slows down, allowing for a leisurely exploration of Vietnam culinary treasures. The menu is a gastronomic journey through the diverse regions of the country, featuring signature dishes like pho, banh mi, and fresh seafood delights. Each plate is a masterpiece, artfully presented to reflect the meticulous attention to detail that defines Vietnamese cuisine.';
-
-<<<<<<<<< Temporary merge branch 1
-  //malaysia
-  String get malaysia => 'Malaysia';
-}
-=========
+  @override
+  String get malaysia =>'Malaysia';
   //taiwan
   @override
   String get kenting => 'Kenting';
@@ -245,4 +238,3 @@ class AppLocalizationsEn extends AppLocalizations {
 
 
 }
->>>>>>>>> Temporary merge branch 2

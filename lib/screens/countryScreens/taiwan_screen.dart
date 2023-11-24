@@ -1,26 +1,36 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
-import 'package:http/http.dart' as http;
+import 'package:travel_trip_application/screens/taiwan/destinations/kenting.dart';
+import 'package:travel_trip_application/screens/taiwan/destinations/kinmen.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/wulai.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/Hanns.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
-import 'package:travel_trip_application/screens/taiwan/restaurants/matsusaka.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/workINN.dart';
 import 'package:travel_trip_application/screens/taiwan/restaurants/mosun.dart';
 import 'package:travel_trip_application/screens/taiwan/restaurants/shabu.dart';
-import '../../reusable_widgets/dark_mode.dart';
-import '../../reusable_widgets/destination_details.dart';
-import '../taiwan/destinations/kenting.dart';
-import '../taiwan/destinations/kinmen.dart';
-import '../taiwan/hotels/workINN.dart';
-import '../utils/utils.dart';
-import 'ExchangeApp.dart';
+import 'package:travel_trip_application/screens/vietnam/hotels/RAON.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/Era.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terraco.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
 import '../../gen_l10n/app_localizations.dart';
+import '../../reusable_widgets/dark_mode.dart';
+import '../taiwan/restaurants/matsusaka.dart';
+import '../utils/utils.dart';
+import 'dart:async';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart' as http;
+
+import '../vietnam/destinations/danang.dart';
+import '../vietnam/destinations/haiphong.dart';
+import '../vietnam/destinations/halongbay.dart';
+import '../vietnam/hotels/eden.dart';
+import '../vietnam/hotels/metooHomestay.dart';
+
 class Taiwan_screen extends StatefulWidget {
   const Taiwan_screen({Key? key}) : super(key: key);
 
@@ -29,10 +39,11 @@ class Taiwan_screen extends StatefulWidget {
 }
 
 class _TaiwanScreenState extends State<Taiwan_screen> {
-  List<Map<String, dynamic>> destinationList = [];
   int currentIndex = 0;
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
+  Map<String, dynamic>? countryData;
+  bool isCountryDataLoaded = false;
   late List<Map<String, String>> destinations;
   late List<Map<String, String>> hotels;
   late List<Map<String, String>> restaurants;
@@ -45,7 +56,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-     destinations = [
+    destinations = [
       {
         'name': AppLocalizations.of(context).wulai,
         'image': 'assets/images/destinations/wulai.jpg',
@@ -60,7 +71,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       },
 
     ];
-     hotels = [
+    hotels = [
       {
         'name': AppLocalizations.of(context).grandTaipei,
         'image': 'assets/images/hotels/Grand_Hyatt.jfif',
@@ -91,13 +102,16 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
   }
 
 
-  get index => 1;
   @override
   void initState() {
     super.initState();
     getCurrentTemperature();
     fetchExchangeRate();
-    fetchDestinations();
+    // if (countryData == null) {
+    //   fetchCountryFromServer(1); // Gọi hàm này chỉ khi chưa có dữ liệu
+    // }else {
+    //   isCountryDataLoaded = true;
+    // }
   }
   Future<void> getCurrentTemperature() async {
     try {
@@ -124,7 +138,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
 
   Future<void> fetchExchangeRate() async {
     try {
-      final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/TWD'));
+      final response = await http.get(Uri.parse('https://api.exchangerate-api.com/v4/latest/VND'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         setState(() {
@@ -141,46 +155,6 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       });
     }
   }
-
-  Future<void> fetchDestinations() async {
-    try {
-      final response = await http.get(Uri.parse('http://10.0.2.2:8080/getDestinations'));
-      if (response.statusCode == 200) {
-        List<dynamic> destinationData = jsonDecode(response.body);
-        setState(() {
-          destinationList = List<Map<String, dynamic>>.from(destinationData);
-        });
-      } else {
-        throw Exception('Failed to load destinations');
-      }
-    } catch (e) {
-      print('Error fetching destinations: $e');
-    }
-  }
-
-
-
-
-  void _onDestinationTap(Map<String, dynamic> destination) {
-    int id = destinationList.indexOf(destination) + 1; // Assuming ids start from 1
-
-    // Thực hiện fetchDestinationDetails ở đây và sau đó mở DestinationDetailsScreen
-    fetchDestinationDetails(id).then((destinationData) {
-      // Chuyển đổi destinationData từ Map<String, dynamic> sang Map<String, String>
-      Map<String, String> convertedData = Map<String, String>.from(destinationData);
-
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => DestinationDetailsScreen(
-            image: destination['image']!,
-            name: destination['destination_name']!,
-            description: convertedData['destination_description'] ?? 'No description available',
-          ),
-        ),
-
-
-
-
   void navigateToDestinationDetail(int index) {
     if (index == 0) {
       Navigator.push(
@@ -236,8 +210,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         MaterialPageRoute(builder: (context) => const matsusaka()),
       );
     }
-
-
+    // Add more conditions for other items as needed
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -245,13 +219,12 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('Taiwan'),
+        title: Text(AppLocalizations.of(context).Taiwan),
         backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        // height: 600,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: isDarkMode
                 ? [
@@ -276,8 +249,8 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                 enableInfiniteScroll: true,
                 initialPage: 1,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 onPageChanged: (index, reason) {
                   setState(() {
                     currentIndex = index;
@@ -291,10 +264,12 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
                       'assets/images/events/$event',
                       fit: BoxFit.cover,
                     );
+
                   },
                 );
               }).toList(),
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: events.map((event) {
@@ -337,6 +312,7 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             //   currentTemperature,
             //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             // ),
+
             Card(
               child: Container(
                 child: Image.asset('assets/images/taiwan_weather.png'),
@@ -346,20 +322,17 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
+                Text(
                   AppLocalizations.of(context).exchangeRate,
                   style: TextStyle(fontSize: 16),
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  ExchangeApp()),
-                    );
+
                   },
                   child: Text(
                     AppLocalizations.of(context).moreDetail,
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
+                    style: const TextStyle(fontSize: 16, color: Colors.blue),
                   ),
                 ),
               ],
