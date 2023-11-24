@@ -321,7 +321,6 @@ class SocialMediaButton extends StatelessWidget {
     required this.icon,
     this.onPressed,
   });
-
   @override
   Widget build(BuildContext context) {
     return IconButton(
