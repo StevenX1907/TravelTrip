@@ -10,6 +10,7 @@ import 'package:travel_trip_application/screens/countryScreens/vietnam_screen.da
 import 'package:travel_trip_application/screens/utils/test.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
 import '../gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'countryScreens/weatherapp_screen.dart';
 
@@ -82,11 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       left: 30,
                       top: 300,
-                      child: Text(
-                        'Taiwan',
+                      child: Text(AppLocalizations.of(context).Taiwan,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 34.5,
@@ -135,11 +135,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       right: 4,
                       top: 300,
                       child: Text(
-                        'Indonesia',
+                        AppLocalizations.of(context).indonesia,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 34.5,
@@ -188,11 +188,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       left: 15,
                       bottom: 10,
                       child: Text(
-                        'Malaysia',
+                        AppLocalizations.of(context).malaysia,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 34.5,
@@ -240,11 +240,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const Positioned(
+                    Positioned(
                       right: 15,
                       bottom: 10,
                       child: Text(
-                        'Vietnam',
+                        AppLocalizations.of(context).vietnam,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 34.5,

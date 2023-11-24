@@ -15,10 +15,10 @@ import 'package:travel_trip_application/screens/indonesia/restaurants/blueTerrac
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../reusable_widgets/dark_mode.dart';
 import '../indonesia/destinations/borobudur_temple.dart';
-import '../indonesia/destinations/komodo_park.dart';
 import '../indonesia/destinations/kota_tua.dart';
 import '../utils/utils.dart';
 import 'package:provider/provider.dart';
+import '../../gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 
 class Indonesia_screen extends StatefulWidget {
@@ -32,6 +32,9 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
   int currentIndex = 0;
   String currentTemperature = "Loading...";
   double exchangeRate = 0.0;
+  late List<Map<String, String>> destinations;
+  late List<Map<String, String>> hotels;
+  late List<Map<String, String>> restaurants;
   List<String> events = [
     'Event_Indonesia_1.jpeg',
     'Event_Indonesia_2.jpeg',
@@ -39,48 +42,56 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     'Event_Indonesia_4.jpeg',
     'Event_Indonesia_5.jpeg'
   ];
-  List<Map<String, String>> destinations = [
-    {
-      'name': 'Bali Island',
-      'image': 'assets/indonesia/destination/Bali_3.jpeg',
-    },
-    {
-      'name': 'Borobudur Temple',
-      'image': 'assets/indonesia/destination/Borobudur 3.jpeg',
-    },
-    {
-      'name': 'Jakarta Old Town',
-      'image': 'assets/indonesia/destination/Kota Tua 1.jpeg',
-    },
-  ];
-  List<Map<String, String>> hotels = [
-    {
-      'name': 'Four Seasons Hotel Bali',
-      'image': 'assets/indonesia/hotels/Four Seasons Bali 1.jpeg',
-    },
-    {
-      'name': 'The Gaia Hotel Bandung',
-      'image': 'assets/indonesia/hotels/Gaia Hotel 1.jpeg',
-    },
-    {
-      'name': 'Hotel Indonesia Kempinski Jakarta',
-      'image': 'assets/indonesia/hotels/Kempinski 1.jpeg',
-    },
-  ];
-  List<Map<String, String>> restaurants = [
-    {
-      'name': 'Bandar Djakarta',
-      'image': 'assets/indonesia/restaurants/Bandar 1.jpeg',
-    },
-    {
-      'name': 'Blue Terrace',
-      'image': 'assets/indonesia/restaurants/Blue Terrace 1.jpeg',
-    },
-    {
-      'name': 'Ku De Ta',
-      'image': 'assets/indonesia/restaurants/Kudeta 4.jpeg',
-    },
-  ];
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // Initialize lists with Indonesian content
+    destinations = [
+      {
+        'name': AppLocalizations.of(context).baliIsland,
+        'image': 'assets/indonesia/destination/Bali_3.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).BorobudurTemple,
+        'image': 'assets/indonesia/destination/Borobudur 3.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).jakartaOldTown,
+        'image': 'assets/indonesia/destination/Kota Tua 1.jpeg',
+      },
+    ];
+
+    hotels = [
+      {
+        'name': AppLocalizations.of(context).fourSeasons,
+        'image': 'assets/indonesia/hotels/Four Seasons Bali 1.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).gaiaHotel,
+        'image': 'assets/indonesia/hotels/Gaia Hotel 1.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).kempinski,
+        'image': 'assets/indonesia/hotels/Kempinski 1.jpeg',
+      },
+    ];
+
+    restaurants = [
+      {
+        'name': AppLocalizations.of(context).bandarDjakarta,
+        'image': 'assets/indonesia/restaurants/Bandar 1.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).blueTerrace,
+        'image': 'assets/indonesia/restaurants/Blue Terrace 1.jpeg',
+      },
+      {
+        'name': AppLocalizations.of(context).kudeta,
+        'image': 'assets/indonesia/restaurants/Kudeta 4.jpeg',
+      },
+    ];
+  }
+
   @override
   void initState() {
     super.initState();
@@ -120,7 +131,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
     } else if (index == 1) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => komodoPark()),
+        MaterialPageRoute(builder: (context) => baliIsland()),
       );
     } else if (index == 2) {
       Navigator.push(
