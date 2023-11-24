@@ -14,13 +14,19 @@ class ExchangeApp extends StatefulWidget {
   @override
   _ExchangeAppState createState() => _ExchangeAppState();
 }
+
 class _ExchangeAppState extends State<ExchangeApp> {
   final apiKey = "257e90646060f905c184456d";
   final apiUrl = "https://v6.exchangerate-api.com/v6/257e90646060f905c184456d/latest/USD";
   double usdRate = 0.0;
-  double ntdRate = 0.0;
+  double selectedRate = 0.0; // Represents the currently selected currency rate
+  TextEditingController usdController = TextEditingController();
+  TextEditingController foreignController = TextEditingController();
 
   final exchangeRateService = ExchangeRateService();
+
+  List<String> currencies = ["TWD", "VND", "MYR", "IDR"];
+  String selectedCurrency = "TWD"; // Default selected currency
 
   @override
   void initState() {
@@ -37,11 +43,11 @@ class _ExchangeAppState extends State<ExchangeApp> {
         if (parsedData is Map<String, dynamic> &&
             parsedData["result"] == "success") {
           final Map<String, dynamic> rates = parsedData["conversion_rates"];
-          if (rates.containsKey("AFN")) {
-            usdRate = rates["AFN"];
+          if (rates.containsKey("USD")) {
+            usdRate = rates["USD"];
           }
-          if (rates.containsKey("TWD")) {
-            ntdRate = rates["TWD"];
+          if (rates.containsKey(selectedCurrency)) {
+            selectedRate = rates[selectedCurrency];
           }
         }
       }
@@ -50,73 +56,109 @@ class _ExchangeAppState extends State<ExchangeApp> {
     }
   }
 
+
+  double convertCurrency(double amount, double rate) {
+    return amount * rate;
+  }
+
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return MaterialApp(
-        title: 'Exchange Coin',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      title: 'Exchange Coin',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Exchange Coin'),
+          backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
-        home: Scaffold(
-            drawer: const SideMenu(),
-            appBar: AppBar(
-              title: const Text('Exchange Coin'),
-              backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
-            ),
-            body: Padding( // 使用Padding包装Row
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(width: 20),
-                    Column(
-                      children: [
-                        SizedBox(height: 20),
-                        SizedBox(
-                          height: 80,
-                          width: 100,
-                          child:Image.asset('assets/members/jie.jpg',fit: BoxFit.contain),
-                        ),
-                        SizedBox(height: 10),
-                        SizedBox(height: 20),
-                        SizedBox(
-                          height: 80,
-                          width: 100,
-                          child:Image.asset('assets/members/jie.jpg',fit: BoxFit.contain),
-                        )
-                      ],
-                    ),
-                    Expanded(
-                      child:Column(
-                        children:[
-                          SizedBox(height: 50),
-                          Text(
-                            'AED Exchange Rate: ${usdRate.toStringAsFixed(4)}',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          SizedBox(width:30,height:90),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:[
-                              Text(
-                                'TWD Exchange Rate: ${ntdRate.toStringAsFixed(4)}',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ]
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('assets/members/jie.jpg'),
+                  ),
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('assets/members/jie.jpg'),
+                  ),
+                ],
               ),
-            )
-        )
+              Text(
+                '1 USD to ${selectedCurrency} Exchange Rate: ${selectedRate.toStringAsFixed(4)}',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: usdController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'Enter USD'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  if (usdController.text.isNotEmpty) {
+                    double usdAmount = double.parse(usdController.text);
+                    double foreignResult = convertCurrency(usdAmount, selectedRate);
+                    foreignController.text = foreignResult.toStringAsFixed(2);
+                  }
+                },
+                child: Text('Convert to ${selectedCurrency}'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: foreignController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'Enter ${selectedCurrency}'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  if (foreignController.text.isNotEmpty) {
+                    double foreignAmount = double.parse(foreignController.text);
+                    double usdResult = convertCurrency(foreignAmount, 1 / selectedRate);
+                    usdController.text = usdResult.toStringAsFixed(2);
+                  }
+                },
+                child: Text('Convert to USD'),
+              ),
+              SizedBox(height: 20),
+              DropdownButton<String>(
+                value: selectedCurrency,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedCurrency = newValue!;
+                    _fetchExchangeRates();
+                  });
+                },
+                items: currencies.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
-
-
 
 

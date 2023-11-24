@@ -65,8 +65,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_emoji: ^2.4.0
   http: ^0.13.5
-  firebase_core: ^2.22.0
-  firebase_auth: ^4.10.0
+  firebase_core: ^2.23.0
+  firebase_auth: ^4.14.1
   url_launcher: ^6.1.11
   velocity_x: ^4.1.0
   dotenv: ^4.1.0
@@ -110,16 +110,20 @@ flutter:
     - assets/images/hotels/
     - assets/images/restaurants/
     - assets/images/destinations/
-    - assets/indonesia/destinations/
     - assets/indonesia/hotels/
-    - assets/indonesia/events/
     - assets/indonesia/restaurants/
+    - assets/indonesia/destinations/
+    - assets/indonesia/events/
+    - assets/images/
     - assets/vietnam/destinations/
     - assets/vietnam/hotels/
     - assets/vietnam/restaurants/
     - assets/taiwan/destinations/
     - assets/taiwan/hotels/
     - assets/taiwan/restaurants/
+    - assets/malaysia/restaurants/
+    - assets/malaysia/hotels/
+    - assets/malaysia/destinations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
