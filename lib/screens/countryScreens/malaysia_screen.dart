@@ -229,7 +229,7 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Malaysia'),
+        title: Text(AppLocalizations.of(context).malaysia),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(

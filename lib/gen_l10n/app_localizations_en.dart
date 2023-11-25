@@ -395,7 +395,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get kudeta1ads => 'Address: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia';
   String get kudeta1open => 'Open Hours:\nSun-Thu: 08:00 AM - 12:00 AM\nFri-Sat: 08:00 AM - 01:00 AM';
   String get kudetaContact => 'Contact: +62 361 736969';
-  String get usa => 'America';
+  String get usa => 'American';
   String get male => 'Male';
   String get n1=> 'liked your post';
   String get n2=> 'commented on your photo';

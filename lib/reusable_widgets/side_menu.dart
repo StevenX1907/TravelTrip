@@ -57,7 +57,7 @@ class _SideMenuState extends State<SideMenu> {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'USA',
+                  '@johndoe',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
