@@ -279,8 +279,8 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
                       onTap: () {
                         // Handle the image click here, e.g., navigate to a detail screen
                         // You can use the index to identify the selected image
-                        navigateToEventDetail(index);
-                        print('Image at index $index clicked');
+                        // navigateToEventDetail(index);
+                        // print('Image at index $index clicked');
                       },
                       child: Image.asset(
                         '$event',

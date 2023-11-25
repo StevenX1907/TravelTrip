@@ -212,9 +212,10 @@ class _ProfilePage extends State<ProfilePage>
                       ),
                       SizedBox(height: 8),
                       Text(
-                        AppLocalizations.of(context).male,
+                        '@johndoe',
                         style: TextStyle(
                           fontSize: 16,
+                          color: Colors.black54,
                         ),
                       ),
                       SizedBox(height: 8),

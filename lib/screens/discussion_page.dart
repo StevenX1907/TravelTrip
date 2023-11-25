@@ -193,7 +193,7 @@ class _DiscussionPageState extends State<DiscussionPage> {
                           color: Colors.amber,
                           image: DecorationImage(
                             image: AssetImage(
-                                'assets/images/destinations/Borobudur 4.jpg'),
+                                'assets/indonesia/destinations/Borobudur 4.jpg'),
                             fit: BoxFit.cover,
                           )
                       ),

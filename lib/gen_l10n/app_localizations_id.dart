@@ -9,10 +9,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get enterEmail => 'Masukkan email';
 
   @override
-  String get enterPassword => 'Masukkan kata laluan';
+  String get enterPassword => 'Masukkan kata sandi';
 
   @override
-  String get haveAccount => 'Belum mempunyai akaun?  ';
+  String get haveAccount => 'Belum punya akun?  ';
 
   @override
   String get signUp => 'Daftar';
@@ -21,7 +21,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get logInCaps => 'MASUK';
 
   @override
-  String get forgotPassword => 'Lupa Kata Laluan?';
+  String get forgotPassword => 'Lupa Kata Sandi?';
 
   @override
   String get english => 'Bahasa Inggeris';
@@ -45,31 +45,31 @@ class AppLocalizationsId extends AppLocalizations {
   String get profile => 'Profil';
 
   @override
-  String get explore => 'Meneroka';
+  String get explore => 'Jelajah';
 
   @override
-  String get createItinerary => 'Buat Jadual Perjalanan';
+  String get createItinerary => 'Buat Rencana Perjalanan';
 
   @override
   String get notification => 'Pemberitahuan';
 
   @override
-  String get settings => 'Tetapan';
+  String get settings => 'Pengaturan';
 
   @override
   String get language => 'Bahasa';
 
   @override
-  String get lightMode => 'Mod Terang';
+  String get lightMode => 'Mode Terang';
 
   @override
-  String get darkMode => 'Mod Gelap';
+  String get darkMode => 'Mode Gelap';
 
   @override
-  String get logOut => 'Log Keluar';
+  String get logOut => 'Keluar';
 
   @override
-  String get aboutUs => 'Tentang Kita';
+  String get aboutUs => 'Tentang Kami';
 
   @override
   String get posts => 'Jawatan';
@@ -138,7 +138,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get img => 'assets/images/events/Da_nang1.jfif';
 
   @override
-  String get like => 'Lebih menyukai';
+  String get like => 'Suka';
 
   //indonesia
   @override
@@ -146,7 +146,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get borobudurTempleDescription =>
-      'Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Budha terbesar di dunia yang menakjubkan. Ini menampilkan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno.';
+      'Candi Borobudur atau Candi Borobudur adalah situs Warisan Dunia UNESCO di Indonesia, terkenal dengan kompleks candi Buddha terbesar di dunia yang menakjubkan dengan ukiran batu yang rumit dan menawarkan sekilas sejarah dan budaya Jawa kuno.';
 
   String get indonesia => 'Indonesia';
   String get baliIsland => 'Bali Island';
