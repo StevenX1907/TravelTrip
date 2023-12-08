@@ -27,6 +27,7 @@ import '../vietnam/destinations/haiphong.dart';
 import '../vietnam/destinations/halongbay.dart';
 import '../vietnam/hotels/eden.dart';
 import '../vietnam/hotels/metooHomestay.dart';
+import 'ExchangeApp.dart';
 
   class Vietnam_screen extends StatefulWidget {
     const Vietnam_screen({Key? key}) : super(key: key);
@@ -319,29 +320,21 @@ import '../vietnam/hotels/metooHomestay.dart';
                     AppLocalizations.of(context).currentTemperature,
                     style: TextStyle(fontSize: 16),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  WeatherApp()),
-                      );
-                    },
-                    child: Text(
-                      AppLocalizations.of(context).moreDetail,
-                      style: TextStyle(fontSize: 16, color: Colors.blue),
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(height: 20),
-              // Text(
-              //   currentTemperature,
-              //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              // ),
 
-              Card(
-                child: Container(
-                  child: Image.asset('assets/images/VN_weather.png'),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WeatherApp()),
+                  );
+                },
+                child: Card(
+                  child: Container(
+                    child: Image.asset('assets/images/VN_weather.png'),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -352,46 +345,35 @@ import '../vietnam/hotels/metooHomestay.dart';
                     AppLocalizations.of(context).exchangeRate,
                     style: TextStyle(fontSize: 16),
                   ),
-                  InkWell(
-                    onTap: () {
-
-                    },
-                    child: Text(
-                      AppLocalizations.of(context).moreDetail,
-                      style: const TextStyle(fontSize: 16, color: Colors.blue),
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(height: 20),
-              // Text(
-              //   '1 VND = ${exchangeRate.toStringAsFixed(2)} TWD',
-              //   style: TextStyle(fontSize: 16),
-              // ),
-              Card(
-                child: Container(
-                  width: 50,
-                  height:50,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: isDarkMode
-                          ? [
-                        Colors.black38,
-                        Colors.black38
-                      ]
-                          :[
-                        Colors.grey.shade50,
-                        Colors.grey.shade50,
-                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
 
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      '1 VND = ${exchangeRate.toStringAsFixed(2)} TWD',
-                      style: TextStyle(fontSize: 16),
-                    ),
+          Card(
+            child: GestureDetector(
+              onTap: () {
+                // Navigate to the exchange rate screen when the text is clicked
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ExchangeApp()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  // Your decoration properties...
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '1,000 VND = 1.304 TWD',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               ),
+            ),
+          ),
             const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -439,7 +421,11 @@ import '../vietnam/hotels/metooHomestay.dart';
                             const SizedBox(height: 8),
                             Text(
                               destinations[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -496,7 +482,11 @@ import '../vietnam/hotels/metooHomestay.dart';
                             const SizedBox(height: 8),
                             Text(
                               hotels[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -553,7 +543,11 @@ import '../vietnam/hotels/metooHomestay.dart';
                             const SizedBox(height: 8),
                             Text(
                               restaurants[index]['name']!,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.black : Colors.black,
+                              ),
                               textAlign: TextAlign.center,
                             ),
                           ],

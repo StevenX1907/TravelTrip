@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/screens/utils/utils.dart';
+import '../../../gen_l10n/app_localizations.dart';
 import '../../../reusable_widgets/dark_mode.dart';
 import '../../../reusable_widgets/side_menu.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,12 +16,18 @@ class gaiaBandung extends StatefulWidget {
 
 class _gaiaBandung extends State<gaiaBandung> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ]; // List of comments (you can initialize it with your existing comments)
+  late List<String> comments;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
@@ -28,7 +35,7 @@ class _gaiaBandung extends State<gaiaBandung> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('The Gaia Hotel Bandung'),
+        title:  Text(AppLocalizations.of(context).gaia),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -69,7 +76,7 @@ class _gaiaBandung extends State<gaiaBandung> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'The Gaia Hotel Bandung',
+                  AppLocalizations.of(context).gaia,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -78,8 +85,8 @@ class _gaiaBandung extends State<gaiaBandung> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Spanning over 2.3 hectares and perched on a valley facing luscious mountains with a breathtaking view of the city, The Gaia Hotel Bandung offers an experience beyond mere 5-star elegance. With multiple facilities, a myriad of activities and events, and art installations, there is always something for you to see, do and enjoy during your stay.',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    AppLocalizations.of(context).gaiaDescription,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                 ),
                 const SizedBox(height: 13),
                 Row(
@@ -99,7 +106,7 @@ class _gaiaBandung extends State<gaiaBandung> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -150,11 +157,11 @@ class _gaiaBandung extends State<gaiaBandung> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -254,7 +261,7 @@ class _gaiaBandung extends State<gaiaBandung> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -263,20 +270,20 @@ class _gaiaBandung extends State<gaiaBandung> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Check-in time: 3:00 PM\nCheck-out time: 12:00 PM'),
+                  title: Text(AppLocalizations.of(context).kudeta1open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address: Jl. Dr. Setiabudi No.430, Ledeng, Kec. Cidadap, Kota Bandung, Jawa Barat 40143, Indonesia'),
+                  title: Text( AppLocalizations.of(context).kudeta1ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 22 20280780'),
+                  title: Text( AppLocalizations.of(context).kudetaContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -297,7 +304,7 @@ class _gaiaBandung extends State<gaiaBandung> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -311,7 +318,7 @@ class _gaiaBandung extends State<gaiaBandung> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

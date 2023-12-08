@@ -30,7 +30,7 @@ class ProfilePage extends StatefulWidget {
 }
 class UserProfile {
   String name = 'John Doe';
-  String gender = 'Male';
+  String gender =  'AppLocalizations.of(context).male';
   String nationality;
 
   UserProfile(this.name, this.gender, this.nationality);
@@ -154,7 +154,7 @@ class _ProfilePage extends State<ProfilePage>
 
       appBar:
       AppBar(
-        title: Text('Profile'),
+        title: Text( AppLocalizations.of(context).profile),
         backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -212,14 +212,15 @@ class _ProfilePage extends State<ProfilePage>
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Male',
+                        '@johndoe',
                         style: TextStyle(
                           fontSize: 16,
+                          color: Colors.black54,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'American' + ' ' + parser.emojify('🇺🇸'),
+                          AppLocalizations.of(context).usa + ' ' + parser.emojify('🇺🇸'),
                         style: TextStyle(
                           fontSize: 16,
                         ),

@@ -16,11 +16,18 @@ class borobudurTemple extends StatefulWidget {
 
 class _borobudurTemple extends State<borobudurTemple> {
   bool isLiked = false; // State for the like button
-  List<String> comments = [
-    'Great place!',
-    'Love the atmosphere.',
-    'Would recommend visiting.',
-  ];
+  late List<String> comments;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Initialize comments list with translation keys
+    comments = [
+      AppLocalizations.of(context).greatPlace,
+      AppLocalizations.of(context).loveTheAtmosphere,
+      AppLocalizations.of(context).recommendVisiting,
+    ];
+  }
   // List of comments (you can initialize it with your existing comments)
 
   @override
@@ -71,7 +78,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Borobudur Temple',
+                  AppLocalizations.of(context).BorobudurTemple,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -101,7 +108,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                           },
                         ),
                         Text(
-                          'Like',
+                          AppLocalizations.of(context).like,
                           style: TextStyle(color: Colors.grey[800]),
                         ),
                       ],
@@ -152,11 +159,11 @@ class _borobudurTemple extends State<borobudurTemple> {
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),
-                  child: Text('Add to Favorite'),
+                  child: Text(AppLocalizations.of(context).AddtoFavorite),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Photos',
+                  AppLocalizations.of(context).Photos,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -256,7 +263,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                 // ),
                 const SizedBox(height: 16),
                 Text(
-                  'More Information',
+                  AppLocalizations.of(context).MoreInformation,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -265,20 +272,20 @@ class _borobudurTemple extends State<borobudurTemple> {
                 const SizedBox(height: 8),
                 ListTile(
                   leading: Icon(Icons.calendar_today),
-                  title: Text('Open Hours:\nEveryday from 6:30 AM - 4:30 PM'),
+                  title: Text(AppLocalizations.of(context).open),
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
-                  title: Text('Address:\nJl. Badrawati, Kw. Candi Borobudur, Borobudur, Kec. Borobudur, Kabupaten Magelang, Jawa Tengah, Indonesia'),
+                  title: Text(AppLocalizations.of(context).ads),
                 ),
                 ListTile(
                   leading: Icon(Icons.phone),
-                  title: Text('Contact: +62 293 788266'),
+                  title: Text(AppLocalizations.of(context).DanangContact),
                 ),
                 // Comment Section
                 const SizedBox(height: 16),
                 Text(
-                  'Comments',
+                  AppLocalizations.of(context).Comments,
                   style: TextStyle(
                     color: const Color(0xFF306550),
                     fontSize: 20,
@@ -299,7 +306,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                 // Add a text field and button for users to add new comments
                 TextField(
                   decoration: InputDecoration(
-                    hintText: 'Add a comment...',
+                    hintText: AppLocalizations.of(context).AddtoComment,
                   ),
                 ),
                 ElevatedButton(
@@ -313,7 +320,7 @@ class _borobudurTemple extends State<borobudurTemple> {
                       comments.add(newComment);
                     });
                   },
-                  child: Text('Add Comment'),
+                  child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                   ),

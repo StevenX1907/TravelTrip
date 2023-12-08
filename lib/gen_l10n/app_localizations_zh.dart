@@ -453,5 +453,44 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get ManMoiDescription => '對於越南地區的美食深具欣賞的滿梅從傳統餐飲和地方菜餚中汲取靈感來建構菜單。提供從令人愉悅的前菜到豐富的主菜，接著是舒緩口感的湯品，以及美味的甜點來結束一頓甜美的餐點。';
 
+  String get amount =>'金額';
+  String get amountDes =>'請輸入金額';
+  String get exchangerate => '匯率';
+  String get from =>"從： ";
+  String get to => '到： ';
+  String get tranfer => '轉換';
+  String get usd => '美元 (USD)';
+  String get vnd => '越南盾 (VND)';
+  String get twd => '新台币 (TWD)';
+  String get idr => '印尼盾 (IDR)';
+  String get myr => '马来西亚林吉特 (MYR)';
+  String get bali => "峇里島";
+  String get baliDescription => '峇裡島是印尼最著名的島嶼，以其美麗的海灘、充滿活力的夜生活和豐富的峇裡文化而聞名。 對於尋求休閒和冒險相結合的旅行者來說，這是一個頂級目的地。 ';
+  String get kotaTua => "雅加達老城";
+  String get kotaTuaDescription => '雅加達舊城區（印尼語：Kota Tua）是印尼雅加達地區巴達維亞（Batavia）的遺址，是荷蘭在雅加達地區建立的第一個有城牆的定居點。 它是一座有自己城堡的內城。 該地區在17世紀至19世紀間變得重要，當時它被建立為荷蘭東印度公司的事實上首都。 ';
+  String get open => '開放時間：24小時';
+  String get ads =>'網址：印尼峇裡島';
+  String get kotaads => '地址：Taman Fatahillah No.1，Pinangsia，Kec。 Taman Sari, 西雅加達市, 雅加達首都特區 11110, 印尼';
+  String get four => '四季峇里';
+  String get fourDescription => '融入巴厘島神奇的能量和柔和的大自然。坐落在一個三英里長的寧靜海灣中，我們的別墅反映了巴厘島地道的村莊。通過難以忘懷的景色和真實藝術表演，我們為您提供對這個令人驚嘆的島嶼風光和無與倫比的文化更深入的理解。';
+  String get gaia => '凱婭酒店萬隆';
+  String get gaiaDescription => '佔地超過2.3公頃，位於面向美麗山脈的山谷中，享有令人驚嘆的城市美景，The Gaia Hotel Bandung提供的不僅僅是5星級的優雅。擁有各種設施、豐富的活動和活動，以及藝術裝置，您在住宿期間總是可以看到、做、享受的事情。';
+  String get kempin => '雅加達肯賓斯基酒店';
+  String get kempinDescription => '在雅加達的我們的5星級酒店中體驗奢華。酒店靠近Grand Indonesia購物中心，提供理想的位置，靠近辦公樓、旅遊勝地、大使館和Sudirman Central Boulevard區。您可以盡情享受卓越的服務、多樣的設施以及六家令人印象深刻的餐廳。一個令人難忘的入住體驗等待著雅加達充滿活力的遊客。';
+  String get bandar => '雅加達Bandar Djakarta';
+  String get bandarDescription => '作為一個大都市，很多人忽略了雅加達仍然是擁有最新鮮海鮮的海濱城市。雅加達Bandar Djakarta以現代氛圍呈獻了一些最好的海鮮美食。遊客可以從水族館中直接選擇新鮮的魚、螃蟹、蛤蜊和蝦。即使在雅加達有眾多食物和餐廳的情況下，這家餐廳仍然需求旺盛，每天為數百人提供服務，甚至在特殊活動上更多。';
+  String get blue => '藍色露台';
+  String get blueDesription => '在這個藍色露台上中和雅加達的一部分毒素，這裡的菜單非常適合那些注重健康的人。菜單上滿是豐富多彩的主菜和沙拉，全部擺放整齊，並用美味的花朵裝飾。他們還提供包括鳳梨、牛油果和雞蛋的健康早餐碗。';
+  String get kudeta1 => 'Ku De Ta';
+  String get kudeta1Description => 'Ku De Ta是巴厘島的標誌，透過食物、飲料和從黎明到日落充滿感情的配樂分享時刻。位於Seminyak的沙灘上，這個美麗的海濱空間被設計成陽光灑落的日子和難忘的島嶼之夜。';
+  String get kudeta1ads => '地址：峇里岛巴東县库塔区Seminyak，Kayu Aya路9号';
+  String get kudeta1open => '营业时间：\n周日至周四：上午08:00 - 凌晨12:00\n周五至周六：上午08:00 - 凌晨01:00';
+  String get kudetaContact => '联系方式：+62 361 736969';
+  String get usa => '美國';
+  String get male => '男';
+  String get n1=> '喜歡你的貼文';
+  String get n2=> '評論了你的照片';
+  String get n3=> '開始關注你';
+  String get n4=> '喜歡你的貼文';
 }
 

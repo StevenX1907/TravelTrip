@@ -447,4 +447,43 @@ class AppLocalizationsVi extends AppLocalizations {
   String get ManMoiDescription => 'Với sự đánh giá cao sâu sắc đối với ẩm thực địa phương Việt Nam, Man Moi xây dựng thực đơn của mình với nguồn cảm hứng từ các bữa ăn truyền thống và món ăn địa phương. Các món ăn đa dạng từ món khai vị đẹp mắt đến các món chính bồi bổ, tiếp theo là các loại súp dịu nhẹ làm sạch vị giác, và các món tráng miệng tuyệt vời để kết thúc bữa ăn một cách ngọt ngào.';
 
 
+  String get amount =>'Số tiền';
+  String get amountDes =>'Hãy nhập số tiền của bạn';
+  String get exchangerate => 'Tỷ giá hối đoái';
+  String get from =>"From: ";
+  String get to => 'To: ';
+  String get tranfer => 'Tranfer';
+  String get usd => 'Đô la Mỹ (USD)';
+  String get vnd => 'Đồng Việt Nam (VND)';
+  String get twd => 'Đô la Đài Loan mới (TWD)';
+  String get idr => 'Rupiah Indonesia (IDR)';
+  String get myr => 'Ringgit Malaysia (MYR)';
+  String get bali => "Đảo Bali";
+  String get baliDescription => 'Bali là đảo nổi tiếng nhất của Indonesia, nổi tiếng với bãi biển đẹp, đêm sôi động và văn hóa Bali phong phú. Đây là điểm đến hàng đầu cho du khách tìm kiếm sự kết hợp giữa thư giãn và phiêu lưu.';
+  String get kotaTua => "Khu Phố Cổ Jakarta";
+  String get kotaTuaDescription => "Khu Phố Cổ Jakarta hay Kota Tua trong tiếng Indonesia là một phần còn lại của Batavia cổ, nơi đây là khu đô thị có tường rào đầu tiên của người Hà Lan ở khu vực Jakarta. Đó là một thành phố có tường rào bên trong với lâu đài riêng. Khu vực này trở nên quan trọng trong thế kỷ 17-19 khi nó được xác lập làm thủ đô thực tế của Đông Ấn Hà Lan.";
+  String get open => 'Giờ mở cửa: 24 giờ';
+  String get ads =>'Địa chỉ: Bali, Indonesia';
+  String get kotaads => 'Địa chỉ: Taman Fatahillah No.1, Pinangsia, Kec. Taman Sari, Thành phố Tây Jakarta, Vùng thủ đô đặc biệt Jakarta 11110, Indonesia';
+  String get four => 'Four Seasons Bali';
+  String get fourDescription => 'Hòa mình vào năng lượng ma thuật và thiên nhiên dịu dàng của Bali. Được đặt tại một vịnh yên bên bờ ba dặm cát, các villa của chúng tôi phản ánh làng truyền thống Bali. Cùng với khung cảnh khó quên và sự biểu diễn nghệ thuật chân thực, chúng tôi mang đến cho bạn sự hiểu biết sâu sắc hơn về vẻ đẹp tự nhiên tuyệt vời của hòn đảo này và văn hóa không giống ai.';
+  String get gaia => 'The Gaia Hotel Bandung';
+  String get gaiaDescription => 'Nằm trải dài hơn 2,3 hecta và tọa lạc trong một thung lũng hướng nhìn ra những ngọn núi tuyệt vời với tầm nhìn xuống thành phố đẹp, The Gaia Hotel Bandung mang đến một trải nghiệm vượt ra ngoài sự thanh lịch của khách sạn 5 sao. Với đủ loại tiện nghi, hàng loạt các hoạt động và sự kiện, cùng với các tác phẩm nghệ thuật, luôn có điều gì đó để bạn khám phá, trải nghiệm trong suốt thời gian lưu trú của bạn.';
+  String get kempin => 'Hotel Kempinski Jakarta';
+  String get kempinDescription => 'Khám phá sự sang trọng tại khách sạn 5 sao của chúng tôi tại Jakarta. Nằm gần trung tâm thương mại Grand Indonesia, khách sạn này mang lại vị trí lý tưởng gần với các văn phòng, điểm du lịch, đại sứ quán và Quận trung tâm Sudirman Boulevard. Làm cho bản thân hạnh phúc với dịch vụ xuất sắc, các tiện nghi đa dạng và sáu nhà hàng ấn tượng. Một trải nghiệm lưu trú không quên đang chờ đón những người du khách thông thái tại Jakarta năng động.';
+  String get bandar => 'Bandar Djakarta Jakarta';
+  String get bandarDescription => 'Là một thành phố đại đô thị, nhiều người quên rằng Jakarta vẫn là một thành phố ven biển với quyền truy cập đến các món ăn biển tươi ngon nhất. Bandar Djakarta mang đến những món ăn biển tốt nhất trong môi trường hiện đại. Khách đến đây có thể chọn từ cá tươi, cua, ngao, và tôm, trực tiếp từ hồ cá. Ngay cả với nhiều lựa chọn ẩm thực và nhà hàng tại Jakarta, nhà hàng này vẫn giữ được sự độc đáo, phục vụ hàng trăm người mỗi ngày và thậm chí nhiều hơn trong các sự kiện đặc biệt.';
+  String get blue => 'Teras Biru';
+  String get blueDesription => 'Làm dịu nhẹ một phần độc tố của Jakarta tại Blue Terrace này, nơi chuyên phục vụ các món ăn hoàn hảo cho những người quan tâm đến sức khỏe. Thực đơn đầy màu sắc với các món chính và salad, tất cả được bài trí gọn gàng và trang trí nhiều bông hoa ngon. Họ cũng cung cấp bữa sáng lành mạnh bao gồm bát sinh tố dứa, bơ, và trứng.';
+  String get kudeta1 => 'Ku De Ta';
+  String get kudeta1Description => 'Ku De Ta là biểu tượng của Bali, nơi những khoảnh khắc được chia sẻ thông qua thức ăn, đồ uống và âm nhạc đầy cảm xúc từ bình minh đến hoàng hôn. Đặt tại bãi biển cát Seminyak, không gian bên bờ biển tuyệt đẹp này được tạo ra để trải qua những ngày nắng và đêm đảo ngọc không thể quên.';
+  String get kudeta1ads => 'Địa chỉ: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia';
+  String get kudeta1open => 'Giờ mở cửa:\nChủ Nhật-Thứ Năm: 08:00 SA - 12:00 SA\nThứ Sáu-Thứ Bảy: 08:00 SA - 01:00 SA';
+  String get kudetaContact => 'Liên hệ: +62 361 736969';
+  String get usa => 'Mỹ';
+  String get male => 'Nam';
+  String get n1=> 'thích bài viết của bạn';
+  String get n2=> 'đã bình luận về ảnh của bạn';
+  String get n3=> 'bắt đầu theo dõi bạn';
+  String get n4=> 'thích bài viết của bạn';
 }

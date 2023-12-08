@@ -418,6 +418,45 @@ abstract class AppLocalizations {
   String get CucDescription;
   String get ManMoi;
   String get ManMoiDescription;
+  String get amount;
+  String get amountDes;
+  String get exchangerate;
+  String get from;
+  String get to;
+  String get tranfer;
+  String get usd;
+  String get vnd;
+  String get twd;
+  String get idr;
+  String get myr;
+  String get bali;
+  String get baliDescription;
+  String get kotaTua;
+  String get kotaTuaDescription;
+  String get open;
+  String get ads;
+  String get kotaads;
+  String get four;
+  String get fourDescription;
+  String get gaia;
+  String get gaiaDescription;
+  String get kempin;
+  String get kempinDescription;
+  String get bandar;
+  String get bandarDescription;
+  String get blue;
+  String get blueDesription;
+  String get kudeta1;
+  String get kudeta1Description;
+  String get kudeta1ads;
+  String get kudeta1open;
+  String get kudetaContact;
+  String get usa;
+  String get male;
+  String get n1;
+  String get n2;
+  String get n3;
+  String get n4;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

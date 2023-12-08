@@ -19,7 +19,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       drawer: const SideMenu(),
       appBar: AppBar(
-        title: const Text('Notifications'),
+        title: Text(AppLocalizations.of(context).notification),
         backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
@@ -50,22 +50,22 @@ class NotificationList extends StatelessWidget {
     final List<NotificationItem> notificationItems = [
       NotificationItem(
         username: 'john_doe',
-        action: 'liked your post',
+        action: AppLocalizations.of(context).n1,
         profileImageUrl: "https://randomuser.me/api/portraits/men/47.jpg",
       ),
       NotificationItem(
         username: 'sarahsmith123',
-        action: 'commented on your photo',
+        action: AppLocalizations.of(context).n2,
         profileImageUrl: "https://randomuser.me/api/portraits/women/23.jpg",
       ),
       NotificationItem(
         username: 'alicejohnson',
-        action: 'started following you',
+        action: AppLocalizations.of(context).n3,
         profileImageUrl: "https://randomuser.me/api/portraits/women/32.jpg",
       ),
       NotificationItem(
         username: 'kien001',
-        action: 'liked your post',
+        action: AppLocalizations.of(context).n4,
         profileImageUrl: "https://randomuser.me/api/portraits/men/90.jpg",
       ),
       // Add more notification items here with different profile image URLs
