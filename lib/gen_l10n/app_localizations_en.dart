@@ -362,4 +362,105 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get Selectacountry => 'Select a country';
 
+  @override
+  String get Jakarta => 'Jakarta';
+  @override
+  String get JakartaScreen => 'Jakarta';
+  @override
+  String get JakartaDescription => 'Mostly known as the huge city with the most hustles in Indonesia, Jakarta is where over 10 million people with diverse ethnic group backgrounds from all over Indonesia gather and live in harmony. Roam around the streets and marvel at the landscape of the metropolis. Shop and find good deals in luxurious malls. Immerse into the small streets and find culinary hidden gems on street hawkers.';
+  @override
+  String get LabuanBajo => 'Labuan Bajo';
+  @override
+  String get LabuanBajoDescription => 'Labuan Bajo was actually only a small fishing site situated on the westernmost tip of Flores Island. Now, along with the popularity of Komodo National Park, this destination has become the proxy to countless destinations in East Nusa Tenggara. Belonging to the same group as many other destinations in Komodo National Park, Labuan Bajo is always where you started at, because that’s where the harbor and airport lies.';
+  @override
+  String get PadmaResort => 'PadmaResort';
+  @override
+  String get PadmaResortDescription=> 'Nestled in a serene bamboo forest, this luxury hotel boasts a remarkable infinity pool with swim-up bar, offering the best Bali views and captivating scenery. Enjoy spacious rooms, excellent dining, jungle trekking, and bamboo forest walks. Delight in on-site activities such as aerial yoga, archery, and kids club with engaging activities in a mini zoo setting.';
+  @override
+  String get AdiwanaUnagiSuites => 'PadmaResort';
+  @override
+  String get AdiwanaUnagiSuitesDescription=> 'Beautiful hotel offering amazing jungle views, excellent facilities, and impeccable service. Features stunning outdoor bathrooms, infinity pool, pool access rooms, all-day breakfast, and luxurious forest view rooms with spacious balconies. Highly recommended for a remarkable stay.';
+  @override
+  String get Kokiku  => 'Feast by Kokiku';
+  @override
+  String get KokikuDescription => 'Here is another hippest yet homey restaurant in Senopati, South Jakarta, that comes with an art-deco-botanical-theme place. It serves various Indonesian food in a sharing portion. You must try its bebek betutu, duck with Balinese spices served with crunchy hot bit or sambal matah and fragrant rice.';
+  @override
+  String get Soulfood => 'Soulfood';
+  @override
+  String get SoulfoodDescription => 'Like its name, Soulfood offers a wide range of delicacies which are served daily in Indonesian homes and, hence, become their kind-of soul. Its most-favorited menu includes cumi item (squid with ink), baso darokdok (meatball soup served with buffalo-skin crackling), or teri pete lado ijo (anchovies cooked with green chillies and green stinky beans).';
+  @override
+  String get Cameron => 'Cameron Highlands';
+  @override
+  String get CameronDescription => 'One of the oldest tourist spots in Malaysia, this hill station was established in the 1930s and is now inhabited by a group of people who are very diverse and have their impact on the culture too. Mesmerising tea estates, great weather, cascading waterfalls, strawberry farms and pretty orchards make reasons enough for you to visit this place.';
+  @override
+  String get Birdpark => 'Kuala Lumpur Bird Park';
+  @override
+  String get BirdparkDescription => 'The Bird Park in Kuala Lumpur, Malaysia is divided into four zones out of which Zone 1 and Zone 2 are for the free flight of the birds where they are left to fly and given a nice environment to breed naturally. It is a treat to the eyes to watch all the colorful birds fly together in these areas. Zone 3 of the Kuala Lumpur Bird Park is the Hornbill Park and the Zone 4 consists of a number of cages and separate areas for different types of birds.';
+  @override
+  String get HardRock => 'Hard Rock Hotel Penang';
+  @override
+  String get HardRockDescription => 'Excellent service, great location, by the beach. Room features were good especially the selection of latest movies to watch. Room ambience was warm and comfortable. The swimming pool kept everyone happy.';
+  @override
+  String get Trove=> 'TROVE Johor Bahru';
+  @override
+  String get TroveDescription=> 'Hotel featuring clean, spacious rooms with fluffy pillows and convenient location near dining options, malls, and attractions. Family suites available. Excellent service and in-room water dispensers.';
+  @override
+  String get Azmie=> 'Azmie Wawa';
+  @override
+  String get AzmieDescription=> 'For those who have been craving for the popular Malaysian dessert, ice kacang, make your way to the famous Azmie Wawa. Located within Kampung Melayu Majidee food court, this is the best place in Malaysia for the dessert lovers. You can take your pick from two types of ice kacang in Azmie Wawa – ABC Biasa and ABC Special. The abundance of colorful ingredients is what makes these desserts so special and such a hit among the locals. You will find red beans, grass jelly, attap chee, crushed peanuts, chocolate syrup, condensed milk, flavored syrups and much more.';
+  @override
+  String get CafeBLD=> 'Café BLD';
+  @override
+  String get CafeBLDDescription=> 'Situated in Renaissance Hotel, the Café BLD in Johor offers authentic food, 5-star ambience and services that are altogether a treat in every way. Café BLD has multiple open kitchens that cook up a variety of cuisines like Malay, Chinese, Indian, Japanese, Western, seafood, and many more. The buffet here will satisfy all your cravings that makes Café BLD one of the most famous Malaysian restaurants.';
+  @override
+  String get Rainbow=> 'Rainbow Village';
+  @override
+  String get RainbowDescription=> 'One of the most aesthetically pleasing places to visit in Taiwan, the Rainbow village is a tiny settlement in Nantung known for its quirky, colorful houses. The village was initially a military dependent’s settlement and was later converted through Street art.While there are no prominent attractions here, a walking tour through the colored streets of Rainbow Village remains a must try. The main artist behind the endeavor, endearingly called Grandpa by all, still resides in the village and is always open to meeting tourists.';
+  @override
+  String get Taroko=> 'Taroko Gorge';
+  @override
+  String get TarokoDescription=> 'Sprawling along Japan’s east coast, the Taroko Gorge is an impressive 19 meter long canyon. Home to a fantastic assortment of flora and fauna, the Gorge is now recognized as a National Park.The Park is home to over 30 species of animals, including deer, boars and bears. A great variety of butterflies can be spotted here as well. Several hiking trails travel along the ridges in the mountainside, making it a popular hiking destination.';
+  @override
+  String get Dandy=> 'Dandy Hotel';
+  @override
+  String get DandyDescription=> 'Modern boutique hotel in Taipei offering clean rooms, comfortable beds, and a cozy ambience. Near attractions, markets, and transportation. Varied breakfast buffet, 24/7 laundry facilities, and complimentary amenities.';
+  @override
+  String get Caesar=> 'Caesar Park Taipei';
+  @override
+  String get CaesarDescription=> 'Was given room 901 facing the next building so not much of a view. Room size was good for 2 pax with 2 bags. Cleanliness could be improved as saw dust & bathroom floor wasn\'t cleaned properly.';
+  @override
+  String get Lin=> 'Lin Dong Fang';
+  @override
+  String get LinDescription => 'Despite its humble appearance, any Taipei resident will tell you that Lin Dong Fang is the place for beef noodles. The half-tendon/half-shank beef noodle soup is famous. It contains generous portions of good quality meat with a clear, slightly spicy broth and al dente noodles.';
+  @override
+  String get Shin=> 'Shin Yeh';
+  @override
+  String get ShinDescription => 'A family restaurant starting from just 11 tables in a back alley in 1977, there are now 5 Shin Yeh restaurants around Taipei. Each serves traditional Hokkien-style Taiwanese cuisine in modern settings. Its success and great reputation stems from the attention to every fine detail, with the experienced chefs paying close attention to the quality of the dishes they serve.';
+  @override
+  String get Hue=> 'Hue';
+  @override
+  String get HueDescription=> 'One of Vietnam\'s most historic towns, Hue is packed to the brim with relics from the reign of the 19th-century Nguyen emperors.Sitting along the banks of the gorgeous Perfume River, the Imperial Enclosure is a huge site set within walls that sprawl for 2.5 kilometers.While touring the grounds check out the gorgeous Ngo Mon Gate, theThai Hoa Palace with its finely lacquered interior detailing, the Dien Tho Residence where the Queen Mothers would live, and the Halls of Mandarins with its preserved ceiling murals.';
+  @override
+  String get Phong => 'Phong Nha-Ke Bang National Park';
+  @override
+  String get PhongDescription=> 'One of the best places to visit in Vietnam for caving, World Heritage-listed Phong Nha-Ke Bang National Park is a dramatic karst mountain formation honeycombed with huge caverns, which are home to superb stalactite and stalagmite displays.It\'s best known for its caving activities, which range from multi-day hiking and caving tours for the more adventurous, to simpler half-day trips to caves with easy access provided by boat trips and modern boardwalks, but the national park also offers mountain biking and trekking activities.';
+  @override
+  String get Jade => 'The Oriental Jade Hotel';
+  @override
+  String get JadeDescription => 'Friendly staff and really nice rooms. Lovely rooftop bar with pool and views of the city. Very accommodating and easy going atmosphere. Really convenient to get to and in a great location for city and transport.';
+  @override
+  String get Hav => 'The Oriental Jade Hotel';
+  @override
+  String get HavDescription => 'I like to visit Nha trang and each time I like to stay at Havana Nha trang. Reasonable price for a beachfront hotel. Cleanness hotel, very friendly staff, very nice ocean view pool, sauna services open up to 9pm';
+  @override
+  String get Cuc=> 'Cuc Gach Quan';
+  @override
+  String get CucDescription=> 'Located in a charming house, Cuc Gach Quan has a rustic design with vintage furniture that reminds us of life in Vietnam many decades ago. The menu is filled with dishes that mirror traditional meals of Vietnamese families. If you want to taste authentic home-style Vietnamese cuisine, this is one of the best places to try.';
+  @override
+  String get ManMoi=> 'Man Moi';
+  @override
+  String get ManMoiDescription=> 'With a deep appreciation for regional Vietnamese cuisines, Man Moi builds its menu with inspiration from traditional meals and regional dishes. The offerings range from eye pleasing appetizers to filling main dishes, followed by soothing soups to cleanse the palate, and delightful desserts to end the meal on a sweet note.';
+
+
+
 }

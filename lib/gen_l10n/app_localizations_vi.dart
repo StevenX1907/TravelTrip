@@ -340,4 +340,111 @@ class AppLocalizationsVi extends AppLocalizations {
   String get itenary => 'Lịch trình';
   @override
   String get Selectacountry => 'Chọn một quốc gia';
+  @override
+  String get Jakarta => 'Thủ đô Jakarta';
+
+  @override
+  String get JakartaScreen => 'Thủ đô Jakarta';
+
+  @override
+  String get JakartaDescription =>
+      'Được biết đến chủ yếu là thành phố lớn nhộn nhịp nhất ở Indonesia, Jakarta là nơi hơn 10 triệu người với nền văn hóa đa dạng từ khắp nơi ở Indonesia tụ tập và sống hòa thuận. Lang thang khắp các con phố và ngạc nhiên trước cảnh đẹp của thủ đô. Mua sắm và tìm kiếm các ưu đãi tốt trong các trung tâm mua sắm sang trọng. Đắm chìm trong những con đường nhỏ và khám phá những điểm ẩm thực ẩn mình tại các quán hàng vỉa hè.';
+  @override
+  String get LabuanBajo => 'Labuan Bajo';
+
+  @override
+  String get LabuanBajoDescription =>
+      'Labuan Bajo thực tế chỉ là một khu vực đánh cá nhỏ nằm ở phía tây cực của Đảo Flores. Bây giờ, cùng với sự phổ biến của Vườn quốc gia Komodo, điểm đến này đã trở thành proxy cho vô số điểm đến khác ở Đông Nusa Tenggara. Thuộc cùng nhóm với nhiều điểm đến khác trong Vườn quốc gia Komodo, Labuan Bajo luôn là nơi bạn bắt đầu, bởi vì đó là nơi có cảng và sân bay.';
+  @override
+  String get PadmaResort => 'Khu nghỉ Padma';
+
+  @override
+  String get PadmaResortDescription =>
+      'Nằm giữa khu rừng tre yên bình, khách sạn sang trọng này có một hồ bơi vô cực đặc biệt với quầy bar trên bể bơi, mang đến những tầm nhìn tuyệt vời nhất của Bali và phong cảnh quyến rũ. Tận hưởng các phòng rộng rãi, nhà hàng tuyệt vời, trekking trong rừng, và đi dạo trong rừng tre. Thưởng thức các hoạt động tại chỗ như yoga trên không, bắn cung, và câu lạc bộ trẻ em với các hoạt động hấp dẫn trong một bầu không gian vườn thú nhỏ.';
+  @override
+  String get AdiwanaUnagiSuites => 'Adiwana Unagi Khu nghỉ';
+  @override
+  String get AdiwanaUnagiSuitesDescription => 'Khách sạn tuyệt đẹp mang lại cảnh quan rừng núi tuyệt vời, cơ sở vật chất tuyệt vời và dịch vụ hoàn hảo. Đặc trưng với những phòng tắm ngoài trời tuyệt vời, bể bơi vô cực, phòng có tiếp cận bể bơi, điểm tâm suốt ngày và phòng nhìn ra rừng xanh thơm phức với ban công rộng rãi. Rất đáng để trải nghiệm.';
+  @override
+  String get Kokiku => 'Feast by Kokiku';
+  @override
+  String get KokikuDescription => 'Đây là một nhà hàng sành điệu nhưng gần gũi tại Senopati, Jakarta Nam, với không gian mang phong cách art-deco-botanical. Nơi đây phục vụ các món ăn Indonesia đa dạng trong khẩu phần chia sẻ. Bạn nhất định phải thử bebek betutu, vịt với gia vị Bali được phục vụ cùng với hành phi giòn hoặc sambal matah cay nồng và cơm thơm.';
+  @override
+  String get Soulfood => 'Soulfood';
+  @override
+  String get SoulfoodDescription => 'Như tên gọi của nó, Soulfood cung cấp một loạt các món ngon được phục vụ hàng ngày trong các ngôi nhà ở Indonesia và, vì vậy, trở thành loại hình thức tâm hồn của họ. Menu được ưa chuộng nhất bao gồm cumi item (mực với mực nước), baso darokdok (canh viên thịt được phục vụ với vỏ trâu giòn), hoặc teri pete lado ijo (cá cơm nấu với ớt xanh và đậu nành xanh).';
+  @override
+  String get Cameron => 'Cameron Highlands';
+  @override
+  String get CameronDescription => 'Một trong những điểm du lịch cổ nhất tại Malaysia, trạm núi này được thành lập vào những năm 1930 và hiện nay được cư dân đa dạng và có ảnh hưởng đến văn hóa. Các trang trại trà quyến rũ, thời tiết tuyệt vời, thác nước dồn dập, trang trại dâu tây và vườn hoa quả xinh đẹp là lí do đủ để bạn đến thăm nơi này.';
+  @override
+  String get Birdpark => 'Vườn chim Kuala Lumpur';
+  @override
+  String get BirdparkDescription => 'Vườn chim ở Kuala Lumpur, Malaysia được chia thành bốn khu vực trong đó Khu vực 1 và Khu vực 2 dành cho chim bay tự do nơi chúng được để bay và có môi trường tốt để sinh sản tự nhiên. Đây là một trải nghiệm thú vị khi nhìn tất cả các loại chim đầy màu sắc bay cùng nhau trong những khu vực này. Khu vực 3 của Vườn chim Kuala Lumpur là Vườn Enggang và Khu vực 4 bao gồm một số chuồng và khu vực riêng biệt cho các loại chim khác nhau.';
+  @override
+  String get HardRock => 'Hard Rock Hotel Penang';
+  @override
+  String get HardRockDescription => 'Dịch vụ xuất sắc, vị trí tuyệt vời, bên bờ biển. Các tính năng của phòng tốt đặc biệt là việc lựa chọn các bộ phim mới nhất để xem. Bầu không khí phòng ấm áp và thoải mái. Hồ bơi làm mọi người hạnh phúc.';
+  @override
+  String get Trove => 'TROVE Johor Bahru';
+  @override
+  String get TroveDescription => 'Khách sạn có các phòng sạch sẽ và rộng rãi với gối mềm mịn và vị trí thuận tiện gần các lựa chọn ẩm thực, trung tâm mua sắm và các điểm thu hút. Có các phòng suite gia đình. Dịch vụ xuất sắc và máy phát nước trong phòng.';
+  @override
+  String get Azmie => 'Azmie Wawa';
+  @override
+  String get AzmieDescription => 'Đối với những người đã khao khát món tráng miệng nổi tiếng của Malaysia, ice kacang, hãy đến với Azmie Wawa nổi tiếng. Nằm trong khu ẩm thực Kampung Melayu Majidee, đây là nơi tốt nhất tại Malaysia cho những người yêu thích món tráng miệng. Bạn có thể lựa chọn từ hai loại ice kacang tại Azmie Wawa - ABC Biasa và ABC Special. Sự phong phú của các nguyên liệu màu sắc làm cho những món tráng miệng này trở nên đặc biệt và được yêu thích mạnh mẽ trong cộng đồng dân địa phương. Bạn sẽ tìm thấy đậu đỏ, thạch rau câu, attap chee, đậu phộng băm nhuyễn, si-rô sô cô la, sữa đặc và nhiều loại si-rô khác nữa.';
+  @override
+  String get CafeBLD => 'Café BLD';
+  @override
+  String get CafeBLDDescription => 'Đặt tại Renaissance Hotel, Café BLD tại Johor cung cấp đồ ăn chân thực, không gian 5 sao và dịch vụ mà đều là một trải nghiệm tuyệt vời. Café BLD có nhiều nhà bếp mở nấu nhiều loại ẩm thực như Mã Lai, Trung Quốc, Ấn Độ, Nhật Bản, phương Tây, hải sản và nhiều hơn nữa. Buffet tại đây sẽ làm hài lòng mọi sở thích ẩm thực của bạn, khiến Café BLD trở thành một trong những nhà hàng nổi tiếng nhất của Malaysia.';
+  @override
+  String get Rainbow => 'Rainbow Village';
+  @override
+  String get RainbowDescription => 'Là một trong những nơi có thẩm mỹ đáng để ghé thăm nhất tại Đài Loan, Làng Cầu vồng là một khu dân cư nhỏ ở Nantung nổi tiếng với những ngôi nhà kỳ lạ, đầy màu sắc. Ban đầu là một khu dân cư thuộc về quân đội và sau này đã được biến đổi thông qua nghệ thuật đường phố. Mặc dù không có điểm thu hút nổi bật ở đây, nhưng một chuyến đi bộ qua những con phố đầy màu sắc của Làng Cầu vồng vẫn là điều không thể bỏ qua. Nghệ sĩ chính đứng sau dự án này, được gọi thân mật là Ông nội bởi tất cả, vẫn sống tại làng và luôn sẵn lòng gặp gỡ du khách.';
+  @override
+  String get Taroko => 'Taroko Gorge';
+  @override
+  String get TarokoDescription => 'Dọc theo bờ biển phía đông của Nhật Bản, Taroko Gorge là một khe núi ấn tượng dài 19 mét. Là nơi của một loạt các loài thực vật và động vật phong phú, khe núi này hiện được công nhận là một Công viên Quốc gia. Công viên này là nhà của hơn 30 loài động vật, bao gồm nai, lợn rừng và gấu. Nhiều loại bướm cũng có thể được nhìn thấy ở đây. Một số đường đi bộ dẫn dọc theo các rặng núi, tạo nên một điểm đến leo núi phổ biến.';
+  @override
+  String get Dandy => 'Khách sạn Dandy';
+  @override
+  String get DandyDescription => 'Khách sạn boutique hiện đại tại Đài Bắc cung cấp các phòng sạch sẽ, giường thoải mái và không gian ấm cúng. Gần các điểm tham quan, chợ và phương tiện giao thông. Buffet sáng đa dạng, tiện nghi giặt là 24/7 và các tiện ích miễn phí.';
+  @override
+  String get Caesar => 'Caesar Park Taipei';
+  @override
+  String get CaesarDescription => 'Được cấp phòng 901 nhìn ra tòa nhà kế bên nên không có quang cảnh đẹp. Kích thước phòng tốt cho 2 người với 2 vali. Vệ sinh có thể cải thiện vì thấy bụi và sàn phòng tắm không được lau sạch đúng cách.';
+  @override
+  String get Lin => 'Lin Đông Phương';
+  @override
+  String get LinDescription => 'Bất kể ngoại hình khiêm tốn của nó, bất kỳ cư dân Đài Bắc nào cũng sẽ nói với bạn rằng Lin Đông Phương là nơi để thưởng thức mì bò. Canh mì bò bánh gầu/chân bò nổi tiếng. Nó chứa đựng lượng thịt chất lượng tốt với nước dùng trong suốt, hơi cay và mì vừa chín.';
+  @override
+  String get Shin => 'Shin Yeh';
+  @override
+  String get ShinDescription => 'Một nhà hàng gia đình bắt đầu từ chỉ 11 bàn ăn trong một ngõ hẻm vào năm 1977, hiện nay đã có 5 nhà hàng Shin Yeh xung quanh Đài Bắc. Mỗi nhà hàng phục vụ ẩm thực Đài Loan theo phong cách truyền thống Hokkien trong không gian hiện đại. Sự thành công và danh tiếng tốt đẹp của họ bắt nguồn từ sự chú ý đến từng chi tiết tinh tế, với các đầu bếp giàu kinh nghiệm chú ý đến chất lượng của những món ăn họ phục vụ.';
+  @override
+  String get Hue => 'Huế';
+  @override
+  String get HueDescription => 'Là một trong những thị trấn lịch sử quan trọng nhất của Việt Nam, Huế chứa đựng nhiều di tích từ thời kỳ triều Nguyễn thế kỷ 19. Nằm dọc theo bờ sông Hương tuyệt đẹp, Kinh thành Huế là một khu vực lớn nằm trong bức tường dài 2,5 kilomet. Trong thời gian tham quan, hãy ghé thăm Cửa Ngọ Môn tuyệt đẹp, Cung Điện Thái Hoà với chi tiết nội thất sơn mài tinh xảo, Khu cư trú Điện Thọ nơi mà Hoàng hậu mẹ sinh sống, và Hội trường các Quan có tranh trần được bảo tồn.';
+  @override
+  String get Phong => 'Vườn quốc gia Phong Nha-Kẻ Bàng';
+  @override
+  String get PhongDescription => 'Một trong những điểm đến tốt nhất ở Việt Nam để thăm hang động, Vườn quốc gia Phong Nha-Kẻ Bàng được UNESCO công nhận là Di sản Thế giới, là một hệ thống núi đá vôi đầy ấn tượng với những hang động khổng lồ, nơi trưng bày tuyệt vời về stalactit và stalagmite. Nổi tiếng với hoạt động khám phá hang động, từ các chuyến đi bộ đường dài và khám phá hang động kéo dài trong vài ngày cho những người mạo hiểm hơn, đến các chuyến đi nửa ngày đến hang động với lối vào dễ dàng được cung cấp bằng các chuyến đi thuyền và lối đi bộ hiện đại, nhưng vườn quốc gia cũng cung cấp hoạt động đi xe đạp địa hình và trekking.';
+  @override
+  String get Jade => 'Khách sạn Oriental Jade';
+  @override
+  String get JadeDescription => 'Nhân viên thân thiện và phòng rất đẹp. Quán bar trên sân thượng rất đẹp với hồ bơi và tầm nhìn ra thành phố. Bầu không khí rất thoải mái và dễ chịu. Rất thuận tiện để đến và vị trí tuyệt vời cho thành phố và giao thông.';
+  @override
+  String get Hav => 'Havana Nha Trang Hotel';
+  @override
+  String get HavDescription => 'Tôi thích ghé thăm Nha Trang và mỗi lần tôi thích lưu trú tại Havana Nha Trang. Giá hợp lý cho một khách sạn ven biển. Khách sạn sạch sẽ, nhân viên rất thân thiện, hồ bơi nhìn ra biển rất đẹp, dịch vụ xông hơi mở đến 9 giờ tối.';
+  @override
+  String get Cuc => 'Cục Gạch Quán';
+  @override
+  String get CucDescription => 'Nằm trong một ngôi nhà quyến rũ, Cục Gạch Quán có thiết kế đồng quê với đồ nội thất cổ điển gợi nhớ về cuộc sống ở Việt Nam cách đây nhiều thập kỷ. Thực đơn đầy đủ các món ăn phản ánh bữa ăn truyền thống của các gia đình Việt Nam. Nếu bạn muốn thưởng thức ẩm thực Việt Nam gia đình chân thực, đây là một trong những địa điểm tốt nhất để thử.';
+  @override
+  String get ManMoi => 'Man Moi';
+  @override
+  String get ManMoiDescription => 'Với sự đánh giá cao sâu sắc đối với ẩm thực địa phương Việt Nam, Man Moi xây dựng thực đơn của mình với nguồn cảm hứng từ các bữa ăn truyền thống và món ăn địa phương. Các món ăn đa dạng từ món khai vị đẹp mắt đến các món chính bồi bổ, tiếp theo là các loại súp dịu nhẹ làm sạch vị giác, và các món tráng miệng tuyệt vời để kết thúc bữa ăn một cách ngọt ngào.';
+
+
 }

@@ -5,8 +5,14 @@
   import 'package:provider/provider.dart';
   import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
   import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/vietnam/destinations/Hue.dart';
+import 'package:travel_trip_application/screens/vietnam/destinations/Phong%20Nha-Ke%20Bang%20National%20Park.dart';
+import 'package:travel_trip_application/screens/vietnam/hotels/Havana%20Nha%20Trang%20Hotel.dart';
 import 'package:travel_trip_application/screens/vietnam/hotels/RAON.dart';
+import 'package:travel_trip_application/screens/vietnam/hotels/The%20Oriental%20Jade%20Hotel.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/Cuc%20Gach%20Quan.dart';
 import 'package:travel_trip_application/screens/vietnam/restaurants/Era.dart';
+import 'package:travel_trip_application/screens/vietnam/restaurants/Man%20Moi.dart';
 import 'package:travel_trip_application/screens/vietnam/restaurants/terraco.dart';
 import 'package:travel_trip_application/screens/vietnam/restaurants/terracoSkyBar.dart';
   import '../../gen_l10n/app_localizations.dart';
@@ -162,6 +168,16 @@ import '../vietnam/hotels/metooHomestay.dart';
           context,
           MaterialPageRoute(builder: (context) => const haiphong()),
         );
+      }else if (index == 3) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Hue()),
+        );
+      } else if (index == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Phong()),
+        );
       }
       // Add more conditions for other items as needed
     }
@@ -181,6 +197,16 @@ import '../vietnam/hotels/metooHomestay.dart';
           context,
           MaterialPageRoute(builder: (context) => const RAONHotel()),
         );
+      }else if (index == 3) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Jade()),
+        );
+      } else if (index == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Hav()),
+        );
       }
       // Add more conditions for other items as needed
     }
@@ -199,6 +225,16 @@ import '../vietnam/hotels/metooHomestay.dart';
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const terracoRes()),
+        );
+      }else if (index == 3) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Cuc()),
+        );
+      } else if (index == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ManMoi()),
         );
       }
       // Add more conditions for other items as needed

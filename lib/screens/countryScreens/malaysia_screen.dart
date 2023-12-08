@@ -5,12 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/reusable_widgets/exchange_coin.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/Cameron%20Highlands.dart';
 import 'package:travel_trip_application/screens/malaysia/Destinations/Kinabalu.dart';
+import 'package:travel_trip_application/screens/malaysia/Destinations/Kuala%20Lumpur%20Bird%20Park.dart';
 import 'package:travel_trip_application/screens/malaysia/Destinations/langkawi.dart';
 import 'package:travel_trip_application/screens/malaysia/Destinations/Mantanani.dart';
+import 'package:travel_trip_application/screens/malaysia/hotels/HarkRockHotel.dart';
 import 'package:travel_trip_application/screens/malaysia/hotels/MOVHotel.dart';
 import 'package:travel_trip_application/screens/malaysia/hotels/PacificSuteraHotel.dart';
 import 'package:travel_trip_application/screens/malaysia/hotels/SunwayPutraHotel.dart';
+import 'package:travel_trip_application/screens/malaysia/hotels/TROVE%20Johor%20Bahru.dart';
+import 'package:travel_trip_application/screens/malaysia/restaurants/Azmie%20Wawa.dart';
+import 'package:travel_trip_application/screens/malaysia/restaurants/Caf%C3%A9%20BLD.dart';
 import 'package:travel_trip_application/screens/malaysia/restaurants/EnakKL.dart';
 import 'package:travel_trip_application/screens/malaysia/restaurants/LeQue.dart';
 import 'package:travel_trip_application/screens/malaysia/restaurants/Samy.dart';
@@ -157,6 +163,16 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
         context,
         MaterialPageRoute(builder: (context) => const MantananiScreen()),
       );
+        } else if (index == 3) {
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Cameron()),
+        );
+        } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const BirdPark()),
+      );
     }
   }
 
@@ -175,6 +191,16 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const PacificSuteraHotel()),
+      );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Hard()),
+      );
+    } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Trove()),
       );
     }
     // Add more conditions for other items as needed
@@ -195,6 +221,16 @@ class _MalaysiaScreenState extends State<Malaysia_screen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const LeQueRestaurant()),
+      );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Azmie()),
+      );
+    } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Bld()),
       );
     }
   }

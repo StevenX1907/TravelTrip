@@ -6,12 +6,18 @@ import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/ExchangeApp.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/taiwan/destinations/RainbowVillage.dart';
+import 'package:travel_trip_application/screens/taiwan/destinations/Taroko%20Gorge.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/kenting.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/kinmen.dart';
 import 'package:travel_trip_application/screens/taiwan/destinations/wulai.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/Caesar%20Park.dart';
+import 'package:travel_trip_application/screens/taiwan/hotels/Dandy%20Hotel.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/Hanns.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/grandTaipei.dart';
 import 'package:travel_trip_application/screens/taiwan/hotels/workINN.dart';
+import 'package:travel_trip_application/screens/taiwan/restaurants/LinDongFang.dart';
+import 'package:travel_trip_application/screens/taiwan/restaurants/Shin%20Yeh.dart';
 import 'package:travel_trip_application/screens/taiwan/restaurants/mosun.dart';
 import 'package:travel_trip_application/screens/taiwan/restaurants/shabu.dart';
 import 'package:travel_trip_application/screens/vietnam/hotels/RAON.dart';
@@ -172,6 +178,16 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         context,
         MaterialPageRoute(builder: (context) => const kinmen()),
       );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Rainbow()),
+      );
+    } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Taroko()),
+      );
     }
     // Add more conditions for other items as needed
   }
@@ -191,6 +207,16 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
         context,
         MaterialPageRoute(builder: (context) => const hanns()),
       );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Dandy()),
+      );
+    } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Caesar()),
+      );
     }
     // Add more conditions for other items as needed
   }
@@ -209,6 +235,16 @@ class _TaiwanScreenState extends State<Taiwan_screen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const matsusaka()),
+      );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Lin()),
+      );
+    } else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Shin()),
       );
     }
     // Add more conditions for other items as needed

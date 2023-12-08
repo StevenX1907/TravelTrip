@@ -5,11 +5,17 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/countryScreens/weatherapp_screen.dart';
+import 'package:travel_trip_application/screens/indonesia/destinations/Jakarta.dart';
+import 'package:travel_trip_application/screens/indonesia/destinations/LabuanBajo.dart';
 import 'package:travel_trip_application/screens/indonesia/destinations/bali_island.dart';
+import 'package:travel_trip_application/screens/indonesia/events/AdiwanaUnagiSuites.dart';
+import 'package:travel_trip_application/screens/indonesia/events/Padma_Resort.dart';
 import 'package:travel_trip_application/screens/indonesia/events/four_seasons_bali.dart';
 import 'package:travel_trip_application/screens/indonesia/events/gaia_bandung.dart';
 import 'package:travel_trip_application/screens/indonesia/events/kempinski_jakarta.dart';
+import 'package:travel_trip_application/screens/indonesia/restaurants/Feast%20by%20Kokiku.dart';
 import 'package:travel_trip_application/screens/indonesia/restaurants/Kudeta.dart';
+import 'package:travel_trip_application/screens/indonesia/restaurants/Soulfood.dart';
 import 'package:travel_trip_application/screens/indonesia/restaurants/bandarDJakarta.dart';
 import 'package:travel_trip_application/screens/indonesia/restaurants/blueTerrace.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -97,7 +103,7 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
   void initState() {
     super.initState();
     getCurrentTemperature();
-    fetchExchangeRate();
+    //fetchExchangeRate();
   }
   Future<void> getCurrentTemperature() async {
     try {
@@ -161,7 +167,19 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
         MaterialPageRoute(builder: (context) => kotaTua()),
       );
     }
-    // Add more conditions for other items as needed
+    else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Jakarta()),
+      );
+    }
+    else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LabuanBajo()),
+      );
+      // Add more conditions for other items as needed
+    }
   }
 
   void navigateToRestaurantDetail(int index) {
@@ -180,6 +198,18 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
         context,
         MaterialPageRoute(builder: (context) => kudeta()),
       );
+    }else if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PadmaResort()),
+      );
+    }
+    else if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Adiwana()),
+      );
+      // Add more conditions for other items as needed
     }
     // Add more conditions for other items as needed
   }
@@ -201,6 +231,19 @@ class _IndonesiaScreenState extends State<Indonesia_screen> {
         MaterialPageRoute(builder: (context) => kempinskiJakarta()),
       );
     }
+          else if (index == 3) {
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Kokiku()),
+          );
+          }
+          else if (index == 4) {
+          Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Soulfood()),
+          );
+          // Add more conditions for other items as needed
+  }
     // Add more conditions for other items as needed
   }
 

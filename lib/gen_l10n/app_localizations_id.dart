@@ -407,4 +407,112 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get Selectacountry => 'Pilih sebuah negara';
 
+  @override
+  String get Jakarta => 'Jakarta';
+
+  @override
+  String get JakartaScreen => 'Jakarta';
+
+  @override
+  String get JakartaDescription =>
+      'Lebih dikenal sebagai kota besar yang paling sibuk di Indonesia, Jakarta adalah tempat tinggal bagi lebih dari 10 juta orang dengan beragam latar belakang etnis dari seluruh Indonesia yang berkumpul dan hidup berdampingan dengan harmonis. Berjalan-jalan di sekitar jalan-jalan kota dan kagum dengan pemandangan dari metropolis ini. Berbelanja dan menemukan penawaran bagus di pusat perbelanjaan mewah. Meresapi suasana di jalanan kecil dan temukan permata kuliner tersembunyi di pedagang kaki lima.';
+  @override
+  String get LabuanBajo => 'Labuan Bajo';
+
+  @override
+  String get LabuanBajoDescription =>
+      'Sebenarnya, Labuan Bajo hanya merupakan sebuah tempat penangkapan ikan kecil yang terletak di ujung barat Pulau Flores. Sekarang, seiring dengan popularitas Taman Nasional Komodo, destinasi ini telah menjadi proxy untuk banyak destinasi lain di Nusa Tenggara Timur. Masuk dalam kelompok yang sama dengan banyak destinasi lain di Taman Nasional Komodo, Labuan Bajo selalu menjadi tempat Anda memulai perjalanan, karena itulah tempatnya pelabuhan dan bandara.';
+  @override
+  String get PadmaResort => 'Padma Resort';
+
+  @override
+  String get PadmaResortDescription =>
+      'Terletak di tengah hutan bambu yang tenang, hotel mewah ini memiliki kolam renang infinity yang luar biasa dengan bar renang, menawarkan pemandangan terbaik di Bali dan pemandangan yang memukau. Nikmati kamar yang luas, tempat makan yang sangat baik, trekking hutan, dan jalan-jalan di hutan bambu. Menikmati aktivitas di tempat seperti yoga udara, panahan, dan klub anak dengan aktivitas menarik dalam pengaturan mini kebun binatang.';
+  @override
+  String get AdiwanaUnagiSuites => 'Padma resor';
+  @override
+  String get AdiwanaUnagiSuitesDescription => 'Hotel yang indah menawarkan pemandangan hutan yang menakjubkan, fasilitas yang sangat baik, dan pelayanan yang sempurna. Memiliki kamar mandi luar yang menakjubkan, kolam renang infinity, kamar dengan akses langsung ke kolam renang, sarapan sepanjang hari, dan kamar dengan pemandangan hutan yang mewah dilengkapi dengan balkon luas. Sangat direkomendasikan untuk menginap yang luar biasa.';
+  @override
+  String get Kokiku => 'Feast by Kokiku';
+  @override
+  String get KokikuDescription => 'Inilah restoran yang paling keren namun nyaman di Senopati, Jakarta Selatan, yang memiliki tempat bergaya art-deco-botanical. Ini menyajikan berbagai makanan Indonesia dalam porsi berbagi. Anda harus mencoba bebek betutu-nya, bebek dengan rempah-rempah khas Bali disajikan dengan taburan bawang goreng atau sambal matah pedas dan nasi harum.';
+  @override
+  String get Soulfood => 'Soulfood';
+  @override
+  String get SoulfoodDescription => 'Seperti namanya, Soulfood menawarkan beragam hidangan yang disajikan setiap hari di rumah-rumah Indonesia dan oleh karena itu menjadi semacam jiwa mereka. Menu favoritnya termasuk cumi item (sotong dengan tinta), baso darokdok (sup bakso disajikan dengan kulit kerbau yang renyah), atau teri pete lado ijo (teri dimasak dengan cabe hijau dan kacang buncis hijau).';
+  @override
+  String get Cameron => 'Cameron Highlands';
+  @override
+  String get CameronDescription => 'Salah satu tempat tujuan wisata tertua di Malaysia, stasiun pegunungan ini didirikan pada tahun 1930-an dan kini dihuni oleh sekelompok orang yang sangat beragam dan memiliki dampak mereka pada budaya juga. Perkebunan teh yang memukau, cuaca yang bagus, air terjun yang mengalir, kebun strawberry, dan kebun buah yang cantik sudah cukup menjadi alasan bagi Anda untuk mengunjungi tempat ini.';
+  @override
+  String get Birdpark => 'Taman Burung Kuala Lumpur';
+  @override
+  String get BirdparkDescription => 'Taman Burung di Kuala Lumpur, Malaysia terbagi menjadi empat zona di mana Zona 1 dan Zona 2 adalah untuk penerbangan bebas burung-burung di mana mereka dibiarkan terbang dan diberikan lingkungan yang baik untuk berkembang biak secara alami. Menonton semua burung berwarna terbang bersama-sama di area-area ini adalah sebuah pemandangan yang mempesona. Zona 3 dari Taman Burung Kuala Lumpur adalah Taman Enggang dan Zona 4 terdiri dari sejumlah kandang dan area terpisah untuk berbagai jenis burung.';
+  @override
+  String get HardRock => 'Hard Rock Hotel Penang';
+  @override
+  String get HardRockDescription => 'Pelayanan yang sangat baik, lokasi yang hebat, tepat di pantai. Fitur-fitur kamar bagus terutama pilihan film terbaru untuk ditonton. Suasana kamar hangat dan nyaman. Kolam renang membuat semua orang senang.';
+  @override
+  String get Trove => 'TROVE Johor Bahru';
+  @override
+  String get TroveDescription => 'Hotel yang menampilkan kamar bersih dan luas dengan bantal empuk serta lokasi yang nyaman dekat dengan pilihan tempat makan, pusat perbelanjaan, dan atraksi wisata. Suite keluarga tersedia. Pelayanan yang sangat baik dan dispenser air di dalam kamar.';
+  @override
+  String get Azmie => 'Azmie Wawa';
+  @override
+  String get AzmieDescription => 'Bagi yang telah merindukan makanan penutup Malaysia yang populer, es kacang, datanglah ke Azmie Wawa yang terkenal. Terletak di food court Kampung Melayu Majidee, ini adalah tempat terbaik di Malaysia bagi pecinta makanan penutup. Anda dapat memilih dari dua jenis es kacang di Azmie Wawa - ABC Biasa dan ABC Special. Keanekaragaman bahan-bahan berwarna adalah yang membuat makanan penutup ini begitu istimewa dan sangat populer di kalangan penduduk setempat. Anda akan menemukan kacang merah, cincau, attap chee, kacang tanah yang dihancurkan, sirup cokelat, susu kental manis, sirup berbagai rasa, dan banyak lagi.';
+  @override
+  String get CafeBLD => 'Café BLD';
+  @override
+  String get CafeBLDDescription => 'Terletak di Renaissance Hotel, Café BLD di Johor menawarkan makanan otentik, suasana 5 bintang, dan layanan yang menjadi kelezatan dalam setiap aspek. Café BLD memiliki beberapa dapur terbuka yang memasak berbagai jenis masakan seperti Melayu, Cina, India, Jepang, Barat, hidangan laut, dan banyak lagi. Bufet di sini akan memuaskan semua keinginan Anda, menjadikan Café BLD salah satu restoran Malaysia yang paling terkenal.';
+  @override
+  String get Rainbow => 'Rainbow Village';
+  @override
+  String get RainbowDescription => 'Salah satu tempat yang paling memikat secara estetika untuk dikunjungi di Taiwan, Desa Pelangi adalah permukiman kecil di Nantung yang terkenal dengan rumah-rumahnya yang unik dan berwarna-warni. Desa ini pada awalnya adalah permukiman militer dan kemudian diubah melalui seni jalanan. Meskipun tidak ada atraksi utama di sini, tur berjalan-jalan melalui jalan-jalan berwarna di Desa Pelangi tetap menjadi sesuatu yang patut dicoba. Seniman utama di balik usaha ini, yang dengan penuh kasih dipanggil Kakek oleh semua, masih tinggal di desa dan selalu terbuka untuk bertemu dengan wisatawan.';
+  @override
+  String get Taroko => 'Taroko Gorge';
+  @override
+  String get TarokoDescription => 'Merentang sepanjang pantai timur Jepang, Taroko Gorge adalah sebuah lembah curam yang mengesankan sepanjang 19 meter. Tempat bagi beragam flora dan fauna yang fantastis, lembah ini kini diakui sebagai Taman Nasional. Taman ini menjadi rumah bagi lebih dari 30 spesies hewan, termasuk rusa, babi hutan, dan beruang. Berbagai macam kupu-kupu juga bisa ditemui di sini. Beberapa jalur hiking melintasi lereng di sisi gunung, menjadikannya destinasi hiking yang populer.';
+  @override
+  String get Dandy => 'Hotel Dandy';
+  @override
+  String get DandyDescription => 'Hotel butik modern di Taipei menawarkan kamar yang bersih, tempat tidur yang nyaman, dan suasana yang nyaman. Dekat dengan tempat-tempat wisata, pasar, dan transportasi. Sarapan buffet yang beragam, fasilitas laundry 24/7, dan fasilitas gratis.';
+  @override
+  String get Caesar => 'Caesar Park Taipei';
+  @override
+  String get CaesarDescription => 'Diberikan kamar 901 menghadap gedung sebelah sehingga tidak ada pemandangan yang menarik. Ukuran kamar bagus untuk 2 orang dengan 2 tas. Kebersihan bisa ditingkatkan karena ada debu dan lantai kamar mandi tidak dibersihkan dengan baik.';
+  @override
+  String get Lin => 'Lin Dong Fang';
+  @override
+  String get LinDescription => 'Meskipun penampilannya sederhana, setiap penduduk Taipei akan memberi tahu Anda bahwa Lin Dong Fang adalah tempat untuk mie sapi. Sup mie sapi setengah tendon/setengah kaki terkenal. Ini berisi porsi daging berkualitas baik dengan kuah yang jernih, sedikit pedas, dan mie yang al dente.';
+  @override
+  String get Shin => 'Shin Yeh';
+  @override
+  String get ShinDescription => 'Sebuah restoran keluarga yang dimulai dari hanya 11 meja di gang belakang pada tahun 1977, kini telah ada 5 restoran Shin Yeh di sekitar Taipei. Setiap restoran menyajikan masakan Taiwan gaya Hokkien tradisional dalam pengaturan yang modern. Keberhasilan dan reputasi yang baik berasal dari perhatian terhadap setiap detail halus, dengan para koki berpengalaman memperhatikan kualitas hidangan yang mereka sajikan.';
+  @override
+  String get Hue => 'Hue';
+  @override
+  String get HueDescription => 'Salah satu kota bersejarah terpenting di Vietnam, Hue dipenuhi dengan artefak dari masa pemerintahan kaisar Nguyen abad ke-19. Terletak di tepi Sungai Parfum yang cantik, Kediaman Kekaisaran adalah situs besar yang terletak di dalam dinding yang membentang selama 2,5 kilometer. Ketika mengunjungi kompleks ini, lihatlah Gerbang Ngo Mon yang cantik, Istana Thai Hoa dengan detail interior yang dilapisi dengan baik, Tempat Tinggal Dien Tho tempat para ibu ratu tinggal, dan Aula Mandarins dengan lukisan langit-langit yang dilestarikan.';
+  @override
+  String get Phong => 'Taman Nasional Phong Nha-Ke Bang';
+  @override
+  String get PhongDescription => 'Salah satu tempat terbaik untuk menjelajahi gua di Vietnam, Taman Nasional Phong Nha-Ke Bang yang terdaftar sebagai Warisan Dunia adalah formasi gunung karst yang dramatis dengan banyak gua besar, yang menjadi rumah bagi pameran stalaktit dan stalagmit yang luar biasa. Terkenal dengan aktivitas penjelajahan guanya, mulai dari perjalanan mendaki dan menjelajah gua selama beberapa hari untuk yang lebih petualang, hingga perjalanan setengah hari ke gua-gua dengan akses mudah melalui perjalanan perahu dan jembatan kayu modern, tetapi taman nasional ini juga menawarkan kegiatan sepeda gunung dan trekking.';
+  @override
+  String get Jade => 'Hotel Oriental Jade';
+  @override
+  String get JadeDescription => 'Staf yang ramah dan kamar-kamar yang sangat bagus. Bar atap yang indah dengan kolam renang dan pemandangan kota yang menakjubkan. Suasana yang sangat menyenangkan dan santai. Sangat nyaman diakses dan lokasi yang bagus untuk kota dan transportasi.';
+  @override
+  String get Hav => 'Hotel Havana Nha Trang';
+  @override
+  String get HavDescription => 'Saya suka mengunjungi Nha Trang dan setiap kali saya suka menginap di Havana Nha Trang. Harga yang wajar untuk hotel tepi pantai. Kebersihan hotel, staf yang sangat ramah, kolam renang dengan pemandangan laut yang sangat bagus, layanan sauna buka hingga pukul 9 malam.';
+  @override
+  String get Cuc => 'Cuc Gach Quan';
+  @override
+  String get CucDescription => 'Terletak di sebuah rumah yang menawan, Cuc Gach Quan memiliki desain yang rustik dengan perabotan antik yang mengingatkan kita pada kehidupan di Vietnam beberapa dekade yang lalu. Menu ini dipenuhi dengan hidangan yang mencerminkan masakan tradisional keluarga Vietnam. Jika Anda ingin mencicipi masakan Vietnam gaya rumahan yang autentik, ini adalah salah satu tempat terbaik untuk mencoba.';
+  @override
+  String get ManMoi => 'Man Moi';
+  @override
+  String get ManMoiDescription => 'Dengan penghargaan mendalam terhadap masakan regional Vietnam, Man Moi membangun menu-nya dengan inspirasi dari hidangan tradisional dan masakan daerah. Penawarannya bervariasi mulai dari hidangan pembuka yang menggugah selera hingga hidangan utama yang mengenyangkan, diikuti dengan sup yang menenangkan lidah, dan hidangan penutup yang memuaskan untuk mengakhiri makan dengan manis.';
+
+
+
 }

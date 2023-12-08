@@ -347,6 +347,111 @@ class AppLocalizationsZh extends AppLocalizations {
   String get itenary => '行程';
   @override
   String get Selectacountry => '選擇國家';
+  @override
+  String get Jakarta => '雅加達';
+
+  @override
+  String get JakartaScreen => '雅加達';
+
+  @override
+  String get JakartaDescription =>
+      '以印度尼西亞最繁忙的大都市聞名，雅加達是一座擁有來自印尼各地多樣族群背景的一千萬人口的城市，他們和睦共處。漫步在城市街道上，欣賞都市的景色。在豪華購物商場尋找優惠。沉浸在小巷中，發現街頭小攤的美食寶藏。';
+  @override
+  String get LabuanBajo => '峇厘巴露';
+
+  @override
+  String get LabuanBajoDescription =>
+      '峇厘巴露其實只是位於佛羅勒斯島西端的一個小漁村。現在，隨著科莫多國家公園的知名度，這個地方已成為東努沙登加拉省無數目的旅遊地之一。屬於科莫多國家公園中眾多目的地之一的峇厘巴露，總是您旅程的起點，因為這裡是港口和機場所在地。';
+  @override
+  String get PadmaResort => 'Padma度假村';
+
+  @override
+  String get PadmaResortDescription =>
+      '坐落在一片宁静的竹林中，这家豪华酒店拥有一座引人注目的无边泳池和可供游泳的酒吧，享有巴厘岛最佳美景和迷人景色。享受宽敞的客房、出色的餐饮、丛林徒步旅行和竹林漫步。尽情享受现场活动，如空中瑜伽、射箭和儿童俱乐部，以迷人的小动物园氛围进行有趣的活动。';
+  @override
+  String get AdiwanaUnagiSuites => 'Adiwana Unagi 度假村';
+  @override
+  String get AdiwanaUnagiSuitesDescription => '美麗的酒店提供令人驚嘆的叢林景觀，卓越的設施和無可挑剔的服務。設有令人驚嘆的室外浴室、無邊際泳池、直接通往泳池的客房、全日供應早餐以及帶寬敞陽台的豪華森林景觀客房。強烈推薦入住，享受非凡的住宿體驗。';
+  @override
+  String get Kokiku => 'Feast by Kokiku';
+  @override
+  String get KokikuDescription => '這是另一家位於雅加達南部Senopati的最時尚且溫馨的餐廳，擁有藝術裝飾植物主題的場所。它提供各種印尼美食供分享。您一定要嘗試它的bebek betutu，用巴厘島香料烹製的鴨肉，搭配香脆的炸洋蔥或sambal matah辣椒和芬芳的米飯。';
+  @override
+  String get Soulfood => 'Soulfood';
+  @override
+  String get SoulfoodDescription => '如其名，Soulfood 提供各種在印尼家庭日常供應的美食，因此成為他們的一種靈魂。其最受歡迎的菜單包括 cumi item（墨魚墨汁烹飪）、baso darokdok（肉丸湯配水牛皮脆片）、或 teri pete lado ijo（江魚干與青辣椒和青豆炒製）。';
+  @override
+  String get Cameron => 'Cameron Highlands';
+  @override
+  String get CameronDescription => '這座山區站是馬來西亞最古老的旅遊勝地之一，建立於1930年代，現在居住著一群非常多元化的人，也對當地文化產生了影響。迷人的茶園、宜人的氣候、瀑布飛瀉、草莓農場和美麗的果園足以成為你造訪此地的理由。';
+  @override
+  String get Birdpark => '吉隆坡鳥園';
+  @override
+  String get BirdparkDescription => '位於馬來西亞吉隆坡的鳥園被劃分為四個區域，其中1區和2區供鳥類自由飛行，它們在這裡被放養飛行並提供良好的環境進行自然繁殖。在這些區域觀賞所有色彩繽紛的鳥兒一同飛翔是一種享受。吉隆坡鳥園的3區是犀鳥公園，4區包括許多鳥類的籠子和不同區域。';
+  @override
+  String get HardRock => '檳城硬石酒店';
+  @override
+  String get HardRockDescription => '優秀的服務，絕佳的位置，位於海灘旁。房間設施很好，特別是可以觀賞最新電影的選擇。房間氛圍溫馨舒適。游泳池讓每個人都很開心。';
+  @override
+  String get Trove => 'TROVE Johor Bahru';
+  @override
+  String get TroveDescription => '酒店提供乾淨寬敞的房間，配有蓬鬆的枕頭，地點靠近餐飲選擇、商場和景點。提供家庭套房。極佳的服務和房內飲水機。';
+  @override
+  String get Azmie => 'Azmie Wawa';
+  @override
+  String get AzmieDescription => '對於那些渴望品嚐馬來西亞知名甜點冰磚的人來說，一定要來到著名的Azmie Wawa。位於Kampung Melayu Majidee的美食廣場內，這是馬來西亞甜點愛好者的最佳去處。在Azmie Wawa，你可以選擇兩種類型的冰磚 - ABC Biasa和ABC Special。豐富多彩的食材是這些甜點如此特別且在當地人中非常受歡迎的原因。你會找到紅豆、仙草、attap chee、碎花生、巧克力糖漿、煉奶、各種風味的糖漿等等。';
+  @override
+  String get CafeBLD => 'Café BLD';
+  @override
+  String get CafeBLDDescription => '位於文莱酒店的 Café BLD 在柔佛提供道地的食物、五星級的氛圍和服務，全都是一種享受。 Café BLD有多個開放式廚房，烹製各種美食，如馬來、中國、印度、日本、西式、海鮮等。這裡的自助餐將滿足您的所有口腹之慾，使 Café BLD成為馬來西亞最著名的餐廳之一。';
+  @override
+  String get Rainbow => '彩虹村';
+  @override
+  String get RainbowDescription => '作為台灣最具美學意義的景點之一，彩虹村位於南通的一個小型聚落，以其古怪多彩的房屋而聞名。該村最初是一個軍屬聚居地，後來通過街頭藝術轉變而來。雖然這裡沒有顯著的景點，但穿過彩虹村色彩斑斕的街道進行步行遊覽仍然是一個必試的活動。這個努力背後的主要藝術家，被所有人親切地稱為爺爺，仍然住在村裡並隨時歡迎遊客前來拜訪。';
+  @override
+  String get Taroko => '太魯閣大峽谷';
+  @override
+  String get TarokoDescription => '沿著日本東海岸延伸，太魯閣大峽谷是一個壯觀的長達19米的峽谷。這裡擁有豐富多樣的植物和動物，現已被識別為國家公園。公園內生活著30多種動物，包括鹿、野豬和熊。這裡也可以看到各種不同的蝴蝶。山脈上有幾條遠足小徑，使其成為一個受歡迎的遠足目的地。';
+  @override
+  String get Dandy => 'Dandy 酒店';
+  @override
+  String get DandyDescription => '台北的現代精品酒店，提供乾淨的客房、舒適的床鋪和溫馨的氛圍。靠近景點、市場和交通便利。多樣化的早餐自助餐、24/7 洗衣設施和免費設施。';
+  @override
+  String get Caesar => '台北凱撒大飯店';
+  @override
+  String get CaesarDescription => '分配的 901 號房面對隔壁建築，所以景觀不怎麼吸引人。房間對於兩人和兩個行李包來說大小適中。清潔度有待改善，因為發現了灰塵，浴室地板清潔得不夠好。';
+  @override
+  String get Lin => '林東芳';
+  @override
+  String get LinDescription => '儘管外表樸素，但台北的居民會告訴您，林東芳是牛肉麵的最佳去處。半筋半腱牛肉麵湯很有名。它有著充足的高品質肉片，清淡微辣的湯頭和彈牙的麵條。';
+  @override
+  String get Shin => '欣葉';
+  @override
+  String get ShinDescription => '一家家庭餐廳從1977年在一條後巷僅有11張桌子開始，如今在台北周圍已經有5家欣葉餐廳。每家餐廳以現代化的設置供應傳統福建風味的台灣美食。它的成功和良好聲譽源於對每一個細節的關注，經驗豐富的廚師們非常重視他們所供應菜品的質量。';
+  @override
+  String get Hue => '順化';
+  @override
+  String get HueDescription => '順化是越南最具歷史意義的城鎮之一，充滿了19世紀阮朝統治時期的遺跡。坐落在美麗的香水河畔，皇城是一個巨大的遺址，被高達2.5公里長的城牆圍繞。遊覽這個地方時，可以欣賞到美麗的午門、內部精細漆飾的太和殿、越南皇太后居住的殿堂以及保存完好的文官廳壁畫。';
+  @override
+  String get Phong => '逢納-克邦國家公園';
+  @override
+  String get PhongDescription => '越南最適合洞穴探險的地方之一，被列為世界遺產的逢納-克邦國家公園是一個壯觀的岩溶山地形成，有著巨大的洞穴，內有極好的鐘乳石和石筍展示。以其洞穴活動而聞名，從多日徒步和洞穴遊覽到簡單的半日遊，可以通過船遊和現代木棧道輕鬆抵達洞穴，但國家公園也提供山地自行車和徒步旅行活動。';
+  @override
+  String get Jade => '東方翡翠酒店';
+  @override
+  String get JadeDescription => '友善的工作人員和非常好的客房。可愛的頂樓酒吧設有泳池，可欣賞城市景觀。非常包容且輕鬆的氛圍。交通非常便利，位置優越，適合城市和交通。';
+  @override
+  String get Hav => 'Havana Nha Trang酒店';
+  @override
+  String get HavDescription => '我喜歡造訪芽莊，每次都喜歡入住 Havana 芽莊。海濱酒店的價格合理。酒店乾淨，工作人員非常友好，海景泳池非常漂亮，桑拿服務營業到晚上9點。';
+  @override
+  String get Cuc => 'Cục Gạch Quán';
+  @override
+  String get CucDescription => '坐落在一幢迷人的房子裡，Cuc Gach Quan採用了帶有復古家具的鄉村設計，讓人回想起幾十年前的越南生活。菜單上充滿了反映越南家庭傳統餐飲的菜餚。如果你想品嚐正宗的越南家常菜，這是其中一個最佳的地方。';
+  @override
+  String get ManMoi => '滿梅';
+  @override
+  String get ManMoiDescription => '對於越南地區的美食深具欣賞的滿梅從傳統餐飲和地方菜餚中汲取靈感來建構菜單。提供從令人愉悅的前菜到豐富的主菜，接著是舒緩口感的湯品，以及美味的甜點來結束一頓甜美的餐點。';
 
 }
 
