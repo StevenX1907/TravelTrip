@@ -492,5 +492,41 @@ class AppLocalizationsZh extends AppLocalizations {
   String get n2=> '評論了你的照片';
   String get n3=> '開始關注你';
   String get n4=> '喜歡你的貼文';
+  String get a1=>'Natural Landscape';
+  String get a2=>'Shopping District';
+  String get a3=>'Historical Place';
+  String get a4=>'Religious Place';
+  String get a5=>'Theme Park';
+  String get b1=>'Sumatra';
+  String get b2=>'Java';
+  String get b3=>'Kalimantan';
+  String get b4=>'Sulawesi';
+  String get b5=>'Papua';
+  String get c1=>'North';
+  String get c2=>'Central';
+  String get c3=>'South';
+  String get c4=>'East';
+  String get d1=>'North';
+  String get d2=>'South';
+  String get d3=>'West';
+  String get d4=>'East';
+  String get z1=>'行程';
+  String get z2=>'選擇國家';
+  String get z3=>'選擇地區';
+  String get z4=>'選擇類別';
+  String get z5=>'從';
+  String get z6=>'到';
+  String get z7=>'出發預估';
+  String get z8=>'到達預估';
+  String get z9=>'生成的行程';
+  String get z10=>'評價這個行程：';
+  String get z11 => '選擇日期';
+  String get z12 => '選擇時間';
+  String get z13=>'包括到達和出發時間、活動、餐飲和著名景點等詳細資訊。 確保日程安排良好並遵循邏輯順序。 此外，還提供有關具體遊覽地點、餐飲選擇和風景優美的散步的建議。 使用對話式和資訊豐富的語氣使生成的行程方便用戶使用。 我需要列出我的行程的每個時間段。 例如： 9:00: 去哪裡 10:00: 去哪裡';
+  String get z14 => '建立時間';
+  String get z15 => '到達';
+  String get z16 => '去旅行';
+  String get z17 => '我喜歡';
+
 }
 

@@ -1,6 +1,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:travel_trip_application/screens/utils/VerifyEmailScreen.dart';
+import 'package:travel_trip_application/screens/vietnam/itineraryProvider.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/signin_screen.dart';
@@ -14,16 +15,21 @@ import 'gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await dotenv.load();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-
   runApp(
-    MaterialApp( // Wrap your app with MaterialApp
-      home: ChangeNotifierProvider<DarkModeExample>(
-        create: (context) => DarkModeExample(),
+    MaterialApp(
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<DarkModeExample>(
+            create: (context) => DarkModeExample(),
+          ),
+          ChangeNotifierProvider<ItineraryProvider>(
+            create: (context) => ItineraryProvider(),
+          ),
+        ],
         child: MyApp(),
       ),
     ),

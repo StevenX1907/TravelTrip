@@ -4,79 +4,57 @@ import 'package:flutter_emoji/flutter_emoji.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_trip_application/reusable_widgets/side_menu.dart';
 import 'package:travel_trip_application/screens/editprofile.dart';
-import 'package:travel_trip_application/screens/utils/post.dart';
-import 'package:travel_trip_application/screens/utils/utils.dart';
 import 'package:travel_trip_application/screens/personality_screen.dart';
+import 'package:travel_trip_application/screens/utils/utils.dart';
+import 'package:travel_trip_application/screens/vietnam/itineraryProvider.dart';
 import '../reusable_widgets/dark_mode.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter/gestures.dart';
-import 'package:travel_trip_application/reusable_widgets//photo_utils.dart';
+import 'package:travel_trip_application/reusable_widgets/photo_utils.dart';
 import 'package:path_provider/path_provider.dart';
 import '../gen_l10n/app_localizations.dart';
-import 'utils/post.dart';
 
 class ProfilePage extends StatefulWidget {
-  final String name ;
-  final String gender ;
+  final String name;
+  final String gender;
   final String nationality;
-  final int posts = 30;
-  final int followers = 1000;
-  final int following = 500;
-  ProfilePage({required this.name,required this.gender,required this.nationality});
+
+  ProfilePage(
+      {required this.name, required this.gender, required this.nationality});
 
   @override
   State<ProfilePage> createState() => _ProfilePage();
 }
-class UserProfile {
-  String name = 'John Doe';
-  String gender =  'AppLocalizations.of(context).male';
-  String nationality;
 
-  UserProfile(this.name, this.gender, this.nationality);
-}
-
-//class UserProfileProvider extends ChangeNotifier {
- // UserProfile _userProfile;
-
- // UserProfile get userProfile => _userProfile;
-
- // void updateUserProfile(String name, String gender, String nationality) {
-  //  _userProfile = UserProfile(name, gender, nationality);
-  //  notifyListeners();
-  //}
-//}
 class _ProfilePage extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   final ImagePicker _imagePicker = ImagePicker();
   int selectedIndex = 0;
   List<File?> gridImages = List.generate(100, (index) => null);
-
+  TextEditingController editingController = TextEditingController();
+  bool isEditing = false;
+  int editingIndex = -1;
   late TabController _tabController;
   final parser = EmojiParser();
   final US = Emoji('flag_us', '🇺🇸');
 
-
   Future<void> _selectImageForGrid(int index) async {
     if (gridImages[0] != null) {
-      // 如果第一个格子已经有图片，将图片放入第二个格子
       int newIndex = 1;
-
       while (gridImages[newIndex] != null) {
-        newIndex++; // 寻找下一个空的格子
+        newIndex++;
       }
 
       if (newIndex < 100) {
         index = newIndex;
       } else {
-        // 如果所有格子都已被填满，可以在此处添加处理逻辑
-        // 例如显示一个提示或清空第一个格子
-        // 你可以根据需求进行定制
         return;
       }
     }
 
-    final pickedFile = await _imagePicker.pickImage(source: ImageSource.gallery);
+    final pickedFile =
+    await _imagePicker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         gridImages[index] = File(pickedFile.path);
@@ -95,9 +73,8 @@ class _ProfilePage extends State<ProfilePage>
               leading: Icon(Icons.delete),
               title: Text(AppLocalizations.of(context).deletephoto),
               onTap: () {
-                // 執行刪除照片的操作
                 setState(() {
-                  gridImages[index] = null; // 將圖片設置為 null，表示刪除
+                  gridImages[index] = null;
                 });
                 Navigator.pop(context);
               },
@@ -106,7 +83,6 @@ class _ProfilePage extends State<ProfilePage>
               leading: Icon(Icons.visibility),
               title: Text(AppLocalizations.of(context).checkphoto),
               onTap: () {
-                // 執行查看照片的操作
                 _viewImage(index);
                 Navigator.pop(context);
               },
@@ -116,6 +92,7 @@ class _ProfilePage extends State<ProfilePage>
       },
     );
   }
+
   void _viewImage(int index) {
     showDialog(
       context: context,
@@ -147,29 +124,36 @@ class _ProfilePage extends State<ProfilePage>
 
   @override
   Widget build(BuildContext context) {
+    final itineraryProvider = Provider.of<ItineraryProvider>(context);
+
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
     return Scaffold(
       drawer: SideMenu(),
-
-      appBar:
-      AppBar(
-        title: Text( AppLocalizations.of(context).profile),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).profile),
         backgroundColor: isDarkMode ? Colors.black : Color(0xFF306550),
         actions: <Widget>[
           PopupMenuButton<String>(
             onSelected: (value) {
-              // Handle menu item selection here
               if (value == 'option1') {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PersonalityScreen()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PersonalityScreen(),
+                  ),
+                );
               } else if (value == 'option2') {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => EditProfilePage(onProfileUpdated:(name,gender,nationality){
-                    setState(() {
-                    });
-                    })));
-                // Do something for option 2
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditProfilePage(
+                      onProfileUpdated: (name, gender, nationality) {
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                );
               }
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
@@ -196,7 +180,8 @@ class _ProfilePage extends State<ProfilePage>
                 CircleAvatar(
                   radius: 50,
                   backgroundImage: NetworkImage(
-                      "https://randomuser.me/api/portraits/men/47.jpg"),
+                    "https://randomuser.me/api/portraits/men/47.jpg",
+                  ),
                 ),
                 SizedBox(width: 16),
                 Expanded(
@@ -220,7 +205,9 @@ class _ProfilePage extends State<ProfilePage>
                       ),
                       SizedBox(height: 8),
                       Text(
-                          AppLocalizations.of(context).usa + ' ' + parser.emojify('🇺🇸'),
+                        AppLocalizations.of(context).usa +
+                            ' ' +
+                            parser.emojify('🇺🇸'),
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -240,7 +227,7 @@ class _ProfilePage extends State<ProfilePage>
                               ),
                               Text(
                                 AppLocalizations.of(context).posts,
-                                    style: TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.grey,
                                 ),
@@ -291,45 +278,47 @@ class _ProfilePage extends State<ProfilePage>
               ],
             ),
           ),
-      TabBar(
-        controller: _tabController,
-        tabs: [
-          Padding(
-            padding: EdgeInsets.all(8.0), // Adjust the padding as needed
-            child: Text(AppLocalizations.of(context).posts),
+          TabBar(
+            controller: _tabController,
+            tabs: [
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(AppLocalizations.of(context).posts),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(AppLocalizations.of(context).ratings),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(AppLocalizations.of(context).commets),
+              ),
+            ],
+            labelColor: Colors.blueAccent,
+            unselectedLabelColor: Colors.blueGrey,
+            indicatorColor: Colors.black,
+            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: TextStyle(fontSize: 16),
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(AppLocalizations.of(context).ratings),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(AppLocalizations.of(context).commets),
-          ),
-        ],
-        labelColor: Colors.blueAccent,
-        unselectedLabelColor: Colors.blueGrey,
-        indicatorColor: Colors.black,
-        labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        unselectedLabelStyle: TextStyle(fontSize: 16),
-      ),
-      Expanded(
+          Expanded(
             child: TabBarView(
               controller: _tabController,
               children: [
                 // Posts page
                 Container(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: isDarkMode
-                          ? [
-                        Colors.black38,
-                        Colors.black38
-                      ]
-                          :[
+                    gradient: LinearGradient(
+                      colors: isDarkMode
+                          ? [Colors.black38, Colors.black38]
+                          : [
                         hexStringToColor("F1F9F6"),
                         hexStringToColor("D1EEE1"),
-                        hexStringToColor("AFE1CE")
-                      ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                        hexStringToColor("AFE1CE"),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
                   child: GridView.count(
                     crossAxisCount: 3,
                     crossAxisSpacing: 4.0,
@@ -337,39 +326,90 @@ class _ProfilePage extends State<ProfilePage>
                     padding: EdgeInsets.all(4.0),
                     children: List.generate(
                       30,
-                       (index) {
-                          return GestureDetector(
-                            onTap: () {
-                              _selectImageForGrid(index);
-                            },
-                            onLongPress: () {
-                              _showDeleteMenu(context, index); // 显示删除菜单
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                image: gridImages[index] != null
-                                    ? DecorationImage(
-                                  image: FileImage(gridImages[index]!),
-                                  fit: BoxFit.cover,
-                                )
-                                    : null,
-                              ),
+                          (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            _selectImageForGrid(index);
+                          },
+                          onLongPress: () {
+                            _showDeleteMenu(context, index);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              image: gridImages[index] != null
+                                  ? DecorationImage(
+                                image: FileImage(gridImages[index]!),
+                                fit: BoxFit.cover,
+                              )
+                                  : null,
                             ),
-                          );
-                        },
+                          ),
+                        );
+                      },
                     ),
-                ),
-                ),// Reels page
-                Container(
-                  child: Center(
-                    child: Text(AppLocalizations.of(context).Youdonthaveanyratingsyet),
                   ),
                 ),
-                // Photos of You page
+                // Ratings page
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (var itinerary in itineraryProvider.itineraries)
+                        ExpansionTile(
+                          title: isEditing && editingIndex == itineraryProvider.itineraries.indexOf(itinerary)
+                              ? TextFormField(
+                            controller: editingController,
+                            decoration: InputDecoration(
+                              labelText: 'Edit Itinerary',
+                              border: OutlineInputBorder(),
+                            ),
+                          )
+                              : Text(
+                            itinerary.generatedText,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          subtitle: Text(
+                            'Rating: ${itinerary.userRating}',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          children: [
+                            // Add any other widgets you want to display for each expanded itinerary
+                            // This can include a more detailed view of the itinerary
+                            if (isEditing && editingIndex == itineraryProvider.itineraries.indexOf(itinerary))
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    // Save the changes when the user clicks on Save button
+                                    itinerary.generatedText = editingController.text;
+                                    isEditing = false;
+                                  });
+                                },
+                                child: Text('Save'),
+                              ),
+                            IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () {
+                                setState(() {
+                                  // Toggle editing mode when the user clicks on the edit icon
+                                  isEditing = !isEditing;
+                                  editingIndex = itineraryProvider.itineraries.indexOf(itinerary);
+                                  editingController.text = itinerary.generatedText;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                    ],
+                  ),
+                ),
+
+
+                // Comments page
                 Container(
                   child: Center(
-                    child: Text(AppLocalizations.of(context).Youhaventleaveanycommentsyet),
+                    child: Text(
+                        AppLocalizations.of(context).Youhaventleaveanycommentsyet),
                   ),
                 ),
               ],
@@ -379,12 +419,10 @@ class _ProfilePage extends State<ProfilePage>
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _selectImageForGrid(0); // 这里假设你要将图片放入第一个格子
+          _selectImageForGrid(0);
         },
         child: Icon(Icons.add),
       ),
     );
   }
-
 }
-

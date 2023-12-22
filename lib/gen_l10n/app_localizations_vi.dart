@@ -486,4 +486,41 @@ class AppLocalizationsVi extends AppLocalizations {
   String get n2=> 'đã bình luận về ảnh của bạn';
   String get n3=> 'bắt đầu theo dõi bạn';
   String get n4=> 'thích bài viết của bạn';
+  String get a1 => 'Phong cảnh tự nhiên';
+  String get a2 => 'Khu mua sắm';
+  String get a3 => 'Địa điểm lịch sử';
+  String get a4 => 'Địa điểm tôn giáo';
+  String get a5 => 'Công viên chủ đề';
+  String get b1 => 'Sumatra';
+  String get b2 => 'Java';
+  String get b3 => 'Kalimantan';
+  String get b4 => 'Sulawesi';
+  String get b5 => 'Papua';
+  String get c1 => 'Bắc';
+  String get c2 => 'Trung';
+  String get c3 => 'Nam';
+  String get c4 => 'Đông';
+  String get d1 => 'Bắc';
+  String get d2 => 'Nam';
+  String get d3 => 'Tây';
+  String get d4 => 'Đông';
+  String get z1=>'Lịch trình';
+  String get z2=>'Chọn một quốc gia';
+  String get z3=>'Chọn khu vực';
+  String get z4=>'Chọn danh mục';
+  String get z5=>'Từ';
+  String get z6=>'Đến';
+  String get z7=>'Ước tính thời gian khởi hành';
+  String get z8=>'Ước tính thời gian đến';
+  String get z9=>'Lịch trình được tạo';
+  String get z10=>'Đánh giá lịch trình này:';
+  String get z11 => 'Chọn ngày';
+  String get z12 => 'Chọn giờ';
+  String get z13 => 'Bao gồm các chi tiết như thời gian đến và rời, các hoạt động, bữa ăn và những điểm du lịch đặc sắc. Đảm bảo rằng lịch trình được tổ chức rất cẩn thận và tuân theo một trình tự hợp lý. Ngoài ra, đưa ra các đề xuất về địa điểm cụ thể để thăm, các lựa chọn ẩm thực và những bước đi dạo tuyệt vời. Sử dụng một ngôn ngữ hòa mình và thông tin để tạo cho lịch trình được tạo ra trở nên thân thiện với người sử dụng. Dưới đây là danh sách từng khoảng thời gian cho lịch trình của tôi. Ví dụ: 9:00 - Điều nên đến đâu, 10:00 - Điều nên đến đâu.';
+  String get z14 => 'Tạo một thời gian trong';
+  String get z15 => 'đến';
+  String get z16 => 'để đi chuyến đi đến';
+  String get z17 => 'và tôi thích';
+
+
 }

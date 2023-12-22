@@ -457,6 +457,41 @@ abstract class AppLocalizations {
   String get n2;
   String get n3;
   String get n4;
+  String get a1;
+  String get a2;
+  String get a3;
+  String get a4;
+  String get a5;
+  String get b1;
+  String get b2;
+  String get b3;
+  String get b4;
+  String get b5;
+  String get c1;
+  String get c2;
+  String get c3;
+  String get c4;
+  String get d1;
+  String get d2;
+  String get d3;
+  String get d4;
+  String get z1;
+  String get z2;
+  String get z3;
+  String get z4;
+  String get z5;
+  String get z6;
+  String get z7;
+  String get z8;
+  String get z9;
+  String get z10;
+  String get z11;
+  String get z12;
+  String get z13;
+  String get z14;
+  String get z15;
+  String get z16;
+  String get z17;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

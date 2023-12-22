@@ -65,14 +65,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_emoji: ^2.4.0
   http: ^0.13.5
-  firebase_core: ^2.23.0
+  firebase_core: ^2.24.2
   firebase_auth: ^4.14.1
   url_launcher: ^6.1.11
   velocity_x: ^4.1.0
   dotenv: ^4.1.0
   email_auth: ^1.0.0
+  firebase_database: ^10.3.7
 dev_dependencies:
-  intl: ^0.17.0
+  intl: ^0.18.1
   flutter_test:
     sdk: flutter
 

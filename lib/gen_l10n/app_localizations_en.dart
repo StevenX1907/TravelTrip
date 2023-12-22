@@ -493,7 +493,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
 
 
-}
+
   String get kudeta1ads => 'Address: Jl. Kayu Aya No.9, Seminyak, Kec. Kuta, Kabupaten Badung, Bali, Indonesia';
   String get kudeta1open => 'Open Hours:\nSun-Thu: 08:00 AM - 12:00 AM\nFri-Sat: 08:00 AM - 01:00 AM';
   String get kudetaContact => 'Contact: +62 361 736969';
@@ -503,4 +503,39 @@ class AppLocalizationsEn extends AppLocalizations {
   String get n2=> 'commented on your photo';
   String get n3=> 'started following you';
   String get n4=> 'liked your post';
-  }
+  String get a1=>'Natural Landscape';
+  String get a2=>'Shopping District';
+  String get a3=>'Historical Place';
+  String get a4=>'Religious Place';
+  String get a5=>'Theme Park';
+  String get b1=>'Sumatra';
+  String get b2=>'Java';
+  String get b3=>'Kalimantan';
+  String get b4=>'Sulawesi';
+  String get b5=>'Papua';
+  String get c1=>'North';
+  String get c2=>'Central';
+  String get c3=>'South';
+  String get c4=>'East';
+  String get d1=>'North';
+  String get d2=>'South';
+  String get d3=>'West';
+  String get d4=>'East';
+  String get z1=>'Itinerary';
+  String get z2=>'Select a country';
+  String get z3=>'Select area(s)';
+  String get z4=>'Select category(s)';
+  String get z5=>'From';
+  String get z6=>'Until';
+  String get z7=>'Departure Estimation';
+  String get z8=>'Arrival Estimation';
+  String get z9=>'Generated Itinerary';
+  String get z10=>'Rate this itinerary:';
+  String get z11=>'Select a date';
+  String get z12=>'Select a time';
+  String get z13=>'Include details such as arrival and departure times, activities, meals, and notable attractions. Ensure that the schedule is well-organized and follows a logical sequence. Additionally, provide recommendations for specific locations to visit, dining options, and scenic walks. Use a conversational and informative tone to make the generated itinerary user-friendly. I need to list each time period for my itinerary. For example: 9:00: where to go 10:00: where to go';
+  String get z14=>'Create a time during';
+  String get z15=>'to';
+  String get z16=>'for trip to';
+  String get z17=>'and i like';
+}
