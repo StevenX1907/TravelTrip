@@ -53,7 +53,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   List<Itinerary> savedItineraries = [];
 
   Future<String> getOpenAIResponse(String input) async {
-    final apiKey = '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'; // Replace with your OpenAI API key
+    final apiKey = ''; // Replace with your OpenAI API key
     final apiUrl = 'https://api.openai.com/v1/completions';
     print('Prompt: $input');
     final response = await http.post(
@@ -401,6 +401,11 @@ class _ItineraryPageState extends State<ItineraryPage> {
                                   onTap: () {
                                     // Save the itinerary when the heart icon is clicked
                                     itineraryProvider.addItinerary(generatedText, userRating);
+
+                                    // Update the state to reflect the change
+                                    setState(() {
+                                      isItinerarySaved = !isItinerarySaved;
+                                    });
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(10.0),
@@ -414,6 +419,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
                                     ),
                                   ),
                                 ),
+
                               ],
                             ),
                             Row(

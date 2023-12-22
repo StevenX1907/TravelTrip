@@ -1,39 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'dart:convert';
+
 import '../../gen_l10n/app_localizations.dart';
 import '../../reusable_widgets/dark_mode.dart';
-import '../../reusable_widgets/side_menu.dart';
 import '../utils/utils.dart';
-import 'package:travel_trip_application/reusable_widgets/exchange_coin.dart';
 
+// Import other necessary dependencies
 
 class ExchangeApp extends StatefulWidget {
   @override
   _ExchangeAppState createState() => _ExchangeAppState();
 }
 
-
 class _ExchangeAppState extends State<ExchangeApp> {
   TextEditingController amountController = TextEditingController();
   String fromCurrency = 'New Taiwan Dollar (TWD)';
   String toCurrency = 'United States Dollar (USD)';
-
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Initialize fromCurrency and toCurrency with translated values
-  //   fromCurrency ??= AppLocalizations.of(context).twd;
-  //   toCurrency ??= AppLocalizations.of(context).usd;
-  // }
-  // Helper function to get the full currency name
-  String getFullCurrencyName(String currencyCode) {
-    // Add logic to get the full currency name based on the currency code
-    // For simplicity, I'm just returning the same code for now
-    return currencyCode;
-  }
+  Map<String, double> defaultExchangeRates = {
+    'United States Dollar (USD)': 1.0,
+    'Vietnamese Dong (VND)': 24.275,
+    'New Taiwan Dollar (TWD)': 31.19,
+    'Indonesian Rupiah (IDR)': 15.486,
+    'Malaysian Ringgit (MYR)': 4.63,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -41,26 +30,28 @@ class _ExchangeAppState extends State<ExchangeApp> {
     toCurrency ??= AppLocalizations.of(context).usd;
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
+
     return Scaffold(
       appBar: AppBar(
-        title:  Text(AppLocalizations.of(context).exchangerate),
-        backgroundColor: isDarkMode?Colors.black:const Color(0xFF306550),
+        title: Text(AppLocalizations.of(context).exchangerate),
+        backgroundColor: isDarkMode ? Colors.black : const Color(0xFF306550),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: isDarkMode
-                ? [
-              Colors.black38,
-              Colors.black38
-            ]
-                :[
+          gradient: LinearGradient(
+            colors: isDarkMode
+                ? [Colors.black38, Colors.black38]
+                : [
               hexStringToColor("F1F9F6"),
               hexStringToColor("D1EEE1"),
               hexStringToColor("AFE1CE")
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -74,6 +65,9 @@ class _ExchangeAppState extends State<ExchangeApp> {
                   child: TextField(
                     controller: amountController,
                     keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      convertCurrency();
+                    },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: AppLocalizations.of(context).amountDes,
@@ -97,10 +91,11 @@ class _ExchangeAppState extends State<ExchangeApp> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: DropdownButton<String>(
-                      value: fromCurrency, // Change this line to use fromCurrency instead of toCurrency
+                      value: fromCurrency,
                       onChanged: (String? newValue) {
                         setState(() {
                           fromCurrency = newValue!;
+                          convertCurrency();
                         });
                       },
                       items: [
@@ -118,7 +113,7 @@ class _ExchangeAppState extends State<ExchangeApp> {
                       )
                           .toList(),
                       isExpanded: true,
-                      underline: Container(), // Removes the underline
+                      underline: Container(),
                     ),
                   ),
                 ),
@@ -143,6 +138,7 @@ class _ExchangeAppState extends State<ExchangeApp> {
                       onChanged: (String? newValue) {
                         setState(() {
                           toCurrency = newValue!;
+                          convertCurrency();
                         });
                       },
                       items: [
@@ -160,45 +156,41 @@ class _ExchangeAppState extends State<ExchangeApp> {
                       )
                           .toList(),
                       isExpanded: true,
-                      underline: Container(), // Removes the underline
+                      underline: Container(),
                     ),
                   ),
                 ),
               ],
             ),
-
+            SizedBox(height: 16),
             Row(
               children: [
                 Text('Result: '),
                 SizedBox(width: 16),
                 Expanded(
                   child: TextField(
-                    controller: amountController,
+                    readOnly: true,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: AppLocalizations.of(context).amountDes,
+                      hintText: 'Result',
+                    ),
+                    controller: TextEditingController(
+                      text:
+                      ' ${calculateConvertedAmount()} ',
                     ),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 16),
-
-            // Fourth Row: Transfer Button centered
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                convertCurrency();
-              },
-              child: Text(AppLocalizations.of(context).tranfer),
-            ),
           ],
         ),
       ),
     );
   }
-  void convertCurrency() async {
+
+  void convertCurrency() {
     // Validate the entered amount
     double amount;
     try {
@@ -208,79 +200,15 @@ class _ExchangeAppState extends State<ExchangeApp> {
       return;
     }
 
-    final apiKey = 'cur_live_fIuKcbzdvnUNgq2nLZPUwmhoLv76GdL20GBciWem';
-    final apiUrl = 'https://api.currencyapi.com/v3/convert?from=$fromCurrency&to=$toCurrency&amount=$amount&apikey=$apiKey';
+    // Update the UI with the result
 
-    try {
-      final response = await http.get(Uri.parse(apiUrl));
+  }
 
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        double exchangeRate = data['rate'];
-
-        // Calculate the converted amount
-        double convertedAmount = amount * exchangeRate;
-
-        // Update the UI with the result
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Conversion Result'),
-              content: Text('$amount $fromCurrency = $convertedAmount $toCurrency'),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      } else {
-        // Handle API error
-        print('Error: ${response.statusCode}');
-        showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Error'),
-              content: Text('Failed to fetch exchange rate. Please try again.'),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    } catch (e) {
-      // Handle network error
-      print('Error: $e');
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Error'),
-            content: Text('Network error. Please check your internet connection.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    }
+  double calculateConvertedAmount() {
+    // Calculate the converted amount based on default exchange rates
+    double exchangeRate = defaultExchangeRates[toCurrency]! / defaultExchangeRates[fromCurrency]!;
+    return double.parse(amountController.text) * exchangeRate;
   }
 }
 
+// Add the necessary utility functions and classes (e.g., hexStringToColor, DarkModeExample) that are used in your code.
