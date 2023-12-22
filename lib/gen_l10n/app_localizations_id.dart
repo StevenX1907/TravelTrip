@@ -24,7 +24,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get forgotPassword => 'Lupa Kata Sandi?';
 
   @override
-  String get english => 'Bahasa Inggeris';
+  String get english => 'Bahasa Inggris';
 
   @override
   String get chinese => 'Bahasa Cina';

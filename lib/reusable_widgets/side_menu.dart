@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_trip_application/screens/discussion_page.dart';
+import 'package:travel_trip_application/screens/favorite_destination.dart';
 import 'package:travel_trip_application/screens/home_screen.dart';
 import 'package:travel_trip_application/screens/itinerary.dart';
 import 'package:travel_trip_application/screens/profile_screen.dart';
@@ -102,6 +103,12 @@ class _SideMenuState extends State<SideMenu> {
             title: Text(AppLocalizations.of(context).notification),
               onTap: () => {Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => NotificationScreen()))},
+          ),
+          ListTile(
+            leading: const Icon(Icons.favorite),
+            title: Text('Favorite'),
+            onTap: () => {Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => FavoritePage()))},
           ),
           ExpansionTile(
             leading: const Icon(Icons.settings),

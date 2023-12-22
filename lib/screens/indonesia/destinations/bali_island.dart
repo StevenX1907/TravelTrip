@@ -6,6 +6,9 @@ import '../../../gen_l10n/app_localizations.dart';
 import '../../../reusable_widgets/dark_mode.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:travel_trip_application/screens/favorite_destination.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class baliIsland extends StatefulWidget {
   const baliIsland({Key? key}) : super(key: key);
@@ -15,25 +18,97 @@ class baliIsland extends StatefulWidget {
 }
 
 class _baliIsland extends State<baliIsland> {
-  bool isLiked = false; // State for the like button
   late List<String> comments;
+  TextEditingController commentController = TextEditingController();
+  late List<FavoriteItem> favorites;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     // Initialize comments list with translation keys
+
     comments = [
       AppLocalizations.of(context).greatPlace,
       AppLocalizations.of(context).loveTheAtmosphere,
       AppLocalizations.of(context).recommendVisiting,
     ];
+    favorites = [];
+    loadComments();
+  }
+
+  void launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void addToFavorites() {
+    FavoriteItem newItem = FavoriteItem(
+      title: AppLocalizations.of(context).bali,
+      description: AppLocalizations.of(context).indonesia,
+      imageAsset: 'assets/indonesia/destinations/Bali_1.jpeg',
+    );
+
+    setState(() {
+      favorites.add(newItem);
+    });
+
+    Provider.of<FavoritesProvider>(context, listen: false).addToFavorites(newItem);
+    // Optionally, you can save the favorites list to persistent storage (e.g., SharedPreferences).
+    // Save logic goes here...
   }
   // List of comments (you can initialize it with your existing comments)
+
+  Future<void> loadComments() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      comments = prefs.getStringList('comments') ?? [];
+      print('Comments loaded: $comments');
+    });
+  }
+
+  Future<void> saveComments() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setStringList('comments', comments);
+  }
+
+  Future<void> _showDeleteConfirmationDialog(int index) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Delete Comment'),
+          content: Text('Are you sure you want to delete this comment?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  comments.removeAt(index);
+                  saveComments(); // Save updated comments to SharedPreferences
+                });
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final darkModeProvider = Provider.of<DarkModeExample>(context);
     final isDarkMode = darkModeProvider.isDarkMode;
+    bool isLiked = Provider.of<LikeProvider>(context).isLiked;
 
     return Scaffold(
       appBar: AppBar(
@@ -102,9 +177,7 @@ class _baliIsland extends State<baliIsland> {
                             color: isLiked ? Colors.red : Colors.grey,
                           ),
                           onPressed: () {
-                            setState(() {
-                              isLiked = !isLiked;
-                            });
+                            Provider.of<LikeProvider>(context, listen: false).toggleLike();
                           },
                         ),
                         Text(
@@ -130,7 +203,7 @@ class _baliIsland extends State<baliIsland> {
                         SocialMediaButton(
                           icon: Icons.facebook,
                           onPressed: () {
-                            // Add Facebook button action
+                            launchUrl('https://www.facebook.com/profile.php?id=61554327453343&mibextid=LQQJ4d');
                           },
                         ),
                         SizedBox(width: 8),
@@ -144,7 +217,7 @@ class _baliIsland extends State<baliIsland> {
                         SocialMediaButton(
                           icon: FontAwesomeIcons.instagram,
                           onPressed: () {
-                            // Add Instagram button action
+                            launchUrl('https://www.instagram.com/im_traveltrip/');
                           },
                         ),
                       ],
@@ -154,7 +227,7 @@ class _baliIsland extends State<baliIsland> {
                 const SizedBox(height: 15),
                 ElevatedButton(
                   onPressed: () {
-                    // Add action for the button
+                    addToFavorites();
                   },
                   style: ElevatedButton.styleFrom(
                     primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
@@ -295,14 +368,20 @@ class _baliIsland extends State<baliIsland> {
                   shrinkWrap: true,
                   itemCount: comments.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: Icon(Icons.comment),
-                      title: Text(comments[index]),
+                    return GestureDetector(
+                      onLongPress: () {
+                        _showDeleteConfirmationDialog(index);
+                      },
+                      child: ListTile(
+                        leading: Icon(Icons.comment),
+                        title: Text(comments[index]),
+                      ),
                     );
                   },
                 ),
                 // Add a text field and button for users to add new comments
                 TextField(
+                  controller: commentController,
                   decoration: InputDecoration(
                     hintText: AppLocalizations.of(context).AddtoComment,
                   ),
@@ -313,10 +392,11 @@ class _baliIsland extends State<baliIsland> {
                       primary: isDarkMode ? Colors.blueGrey : const Color(0xFF306550),
                     );
                     // Implement the logic to add the new comment
-                    String newComment = 'New Comment'; // Replace with user input
+                    String newComment = commentController.text; // Replace with user input
                     setState(() {
                       comments.add(newComment);
                     });
+                    saveComments();
                   },
                   child: Text(AppLocalizations.of(context).AddComment),
                   style: ElevatedButton.styleFrom(
@@ -350,6 +430,18 @@ class SocialMediaButton extends StatelessWidget {
     );
   }
 }
+
+class LikeProvider extends ChangeNotifier {
+  bool _isLiked = false;
+
+  bool get isLiked => _isLiked;
+
+  void toggleLike() {
+    _isLiked = !_isLiked;
+    notifyListeners();
+  }
+}
+
 
 Widget imageDialog(text, path, context) {
   return Dialog(
@@ -388,4 +480,5 @@ Widget imageDialog(text, path, context) {
         ),
       ],
     ),
-  );}
+  );
+}
