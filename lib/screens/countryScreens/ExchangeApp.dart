@@ -87,8 +87,8 @@ class _ExchangeAppState extends State<ExchangeApp> {
             // Second Row: From Currency Display
             Row(
               children: [
-                Text(AppLocalizations.of(context).from),
-                SizedBox(width: 16),
+                Text(AppLocalizations.of(context).from + '     '),
+                SizedBox(width: 15),
                 Expanded(
                   child: Container(
                     padding: EdgeInsets.all(8),
@@ -129,7 +129,7 @@ class _ExchangeAppState extends State<ExchangeApp> {
             // Third Row: To Currency Dropdown
             Row(
               children: [
-                Text(AppLocalizations.of(context).to),
+                Text(AppLocalizations.of(context).to + '         '),
                 SizedBox(width: 16),
                 Expanded(
                   child: Container(
@@ -167,14 +167,29 @@ class _ExchangeAppState extends State<ExchangeApp> {
               ],
             ),
 
+            Row(
+              children: [
+                Text('Result: '),
+                SizedBox(width: 16),
+                Expanded(
+                  child: TextField(
+                    controller: amountController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: AppLocalizations.of(context).amountDes,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+
             // Fourth Row: Transfer Button centered
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Perform the currency conversion logic here
-                // You can use the entered amount, fromCurrency, and toCurrency
-                // to make an API call or perform the necessary calculations
-                // Update the UI or show the result accordingly
+                convertCurrency();
               },
               child: Text(AppLocalizations.of(context).tranfer),
             ),
@@ -183,4 +198,89 @@ class _ExchangeAppState extends State<ExchangeApp> {
       ),
     );
   }
+  void convertCurrency() async {
+    // Validate the entered amount
+    double amount;
+    try {
+      amount = double.parse(amountController.text);
+    } catch (e) {
+      // Handle invalid amount
+      return;
+    }
+
+    final apiKey = 'cur_live_fIuKcbzdvnUNgq2nLZPUwmhoLv76GdL20GBciWem';
+    final apiUrl = 'https://api.currencyapi.com/v3/convert?from=$fromCurrency&to=$toCurrency&amount=$amount&apikey=$apiKey';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        double exchangeRate = data['rate'];
+
+        // Calculate the converted amount
+        double convertedAmount = amount * exchangeRate;
+
+        // Update the UI with the result
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Conversion Result'),
+              content: Text('$amount $fromCurrency = $convertedAmount $toCurrency'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      } else {
+        // Handle API error
+        print('Error: ${response.statusCode}');
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text('Failed to fetch exchange rate. Please try again.'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } catch (e) {
+      // Handle network error
+      print('Error: $e');
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text('Network error. Please check your internet connection.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 }
+
