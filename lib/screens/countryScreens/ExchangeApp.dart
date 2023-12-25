@@ -205,10 +205,28 @@ class _ExchangeAppState extends State<ExchangeApp> {
   }
 
   double calculateConvertedAmount() {
+    // Validate the entered amount
+    double amount;
+    try {
+      amount = double.parse(amountController.text);
+    } catch (e) {
+      // Handle invalid amount
+      return 0.0; // Return a default value or handle it as appropriate for your use case
+    }
+
     // Calculate the converted amount based on default exchange rates
     double exchangeRate = defaultExchangeRates[toCurrency]! / defaultExchangeRates[fromCurrency]!;
-    return double.parse(amountController.text) * exchangeRate;
+
+    // Use try-catch to handle potential errors during the calculation
+    try {
+      double result = amount * exchangeRate;
+      return result;
+    } catch (e) {
+      // Handle any errors during the calculation
+      return 0.0; // Return a default value or handle it as appropriate for your use case
+    }
   }
+
 }
 
 // Add the necessary utility functions and classes (e.g., hexStringToColor, DarkModeExample) that are used in your code.

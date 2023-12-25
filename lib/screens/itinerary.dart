@@ -53,7 +53,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
   List<Itinerary> savedItineraries = [];
 
   Future<String> getOpenAIResponse(String input) async {
-    final apiKey = ''; // Replace with your OpenAI API key
+    final apiKey = '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'; // Replace with your OpenAI API key
     final apiUrl = 'https://api.openai.com/v1/completions';
     print('Prompt: $input');
     final response = await http.post(
